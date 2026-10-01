@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hollowfern Clay Studio — Slow hands, warm kilns</title>
+<meta name="description" content="Hollowfern is a light-filled clay studio in an old riverside mill: wheel classes, open studio memberships and small-batch stoneware. A fictional concept brand by WebDrip.">
+<meta name="theme-color" content="#F7F2EA">
+<link rel="canonical" href="https://tranquil-stardust-3b67f1.netlify.app/sites/2026-10-01-hollowfern/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hollowfern Clay Studio">
+<meta property="og:title" content="Hollowfern Clay Studio — Slow hands, warm kilns">
+<meta property="og:description" content="Wheel classes, open studio and small-batch stoneware in a light-filled riverside mill. Concept design by WebDrip.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1595351298020-038700609878?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8cG90dGVyeSUyMHdoZWVsJTIwaGFuZHMlMjBjbGF5fGVufDB8MHx8fDE3OTA4OTY4MDR8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1600">
+<meta property="og:image:alt" content="A potter's wheel spinning beside a cup of clay-dusted trimming tools">
+<meta property="og:url" content="https://tranquil-stardust-3b67f1.netlify.app/sites/2026-10-01-hollowfern/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hollowfern Clay Studio — Slow hands, warm kilns">
+<meta name="twitter:description" content="Wheel classes, open studio and small-batch stoneware in a light-filled riverside mill. Concept design by WebDrip.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1595351298020-038700609878?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8cG90dGVyeSUyMHdoZWVsJTIwaGFuZHMlMjBjbGF5fGVufDB8MHx8fDE3OTA4OTY4MDR8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23A9472A'/%3E%3Cpath d='M10 9c0 8 3 14 6 14s6-6 6-14' fill='none' stroke='%23F7F2EA' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1595351298020-038700609878?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8cG90dGVyeSUyMHdoZWVsJTIwaGFuZHMlMjBjbGF5fGVufDB8MHx8fDE3OTA4OTY4MDR8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        bone: '#F7F2EA', paper: '#FFFDF9', sand: '#EADFCF', line: '#E0D3BF',
+        clay: { DEFAULT: '#A9472A', deep: '#8A3720', soft: '#F3DED3' },
+        sage: { DEFAULT: '#5F6E52', soft: '#E3E8DA' },
+        ink: { DEFAULT: '#211C18', soft: '#5A5048' }
+      },
+      fontFamily: {
+        display: ['Fraunces', 'Georgia', 'serif'],
+        sans: ['Manrope', 'system-ui', 'sans-serif']
+      },
+      boxShadow: {
+        card: '0 1px 2px rgba(33,28,24,.05), 0 12px 32px -12px rgba(33,28,24,.18)',
+        lift: '0 2px 4px rgba(33,28,24,.06), 0 24px 48px -16px rgba(33,28,24,.28)'
+      }
+    }
+  }
+};
+</script>
+<style>
+  :root { --clay:#A9472A; --ink:#211C18; --bone:#F7F2EA; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body { overflow-x: clip; }
+  .font-display { font-variation-settings: "SOFT" 50, "WONK" 0; }
+  :focus-visible { outline: 3px solid var(--clay); outline-offset: 3px; border-radius: 6px; }
+  .on-dark :focus-visible { outline-color: #F7F2EA; }
+
+  /* hero stage: fixed image behind the page */
+  #hero-stage { position: fixed; inset: 0; z-index: 0; overflow: hidden; perspective: 1200px; background: #d9cdbd; }
+  #hero-img { position: absolute; top: -6%; left: -6%; width: 112%; max-width: none; height: 112%; object-fit: cover; transform-origin: 50% 60%; will-change: transform, opacity; }
+  #hero-stage::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(180deg, rgba(33,28,24,.38) 0%, rgba(33,28,24,.08) 32%, rgba(33,28,24,.22) 58%, rgba(33,28,24,.78) 100%); }
+  .hero-glow { position: absolute; border-radius: 9999px; filter: blur(48px); pointer-events: none; will-change: transform, opacity; }
+  .layer { will-change: transform, opacity; }
+
+  /* cards */
+  .card { transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s; }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 2px 4px rgba(33,28,24,.06), 0 24px 48px -16px rgba(33,28,24,.28); }
+  .card img { transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+  .card:hover img { transform: scale(1.04); }
+
+  /* reveal on scroll */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* spotlight motion */
+  @keyframes kenburns { 0% { transform: scale(1.06) translate3d(-1.5%, 0, 0); } 100% { transform: scale(1.16) translate3d(1.5%, -2%, 0); } }
+  @keyframes sweep { 0% { transform: translateX(-120%) skewX(-18deg); } 60%,100% { transform: translateX(260%) skewX(-18deg); } }
+  #spot-img { animation: kenburns 18s ease-in-out infinite alternate; transform-origin: 50% 50%; }
+  #spot-sweep { animation: sweep 7s ease-in-out infinite; }
+  .spot-paused #spot-img, .spot-paused #spot-sweep { animation-play-state: paused; }
+
+  .field-error { display: none; }
+  .invalid .field-error { display: block; }
+  .invalid input, .invalid select { border-color: #B42318 !important; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    #spot-img, #spot-sweep { animation: none !important; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .card, .card img { transition: none; }
+  }
+</style>
+</head>
+<body class="bg-bone text-ink font-sans antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:bg-paper focus:px-4 focus:py-3 focus:rounded-lg focus:shadow-card">Skip to content</a>
+
+<!-- Fixed hero image (camera layer) -->
+<div id="hero-stage" aria-hidden="true">
+  <img id="hero-img" src="https://images.unsplash.com/photo-1595351298020-038700609878?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8cG90dGVyeSUyMHdoZWVsJTIwaGFuZHMlMjBjbGF5fGVufDB8MHx8fDE3OTA4OTY4MDR8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80" alt="" fetchpriority="high" decoding="async">
+  <div class="hero-glow layer" id="glow-a" style="width:42vmax;height:42vmax;left:-12vmax;top:18vh;background:radial-gradient(circle,rgba(233,170,128,.55),rgba(233,170,128,0) 70%)"></div>
+  <div class="hero-glow layer" id="glow-b" style="width:30vmax;height:30vmax;right:-8vmax;top:-6vh;background:radial-gradient(circle,rgba(247,242,234,.45),rgba(247,242,234,0) 70%)"></div>
+</div>
+
+<!-- Nav -->
+<header id="nav" class="fixed inset-x-0 top-0 z-50">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 pt-3">
+    <nav class="flex h-16 items-center justify-between rounded-2xl border border-white/40 bg-bone/90 md:bg-bone/70 md:backdrop-blur-xl md:backdrop-saturate-150 pl-4 pr-2 shadow-card" aria-label="Primary">
+      <a href="#top" class="flex items-center gap-2.5 min-h-[44px]" aria-label="Hollowfern Clay Studio home">
+        <svg class="h-8 w-8" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#A9472A"/><path d="M10 9c0 8 3 14 6 14s6-6 6-14" fill="none" stroke="#F7F2EA" stroke-width="2.4" stroke-linecap="round"/><path d="M16 23v-7m0 2 -3-3m3 1 3-3" fill="none" stroke="#F7F2EA" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span class="font-display text-xl tracking-tight">Hollowfern</span>
+      </a>
+      <ul class="hidden md:flex items-center gap-1 text-sm font-semibold">
+        <li><a class="inline-flex items-center min-h-[44px] px-3 rounded-lg hover:bg-sand/70" href="#classes">Classes</a></li>
+        <li><a class="inline-flex items-center min-h-[44px] px-3 rounded-lg hover:bg-sand/70" href="#studio">Open studio</a></li>
+        <li><a class="inline-flex items-center min-h-[44px] px-3 rounded-lg hover:bg-sand/70" href="#shop">Shop</a></li>
+        <li><a class="inline-flex items-center min-h-[44px] px-3 rounded-lg hover:bg-sand/70" href="#visit">Visit</a></li>
+      </ul>
+      <a href="#classes" class="hidden md:inline-flex items-center min-h-[44px] px-5 rounded-xl bg-clay text-bone text-sm font-bold hover:bg-clay-deep transition-colors">Book a wheel seat</a>
+      <button id="menu-btn" class="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-xl hover:bg-sand/70" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path id="menu-icon" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="md:hidden hidden mt-2 rounded-2xl border border-line bg-paper shadow-lift p-2">
+      <ul class="flex flex-col text-base font-semibold">
+        <li><a class="flex items-center min-h-[48px] px-4 rounded-xl hover:bg-sand/60" href="#classes">Classes</a></li>
+        <li><a class="flex items-center min-h-[48px] px-4 rounded-xl hover:bg-sand/60" href="#studio">Open studio</a></li>
+        <li><a class="flex items-center min-h-[48px] px-4 rounded-xl hover:bg-sand/60" href="#shop">Shop</a></li>
+        <li><a class="flex items-center min-h-[48px] px-4 rounded-xl hover:bg-sand/60" href="#visit">Visit</a></li>
+        <li class="p-2"><a class="flex items-center justify-center min-h-[48px] rounded-xl bg-clay text-bone font-bold" href="#classes">Book a wheel seat</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="relative z-10">
+  <!-- Hero -->
+  <section id="top" class="on-dark relative min-h-[100svh] flex items-end" aria-labelledby="hero-title">
+    <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 pb-16 sm:pb-24 pt-32">
+      <div id="hero-copy" class="layer max-w-3xl text-bone">
+        <p class="inline-flex items-center gap-2 rounded-full border border-bone/40 bg-ink/25 px-3 py-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-[.12em] sm:tracking-[.18em]">
+          <span class="h-1.5 w-1.5 rounded-full bg-[#F0B48F]"></span> Clay studio · The old riverside mill
+        </p>
+        <h1 id="hero-title" class="font-display mt-5 text-[2.9rem] leading-[1.02] sm:text-7xl lg:text-[5.6rem] tracking-tight">
+          Slow hands,<br><em class="italic text-[#F6CDB4]">warm kilns.</em>
+        </h1>
+        <p class="mt-5 max-w-xl text-base sm:text-lg text-bone/90 leading-relaxed">Wheel classes for first-timers, shelf space for regulars, and small-batch stoneware fired twice a week in our wood-floored studio.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#classes" class="inline-flex items-center gap-2 min-h-[52px] px-6 rounded-xl bg-bone text-ink font-bold shadow-lift hover:bg-white transition-colors">Book a wheel seat
+            <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a href="#shop" class="inline-flex items-center min-h-[52px] px-6 rounded-xl border border-bone/60 text-bone font-bold hover:bg-bone/10 transition-colors">Shop the kiln</a>
+        </div>
+      </div>
+      <div id="hero-chip" class="layer hidden lg:flex absolute right-8 bottom-24 w-64 flex-col gap-1 rounded-2xl bg-bone/90 backdrop-blur p-5 text-ink shadow-lift border border-white/60">
+        <span class="text-xs font-bold uppercase tracking-[.16em] text-clay">Next kiln opening</span>
+        <span class="font-display text-2xl">Saturday, 10am</span>
+        <span class="text-sm text-ink-soft">Coffee, warm pots, first pick of seconds.</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="relative bg-bone">
+    <!-- Intro strip -->
+    <section class="border-b border-line" aria-label="Studio at a glance">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 py-10 grid grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+        <div><p class="font-display text-3xl text-clay">12</p><p class="text-ink-soft mt-1">Wheels, all with seat-height pedals</p></div>
+        <div><p class="font-display text-3xl text-clay">2×</p><p class="text-ink-soft mt-1">Glaze firings every week</p></div>
+        <div><p class="font-display text-3xl text-clay">6</p><p class="text-ink-soft mt-1">Max students per class</p></div>
+        <div><p class="font-display text-3xl text-clay">7 days</p><p class="text-ink-soft mt-1">Open studio, 8am to 10pm</p></div>
+      </div>
+    </section>
+
+    <!-- Classes -->
+    <section id="classes" class="py-20 sm:py-28" aria-labelledby="classes-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[.18em] text-clay">01 · Classes</p>
+            <h2 id="classes-title" class="font-display mt-3 text-4xl sm:text-5xl tracking-tight max-w-xl">Start with a lump. Leave with a bowl.</h2>
+          </div>
+          <p class="max-w-md text-ink-soft leading-relaxed">Small groups, patient teachers and every tool on the bench. Clay, glazes and two firings are included in every price.</p>
+        </div>
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="card reveal group rounded-3xl bg-paper border border-line shadow-card overflow-hidden flex flex-col">
+            <div class="aspect-[4/3] overflow-hidden bg-sand"><img loading="lazy" decoding="async" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1777315168429-b4cbf3280493?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Nnx8cG90dGVyeSUyMGNsYXNzJTIwc3R1ZGlvfGVufDB8MHx8fDE3OTA4OTY4MDV8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Hands shaping wet clay on a spinning pottery wheel"></div>
+            <div class="p-6 flex flex-col flex-1">
+              <div class="flex items-center justify-between gap-3"><h3 class="font-display text-2xl">Wheel Foundations</h3><span class="rounded-full bg-sage-soft text-sage px-3 py-1 text-xs font-bold">Beginner</span></div>
+              <p class="mt-3 text-ink-soft leading-relaxed flex-1">Six Thursday evenings: centring, pulling walls, trimming feet. You'll take home four finished pieces.</p>
+              <div class="mt-5 pt-5 border-t border-line flex items-baseline justify-between"><span class="text-sm text-ink-soft">6 weeks · Thu 7–9pm</span><span class="font-display text-2xl text-clay">$260</span></div>
+            </div>
+          </article>
+          <article class="card reveal group rounded-3xl bg-paper border border-line shadow-card overflow-hidden flex flex-col">
+            <div class="aspect-[4/3] overflow-hidden bg-sand"><img loading="lazy" decoding="async" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1783432785318-45eafc432eb9?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8M3x8cG90dGVyeSUyMGNsYXNzJTIwc3R1ZGlvfGVufDB8MHx8fDE3OTA4OTY4MDV8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A woman concentrating as she shapes clay on a wheel"></div>
+            <div class="p-6 flex flex-col flex-1">
+              <div class="flex items-center justify-between gap-3"><h3 class="font-display text-2xl">Throw a Set</h3><span class="rounded-full bg-clay-soft text-clay-deep px-3 py-1 text-xs font-bold">Intermediate</span></div>
+              <p class="mt-3 text-ink-soft leading-relaxed flex-1">Repeat throwing for people who can centre: four matching mugs, lids that fit and handles that hold.</p>
+              <div class="mt-5 pt-5 border-t border-line flex items-baseline justify-between"><span class="text-sm text-ink-soft">4 weeks · Tue 6–9pm</span><span class="font-display text-2xl text-clay">$210</span></div>
+            </div>
+          </article>
+          <article class="card reveal group rounded-3xl bg-paper border border-line shadow-card overflow-hidden flex flex-col sm:col-span-2 lg:col-span-1">
+            <div class="aspect-[4/3] overflow-hidden bg-sand"><img loading="lazy" decoding="async" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1785482460321-7dcc29cfc54c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8cG90dGVyeSUyMGNsYXNzJTIwc3R1ZGlvfGVufDB8MHx8fDE3OTA4OTY4MDV8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A family painting ceramics together at a long workshop table"></div>
+            <div class="p-6 flex flex-col flex-1">
+              <div class="flex items-center justify-between gap-3"><h3 class="font-display text-2xl">Sunday Glaze Table</h3><span class="rounded-full bg-sand text-ink px-3 py-1 text-xs font-bold">All ages</span></div>
+              <p class="mt-3 text-ink-soft leading-relaxed flex-1">Pick a bisque piece, paint it with our underglazes and collect it a week later. Kids over five are welcome.</p>
+              <div class="mt-5 pt-5 border-t border-line flex items-baseline justify-between"><span class="text-sm text-ink-soft">2 hours · Sundays</span><span class="font-display text-2xl text-clay">$32 <span class="text-sm font-sans text-ink-soft">/ person</span></span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spotlight -->
+    <section id="spotlight" class="px-4 sm:px-6" aria-labelledby="spot-title">
+      <div class="mx-auto max-w-7xl">
+        <div id="spot" class="reveal relative overflow-hidden rounded-[2rem] shadow-lift border border-line min-h-[440px] sm:min-h-[520px] flex items-end">
+          <img id="spot-img" class="absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1597696929736-6d13bed8e6a8?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8Y2VyYW1pY3MlMjBzaGVsZiUyMGdsYXplZCUyMHBvdHN8ZW58MHwwfHx8MTc5MDg5NjgwNHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A row of handmade vases in bone, sand and speckled glazes" loading="lazy" decoding="async">
+          <div id="spot-sweep" class="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-white/35 to-transparent" aria-hidden="true"></div>
+          <div class="relative m-4 sm:m-8 max-w-md rounded-2xl bg-paper/95 p-6 sm:p-8 shadow-card border border-white/70">
+            <p class="text-xs font-bold uppercase tracking-[.18em] text-clay">Spotlight · The glaze wall</p>
+            <h2 id="spot-title" class="font-display mt-3 text-3xl sm:text-4xl tracking-tight">Twenty-four house glazes, mixed on the premises.</h2>
+            <p class="mt-3 text-ink-soft leading-relaxed">Oatmeal, river-stone speckle, fern celadon. Every glaze has a test tile on the wall so you can see how it breaks over texture before you dip.</p>
+          </div>
+          <button id="spot-toggle" type="button" class="absolute top-4 right-4 inline-flex items-center gap-2 min-h-[44px] px-4 rounded-full bg-paper/90 text-ink text-sm font-bold shadow-card border border-white/70 hover:bg-paper" aria-pressed="false" aria-label="Pause spotlight motion">
+            <svg class="h-4 w-4" viewBox="0 0 16 16" aria-hidden="true"><path id="spot-icon" d="M5 3h2v10H5zM9 3h2v10H9z" fill="currentColor"/></svg><span id="spot-label">Pause</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Open studio -->
+    <section id="studio" class="py-20 sm:py-28" aria-labelledby="studio-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[.18em] text-clay">02 · Open studio</p>
+            <h2 id="studio-title" class="font-display mt-3 text-4xl sm:text-5xl tracking-tight max-w-xl">A bench, a shelf and a key code.</h2>
+          </div>
+          <p class="max-w-md text-ink-soft leading-relaxed">For people who already know their way around a wheel. Memberships include reclaimed clay and a slot on every firing.</p>
+        </div>
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <article class="card reveal rounded-3xl bg-paper border border-line shadow-card overflow-hidden flex flex-col">
+            <div class="aspect-[16/11] overflow-hidden bg-sand"><img loading="lazy" decoding="async" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1778698993355-2c5f29edbfb9?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8cG90dGVyeSUyMGNsYXNzJTIwc3R1ZGlvfGVufDB8MHx8fDE3OTA4OTY4MDV8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Rows of unfinished pots drying on a board"></div>
+            <div class="p-6 flex flex-col flex-1">
+              <h3 class="font-display text-2xl">Drop-in</h3>
+              <p class="mt-2 text-ink-soft leading-relaxed flex-1">Three hours at any free wheel, with clay sold by the bag. Book the morning of.</p>
+              <p class="mt-5 pt-5 border-t border-line font-display text-2xl text-clay">$28 <span class="text-sm font-sans text-ink-soft">/ session</span></p>
+            </div>
+          </article>
+          <article class="card reveal rounded-3xl bg-paper border-2 border-clay shadow-lift overflow-hidden flex flex-col relative">
+            <span class="absolute top-4 left-4 z-10 rounded-full bg-clay text-bone px-3 py-1 text-xs font-bold">Most chosen</span>
+            <div class="aspect-[16/11] overflow-hidden bg-sand"><img loading="lazy" decoding="async" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1784370596357-55fe82de6354?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Mnx8cG90dGVyeSUyMGNsYXNzJTIwc3R1ZGlvfGVufDB8MHx8fDE3OTA4OTY4MDV8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Trimming tools and a small pot on a dusty wooden board"></div>
+            <div class="p-6 flex flex-col flex-1">
+              <h3 class="font-display text-2xl">Monthly</h3>
+              <p class="mt-2 text-ink-soft leading-relaxed flex-1">Unlimited studio hours, one shelf, 12kg of clay and glazing on both weekly firings.</p>
+              <p class="mt-5 pt-5 border-t border-line font-display text-2xl text-clay">$145 <span class="text-sm font-sans text-ink-soft">/ month</span></p>
+            </div>
+          </article>
+          <article class="card reveal rounded-3xl bg-paper border border-line shadow-card overflow-hidden flex flex-col">
+            <div class="aspect-[16/11] overflow-hidden bg-sand"><img loading="lazy" decoding="async" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1782176322568-e922f7c45c52?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTB8fGNlcmFtaWNzJTIwc2hlbGYlMjBnbGF6ZWQlMjBwb3RzfGVufDB8MHx8fDE3OTA4OTY4MDR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Shelves full of glazed mugs and stacked plates"></div>
+            <div class="p-6 flex flex-col flex-1">
+              <h3 class="font-display text-2xl">Maker shelf</h3>
+              <p class="mt-2 text-ink-soft leading-relaxed flex-1">Everything in Monthly, plus a reserved wheel and a spot on our retail shelf to sell your work.</p>
+              <p class="mt-5 pt-5 border-t border-line font-display text-2xl text-clay">$195 <span class="text-sm font-sans text-ink-soft">/ month</span></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shop -->
+    <section id="shop" class="py-20 sm:py-28 bg-paper border-y border-line" aria-labelledby="shop-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[.18em] text-clay">03 · From the kiln</p>
+            <h2 id="shop-title" class="font-display mt-3 text-4xl sm:text-5xl tracking-tight max-w-xl">Stoneware for everyday tables.</h2>
+          </div>
+          <p class="max-w-md text-ink-soft leading-relaxed">Thrown by our teachers in small runs. Dishwasher safe and food safe, and every piece is a little different from the last.</p>
+        </div>
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="card reveal rounded-3xl bg-bone border border-line shadow-card overflow-hidden">
+            <div class="aspect-square overflow-hidden bg-sand"><img loading="lazy" decoding="async" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1762922425155-d03e6997e33e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTF8fGNlcmFtaWMlMjBib3dscyUyMGhhbmRtYWRlfGVufDB8MHx8fDE3OTA4OTY4MDR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Stacks of colourful ceramic bowls on a wooden shelf"></div>
+            <div class="p-6"><div class="flex items-baseline justify-between gap-3"><h3 class="font-display text-2xl">Riverbank bowls</h3><span class="font-display text-xl text-clay">$68</span></div><p class="mt-2 text-ink-soft">Set of four · rust, moss, slate and oat</p></div>
+          </article>
+          <article class="card reveal rounded-3xl bg-bone border border-line shadow-card overflow-hidden">
+            <div class="aspect-square overflow-hidden bg-sand"><img loading="lazy" decoding="async" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1597696929644-a2157a251a43?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8M3x8Y2VyYW1pY3MlMjBzaGVsZiUyMGdsYXplZCUyMHBvdHN8ZW58MHwwfHx8MTc5MDg5NjgwNHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="White and green ceramic mugs with floral detail"></div>
+            <div class="p-6"><div class="flex items-baseline justify-between gap-3"><h3 class="font-display text-2xl">Fern celadon mug</h3><span class="font-display text-xl text-clay">$36</span></div><p class="mt-2 text-ink-soft">12oz · pulled handle · pressed fern detail</p></div>
+          </article>
+          <article class="card reveal rounded-3xl bg-bone border border-line shadow-card overflow-hidden sm:col-span-2 lg:col-span-1">
+            <div class="aspect-square overflow-hidden bg-sand"><img loading="lazy" decoding="async" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1525973779373-015bdf68e579?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Mnx8Y2VyYW1pYyUyMGJvd2xzJTIwaGFuZG1hZGV8ZW58MHwwfHx8MTc5MDg5NjgwNHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Four round white ceramic bowls on a white surface"></div>
+            <div class="p-6"><div class="flex items-baseline justify-between gap-3"><h3 class="font-display text-2xl">Bone nesting bowls</h3><span class="font-display text-xl text-clay">$54</span></div><p class="mt-2 text-ink-soft">Four sizes · satin white · stack to one</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visit / newsletter -->
+    <section id="visit" class="py-20 sm:py-28" aria-labelledby="visit-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 grid gap-10 lg:grid-cols-2 lg:items-start">
+        <div class="reveal">
+          <p class="text-xs font-bold uppercase tracking-[.18em] text-clay">04 · Visit</p>
+          <h2 id="visit-title" class="font-display mt-3 text-4xl sm:text-5xl tracking-tight">Get the kiln-opening letter.</h2>
+          <p class="mt-4 max-w-md text-ink-soft leading-relaxed">One short email before each kiln opening, with new class dates and the seconds shelf. No more than twice a month.</p>
+          <dl class="mt-8 grid grid-cols-2 gap-6 text-sm">
+            <div><dt class="font-bold">Studio</dt><dd class="text-ink-soft mt-1">The Old Mill, Unit 4<br>Riverside Lane</dd></div>
+            <div><dt class="font-bold">Front desk</dt><dd class="text-ink-soft mt-1">Tue–Sun, 10am–6pm<br>Members: 8am–10pm</dd></div>
+          </dl>
+        </div>
+        <form id="signup" class="reveal rounded-3xl bg-paper border border-line shadow-card p-6 sm:p-8" novalidate>
+          <div class="grid gap-5">
+            <div class="field" data-field="name">
+              <label for="f-name" class="block text-sm font-bold">Your name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name" class="mt-2 w-full min-h-[48px] rounded-xl border border-line bg-bone px-4 text-base focus:border-clay focus:outline-none focus-visible:outline-clay">
+              <p id="e-name" class="field-error mt-2 text-sm font-semibold text-[#B42318]" aria-live="polite">Please tell us your name.</p>
+            </div>
+            <div class="field" data-field="email">
+              <label for="f-email" class="block text-sm font-bold">Email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email" class="mt-2 w-full min-h-[48px] rounded-xl border border-line bg-bone px-4 text-base focus:border-clay focus:outline-none">
+              <p id="e-email" class="field-error mt-2 text-sm font-semibold text-[#B42318]" aria-live="polite">Please enter a valid email address.</p>
+            </div>
+            <div class="field" data-field="interest">
+              <label for="f-interest" class="block text-sm font-bold">I'm most interested in</label>
+              <select id="f-interest" name="interest" required aria-describedby="e-interest" class="mt-2 w-full min-h-[48px] rounded-xl border border-line bg-bone px-4 text-base focus:border-clay focus:outline-none">
+                <option value="">Choose one</option>
+                <option>Beginner classes</option>
+                <option>Open studio membership</option>
+                <option>Shop drops &amp; seconds</option>
+              </select>
+              <p id="e-interest" class="field-error mt-2 text-sm font-semibold text-[#B42318]" aria-live="polite">Pick what you'd like to hear about.</p>
+            </div>
+            <button type="submit" class="inline-flex items-center justify-center min-h-[52px] rounded-xl bg-clay text-bone font-bold hover:bg-clay-deep transition-colors">Join the letter</button>
+            <p id="form-success" class="hidden rounded-xl bg-sage-soft text-sage px-4 py-3 font-semibold" role="status">You're on the list. See you at the next kiln opening.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer class="border-t border-line bg-sand/50">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 py-12 grid gap-8 md:grid-cols-[1fr_2fr]">
+        <div>
+          <p class="font-display text-2xl">Hollowfern</p>
+          <p class="mt-2 text-sm text-ink-soft">Clay studio · classes · stoneware</p>
+          <p class="mt-6 text-sm text-ink-soft"><a class="underline underline-offset-4 decoration-clay/50 hover:text-ink" href="https://getwebdrip.com">Concept design by WebDrip — fictional brand</a></p>
+        </div>
+        <div class="text-xs text-ink-soft leading-relaxed">
+          <p class="font-bold text-ink text-sm mb-2">Photography</p>
+          <p id="credits">Photo by <a class="underline hover:text-ink" href="https://unsplash.com/@taylorheeryphoto?utm_source=webdrip_hollowfern&utm_medium=referral">Taylor Heery</a> on <a class="underline hover:text-ink" href="https://unsplash.com/?utm_source=webdrip_hollowfern&utm_medium=referral">Unsplash</a> · Photo by <a class="underline hover:text-ink" href="https://unsplash.com/@crystalmind_design?utm_source=webdrip_hollowfern&utm_medium=referral">Chloe Bolton</a> on <a class="underline hover:text-ink" href="https://unsplash.com/?utm_source=webdrip_hollowfern&utm_medium=referral">Unsplash</a> · Photo by <a class="underline hover:text-ink" href="https://unsplash.com/@sebas_royy?utm_source=webdrip_hollowfern&utm_medium=referral">Sebastian Monroy</a> on <a class="underline hover:text-ink" href="https://unsplash.com/?utm_source=webdrip_hollowfern&utm_medium=referral">Unsplash</a> · Photo by <a class="underline hover:text-ink" href="https://unsplash.com/@dreams14?utm_source=webdrip_hollowfern&utm_medium=referral">Didier Castelain</a> on <a class="underline hover:text-ink" href="https://unsplash.com/?utm_source=webdrip_hollowfern&utm_medium=referral">Unsplash</a> · Photo by <a class="underline hover:text-ink" href="https://unsplash.com/@alizyxiao?utm_source=webdrip_hollowfern&utm_medium=referral">alizy xiao</a> on <a class="underline hover:text-ink" href="https://unsplash.com/?utm_source=webdrip_hollowfern&utm_medium=referral">Unsplash</a> · Photo by <a class="underline hover:text-ink" href="https://unsplash.com/@jcosens?utm_source=webdrip_hollowfern&utm_medium=referral">Jonathan Cosens Photography</a> on <a class="underline hover:text-ink" href="https://unsplash.com/?utm_source=webdrip_hollowfern&utm_medium=referral">Unsplash</a> · Photo by <a class="underline hover:text-ink" href="https://unsplash.com/@jcosens?utm_source=webdrip_hollowfern&utm_medium=referral">Jonathan Cosens Photography</a> on <a class="underline hover:text-ink" href="https://unsplash.com/?utm_source=webdrip_hollowfern&utm_medium=referral">Unsplash</a> · Photo by <a class="underline hover:text-ink" href="https://unsplash.com/@brunxs?utm_source=webdrip_hollowfern&utm_medium=referral">Brunxs</a> on <a class="underline hover:text-ink" href="https://unsplash.com/?utm_source=webdrip_hollowfern&utm_medium=referral">Unsplash</a> · Photo by <a class="underline hover:text-ink" href="https://unsplash.com/@jessiemaxwellphotography?utm_source=webdrip_hollowfern&utm_medium=referral">Jessie Maxwell</a> on <a class="underline hover:text-ink" href="https://unsplash.com/?utm_source=webdrip_hollowfern&utm_medium=referral">Unsplash</a> · Photo by <a class="underline hover:text-ink" href="https://unsplash.com/@crystalmind_design?utm_source=webdrip_hollowfern&utm_medium=referral">Chloe Bolton</a> on <a class="underline hover:text-ink" href="https://unsplash.com/?utm_source=webdrip_hollowfern&utm_medium=referral">Unsplash</a> · Photo by <a class="underline hover:text-ink" href="https://unsplash.com/@tomcrewceramics?utm_source=webdrip_hollowfern&utm_medium=referral">Tom Crew</a> on <a class="underline hover:text-ink" href="https://unsplash.com/?utm_source=webdrip_hollowfern&utm_medium=referral">Unsplash</a></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</main>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Mobile menu */
+  var btn = document.getElementById('menu-btn');
+  var menu = document.getElementById('mobile-menu');
+  var icon = document.getElementById('menu-icon');
+  function setMenu(open) {
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    menu.classList.toggle('hidden', !open);
+    icon.setAttribute('d', open ? 'M6 6l12 12M18 6L6 18' : 'M4 7h16M4 12h16M4 17h16');
+  }
+  btn.addEventListener('click', function () { setMenu(btn.getAttribute('aria-expanded') !== 'true'); });
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') { setMenu(false); btn.focus(); }
+  });
+
+  /* Scroll-driven hero camera */
+  var img = document.getElementById('hero-img');
+  var stage = document.getElementById('hero-stage');
+  var copy = document.getElementById('hero-copy');
+  var chip = document.getElementById('hero-chip');
+  var glowA = document.getElementById('glow-a');
+  var glowB = document.getElementById('glow-b');
+  var cur = 0, target = 0, running = false;
+  function readTarget() { target = Math.min(Math.max(window.scrollY / window.innerHeight, 0), 1.6); }
+  function ease(t) { return t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+  function render(p) {
+    var e = ease(Math.min(p, 1));
+    var scale = 1 + e * 0.22 + Math.max(p - 1, 0) * 0.05;
+    var rx = e * 7;           // tilt the camera down into the wheel
+    var ry = e * -4;
+    var ty = e * -4;          // % drift
+    var tx = e * 2.5;
+    img.style.transform = 'translate3d(' + tx.toFixed(3) + '%,' + ty.toFixed(3) + '%,0) rotateX(' + rx.toFixed(3) + 'deg) rotateY(' + ry.toFixed(3) + 'deg) scale(' + scale.toFixed(4) + ')';
+    img.style.opacity = String(Math.max(1 - Math.max(p - 0.9, 0) * 1.4, 0.15).toFixed(3));
+    copy.style.transform = 'translate3d(0,' + (p * -140).toFixed(1) + 'px,0)';
+    copy.style.opacity = String(Math.max(1 - p * 1.3, 0).toFixed(3));
+    if (chip) chip.style.transform = 'translate3d(0,' + (p * -260).toFixed(1) + 'px,0)';
+    glowA.style.transform = 'translate3d(' + (p * 80).toFixed(1) + 'px,' + (p * -220).toFixed(1) + 'px,0) scale(' + (1 + p * .4).toFixed(3) + ')';
+    glowB.style.transform = 'translate3d(' + (p * -60).toFixed(1) + 'px,' + (p * 120).toFixed(1) + 'px,0)';
+    glowA.style.opacity = String(Math.max(1 - p, 0).toFixed(3));
+    stage.style.visibility = p > 1.55 ? 'hidden' : 'visible';
+  }
+  function tick() {
+    cur += (target - cur) * 0.09;
+    if (Math.abs(target - cur) < 0.0005) { cur = target; running = false; render(cur); return; }
+    render(cur);
+    requestAnimationFrame(tick);
+  }
+  function onScroll() {
+    readTarget();
+    if (!running) { running = true; requestAnimationFrame(tick); }
+  }
+  if (!reduce) {
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    onScroll();
+  } else {
+    // static camera; still hide the fixed stage once the hero is passed
+    window.addEventListener('scroll', function () { stage.style.visibility = window.scrollY > window.innerHeight * 1.6 ? 'hidden' : 'visible'; }, { passive: true });
+  }
+
+  /* Reveal on scroll */
+  var reveals = document.querySelectorAll('.reveal');
+  if (!reduce && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* Spotlight motion toggle */
+  var spot = document.getElementById('spot');
+  var tgl = document.getElementById('spot-toggle');
+  var lbl = document.getElementById('spot-label');
+  var sicon = document.getElementById('spot-icon');
+  function setPaused(paused) {
+    spot.classList.toggle('spot-paused', paused);
+    tgl.setAttribute('aria-pressed', String(paused));
+    tgl.setAttribute('aria-label', paused ? 'Play spotlight motion' : 'Pause spotlight motion');
+    lbl.textContent = paused ? 'Play' : 'Pause';
+    sicon.setAttribute('d', paused ? 'M5 3l8 5-8 5z' : 'M5 3h2v10H5zM9 3h2v10H9z');
+  }
+  tgl.addEventListener('click', function () { setPaused(!spot.classList.contains('spot-paused')); });
+  if (reduce) setPaused(true);
+
+  /* Form validation */
+  var form = document.getElementById('signup');
+  var ok = document.getElementById('form-success');
+  var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function check(field) {
+    var wrap = form.querySelector('[data-field="' + field + '"]');
+    var input = wrap.querySelector('input,select');
+    var v = input.value.trim();
+    var valid = field === 'email' ? emailRe.test(v) : v.length > 0;
+    wrap.classList.toggle('invalid', !valid);
+    input.setAttribute('aria-invalid', String(!valid));
+    return valid;
+  }
+  ['name', 'email', 'interest'].forEach(function (f) {
+    var el = form.querySelector('[data-field="' + f + '"] input, [data-field="' + f + '"] select');
+    el.addEventListener('blur', function () { if (el.value) check(f); });
+    el.addEventListener('input', function () { if (el.closest('.field').classList.contains('invalid')) check(f); });
+  });
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    ok.classList.add('hidden');
+    var results = ['name', 'email', 'interest'].map(check);
+    if (results.every(Boolean)) {
+      ok.classList.remove('hidden');
+      form.reset();
+    } else {
+      var first = form.querySelector('.invalid input, .invalid select');
+      if (first) first.focus();
+    }
+  });
+
+  /* Service worker */
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(function () {});
+    });
+  }
+})();
+</script>
+</body>
+</html>
