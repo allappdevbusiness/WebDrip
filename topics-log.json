@@ -13,5 +13,21 @@
       "ink": "#211C18"
     },
     "live_url": "https://tranquil-stardust-3b67f1.netlify.app/sites/2026-10-01-hollowfern/"
+  },
+  {
+    "date": "2026-10-01",
+    "slug": "2026-10-01-brinewick",
+    "business_type": "surf school",
+    "brand_name": "Brinewick Surf School",
+    "palette": {
+      "foam": "#F5F8F6",
+      "paper": "#FFFFFF",
+      "sand": "#F1E8D8",
+      "mist": "#DCEBEA",
+      "tide": "#0F6E78",
+      "coral": "#E2583A",
+      "ink": "#0C2B36"
+    },
+    "live_url": "https://tranquil-stardust-3b67f1.netlify.app/sites/2026-10-01-brinewick/"
   }
 ]
