@@ -145,5 +145,23 @@
     "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-gableworth/",
     "buffer_post_id": "6abf9e56b41a266eabf8dd66",
     "fb_post_url": "https://facebook.com/2873516256355244"
+  },
+  {
+    "date": "2026-10-02",
+    "slug": "2026-10-02-tempowick",
+    "business_type": "music school",
+    "brand_name": "Tempowick Music School",
+    "design_style": "TypeUI 'pulse' — bold, rhythmic, thick-bordered geometric style (Limelight display + DM Sans body for readability + JetBrains Mono labels, 4px ink borders, 8px radii, hard offset shadows, snappy spring motion) adapting its orange/amber/peach tokens into a light peach-cream palette with a deeper #C2410C action orange for AA contrast; hero = TypeUI 'centered stack' as a bordered concert-ticket card over a full-screen grand-piano stage with equalizer bars, a dashed ring and a floating note as depth layers, then an instrument marquee, lessons = 'left-aligned intro + four-up card grid', spotlight = Friday Jam Nights, programs = 'three pricing cards in a row', how it works = 'centered inline stat row' + three step cards, form = 'centered heading + stacked form with dual actions', footer = 'logo, links centered stack'; chosen because pulse's beat-driven energy suits music, and it differs from the recent perspective/geometric/storytelling/bento/riso runs",
+    "palette": {
+      "cream": "#FFF6EA",
+      "peach": "#FFEDD5",
+      "apricot": "#FDBA74",
+      "tango": "#EA580B",
+      "ember": "#C2410C",
+      "amber": "#F59E0B",
+      "cocoa": "#6E4024",
+      "ink": "#2B1406"
+    },
+    "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-tempowick/"
   }
 ]
