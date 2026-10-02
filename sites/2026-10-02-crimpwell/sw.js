@@ -1,5 +1,5 @@
 /* Crimpwell concept site: cache-first for the page and its Unsplash images */
-const CACHE = 'webdrip-2026-10-02-crimpwell-v1';
+const CACHE = 'webdrip-2026-10-02-crimpwell-v2';
 const PAGE = ['./', './index.html'];
 const IMAGES = [
   "https://images.unsplash.com/photo-1775655111243-9382dc0cc089?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8Ym91bGRlcmluZyUyMGZyaWVuZHN8ZW58MHwwfHx8MTc5MDkyNzA3N3ww&ixlib=rb-4.1.0&w=2400&q=80",
