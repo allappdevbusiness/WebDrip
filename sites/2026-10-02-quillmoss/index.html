@@ -95,7 +95,8 @@
 
   /* ---------- nav ---------- */
   .nav-shell{transition:background-color var(--t-std) var(--ease),box-shadow var(--t-std) var(--ease)}
-  .nav-scrolled .nav-shell{background:rgba(251,250,247,.86);box-shadow:0 1px 0 rgba(22,33,27,.06),0 10px 30px -18px rgba(22,33,27,.25)}
+  .nav-scrolled .nav-shell{background:rgba(251,250,247,.97);box-shadow:0 1px 0 rgba(22,33,27,.06),0 10px 30px -18px rgba(22,33,27,.25)}
+  @media (min-width:768px){.nav-scrolled .nav-shell{background:rgba(251,250,247,.86)}}
   #mobile-menu{transition:opacity var(--t-quick) var(--ease),transform var(--t-quick) var(--ease)}
   #mobile-menu[hidden]{display:none}
   #mobile-menu.open{opacity:1;transform:none}
