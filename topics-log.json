@@ -209,5 +209,24 @@
     "music_style": "warm acoustic-style folk-ambient — 96 BPM, D major (D–A–Bm–G), Karplus-Strong guitar-like swung arpeggio with ping-pong delay, felt-piano melody, detuned-saw pads with sidechain, soft kick/rim/brushed hats and shaker, filter riser into the pitch card and a boom + bell chord on the logo",
     "buffer_post_id": "6abff3964d76cf8285c4c0bc",
     "fb_post_url": "https://facebook.com/1277092185496389_122101567551495093"
+  },
+  {
+    "date": "2026-10-02",
+    "slug": "pellaroot-demo",
+    "business_type": "botanical skincare brand",
+    "brand_name": "Pellaroot Botanics",
+    "design_style": "TypeUI 'refined' — curated modern-minimal with elegant serif type (Playfair Display headlines incl. italics + Inter body for readability + JetBrains Mono labels, 4–8px radii, soft low shadows, hairline rules) with its blue/violet tokens swapped for an understated porcelain + fig-plum (#6B2E4A, AA on paper) + sage + gold palette; layouts = TypeUI 'centered stack with big image below' hero (centered masked serif headline in a frosted porcelain veil with the amber bottle photo filling the frame below), centered-intro four-card product grid, Ken Burns dew-leaf spotlight, roman-numeral three-step ritual row + count-up stats, 'three pricing cards in a row' on blush, 'centered stack with floating portraits' newsletter (floating product orbs) and 'logo, links and copyright centered stack' footer; chosen because quiet luxury suits small-batch skincare and it breaks from the recent split/bottom-anchored heroes and terracotta/cosmic/pulse/perspective/geometric/storytelling/bento/riso styles",
+    "palette": {
+      "porcelain": "#F7F3EE",
+      "paper": "#FFFDFA",
+      "line": "#E4DAD0",
+      "blush": "#EFE2DA",
+      "ink": "#1F1A1C",
+      "muted": "#5B4F55",
+      "fig": "#6B2E4A",
+      "sage": "#5F6E55",
+      "gold": "#B8925A"
+    },
+    "live_url": "https://webdripsamples.netlify.app/pellaroot-demo/"
   }
 ]
