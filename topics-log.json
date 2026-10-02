@@ -187,5 +187,24 @@
     "music_style": "cinematic synthwave — 100 BPM, A minor (Am–F–C–G), detuned-saw pads, swung pluck arpeggio with delay, soft FM lead, filter-swept riser into the pitch card",
     "buffer_post_id": "6abfd9f60bc4b3b426b090d4",
     "fb_post_url": "https://facebook.com/1277092185496389_122101496739495093"
+  },
+  {
+    "date": "2026-10-02",
+    "slug": "larchmist-demo",
+    "business_type": "lakeside sauna bathhouse",
+    "brand_name": "Larchmist Bathhouse",
+    "design_style": "TypeUI 'terracotta' — sun-baked clay editorial (DM Serif Display headlines + DM Sans body for readability + JetBrains Mono labels, 4–8px radii, soft ink-brown shadows) using its #C56A3C clay and #F3E9D8 cream tokens with a deeper #A3482A kiln action colour for AA contrast and a pine-green memberships band; hero = bottom-anchored editorial split (huge masked serif headline bottom-left + glass 'today at the lake' card bottom-right) over a fixed red-sauna-on-a-misty-lake photo with rising steam and ember glows, then a serif marquee strip, rooms = 'left heading + right lead' row with three image cards, included = TypeUI 'left-aligned intro with six-up icon grid', spotlight = Smoke sauna mornings with Ken Burns + light sweep, ritual = three numbered step cards + count-up stat row, memberships = TypeUI 'three pricing cards in a row' on dark pine, visit = split copy + form card, footer = split logo/links; chosen because warm clay and cedar suit a wood-fired bathhouse and it differs from the recent cosmic/pulse/perspective/geometric/storytelling/bento/riso runs",
+    "palette": {
+      "cream": "#F3E9D8",
+      "paper": "#FBF6EC",
+      "line": "#DCC8AC",
+      "ink": "#2A1A12",
+      "bark": "#5B4336",
+      "clay": "#C56A3C",
+      "kiln": "#A3482A",
+      "pine": "#2E4636",
+      "ember": "#F2B48A"
+    },
+    "live_url": "https://webdripsamples.netlify.app/larchmist-demo/"
   }
 ]
