@@ -76,7 +76,7 @@
   .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .burger[aria-expanded="true"] span:nth-child(2){opacity:0;transform:scaleX(.2)}
   .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-  #mobileMenu{visibility:hidden;opacity:0;transform:translateY(-12px);transition:opacity .3s var(--ease),transform .35s var(--ease),visibility 0s linear .35s}
+  #mobileMenu{position:absolute;left:0;right:0;top:100%;box-shadow:0 18px 30px -20px rgba(17,24,39,.35);visibility:hidden;opacity:0;transform:translateY(-12px);transition:opacity .3s var(--ease),transform .35s var(--ease),visibility 0s linear .35s}
   #mobileMenu.open{visibility:visible;opacity:1;transform:none;transition:opacity .3s var(--ease),transform .35s var(--ease),visibility 0s}
   #mobileMenu li{opacity:0;transform:translateY(-6px);transition:opacity .3s var(--ease),transform .3s var(--ease)}
   #mobileMenu.open li{opacity:1;transform:none}
@@ -85,7 +85,7 @@
   /* hero */
   .hero-stage{position:fixed;left:0;right:0;top:-6vh;height:112vh;z-index:0;perspective:1000px;overflow:hidden;pointer-events:none;background:#DDE3EC}
   #heroImg{position:absolute;left:-4%;top:-4%;width:108%;height:108%;max-width:none;object-fit:cover;object-position:64% 40%;transform-origin:64% 50%;will-change:transform}
-  .hero-wash{position:absolute;inset:0;background:linear-gradient(180deg,rgba(246,247,249,.95) 0%,rgba(246,247,249,.92) 62%,rgba(246,247,249,.78) 82%,rgba(246,247,249,.5) 100%)}
+  .hero-wash{position:absolute;inset:0;background:linear-gradient(180deg,rgba(246,247,249,.93) 0%,rgba(246,247,249,.86) 45%,rgba(246,247,249,.62) 72%,rgba(246,247,249,.3) 100%)}
   @media (min-width:900px){.hero-wash{background:linear-gradient(90deg,rgba(246,247,249,.97) 0%,rgba(246,247,249,.9) 36%,rgba(246,247,249,.35) 60%,rgba(246,247,249,.05) 80%),linear-gradient(180deg,rgba(246,247,249,.85) 0,rgba(246,247,249,0) 16%)}}
   .blob{position:absolute;border-radius:50%;filter:blur(50px);will-change:transform}
   .blob.a{width:38vmax;height:38vmax;left:-12vmax;top:-4vh;opacity:.7;background:radial-gradient(circle,#C9D7FA 0%,rgba(201,215,250,0) 68%);animation:floatA 17s ease-in-out infinite alternate}
@@ -488,7 +488,9 @@
       var e=p*p*(3-2*Math.min(1,p));
       img.style.transform='translate3d('+(p*3).toFixed(2)+'%,'+(-p*5).toFixed(2)+'%,0) scale('+(1+p*0.26).toFixed(4)+') rotateX('+(p*9).toFixed(2)+'deg) rotateY('+(p*5).toFixed(2)+'deg)';
       fg.style.transform='translate3d(0,'+(-cur*0.36).toFixed(1)+'px,0) scale('+(1-e*0.05).toFixed(4)+')';
-      fg.style.opacity=Math.max(0,1-p*1.35).toFixed(3);
+      // fade only as the hero content actually leaves the top of the screen (the hero is taller than the viewport on phones)
+      var fb=fg.getBoundingClientRect().bottom;
+      fg.style.opacity=Math.max(0,Math.min(1,(fb-vh*0.15)/(vh*0.5))).toFixed(3);
       shapeA.style.transform='translate3d(0,'+(-cur*0.7).toFixed(1)+'px,0) rotate('+(cur*0.08).toFixed(1)+'deg)';
       shapeB.style.transform='translate3d(0,'+(-cur*0.95).toFixed(1)+'px,0) rotate('+(-cur*0.1).toFixed(1)+'deg)';
       blobA.style.translate='0 '+(-cur*0.18).toFixed(1)+'px'; blobB.style.translate='0 '+(-cur*0.1).toFixed(1)+'px';
