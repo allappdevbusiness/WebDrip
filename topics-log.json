@@ -84,5 +84,23 @@
     "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-halcyard/",
     "buffer_post_id": "6abf3f0945400a0e300b3438",
     "fb_post_url": "https://facebook.com/1277092185496389_122101098471495093"
+  },
+  {
+    "date": "2026-10-02",
+    "slug": "2026-10-02-larkmere",
+    "business_type": "florist",
+    "brand_name": "Larkmere Flower Studio",
+    "design_style": "TypeUI 'storytelling' — narrative chapters (Abril Fatface display + Inter body + JetBrains Mono labels, 4–8px radii, outlined roman chapter numerals with parallax) adapted from its blue/violet tokens into a petal-cream palette with deep rose actions and violet/moss accents; hero = left-aligned split headline over a cream-washed full-bleed flower-shop photo with a glass 'story so far' chapter index card, sections = intro-row + 3-up cards, left-stacked intro + full-bleed cards, interlude spotlight with stats, form as 'Chapter IV'; chosen because a florist sells stories (gifts, weddings) and it differs from the recent riso/bento grids",
+    "palette": {
+      "paper": "#FBF6F0",
+      "petal": "#F6E4E0",
+      "roseSoft": "#F2C6D1",
+      "rose": "#A8325A",
+      "violet": "#6B4FA0",
+      "lilac": "#E9E2F4",
+      "moss": "#3E5B3F",
+      "ink": "#221A20"
+    },
+    "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-larkmere/"
   }
 ]
