@@ -231,5 +231,24 @@
     "music_style": "chill deep house — 120 BPM, Eb major (Cm7–Abmaj7–Eb–Bb add9), FM electric-piano offbeat stabs, detuned-saw pads with sidechain, rounded offbeat sub bass, swung pluck arpeggio with ping-pong delay, four-on-the-floor kick with claps, open hats and swung shaker, filter/noise riser into the drip wipe and a boom + chord + bell hit on the logo",
     "buffer_post_id": "6ac0124d9c546d86ef183df3",
     "fb_post_url": "https://facebook.com/1277092185496389_122101647027495093"
+  },
+  {
+    "date": "2026-10-02",
+    "slug": "voltquill-demo",
+    "business_type": "EV fast-charging network",
+    "brand_name": "Voltquill",
+    "design_style": "TypeUI 'power' — high-end dark, monochrome black with big condensed Oswald headings, JetBrains Mono labels, 4/8px radii, here warmed with a single amber 'charge' accent pulled from the timber-canopy hero; layouts = split hero (left-aligned masked headline + floating live-charge glass card on the right), 'centered inline stat row' count-up strip, three hub image cards with spec rows, Ken Burns plug spotlight with light sweep, 'centered single-day ruled timeline' for the 18-minute stop, 'left-aligned intro with six-up icon grid' for lounge amenities, 'three pricing cards in a row' and 'centered heading + stacked form with dual actions' launch-list form, 'logo, links and copyright centered stack' footer; chosen because a bold, confident night-time look suits a premium charging brand and breaks from the recent light refined/terracotta/cosmic styles",
+    "palette": {
+      "ink": "#0B0B0C",
+      "panel": "#141416",
+      "line": "#2A2A2E",
+      "text": "#FAFAFA",
+      "muted": "#A8A8B0",
+      "amber": "#F2B33D",
+      "amber_deep": "#D99A22",
+      "ember": "#FF8A3D",
+      "good": "#4ADE80"
+    },
+    "live_url": "https://webdripsamples.netlify.app/voltquill-demo/"
   }
 ]
