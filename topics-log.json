@@ -46,5 +46,22 @@
     },
     "motion_personality": "Corporate / Professional — calm & trustworthy: cubic-bezier(0.2,0,0,1), 200/300/400ms, 16px rise entrances, 60ms stagger, 0–3% overshoot",
     "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-quillmoss/"
+  },
+  {
+    "date": "2026-10-02",
+    "slug": "2026-10-02-cogsparrow",
+    "business_type": "bike repair workshop",
+    "brand_name": "Cogsparrow Bike Workshop",
+    "design_style": "TypeUI 'riso' — two-colour risograph print look (Space Grotesk + Overpass Mono, fluorescent pink actions, federal-blue structure, offset print shadows, halftone dots) on warm paper; hero = repair-ticket card over full-bleed pegboard with parallax spoke wheels, sections = intro/right-copy head rows + 3-up price cards, framed spotlight; chosen for a playful zine/workshop feel unlike the prior calm editorial runs",
+    "palette": {
+      "paper": "#FBF5EA",
+      "paper2": "#F4EBDA",
+      "pink": "#FF4FA3",
+      "pinkInk": "#C2186F",
+      "blue": "#2C40A7",
+      "sun": "#FFD84D",
+      "ink": "#161B33"
+    },
+    "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-cogsparrow/"
   }
 ]
