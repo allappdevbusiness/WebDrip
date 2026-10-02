@@ -29,5 +29,22 @@
       "ink": "#0C2B36"
     },
     "live_url": "https://tranquil-stardust-3b67f1.netlify.app/sites/2026-10-01-brinewick/"
+  },
+  {
+    "date": "2026-10-02",
+    "slug": "2026-10-02-quillmoss",
+    "business_type": "veterinary clinic",
+    "brand_name": "Quillmoss Veterinary Clinic",
+    "palette": {
+      "paper": "#FBFAF7",
+      "mist": "#EEF3EE",
+      "lilac": "#ECE7F5",
+      "fern": "#2E5B45",
+      "lavender": "#6A58A8",
+      "apricot": "#E58A5C",
+      "ink": "#16211B"
+    },
+    "motion_personality": "Corporate / Professional — calm & trustworthy: cubic-bezier(0.2,0,0,1), 200/300/400ms, 16px rise entrances, 60ms stagger, 0–3% overshoot",
+    "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-quillmoss/"
   }
 ]
