@@ -64,5 +64,23 @@
     },
     "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-cogsparrow/",
     "fb_post_url": "https://www.facebook.com/reel/1623600105877893/"
+  },
+  {
+    "date": "2026-10-02",
+    "slug": "2026-10-02-halcyard",
+    "business_type": "co-working space",
+    "brand_name": "Halcyard Workrooms",
+    "design_style": "TypeUI 'bento' — modular bento grid of rounded card tiles (Inter 800 display + JetBrains Mono labels, 8–12px radii, soft slate-blue shadows) adapted from its peach #FAD4C0 / slate #80A1C1 / cream tokens with a deep harbour-blue action colour; hero = TypeUI 'centered stack' (centred headline + glass stat tiles over a full-bleed sunlit workspace), spaces = asymmetric bento (2×2 feature + 4 tiles), amenities = 'left intro + six-up icon grid'; chosen because a tidy grid of rooms suits a co-working brand and differs from the previous riso/editorial runs",
+    "palette": {
+      "surface": "#FFF6EA",
+      "paper": "#FFFFFF",
+      "peach": "#FAD4C0",
+      "peachInk": "#A8431C",
+      "slate": "#80A1C1",
+      "harbor": "#1F4466",
+      "sage": "#E3EBDD",
+      "ink": "#111827"
+    },
+    "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-halcyard/"
   }
 ]
