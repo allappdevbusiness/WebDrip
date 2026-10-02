@@ -1,188 +1,191 @@
 [
- {
-  "date": "2026-10-01",
-  "slug": "2026-10-01-hollowfern",
-  "business_type": "pottery studio",
-  "brand_name": "Hollowfern Clay Studio",
-  "palette": {
-   "bone": "#F7F2EA",
-   "paper": "#FFFDF9",
-   "sand": "#EADFCF",
-   "clay": "#A9472A",
-   "sage": "#5F6E52",
-   "ink": "#211C18"
+  {
+    "date": "2026-10-01",
+    "slug": "2026-10-01-hollowfern",
+    "business_type": "pottery studio",
+    "brand_name": "Hollowfern Clay Studio",
+    "palette": {
+      "bone": "#F7F2EA",
+      "paper": "#FFFDF9",
+      "sand": "#EADFCF",
+      "clay": "#A9472A",
+      "sage": "#5F6E52",
+      "ink": "#211C18"
+    },
+    "live_url": "https://tranquil-stardust-3b67f1.netlify.app/sites/2026-10-01-hollowfern/"
   },
-  "live_url": "https://tranquil-stardust-3b67f1.netlify.app/sites/2026-10-01-hollowfern/"
- },
- {
-  "date": "2026-10-01",
-  "slug": "2026-10-01-brinewick",
-  "business_type": "surf school",
-  "brand_name": "Brinewick Surf School",
-  "palette": {
-   "foam": "#F5F8F6",
-   "paper": "#FFFFFF",
-   "sand": "#F1E8D8",
-   "mist": "#DCEBEA",
-   "tide": "#0F6E78",
-   "coral": "#E2583A",
-   "ink": "#0C2B36"
+  {
+    "date": "2026-10-01",
+    "slug": "2026-10-01-brinewick",
+    "business_type": "surf school",
+    "brand_name": "Brinewick Surf School",
+    "palette": {
+      "foam": "#F5F8F6",
+      "paper": "#FFFFFF",
+      "sand": "#F1E8D8",
+      "mist": "#DCEBEA",
+      "tide": "#0F6E78",
+      "coral": "#E2583A",
+      "ink": "#0C2B36"
+    },
+    "live_url": "https://tranquil-stardust-3b67f1.netlify.app/sites/2026-10-01-brinewick/"
   },
-  "live_url": "https://tranquil-stardust-3b67f1.netlify.app/sites/2026-10-01-brinewick/"
- },
- {
-  "date": "2026-10-02",
-  "slug": "2026-10-02-quillmoss",
-  "business_type": "veterinary clinic",
-  "brand_name": "Quillmoss Veterinary Clinic",
-  "palette": {
-   "paper": "#FBFAF7",
-   "mist": "#EEF3EE",
-   "lilac": "#ECE7F5",
-   "fern": "#2E5B45",
-   "lavender": "#6A58A8",
-   "apricot": "#E58A5C",
-   "ink": "#16211B"
+  {
+    "date": "2026-10-02",
+    "slug": "2026-10-02-quillmoss",
+    "business_type": "veterinary clinic",
+    "brand_name": "Quillmoss Veterinary Clinic",
+    "palette": {
+      "paper": "#FBFAF7",
+      "mist": "#EEF3EE",
+      "lilac": "#ECE7F5",
+      "fern": "#2E5B45",
+      "lavender": "#6A58A8",
+      "apricot": "#E58A5C",
+      "ink": "#16211B"
+    },
+    "motion_personality": "Corporate / Professional — calm & trustworthy: cubic-bezier(0.2,0,0,1), 200/300/400ms, 16px rise entrances, 60ms stagger, 0–3% overshoot",
+    "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-quillmoss/"
   },
-  "motion_personality": "Corporate / Professional — calm & trustworthy: cubic-bezier(0.2,0,0,1), 200/300/400ms, 16px rise entrances, 60ms stagger, 0–3% overshoot",
-  "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-quillmoss/"
- },
- {
-  "date": "2026-10-02",
-  "slug": "2026-10-02-cogsparrow",
-  "business_type": "bike repair workshop",
-  "brand_name": "Cogsparrow Bike Workshop",
-  "design_style": "TypeUI 'riso' — two-colour risograph print look (Space Grotesk + Overpass Mono, fluorescent pink actions, federal-blue structure, offset print shadows, halftone dots) on warm paper; hero = repair-ticket card over full-bleed pegboard with parallax spoke wheels, sections = intro/right-copy head rows + 3-up price cards, framed spotlight; chosen for a playful zine/workshop feel unlike the prior calm editorial runs",
-  "palette": {
-   "paper": "#FBF5EA",
-   "paper2": "#F4EBDA",
-   "pink": "#FF4FA3",
-   "pinkInk": "#C2186F",
-   "blue": "#2C40A7",
-   "sun": "#FFD84D",
-   "ink": "#161B33"
+  {
+    "date": "2026-10-02",
+    "slug": "2026-10-02-cogsparrow",
+    "business_type": "bike repair workshop",
+    "brand_name": "Cogsparrow Bike Workshop",
+    "design_style": "TypeUI 'riso' — two-colour risograph print look (Space Grotesk + Overpass Mono, fluorescent pink actions, federal-blue structure, offset print shadows, halftone dots) on warm paper; hero = repair-ticket card over full-bleed pegboard with parallax spoke wheels, sections = intro/right-copy head rows + 3-up price cards, framed spotlight; chosen for a playful zine/workshop feel unlike the prior calm editorial runs",
+    "palette": {
+      "paper": "#FBF5EA",
+      "paper2": "#F4EBDA",
+      "pink": "#FF4FA3",
+      "pinkInk": "#C2186F",
+      "blue": "#2C40A7",
+      "sun": "#FFD84D",
+      "ink": "#161B33"
+    },
+    "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-cogsparrow/",
+    "fb_post_url": "https://www.facebook.com/reel/1623600105877893/"
   },
-  "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-cogsparrow/",
-  "fb_post_url": "https://www.facebook.com/reel/1623600105877893/"
- },
- {
-  "date": "2026-10-02",
-  "slug": "2026-10-02-halcyard",
-  "business_type": "co-working space",
-  "brand_name": "Halcyard Workrooms",
-  "design_style": "TypeUI 'bento' — modular bento grid of rounded card tiles (Inter 800 display + JetBrains Mono labels, 8–12px radii, soft slate-blue shadows) adapted from its peach #FAD4C0 / slate #80A1C1 / cream tokens with a deep harbour-blue action colour; hero = TypeUI 'centered stack' (centred headline + glass stat tiles over a full-bleed sunlit workspace), spaces = asymmetric bento (2×2 feature + 4 tiles), amenities = 'left intro + six-up icon grid'; chosen because a tidy grid of rooms suits a co-working brand and differs from the previous riso/editorial runs",
-  "palette": {
-   "surface": "#FFF6EA",
-   "paper": "#FFFFFF",
-   "peach": "#FAD4C0",
-   "peachInk": "#A8431C",
-   "slate": "#80A1C1",
-   "harbor": "#1F4466",
-   "sage": "#E3EBDD",
-   "ink": "#111827"
+  {
+    "date": "2026-10-02",
+    "slug": "2026-10-02-halcyard",
+    "business_type": "co-working space",
+    "brand_name": "Halcyard Workrooms",
+    "design_style": "TypeUI 'bento' — modular bento grid of rounded card tiles (Inter 800 display + JetBrains Mono labels, 8–12px radii, soft slate-blue shadows) adapted from its peach #FAD4C0 / slate #80A1C1 / cream tokens with a deep harbour-blue action colour; hero = TypeUI 'centered stack' (centred headline + glass stat tiles over a full-bleed sunlit workspace), spaces = asymmetric bento (2×2 feature + 4 tiles), amenities = 'left intro + six-up icon grid'; chosen because a tidy grid of rooms suits a co-working brand and differs from the previous riso/editorial runs",
+    "palette": {
+      "surface": "#FFF6EA",
+      "paper": "#FFFFFF",
+      "peach": "#FAD4C0",
+      "peachInk": "#A8431C",
+      "slate": "#80A1C1",
+      "harbor": "#1F4466",
+      "sage": "#E3EBDD",
+      "ink": "#111827"
+    },
+    "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-halcyard/",
+    "buffer_post_id": "6abf3f0945400a0e300b3438",
+    "fb_post_url": "https://facebook.com/1277092185496389_122101098471495093"
   },
-  "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-halcyard/",
-  "buffer_post_id": "6abf3f0945400a0e300b3438",
-  "fb_post_url": "https://facebook.com/1277092185496389_122101098471495093"
- },
- {
-  "date": "2026-10-02",
-  "slug": "2026-10-02-larkmere",
-  "business_type": "florist",
-  "brand_name": "Larkmere Flower Studio",
-  "design_style": "TypeUI 'storytelling' — narrative chapters (Abril Fatface display + Inter body + JetBrains Mono labels, 4–8px radii, outlined roman chapter numerals with parallax) adapted from its blue/violet tokens into a petal-cream palette with deep rose actions and violet/moss accents; hero = left-aligned split headline over a cream-washed full-bleed flower-shop photo with a glass 'story so far' chapter index card, sections = intro-row + 3-up cards, left-stacked intro + full-bleed cards, interlude spotlight with stats, form as 'Chapter IV'; chosen because a florist sells stories (gifts, weddings) and it differs from the recent riso/bento grids",
-  "palette": {
-   "paper": "#FBF6F0",
-   "petal": "#F6E4E0",
-   "roseSoft": "#F2C6D1",
-   "rose": "#A8325A",
-   "violet": "#6B4FA0",
-   "lilac": "#E9E2F4",
-   "moss": "#3E5B3F",
-   "ink": "#221A20"
+  {
+    "date": "2026-10-02",
+    "slug": "2026-10-02-larkmere",
+    "business_type": "florist",
+    "brand_name": "Larkmere Flower Studio",
+    "design_style": "TypeUI 'storytelling' — narrative chapters (Abril Fatface display + Inter body + JetBrains Mono labels, 4–8px radii, outlined roman chapter numerals with parallax) adapted from its blue/violet tokens into a petal-cream palette with deep rose actions and violet/moss accents; hero = left-aligned split headline over a cream-washed full-bleed flower-shop photo with a glass 'story so far' chapter index card, sections = intro-row + 3-up cards, left-stacked intro + full-bleed cards, interlude spotlight with stats, form as 'Chapter IV'; chosen because a florist sells stories (gifts, weddings) and it differs from the recent riso/bento grids",
+    "palette": {
+      "paper": "#FBF6F0",
+      "petal": "#F6E4E0",
+      "roseSoft": "#F2C6D1",
+      "rose": "#A8325A",
+      "violet": "#6B4FA0",
+      "lilac": "#E9E2F4",
+      "moss": "#3E5B3F",
+      "ink": "#221A20"
+    },
+    "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-larkmere/",
+    "buffer_post_id": "6abf521f8bccc8e6416dafdc",
+    "fb_post_url": "https://facebook.com/1277092185496389_122101146921495093"
   },
-  "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-larkmere/",
-  "buffer_post_id": "6abf521f8bccc8e6416dafdc",
-  "fb_post_url": "https://facebook.com/1277092185496389_122101146921495093"
- },
- {
-  "date": "2026-10-02",
-  "slug": "2026-10-02-crimpwell",
-  "business_type": "bouldering gym",
-  "brand_name": "Crimpwell Boulder Hall",
-  "design_style": "TypeUI 'geometric' — structured, precise shapes (Outfit 800 display + Inter body + JetBrains Mono labels, 2–8px radii, hexagon logo, triangle/diamond motifs, 32px blueprint grid) adapting its blue #3B82F6 / violet #8B5CF6 tokens into a chalk-white palette with deeper cobalt actions and tangerine/lime/sun hold accents; hero = TypeUI two-column split (copy + CTAs left, glass 'today's set' grade-bar panel right) over a full-bleed bright bouldering roof, walls = 3-up cards with grade chips, passes = 'three pricing cards in a row', classes = ruled vertical timeline with sticky intro, form = centered stack; chosen because route grades and volumes are naturally geometric and it differs from the recent storytelling/bento/riso runs",
-  "palette": {
-   "chalk": "#F6F7F9",
-   "card": "#FFFFFF",
-   "sky": "#DCE6FB",
-   "cobalt": "#2450D8",
-   "violet": "#6D45D6",
-   "tangerine": "#E8581F",
-   "sun": "#F5C33B",
-   "lime": "#4E7A12",
-   "ink": "#111827"
+  {
+    "date": "2026-10-02",
+    "slug": "2026-10-02-crimpwell",
+    "business_type": "bouldering gym",
+    "brand_name": "Crimpwell Boulder Hall",
+    "design_style": "TypeUI 'geometric' — structured, precise shapes (Outfit 800 display + Inter body + JetBrains Mono labels, 2–8px radii, hexagon logo, triangle/diamond motifs, 32px blueprint grid) adapting its blue #3B82F6 / violet #8B5CF6 tokens into a chalk-white palette with deeper cobalt actions and tangerine/lime/sun hold accents; hero = TypeUI two-column split (copy + CTAs left, glass 'today's set' grade-bar panel right) over a full-bleed bright bouldering roof, walls = 3-up cards with grade chips, passes = 'three pricing cards in a row', classes = ruled vertical timeline with sticky intro, form = centered stack; chosen because route grades and volumes are naturally geometric and it differs from the recent storytelling/bento/riso runs",
+    "palette": {
+      "chalk": "#F6F7F9",
+      "card": "#FFFFFF",
+      "sky": "#DCE6FB",
+      "cobalt": "#2450D8",
+      "violet": "#6D45D6",
+      "tangerine": "#E8581F",
+      "sun": "#F5C33B",
+      "lime": "#4E7A12",
+      "ink": "#111827"
+    },
+    "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-crimpwell/",
+    "buffer_post_id": "6abf68fad4210a2275d063da",
+    "fb_post_url": "https://facebook.com/1277092185496389_122101193271495093"
   },
-  "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-crimpwell/",
-  "buffer_post_id": "6abf68fad4210a2275d063da",
-  "fb_post_url": "https://facebook.com/1277092185496389_122101193271495093"
- },
- {
-  "date": "2026-10-02",
-  "slug": "2026-10-02-gableworth",
-  "business_type": "architecture studio",
-  "brand_name": "Gableworth Studio",
-  "design_style": "TypeUI 'perspective' — spatial depth with isometric line drawings, vanishing-point grid and layered parallax (Oswald display + Poppins body + JetBrains Mono labels, 4–8px radii) adapting its green #00BD7D token into a limestone/paper palette with a deeper #00704A action green; hero = left-aligned headline + glass 'drawing sheet' stat card over a full-bleed white house with a self-drawing isometric house and vanishing-point grid, work = TypeUI 'uniform six-card grid' with 3D tilt reveals, services = sticky left intro + 3 price cards, process = perspective 'stairs' of stepped cards, form = centered stack, footer = logo/links centered stack; chosen because architecture is literally about perspective and it differs from the recent geometric/storytelling/bento/riso runs",
-  "palette": {
-   "stone": "#F4F2EC",
-   "paper": "#FFFFFF",
-   "concrete": "#E8E5DD",
-   "mint": "#DDF4EA",
-   "green": "#00704A",
-   "greenBright": "#00BD7D",
-   "clay": "#B04A2A",
-   "ink": "#121417"
+  {
+    "date": "2026-10-02",
+    "slug": "2026-10-02-gableworth",
+    "business_type": "architecture studio",
+    "brand_name": "Gableworth Studio",
+    "design_style": "TypeUI 'perspective' — spatial depth with isometric line drawings, vanishing-point grid and layered parallax (Oswald display + Poppins body + JetBrains Mono labels, 4–8px radii) adapting its green #00BD7D token into a limestone/paper palette with a deeper #00704A action green; hero = left-aligned headline + glass 'drawing sheet' stat card over a full-bleed white house with a self-drawing isometric house and vanishing-point grid, work = TypeUI 'uniform six-card grid' with 3D tilt reveals, services = sticky left intro + 3 price cards, process = perspective 'stairs' of stepped cards, form = centered stack, footer = logo/links centered stack; chosen because architecture is literally about perspective and it differs from the recent geometric/storytelling/bento/riso runs",
+    "palette": {
+      "stone": "#F4F2EC",
+      "paper": "#FFFFFF",
+      "concrete": "#E8E5DD",
+      "mint": "#DDF4EA",
+      "green": "#00704A",
+      "greenBright": "#00BD7D",
+      "clay": "#B04A2A",
+      "ink": "#121417"
+    },
+    "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-gableworth/",
+    "buffer_post_id": "6abf9e56b41a266eabf8dd66",
+    "fb_post_url": "https://facebook.com/2873516256355244"
   },
-  "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-gableworth/",
-  "buffer_post_id": "6abf9e56b41a266eabf8dd66",
-  "fb_post_url": "https://facebook.com/2873516256355244"
- },
- {
-  "date": "2026-10-02",
-  "slug": "2026-10-02-tempowick",
-  "business_type": "music school",
-  "brand_name": "Tempowick Music School",
-  "design_style": "TypeUI 'pulse' — bold, rhythmic, thick-bordered geometric style (Limelight display + DM Sans body for readability + JetBrains Mono labels, 4px ink borders, 8px radii, hard offset shadows, snappy spring motion) adapting its orange/amber/peach tokens into a light peach-cream palette with a deeper #C2410C action orange for AA contrast; hero = TypeUI 'centered stack' as a bordered concert-ticket card over a full-screen grand-piano stage with equalizer bars, a dashed ring and a floating note as depth layers, then an instrument marquee, lessons = 'left-aligned intro + four-up card grid', spotlight = Friday Jam Nights, programs = 'three pricing cards in a row', how it works = 'centered inline stat row' + three step cards, form = 'centered heading + stacked form with dual actions', footer = 'logo, links centered stack'; chosen because pulse's beat-driven energy suits music, and it differs from the recent perspective/geometric/storytelling/bento/riso runs",
-  "palette": {
-   "cream": "#FFF6EA",
-   "peach": "#FFEDD5",
-   "apricot": "#FDBA74",
-   "tango": "#EA580B",
-   "ember": "#C2410C",
-   "amber": "#F59E0B",
-   "cocoa": "#6E4024",
-   "ink": "#2B1406"
+  {
+    "date": "2026-10-02",
+    "slug": "2026-10-02-tempowick",
+    "business_type": "music school",
+    "brand_name": "Tempowick Music School",
+    "design_style": "TypeUI 'pulse' — bold, rhythmic, thick-bordered geometric style (Limelight display + DM Sans body for readability + JetBrains Mono labels, 4px ink borders, 8px radii, hard offset shadows, snappy spring motion) adapting its orange/amber/peach tokens into a light peach-cream palette with a deeper #C2410C action orange for AA contrast; hero = TypeUI 'centered stack' as a bordered concert-ticket card over a full-screen grand-piano stage with equalizer bars, a dashed ring and a floating note as depth layers, then an instrument marquee, lessons = 'left-aligned intro + four-up card grid', spotlight = Friday Jam Nights, programs = 'three pricing cards in a row', how it works = 'centered inline stat row' + three step cards, form = 'centered heading + stacked form with dual actions', footer = 'logo, links centered stack'; chosen because pulse's beat-driven energy suits music, and it differs from the recent perspective/geometric/storytelling/bento/riso runs",
+    "palette": {
+      "cream": "#FFF6EA",
+      "peach": "#FFEDD5",
+      "apricot": "#FDBA74",
+      "tango": "#EA580B",
+      "ember": "#C2410C",
+      "amber": "#F59E0B",
+      "cocoa": "#6E4024",
+      "ink": "#2B1406"
+    },
+    "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-tempowick/",
+    "buffer_post_id": "6abfbd89e11203baed2a7de2",
+    "fb_post_url": "https://facebook.com/1277092185496389_122101424709495093"
   },
-  "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-tempowick/",
-  "buffer_post_id": "6abfbd89e11203baed2a7de2",
-  "fb_post_url": "https://facebook.com/1277092185496389_122101424709495093"
- },
- {
-  "date": "2026-10-02",
-  "slug": "nightquarry-demo",
-  "business_type": "planetarium & dark-sky observatory",
-  "brand_name": "Nightquarry Planetarium",
-  "design_style": "TypeUI 'cosmic' — dark sci-fi spatial style with neon accents (Audiowide display + Manrope body for readability + JetBrains Mono labels, 8px radii, glass panels, glow blobs and twinkling stars) adapting its blue #3B82F6/violet #8B5CF6 tokens into a deep-space navy palette with an aurora-teal #5EEAD4 action colour for AA contrast; hero = TypeUI 'two-column split, copy left / media right' with a glass 'tonight's sky' panel over a fixed Milky Way observatory photo, shows = 'left-aligned intro + three cards' with tilt reveals, spotlight = Rooftop Telescope Fridays with clip-path wipe title, tonight = 'centered inline stat row' + 'centered ruled timeline' (event-schedule), trips = three image cards, form = 'centered heading + stacked form', footer = 'logo, links centered stack'; chosen because a planetarium is literally cosmic, and it differs from the recent pulse/perspective/geometric/storytelling/bento/riso runs",
-  "palette": {
-   "void": "#070A1A",
-   "deep": "#0C1130",
-   "panel": "#121A3F",
-   "line": "#26306A",
-   "star": "#EEF2FF",
-   "haze": "#B9C3F5",
-   "aurora": "#5EEAD4",
-   "nova": "#60A5FA",
-   "nebula": "#A78BFA"
-  },
-  "live_url": "https://webdripsamples.netlify.app/nightquarry-demo/"
- }
+  {
+    "date": "2026-10-02",
+    "slug": "nightquarry-demo",
+    "business_type": "planetarium & dark-sky observatory",
+    "brand_name": "Nightquarry Planetarium",
+    "design_style": "TypeUI 'cosmic' — dark sci-fi spatial style with neon accents (Audiowide display + Manrope body for readability + JetBrains Mono labels, 8px radii, glass panels, glow blobs and twinkling stars) adapting its blue #3B82F6/violet #8B5CF6 tokens into a deep-space navy palette with an aurora-teal #5EEAD4 action colour for AA contrast; hero = TypeUI 'two-column split, copy left / media right' with a glass 'tonight's sky' panel over a fixed Milky Way observatory photo, shows = 'left-aligned intro + three cards' with tilt reveals, spotlight = Rooftop Telescope Fridays with clip-path wipe title, tonight = 'centered inline stat row' + 'centered ruled timeline' (event-schedule), trips = three image cards, form = 'centered heading + stacked form', footer = 'logo, links centered stack'; chosen because a planetarium is literally cosmic, and it differs from the recent pulse/perspective/geometric/storytelling/bento/riso runs",
+    "palette": {
+      "void": "#070A1A",
+      "deep": "#0C1130",
+      "panel": "#121A3F",
+      "line": "#26306A",
+      "star": "#EEF2FF",
+      "haze": "#B9C3F5",
+      "aurora": "#5EEAD4",
+      "nova": "#60A5FA",
+      "nebula": "#A78BFA"
+    },
+    "live_url": "https://webdripsamples.netlify.app/nightquarry-demo/",
+    "music_style": "cinematic synthwave — 100 BPM, A minor (Am–F–C–G), detuned-saw pads, swung pluck arpeggio with delay, soft FM lead, filter-swept riser into the pitch card",
+    "buffer_post_id": "6abfd9f60bc4b3b426b090d4",
+    "fb_post_url": "https://facebook.com/1277092185496389_122101496739495093"
+  }
 ]
