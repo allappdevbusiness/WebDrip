@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gableworth Studio — Homes drawn around the light you already have</title>
+<meta name="description" content="Gableworth Studio is a small architecture practice designing extensions, new homes and garden rooms around daylight — card models first, fixed-fee stages, fortnightly site visits. A fictional concept by WebDrip.">
+<meta name="theme-color" content="#F4F2EC">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gableworth Studio — architecture for homes, drawn around light">
+<meta property="og:description" content="Extensions, new homes and garden rooms designed around daylight. A concept website by WebDrip.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1778166166446-4ecccd525922?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTB8fG1vZGVybiUyMGhvdXNlJTIwYXJjaGl0ZWN0dXJlJTIwZGF5bGlnaHR8ZW58MHwwfHx8MTc5MDk0MTUzMnww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=2400&amp;q=80">
+<meta property="og:url" content="https://webdripsamples.netlify.app/sites/2026-10-02-gableworth/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gableworth Studio — architecture for homes, drawn around light">
+<meta name="twitter:description" content="Extensions, new homes and garden rooms designed around daylight. A concept website by WebDrip.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1778166166446-4ecccd525922?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTB8fG1vZGVybiUyMGhvdXNlJTIwYXJjaGl0ZWN0dXJlJTIwZGF5bGlnaHR8ZW58MHwwfHx8MTc5MDk0MTUzMnww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=2400&amp;q=80">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1778166166446-4ecccd525922?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTB8fG1vZGVybiUyMGhvdXNlJTIwYXJjaGl0ZWN0dXJlJTIwZGF5bGlnaHR8ZW58MHwwfHx8MTc5MDk0MTUzMnww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=2400&amp;q=80">
+<script>
+  document.documentElement.classList.add('js');
+  // failsafe: if the main script never runs, show everything
+  setTimeout(function(){ if(!window.__gw) document.documentElement.classList.add('reveal-all'); }, 2500);
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root{
+    --stone:#F4F2EC; --paper:#FFFFFF; --concrete:#E8E5DD; --line:#D6D1C5;
+    --ink:#121417; --muted:#4A5160; --green:#00704A; --green-2:#00BD7D; --mint:#DDF4EA;
+    --clay:#B04A2A; --sky:#DCEAF3;
+    --r-sm:4px; --r-md:8px;
+    --ease:cubic-bezier(.22,.8,.24,1);
+    --shadow:0 1px 0 rgba(18,20,23,.04),0 10px 30px -14px rgba(18,20,23,.22);
+    --shadow-lift:0 2px 0 rgba(18,20,23,.04),0 26px 50px -22px rgba(18,20,23,.38);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--stone);color:var(--ink);font-family:Poppins,system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+  h1,h2,h3,.display{font-family:Oswald,Impact,sans-serif;font-weight:600;letter-spacing:-.01em;line-height:1.02}
+  .mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px;animation:ring .5s var(--ease)}
+  @keyframes ring{from{outline-offset:9px;outline-color:rgba(0,112,74,0)}to{outline-offset:3px;outline-color:var(--green)}}
+  .skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ink);color:#fff;padding:12px 16px;border-radius:var(--r-md)}
+  .skip:focus{top:12px}
+  section[id],footer[id]{scroll-margin-top:76px}
+
+  /* progress + nav */
+  #progress{position:fixed;left:0;top:0;height:3px;width:100%;background:var(--green-2);transform-origin:0 50%;transform:scaleX(0);z-index:60}
+  #nav{position:fixed;left:0;right:0;top:0;z-index:50;transition:background-color .35s var(--ease),box-shadow .35s var(--ease)}
+  #nav .bar{height:76px;transition:height .35s var(--ease)}
+  #nav.scrolled{background:rgba(244,242,236,.94);box-shadow:0 1px 0 var(--line),0 12px 30px -24px rgba(18,20,23,.5)}
+  #nav.scrolled .bar{height:62px}
+  @media (min-width:768px){#nav.scrolled{background:rgba(244,242,236,.72);-webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3)}}
+  .navlink{position:relative;text-decoration:none;font-weight:500;font-size:.95rem;padding:10px 2px}
+  .ulink{position:relative;text-decoration:none}
+  .navlink::after,.ulink::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:2px;background:var(--green-2);transform:scaleX(0);transform-origin:100% 50%;transition:transform .35s var(--ease)}
+  .ulink::after{bottom:-2px}
+  .navlink:hover::after,.navlink:focus-visible::after,.ulink:hover::after,.ulink:focus-visible::after{transform:scaleX(1);transform-origin:0 50%}
+  .btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:0 1.4rem;border-radius:var(--r-md);font-weight:600;font-size:.98rem;text-decoration:none;border:0;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background-color .25s;will-change:transform;-webkit-tap-highlight-color:transparent}
+  .btn-primary{background:var(--green);color:#fff;box-shadow:0 10px 24px -12px rgba(0,112,74,.75)}
+  .btn-primary:hover{box-shadow:0 16px 30px -12px rgba(0,112,74,.8)}
+  .btn-ghost{background:rgba(255,255,255,.82);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+  .btn-ghost:hover{background:#fff}
+  .btn::before{content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:translateX(0) skewX(-18deg);opacity:0}
+  .btn:hover::before{animation:sheen .8s var(--ease)}
+  @keyframes sheen{0%{transform:translateX(0) skewX(-18deg);opacity:1}100%{transform:translateX(420%) skewX(-18deg);opacity:1}}
+  .btn:active,.tap{transform:scale(.97)}
+  .btn .inner{display:inline-flex;align-items:center;gap:.5rem;transition:transform .25s var(--ease)}
+  .burger{width:48px;height:48px;display:inline-flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;border-radius:var(--r-md);background:rgba(255,255,255,.85);border:1px solid var(--line);cursor:pointer}
+  .burger span{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;transition:transform .35s var(--ease),opacity .25s}
+  .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger[aria-expanded="true"] span:nth-child(2){opacity:0;transform:scaleX(.2)}
+  .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  #mobileMenu{position:absolute;left:0;right:0;top:100%;background:var(--paper);border-top:1px solid var(--line);box-shadow:0 18px 30px -20px rgba(18,20,23,.35);visibility:hidden;opacity:0;transform:translateY(-12px);transition:opacity .3s var(--ease),transform .35s var(--ease),visibility 0s linear .35s}
+  #mobileMenu.open{visibility:visible;opacity:1;transform:none;transition:opacity .3s var(--ease),transform .35s var(--ease),visibility 0s}
+  #mobileMenu li{opacity:0;transform:translateY(-6px);transition:opacity .3s var(--ease),transform .3s var(--ease)}
+  #mobileMenu.open li{opacity:1;transform:none}
+  #mobileMenu.open li:nth-child(2){transition-delay:.05s}#mobileMenu.open li:nth-child(3){transition-delay:.1s}#mobileMenu.open li:nth-child(4){transition-delay:.15s}#mobileMenu.open li:nth-child(5){transition-delay:.2s}
+  #mobileMenu a{display:flex;align-items:center;min-height:52px;text-decoration:none;font-family:Oswald,sans-serif;font-size:1.35rem;font-weight:500;border-bottom:1px solid var(--concrete)}
+
+  /* hero */
+  .hero-stage{position:fixed;left:0;right:0;top:-6vh;height:112vh;z-index:0;perspective:1100px;overflow:hidden;pointer-events:none;background:#CFE0EC}
+  #heroImg{position:absolute;left:-4%;top:-4%;width:108%;height:108%;max-width:none;object-fit:cover;object-position:62% 50%;transform-origin:60% 55%;will-change:transform}
+  .hero-wash{position:absolute;inset:0;background:linear-gradient(180deg,rgba(244,242,236,.94) 0%,rgba(244,242,236,.86) 42%,rgba(244,242,236,.55) 70%,rgba(244,242,236,.2) 100%)}
+  @media (min-width:900px){.hero-wash{background:linear-gradient(90deg,rgba(244,242,236,.96) 0%,rgba(244,242,236,.88) 34%,rgba(244,242,236,.3) 58%,rgba(244,242,236,0) 78%),linear-gradient(180deg,rgba(244,242,236,.8) 0,rgba(244,242,236,0) 15%)}}
+  .vgrid{position:absolute;inset:0;width:100%;height:100%;opacity:.55;will-change:transform}
+  .blob{position:absolute;border-radius:50%;filter:blur(48px);will-change:transform}
+  .blob.a{width:36vmax;height:36vmax;left:-10vmax;top:6vh;opacity:.65;background:radial-gradient(circle,#BFEBD7 0%,rgba(191,235,215,0) 68%);animation:floatA 18s ease-in-out infinite alternate}
+  .blob.b{width:28vmax;height:28vmax;left:28vw;bottom:-6vh;opacity:.55;background:radial-gradient(circle,#FFF3D6 0%,rgba(255,243,214,0) 70%);animation:floatB 22s ease-in-out infinite alternate}
+  @keyframes floatA{to{transform:translate3d(6vw,8vh,0) scale(1.12)}}
+  @keyframes floatB{to{transform:translate3d(-8vw,-6vh,0) scale(.9)}}
+  #hero{position:relative;z-index:1;min-height:100vh;min-height:100svh;display:flex;align-items:center}
+  .line{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
+  .line>span{display:inline-block}
+  html.js .line>span{transform:translateY(105%)}
+  html.js body.ready .line>span{transform:none;transition:transform 1s var(--ease)}
+  html.js .intro{opacity:0;transform:translateY(14px)}
+  html.js body.ready .intro{opacity:1;transform:none;transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  html.js #nav .navin{opacity:0;transform:translateY(-10px)}
+  html.js body.ready #nav .navin{opacity:1;transform:none;transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  .sheet{background:rgba(255,255,255,.78);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(18,20,23,.14);border-radius:var(--r-md);box-shadow:var(--shadow)}
+  .iso{position:absolute;pointer-events:none;will-change:transform}
+  .iso path,.iso line{vector-effect:non-scaling-stroke}
+  .draw path,.draw line,.draw polyline{stroke-dasharray:var(--len,600);stroke-dashoffset:0}
+  html.js .draw path,html.js .draw line,html.js .draw polyline{stroke-dashoffset:var(--len,600)}
+  html.js body.ready .draw path,html.js body.ready .draw line,html.js body.ready .draw polyline{stroke-dashoffset:0;transition:stroke-dashoffset 2.2s var(--ease) .5s}
+
+  /* content */
+  main{position:relative;z-index:1}
+  .band{position:relative;background:var(--stone)}
+  .band.paper{background:var(--paper)}
+  .rule{border-top:1px solid var(--line)}
+  .kicker{display:inline-flex;align-items:center;gap:.6rem;color:var(--green)}
+  .kicker::before{content:"";width:22px;height:2px;background:var(--green-2)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow);overflow:hidden;transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .3s;transform-style:preserve-3d;will-change:transform}
+  .card:hover{box-shadow:var(--shadow-lift);border-color:#BDB6A6}
+  .card .ph{overflow:hidden;position:relative;aspect-ratio:4/3;background:var(--concrete)}
+  .card .ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform .9s var(--ease)}
+  .card:hover .ph img{transform:scale(1.14)}
+  .tag{display:inline-flex;align-items:center;gap:.4rem;padding:.25rem .55rem;border-radius:var(--r-sm);background:var(--mint);color:#004D33}
+  .detail{display:flex;justify-content:space-between;align-items:center;gap:.75rem;border-top:1px dashed var(--line);padding-top:.85rem;margin-top:1rem}
+  .price{font-family:Oswald,sans-serif;font-weight:600;font-size:1.35rem;color:var(--green)}
+  .stat{font-family:Oswald,sans-serif;font-weight:600;font-size:clamp(2.6rem,6vw,3.6rem);line-height:1}
+  .step{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow)}
+  .step .num{font-family:Oswald,sans-serif;font-weight:700;font-size:3.4rem;line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--green)}
+  .stairs{perspective:1200px}
+  .shape{position:absolute;pointer-events:none;will-change:transform}
+
+  /* spotlight */
+  .spot{position:relative;overflow:hidden;border-radius:var(--r-md);isolation:isolate;min-height:520px;background:#D9D2C4}
+  .spot .kb{position:absolute;inset:-8%;will-change:transform}
+  .spot .kb img{width:100%;height:100%;object-fit:cover;animation:kenburns 26s ease-in-out infinite alternate}
+  @keyframes kenburns{0%{transform:scale(1) translate3d(0,0,0)}100%{transform:scale(1.14) translate3d(-3%,-2%,0)}}
+  .spot .sweep{position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.38) 48%,transparent 62%);transform:translateX(-100%);animation:sweep 7s ease-in-out infinite;mix-blend-mode:soft-light}
+  @keyframes sweep{0%,30%{transform:translateX(-100%)}70%,100%{transform:translateX(100%)}}
+  .spot .glow{position:absolute;width:60%;height:70%;right:-10%;top:-20%;border-radius:50%;background:radial-gradient(circle,rgba(255,244,214,.75),rgba(255,244,214,0) 70%);animation:pulse 9s ease-in-out infinite alternate}
+  @keyframes pulse{from{opacity:.4;transform:scale(.92)}to{opacity:.9;transform:scale(1.08)}}
+  .spot.paused .kb img,.spot.paused .sweep,.spot.paused .glow{animation-play-state:paused}
+  .spot-card{position:relative;z-index:2;background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(18,20,23,.12);border-radius:var(--r-md);box-shadow:var(--shadow-lift)}
+  .toggle{min-height:44px;min-width:44px;display:inline-flex;align-items:center;gap:.5rem;padding:0 .9rem;border-radius:var(--r-md);background:rgba(255,255,255,.9);border:1px solid rgba(18,20,23,.18);font-weight:500;font-size:.9rem;cursor:pointer}
+
+  /* form */
+  .field label{display:block;font-weight:500;font-size:.92rem;margin-bottom:.35rem}
+  .input{width:100%;min-height:50px;padding:.7rem .9rem;border-radius:var(--r-md);border:1.5px solid #BDB6A6;background:#fff;font:inherit;color:var(--ink);transition:border-color .2s,box-shadow .2s}
+  .input:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 4px rgba(0,189,125,.22)}
+  .input[aria-invalid="true"]{border-color:#B42318;box-shadow:0 0 0 4px rgba(180,35,24,.12)}
+  .err{color:#B42318;font-size:.86rem;min-height:1.3em;margin-top:.3rem}
+  .shake{animation:shake .45s var(--ease)}
+  @keyframes shake{20%{transform:translateX(-7px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(2px)}}
+  #formOk{display:none;align-items:center;gap:.8rem;padding:1rem 1.1rem;border-radius:var(--r-md);background:var(--mint);color:#00422C;border:1px solid #9ED9BF}
+  #formOk.show{display:flex;animation:pop .5s var(--ease)}
+  @keyframes pop{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+  #formOk svg path{stroke-dasharray:30;stroke-dashoffset:30}
+  #formOk.show svg path{animation:check .6s var(--ease) .15s forwards}
+  @keyframes check{to{stroke-dashoffset:0}}
+
+  /* reveals: content starts visible; JS opts elements in */
+  html.js [data-reveal]{opacity:0;transition:opacity .8s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0ms)}
+  html.js [data-reveal="up"]{transform:translate3d(0,34px,0)}
+  html.js [data-reveal="tilt"]{transform:perspective(900px) rotateX(16deg) translate3d(0,40px,0);transform-origin:50% 100%}
+  html.js [data-reveal="left"]{transform:translate3d(-44px,0,0)}
+  html.js [data-reveal="right"]{transform:translate3d(44px,0,0)}
+  html.js [data-reveal="scale"]{transform:scale(.92)}
+  html.js [data-reveal="stair"]{transform:perspective(900px) rotateY(-14deg) translate3d(40px,24px,0);transform-origin:0 50%}
+  html.js [data-reveal="clip"]{opacity:1;clip-path:inset(0 0 100% 0);transition:clip-path 1s var(--ease)}
+  html.js [data-reveal].in{opacity:1;transform:none}
+  html.js [data-reveal="clip"].in{clip-path:inset(0 0 0 0)}
+  html.reveal-all [data-reveal],html.reveal-all .line>span,html.reveal-all .intro,html.reveal-all #nav .navin{opacity:1!important;transform:none!important;clip-path:none!important}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important}
+    html.js [data-reveal],html.js [data-reveal].in{transform:none!important;clip-path:none!important;transition:opacity .2s linear!important}
+    html.js .line>span,html.js .intro,html.js #nav .navin{transform:none!important;transition:opacity .2s linear!important}
+    html.js .draw path,html.js .draw line,html.js .draw polyline{stroke-dashoffset:0!important;transition:none!important}
+    .card,.card .ph img,.btn{transition:none!important}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="progress" aria-hidden="true"></div>
+
+<header id="nav">
+  <div class="bar max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between">
+    <a href="#hero" class="navin flex items-center gap-3 no-underline" aria-label="Gableworth Studio — back to top">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M4 30V14L17 4l13 10v16z" fill="#fff" stroke="#121417" stroke-width="2" stroke-linejoin="round"/><path d="M17 4v26M4 14l13 8 13-8" fill="none" stroke="#00BD7D" stroke-width="2" stroke-linejoin="round"/></svg>
+      <span class="display text-[1.35rem] tracking-wide uppercase">Gableworth<span class="text-[color:var(--green)]">.</span></span>
+    </a>
+    <nav class="navin hidden md:flex items-center gap-8" aria-label="Primary">
+      <a class="navlink" href="#work">Work</a>
+      <a class="navlink" href="#services">Services</a>
+      <a class="navlink" href="#process">Process</a>
+      <a class="btn btn-primary magnetic" href="#visit"><span class="inner">Book a site visit</span></a>
+    </nav>
+    <button id="burger" class="burger navin md:hidden" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+  <div id="mobileMenu" class="md:hidden">
+    <ul class="px-5 pt-2 pb-5 list-none m-0">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#studio">The model room</a></li>
+      <li><a href="#visit">Book a site visit</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="hero-stage" aria-hidden="true">
+  <img id="heroImg" src="https://images.unsplash.com/photo-1778166166446-4ecccd525922?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTB8fG1vZGVybiUyMGhvdXNlJTIwYXJjaGl0ZWN0dXJlJTIwZGF5bGlnaHR8ZW58MHwwfHx8MTc5MDk0MTUzMnww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=2400&amp;q=80" alt="" fetchpriority="high">
+  <div class="hero-wash"></div>
+  <svg class="vgrid" id="vgrid" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+    <g stroke="rgba(18,20,23,.16)" stroke-width="1" fill="none">
+      <line x1="1150" y1="430" x2="-200" y2="1000"/><line x1="1150" y1="430" x2="200" y2="1000"/><line x1="1150" y1="430" x2="600" y2="1000"/><line x1="1150" y1="430" x2="1000" y2="1000"/><line x1="1150" y1="430" x2="1400" y2="1000"/><line x1="1150" y1="430" x2="1800" y2="1000"/>
+      <line x1="1150" y1="430" x2="-200" y2="-100"/><line x1="1150" y1="430" x2="300" y2="-100"/><line x1="1150" y1="430" x2="800" y2="-100"/>
+      <line x1="0" y1="430" x2="1600" y2="430" stroke="rgba(0,112,74,.25)" stroke-dasharray="6 8"/>
+    </g>
+    <circle cx="1150" cy="430" r="5" fill="#00BD7D"/>
+  </svg>
+  <div class="blob a" id="blobA"></div>
+  <div class="blob b" id="blobB"></div>
+</div>
+
+<main id="main">
+  <section id="hero" aria-labelledby="heroTitle">
+    <svg id="isoA" class="iso draw hidden sm:block" style="right:6%;top:18%;width:min(30vw,380px)" viewBox="0 0 300 300" aria-hidden="true" fill="none" stroke="#121417" stroke-width="1.5">
+      <path style="--len:700" d="M150 40 L250 98 L250 214 L150 272 L50 214 L50 98 Z"/>
+      <path style="--len:400" d="M50 98 L150 156 L250 98 M150 156 L150 272"/>
+      <path style="--len:300" stroke="#00BD7D" stroke-width="2" d="M90 120 L90 70 L150 35 L210 70 L210 120"/>
+      <path style="--len:200" stroke-dasharray="4 6" d="M150 156 L150 40"/>
+    </svg>
+    <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-28 pb-16 md:pt-32">
+      <div id="heroFg" class="grid lg:grid-cols-12 gap-8 items-end">
+        <div class="lg:col-span-7">
+          <p class="intro mono kicker mb-5" style="transition-delay:.15s">Architecture for homes · est. 2017</p>
+          <h1 id="heroTitle" class="text-[2.9rem] leading-[1] sm:text-6xl lg:text-[5.4rem] uppercase">
+            <span class="line"><span style="transition-delay:.25s">Homes drawn</span></span>
+            <span class="line"><span style="transition-delay:.37s">around the light</span></span>
+            <span class="line"><span style="transition-delay:.49s" class="text-[color:var(--green)]">you already have.</span></span>
+          </h1>
+          <p class="intro mt-6 max-w-xl text-lg text-[color:var(--muted)]" style="transition-delay:.85s">Gableworth is a three-person studio designing extensions, new homes and garden rooms. We start with a site visit and a card model — so you can see where the sun lands before anything is built.</p>
+          <div class="intro mt-8 flex flex-wrap gap-3" style="transition-delay:1s">
+            <a class="btn btn-primary magnetic" href="#visit"><span class="inner">Book a site visit <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+            <a class="btn btn-ghost magnetic" href="#work"><span class="inner">See our work</span></a>
+          </div>
+        </div>
+        <div class="lg:col-span-5 lg:justify-self-end w-full max-w-sm intro" style="transition-delay:1.15s">
+          <div class="sheet p-5" id="heroSheet">
+            <div class="flex justify-between mono text-[color:var(--muted)]"><span>Sheet A-01</span><span>Scale 1:50</span></div>
+            <div class="mt-3 grid grid-cols-3 gap-3 text-center">
+              <div class="rule pt-3"><div class="display text-3xl" data-count="62">62</div><div class="text-xs text-[color:var(--muted)]">homes drawn</div></div>
+              <div class="rule pt-3"><div class="display text-3xl"><span data-count="14">14</span></div><div class="text-xs text-[color:var(--muted)]">week builds</div></div>
+              <div class="rule pt-3"><div class="display text-3xl"><span data-count="3">3</span></div><div class="text-xs text-[color:var(--muted)]">fixed-fee stages</div></div>
+            </div>
+            <p class="mono mt-4 text-[color:var(--green)]">↳ Site visits booking for November</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK: uniform six-card grid -->
+  <section id="work" class="band paper py-20 md:py-28" aria-labelledby="workTitle">
+    <svg class="shape hidden md:block" data-par="-0.12" style="right:3%;top:40px;width:110px;opacity:.7" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="#00BD7D" stroke-width="1.5"><path d="M50 8 92 32v48L50 92 8 80V32z"/><path d="M8 32l42 22 42-22M50 54v38"/></svg>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+      <div class="grid md:grid-cols-12 gap-6 items-end mb-12">
+        <div class="md:col-span-7">
+          <p class="mono kicker mb-4" data-reveal="up">Selected work · 2019–2026</p>
+          <h2 id="workTitle" class="text-4xl md:text-6xl uppercase" data-reveal="clip">Six rooms that changed how a family lives</h2>
+        </div>
+        <p class="md:col-span-5 text-[color:var(--muted)] text-lg" data-reveal="up" style="--d:120ms">Every project starts from the same question: where does the light come from, and how long does it stay? These are a few of our favourite answers.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" data-stagger>
+        <article class="card" data-reveal="tilt">
+          <div class="ph"><img src="https://images.unsplash.com/photo-1704457031803-2c39a23e9faa?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OXx8bW9kZXJuJTIwaG91c2UlMjBhcmNoaXRlY3R1cmUlMjBkYXlsaWdodHxlbnwwfDB8fHwxNzkwOTQxNTMyfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Modern timber house with a steep gable roof and a paved driveway" loading="lazy" width="1080" height="720"></div>
+          <div class="p-5">
+            <span class="tag mono">New build</span>
+            <h3 class="text-2xl uppercase mt-3">Larch Gable House</h3>
+            <p class="mt-2 text-[color:var(--muted)] text-[.95rem]">A tall timber gable that pulls evening sun deep into a double-height kitchen.</p>
+            <div class="detail mono text-[color:var(--muted)]"><span>210 m²</span><span>11 months</span></div>
+          </div>
+        </article>
+        <article class="card" data-reveal="tilt">
+          <div class="ph"><img src="https://images.unsplash.com/photo-1754063257992-bb9eabdbdd86?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8aG91c2UlMjBleHRlbnNpb24lMjB0aW1iZXJ8ZW58MHwwfHx8MTc5MDk0MTUzM3ww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="White rear home extension with large glass doors" loading="lazy" width="1080" height="720"></div>
+          <div class="p-5">
+            <span class="tag mono">Extension</span>
+            <h3 class="text-2xl uppercase mt-3">Orchard Row Extension</h3>
+            <p class="mt-2 text-[color:var(--muted)] text-[.95rem]">A crisp white rear extension with floor-to-ceiling glazing onto a narrow garden.</p>
+            <div class="detail mono text-[color:var(--muted)]"><span>38 m²</span><span>14 weeks</span></div>
+          </div>
+        </article>
+        <article class="card" data-reveal="tilt">
+          <div class="ph"><img src="https://images.unsplash.com/photo-1772223480849-11c5ec6d78ef?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Mnx8bWluaW1hbCUyMGludGVyaW9yJTIwY29uY3JldGUlMjBsaWdodHxlbnwwfDB8fHwxNzkwOTQxNTMzfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Concrete hallway with benches and bands of sunlight" loading="lazy" width="1080" height="720"></div>
+          <div class="p-5">
+            <span class="tag mono">Civic</span>
+            <h3 class="text-2xl uppercase mt-3">Long Light Hall</h3>
+            <p class="mt-2 text-[color:var(--muted)] text-[.95rem]">A concrete hall where clerestory light draws slow patterns across the benches all day.</p>
+            <div class="detail mono text-[color:var(--muted)]"><span>460 m²</span><span>2 years</span></div>
+          </div>
+        </article>
+        <article class="card" data-reveal="tilt">
+          <div class="ph"><img src="https://images.unsplash.com/photo-1787839971382-57ba26113882?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8bWluaW1hbCUyMGludGVyaW9yJTIwY29uY3JldGUlMjBsaWdodHxlbnwwfDB8fHwxNzkwOTQxNTMzfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A wide window framing a small moss and stone garden" loading="lazy" width="1080" height="720"></div>
+          <div class="p-5">
+            <span class="tag mono">Interior</span>
+            <h3 class="text-2xl uppercase mt-3">Moss Window Room</h3>
+            <p class="mt-2 text-[color:var(--muted)] text-[.95rem]">One framed window turns a tiny courtyard into the most looked-at wall in the house.</p>
+            <div class="detail mono text-[color:var(--muted)]"><span>24 m²</span><span>9 weeks</span></div>
+          </div>
+        </article>
+        <article class="card" data-reveal="tilt">
+          <div class="ph"><img src="https://images.unsplash.com/photo-1760067537293-6b30141d6a52?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTJ8fG1vZGVybiUyMGhvdXNlJTIwYXJjaGl0ZWN0dXJlJTIwZGF5bGlnaHR8ZW58MHwwfHx8MTc5MDk0MTUzMnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Modern house with stone walls and cedar cladding" loading="lazy" width="1080" height="720"></div>
+          <div class="p-5">
+            <span class="tag mono">New build</span>
+            <h3 class="text-2xl uppercase mt-3">Stonefield House</h3>
+            <p class="mt-2 text-[color:var(--muted)] text-[.95rem]">Stone, cedar and deep eaves that keep summer heat out and let winter sun in.</p>
+            <div class="detail mono text-[color:var(--muted)]"><span>185 m²</span><span>10 months</span></div>
+          </div>
+        </article>
+        <article class="card" data-reveal="tilt">
+          <div class="ph"><img src="https://images.unsplash.com/photo-1653164494885-a8526f62678c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8M3x8YXJjaGl0ZWN0JTIwbW9kZWwlMjBzdHVkaW98ZW58MHwwfHx8MTc5MDk0MTUzMnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="White card architectural model of a house resting on a book" loading="lazy" width="1080" height="720"></div>
+          <div class="p-5">
+            <span class="tag mono">Concept model</span>
+            <h3 class="text-2xl uppercase mt-3">Paper House Study</h3>
+            <p class="mt-2 text-[color:var(--muted)] text-[.95rem]">Where every scheme starts: a card model you can turn in your hands at the table.</p>
+            <div class="detail mono text-[color:var(--muted)]"><span>1:100</span><span>2 weeks</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPOTLIGHT -->
+  <section id="studio" class="band py-16 md:py-24" aria-labelledby="spotTitle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+      <div class="spot" id="spot" data-reveal="scale">
+        <div class="kb" id="spotKb"><img src="https://images.unsplash.com/photo-1695712551846-4dc15433fbd4?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OHx8YXJjaGl0ZWN0JTIwbW9kZWwlMjBzdHVkaW98ZW58MHwwfHx8MTc5MDk0MTUzMnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="An architect assembling a white card model beside material samples on a studio table" loading="lazy"></div>
+        <div class="glow" aria-hidden="true"></div>
+        <div class="sweep" aria-hidden="true"></div>
+        <div class="relative z-[2] p-4 pt-60 sm:p-8 md:p-12 flex flex-col justify-end min-h-[520px]">
+          <div class="spot-card p-6 md:p-8 max-w-lg" id="spotCard">
+            <p class="mono kicker mb-3">The model room</p>
+            <h2 id="spotTitle" class="text-3xl md:text-5xl uppercase">Hold your house before you live in it</h2>
+            <p class="mt-4 text-[color:var(--muted)]">Every Gableworth scheme is built in card before it's built in brick. You turn it toward the morning sun, lift the roof off, and decide where the windows go — with us, at your kitchen table.</p>
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+              <a class="btn btn-primary magnetic" href="#visit"><span class="inner">Book a site visit</span></a>
+              <button class="toggle" id="spotToggle" type="button" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" id="spotIcon"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg><span id="spotLabel">Pause motion</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES: left intro + three cards -->
+  <section id="services" class="band paper py-20 md:py-28" aria-labelledby="servTitle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 grid lg:grid-cols-12 gap-10">
+      <div class="lg:col-span-4">
+        <div class="lg:sticky lg:top-28">
+          <p class="mono kicker mb-4" data-reveal="left">Services &amp; fees</p>
+          <h2 id="servTitle" class="text-4xl md:text-5xl uppercase" data-reveal="left" style="--d:80ms">Clear fees, one stage at a time</h2>
+          <p class="mt-5 text-[color:var(--muted)]" data-reveal="left" style="--d:160ms">No percentage-of-build surprises. Each stage has a fixed price, and you can stop after any of them with drawings you own.</p>
+          <div class="mt-8 grid grid-cols-2 gap-4" data-reveal="left" style="--d:240ms">
+            <div class="rule pt-3"><div class="stat"><span data-count="94">94</span>%</div><p class="text-sm text-[color:var(--muted)] mt-1">planning approved first time</p></div>
+            <div class="rule pt-3"><div class="stat"><span data-count="2">2</span> wk</div><p class="text-sm text-[color:var(--muted)] mt-1">from visit to first card model</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-8 grid md:grid-cols-3 gap-6 content-start" data-stagger>
+        <article class="card" data-reveal="scale">
+          <div class="ph"><img src="https://images.unsplash.com/photo-1653164488636-7407bec89281?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OXx8YXJjaGl0ZWN0JTIwbW9kZWwlMjBzdHVkaW98ZW58MHwwfHx8MTc5MDk0MTUzMnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A white card model of a house on a table" loading="lazy" width="1080" height="720"></div>
+          <div class="p-5">
+            <p class="mono text-[color:var(--muted)]">Stage 01</p>
+            <h3 class="text-2xl uppercase mt-2">Feasibility visit</h3>
+            <p class="mt-2 text-[color:var(--muted)] text-[.95rem]">We walk your home with you, measure what matters and sketch two honest options before you commit to more.</p>
+            <div class="detail"><span class="mono text-[color:var(--muted)]">Fixed fee</span><span class="price">£650</span></div>
+          </div>
+        </article>
+        <article class="card" data-reveal="up">
+          <div class="ph"><img src="https://images.unsplash.com/photo-1782290547018-8bb89b8edf07?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTF8fGFyY2hpdGVjdCUyMG1vZGVsJTIwc3R1ZGlvfGVufDB8MHx8fDE3OTA5NDE1MzJ8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A drafting table on wooden trestles in a bright studio" loading="lazy" width="1080" height="720"></div>
+          <div class="p-5">
+            <p class="mono text-[color:var(--muted)]">Stage 02</p>
+            <h3 class="text-2xl uppercase mt-2">Design &amp; planning</h3>
+            <p class="mt-2 text-[color:var(--muted)] text-[.95rem]">Concept design, card models, 3D views and a planning application we handle from start to finish.</p>
+            <div class="detail"><span class="mono text-[color:var(--muted)]">From</span><span class="price">£3,900</span></div>
+          </div>
+        </article>
+        <article class="card" data-reveal="scale">
+          <div class="ph"><img src="https://images.unsplash.com/photo-1753893558279-8beaad18dd96?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OHx8aG91c2UlMjBleHRlbnNpb24lMjB0aW1iZXJ8ZW58MHwwfHx8MTc5MDk0MTUzM3ww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A house extension under construction" loading="lazy" width="1080" height="720"></div>
+          <div class="p-5">
+            <p class="mono text-[color:var(--muted)]">Stage 03</p>
+            <h3 class="text-2xl uppercase mt-2">Build support</h3>
+            <p class="mt-2 text-[color:var(--muted)] text-[.95rem]">Technical drawings, builder tender and fortnightly site visits, so what's built matches what you signed off.</p>
+            <div class="detail"><span class="mono text-[color:var(--muted)]">From</span><span class="price">£4,800</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS: perspective stairs -->
+  <section id="process" class="band py-20 md:py-28 overflow-hidden" aria-labelledby="procTitle">
+    <svg class="shape hidden md:block" data-par="0.1" style="right:4%;top:40px;width:180px" viewBox="0 0 200 120" aria-hidden="true" fill="none" stroke="#121417" stroke-opacity=".35" stroke-width="1.2"><path d="M0 120 100 0 200 120M40 120 100 40 160 120M80 120 100 80 120 120"/></svg>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+      <div class="max-w-2xl mb-12">
+        <p class="mono kicker mb-4" data-reveal="right">How it works</p>
+        <h2 id="procTitle" class="text-4xl md:text-6xl uppercase" data-reveal="right" style="--d:90ms">From first visit to front door</h2>
+      </div>
+      <ol class="stairs grid md:grid-cols-4 gap-5 list-none p-0 m-0" data-stagger>
+        <li class="step p-6 " data-reveal="stair">
+          <div class="flex items-start justify-between gap-3"><span class="num" aria-hidden="true">01</span><span class="tag mono">Week 1</span></div>
+          <h3 class="text-2xl uppercase mt-4">Site visit</h3>
+          <p class="mt-2 text-[color:var(--muted)] text-[.95rem]">We spend 90 minutes in your home, measure up and listen to how you really use it.</p>
+        </li>
+        <li class="step p-6 md:mt-8" data-reveal="stair">
+          <div class="flex items-start justify-between gap-3"><span class="num" aria-hidden="true">02</span><span class="tag mono">Weeks 2–4</span></div>
+          <h3 class="text-2xl uppercase mt-4">Two options in card</h3>
+          <p class="mt-2 text-[color:var(--muted)] text-[.95rem]">Two schemes, built as card models with sun studies, so you can compare them side by side.</p>
+        </li>
+        <li class="step p-6 md:mt-16" data-reveal="stair">
+          <div class="flex items-start justify-between gap-3"><span class="num" aria-hidden="true">03</span><span class="tag mono">Weeks 5–16</span></div>
+          <h3 class="text-2xl uppercase mt-4">Planning &amp; drawings</h3>
+          <p class="mt-2 text-[color:var(--muted)] text-[.95rem]">We submit the application, answer the council and prepare drawings builders can price.</p>
+        </li>
+        <li class="step p-6 md:mt-24" data-reveal="stair">
+          <div class="flex items-start justify-between gap-3"><span class="num" aria-hidden="true">04</span><span class="tag mono">On site</span></div>
+          <h3 class="text-2xl uppercase mt-4">Build &amp; handover</h3>
+          <p class="mt-2 text-[color:var(--muted)] text-[.95rem]">Fortnightly site visits until the last window is in and the keys are back in your hand.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CONTACT: centered stack -->
+  <section id="visit" class="band paper py-20 md:py-28" aria-labelledby="visitTitle">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+      <p class="mono kicker mb-4 justify-center" data-reveal="up">Book a site visit</p>
+      <h2 id="visitTitle" class="text-4xl md:text-6xl uppercase" data-reveal="clip">Let's walk your home together</h2>
+      <p class="mt-5 text-lg text-[color:var(--muted)]" data-reveal="up" style="--d:120ms">A 90-minute visit, a measured sketch and two honest options. Tell us a little about your project and we'll find a morning that suits you.</p>
+    </div>
+    <form id="visitForm" class="max-w-xl mx-auto px-4 sm:px-6 mt-10 grid gap-4 text-left" novalidate data-reveal="up" style="--d:200ms">
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="field"><label for="name">Your name</label><input class="input" id="name" name="name" autocomplete="name" required aria-describedby="nameErr"><p class="err" id="nameErr" aria-live="polite"></p></div>
+        <div class="field"><label for="email">Email</label><input class="input" id="email" name="email" type="email" autocomplete="email" required aria-describedby="emailErr"><p class="err" id="emailErr" aria-live="polite"></p></div>
+      </div>
+      <div class="field"><label for="ptype">Project type</label>
+        <select class="input" id="ptype" name="ptype" required aria-describedby="ptypeErr">
+          <option value="">Choose one…</option><option>Extension</option><option>New build</option><option>Renovation</option><option>Garden room</option>
+        </select><p class="err" id="ptypeErr" aria-live="polite"></p></div>
+      <div class="field"><label for="msg">Anything we should know? <span class="text-[color:var(--muted)] font-normal">(optional)</span></label><textarea class="input" id="msg" name="msg" rows="3"></textarea></div>
+      <button class="btn btn-primary magnetic w-full" type="submit"><span class="inner">Request my site visit</span></button>
+      <div id="formOk" role="status" aria-live="polite"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="#00704A"/><path d="M8 14.5l4 4 8-9" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="formOkText"></span></div>
+    </form>
+  </section>
+</main>
+
+<footer class="relative z-[1] bg-[color:var(--stone)] border-t border-[color:var(--line)] py-14">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center" data-reveal="up">
+    <a href="#hero" class="inline-flex items-center gap-3 no-underline" aria-label="Back to top">
+      <svg width="30" height="30" viewBox="0 0 34 34" aria-hidden="true"><path d="M4 30V14L17 4l13 10v16z" fill="#fff" stroke="#121417" stroke-width="2" stroke-linejoin="round"/><path d="M17 4v26M4 14l13 8 13-8" fill="none" stroke="#00BD7D" stroke-width="2" stroke-linejoin="round"/></svg>
+      <span class="display text-xl uppercase tracking-wide">Gableworth Studio</span>
+    </a>
+    <nav class="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer">
+      <a class="ulink py-2" href="#work">Work</a><a class="ulink py-2" href="#services">Services</a><a class="ulink py-2" href="#process">Process</a><a class="ulink py-2" href="#visit">Book a site visit</a>
+    </nav>
+    <p class="mt-6 text-sm text-[color:var(--muted)]">Gableworth Studio is a fictional brand. Projects, figures and fees shown are illustrative.</p>
+    <p class="mt-4 text-xs text-[color:var(--muted)] leading-relaxed">Photos on <a class="underline" href="https://unsplash.com/?utm_source=webdrip_concepts&amp;utm_medium=referral">Unsplash</a>: <a class="underline" href="https://unsplash.com/photos/modern-white-house-with-cypress-trees-and-blue-sky-x1qsBPj-bII?utm_source=webdrip_concepts&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@valentinlacoste?utm_source=webdrip_concepts&amp;utm_medium=referral">Valentin Lacoste</a> · <a class="underline" href="https://unsplash.com/photos/a-woman-working-on-a-project-at-a-table-HPF5e282XCc?utm_source=webdrip_concepts&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@gomi_design?utm_source=webdrip_concepts&amp;utm_medium=referral">gomi</a> · <a class="underline" href="https://unsplash.com/photos/modern-wooden-house-with-a-paved-driveway-and-blue-sky-7cIfCpDhkY8?utm_source=webdrip_concepts&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@yudiono182?utm_source=webdrip_concepts&amp;utm_medium=referral">Yudiono Putranto</a> · <a class="underline" href="https://unsplash.com/photos/a-modern-home-extension-with-large-windows-SV_9qWNh0Es?utm_source=webdrip_concepts&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@brett_jordan?utm_source=webdrip_concepts&amp;utm_medium=referral">Brett Jordan</a> · <a class="underline" href="https://unsplash.com/photos/modern-concrete-hallway-with-benches-and-sunlight-patterns-ZdayRryFQj0?utm_source=webdrip_concepts&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@psco?utm_source=webdrip_concepts&amp;utm_medium=referral">adam roye</a> · <a class="underline" href="https://unsplash.com/photos/window-framing-small-garden-with-rocks-tYk1ZuxGjt0?utm_source=webdrip_concepts&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@smilevivo?utm_source=webdrip_concepts&amp;utm_medium=referral">Sang Kwak</a> · <a class="underline" href="https://unsplash.com/photos/modern-house-with-wood-and-stone-exterior-hPu2n_SfV7Q?utm_source=webdrip_concepts&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@alef_visuals?utm_source=webdrip_concepts&amp;utm_medium=referral">Alef Morais</a> · <a class="underline" href="https://unsplash.com/photos/a-model-of-a-house-sitting-on-top-of-a-book-UW4_FYJ_jRc?utm_source=webdrip_concepts&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@thisisnando?utm_source=webdrip_concepts&amp;utm_medium=referral">Fernando Andrade</a> · <a class="underline" href="https://unsplash.com/photos/a-model-of-a-house-on-a-table-C-zio8nFBDg?utm_source=webdrip_concepts&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@thisisnando?utm_source=webdrip_concepts&amp;utm_medium=referral">Fernando Andrade</a> · <a class="underline" href="https://unsplash.com/photos/drafting-table-with-transparent-stool-and-wooden-sawhorses-RSB1aO_-4iQ?utm_source=webdrip_concepts&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@brechtcorbeel?utm_source=webdrip_concepts&amp;utm_medium=referral">Brecht Corbeel</a> · <a class="underline" href="https://unsplash.com/photos/a-house-under-construction-is-shown-Hd_NktxSWSY?utm_source=webdrip_concepts&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@brett_jordan?utm_source=webdrip_concepts&amp;utm_medium=referral">Brett Jordan</a></p>
+    <p class="mt-6 text-sm"><a class="ulink font-medium text-[color:var(--green)]" href="https://getwebdrip.com">Concept design by WebDrip — fictional brand</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  window.__gw = true;
+  var doc=document.documentElement, body=document.body;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  // intro
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ body.classList.add('ready'); }); });
+  // measure SVG line lengths for draw-in
+  document.querySelectorAll('.draw path').forEach(function(p){ try{ p.style.setProperty('--len', Math.ceil(p.getTotalLength())+1); }catch(e){} });
+
+  // mobile menu
+  var burger=document.getElementById('burger'), menu=document.getElementById('mobileMenu');
+  function setMenu(open){ burger.setAttribute('aria-expanded', open?'true':'false'); burger.setAttribute('aria-label', open?'Close menu':'Open menu'); menu.classList.toggle('open', open); }
+  burger.addEventListener('click', function(){ setMenu(burger.getAttribute('aria-expanded')!=='true'); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && menu.classList.contains('open')){ setMenu(false); burger.focus(); } });
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+
+  // reveals
+  document.querySelectorAll('[data-stagger]').forEach(function(g){
+    Array.prototype.forEach.call(g.children, function(c,i){ if(c.hasAttribute('data-reveal')) c.style.setProperty('--d', (i*85)+'ms'); });
+  });
+  var revealEls=document.querySelectorAll('[data-reveal]');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ (en.target.__rv||[en.target]).forEach(function(x){ x.classList.add('in'); }); io.unobserve(en.target); } });
+    },{rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    revealEls.forEach(function(el){
+      // a fully clipped element never intersects, so clip reveals watch their parent
+      if(el.getAttribute('data-reveal')==='clip'){ var p=el.parentElement; (p.__rv=p.__rv||[]).push(el); io.observe(p); }
+      else io.observe(el);
+    });
+  } else { revealEls.forEach(function(el){ el.classList.add('in'); }); }
+
+  // count-up
+  function countUp(el){
+    var target=parseInt(el.getAttribute('data-count'),10); if(reduce){ el.textContent=target; return; }
+    var t0=null, dur=1400;
+    function step(t){ if(!t0) t0=t; var p=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-p,3); el.textContent=Math.round(target*e); if(p<1) requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }
+  var counters=document.querySelectorAll('[data-count]');
+  if('IntersectionObserver' in window){
+    var cio=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ countUp(en.target); cio.unobserve(en.target);} }); },{threshold:.6});
+    counters.forEach(function(c){ cio.observe(c); });
+  }
+
+  // magnetic buttons + card tilt (desktop only)
+  if(finePointer && !reduce){
+    document.querySelectorAll('.magnetic').forEach(function(b){
+      var inner=b.querySelector('.inner');
+      b.addEventListener('pointermove', function(e){ var r=b.getBoundingClientRect(); var x=(e.clientX-r.left-r.width/2)/r.width, y=(e.clientY-r.top-r.height/2)/r.height; b.style.transform='translate3d('+(x*8).toFixed(1)+'px,'+(y*6).toFixed(1)+'px,0)'; if(inner) inner.style.transform='translate3d('+(x*5).toFixed(1)+'px,'+(y*4).toFixed(1)+'px,0)'; });
+      b.addEventListener('pointerleave', function(){ b.style.transform=''; if(inner) inner.style.transform=''; });
+    });
+    document.querySelectorAll('.card').forEach(function(c){
+      c.addEventListener('pointermove', function(e){ if(!c.classList.contains('in')) return; var r=c.getBoundingClientRect(); var x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5; c.style.transform='perspective(900px) rotateX('+(-y*5).toFixed(2)+'deg) rotateY('+(x*6).toFixed(2)+'deg) translate3d(0,-6px,0)'; });
+      c.addEventListener('pointerleave', function(){ c.style.transform=''; });
+    });
+  }
+  // tap feedback
+  document.addEventListener('touchstart', function(e){ var t=e.target.closest('.btn,.card,.toggle,.burger'); if(t){ t.classList.add('tap'); setTimeout(function(){ t.classList.remove('tap'); }, 160); } }, {passive:true});
+
+  // spotlight toggle
+  var spot=document.getElementById('spot'), tg=document.getElementById('spotToggle'), lab=document.getElementById('spotLabel'), icon=document.getElementById('spotIcon');
+  tg.addEventListener('click', function(){ var p=!spot.classList.contains('paused'); spot.classList.toggle('paused', p); tg.setAttribute('aria-pressed', p?'true':'false'); lab.textContent=p?'Play motion':'Pause motion'; icon.innerHTML=p?'<path d="M8 5v14l11-7z"/>':'<path d="M7 5h4v14H7zM13 5h4v14h-4z"/>'; });
+
+  // form
+  var form=document.getElementById('visitForm'), ok=document.getElementById('formOk'), okText=document.getElementById('formOkText');
+  function setErr(id,msg){ var inp=document.getElementById(id), er=document.getElementById(id+'Err'); er.textContent=msg; if(msg){ inp.setAttribute('aria-invalid','true'); inp.classList.remove('shake'); void inp.offsetWidth; inp.classList.add('shake'); } else inp.removeAttribute('aria-invalid'); return !msg; }
+  form.addEventListener('submit', function(e){
+    e.preventDefault(); ok.classList.remove('show');
+    var n=form.name.value.trim(), em=form.email.value.trim(), pt=form.ptype.value;
+    var a=setErr('name', n?'':'Please add your name.');
+    var b=setErr('email', !em?'Please enter your email.':(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)?'':"That email doesn't look right — check for typos."));
+    var c=setErr('ptype', pt?'':'Choose the kind of project.');
+    if(!(a&&b&&c)){ var f=form.querySelector('[aria-invalid="true"]'); if(f) f.focus(); return; }
+    okText.textContent='Thanks, '+n.split(' ')[0]+" — we'll email within two working days to arrange your site visit.";
+    ok.classList.add('show'); form.reset();
+  });
+  ['name','email','ptype'].forEach(function(id){ document.getElementById(id).addEventListener('input', function(){ if(this.getAttribute('aria-invalid')) setErr(id,''); }); });
+
+  // one shared rAF loop for scroll effects
+  var nav=document.getElementById('nav'), bar=document.getElementById('progress');
+  var stage=document.querySelector('.hero-stage'), img=document.getElementById('heroImg'), fg=document.getElementById('heroFg'), grid=document.getElementById('vgrid'), isoA=document.getElementById('isoA');
+  var blobA=document.getElementById('blobA'), blobB=document.getElementById('blobB');
+  var kb=document.getElementById('spotKb'), spotCard=document.getElementById('spotCard');
+  var pars=[].slice.call(document.querySelectorAll('[data-par]'));
+  var parImgs=[].slice.call(document.querySelectorAll('.card .ph img'));
+  var cur=window.scrollY, vh=window.innerHeight;
+  window.addEventListener('resize', function(){ vh=window.innerHeight; }, {passive:true});
+  function frame(){
+    var target=window.scrollY, max=Math.max(1, doc.scrollHeight-vh);
+    cur += (target-cur)*(reduce?1:0.12); if(Math.abs(target-cur)<0.1) cur=target;
+    bar.style.transform='scaleX('+(target/max).toFixed(4)+')';
+    nav.classList.toggle('scrolled', target>40);
+    var p=Math.min(1.4, cur/vh);
+    if(p<1.3){
+      stage.style.visibility='visible';
+      if(!reduce){
+        img.style.transform='translate3d('+(-p*2.5).toFixed(2)+'%,'+(-p*4).toFixed(2)+'%,0) scale('+(1+p*0.24).toFixed(4)+') rotateX('+(p*8).toFixed(2)+'deg) rotateY('+(-p*6).toFixed(2)+'deg)';
+        grid.style.transform='translate3d(0,'+(-cur*0.25).toFixed(1)+'px,0) scale('+(1+p*0.35).toFixed(3)+')';
+        fg.style.transform='translate3d(0,'+(-cur*0.32).toFixed(1)+'px,0)';
+        var fb=fg.getBoundingClientRect().bottom;
+        fg.style.opacity=Math.max(0,Math.min(1,(fb-vh*0.12)/(vh*0.45))).toFixed(3);
+        if(isoA) isoA.style.transform='translate3d(0,'+(-cur*0.62).toFixed(1)+'px,0) rotate('+(cur*0.03).toFixed(2)+'deg)';
+        blobA.style.translate='0 '+(-cur*0.18).toFixed(1)+'px'; blobB.style.translate='0 '+(-cur*0.1).toFixed(1)+'px';
+      }
+    } else { stage.style.visibility='hidden'; }
+    if(!reduce){
+      for(var i=0;i<pars.length;i++){ var el=pars[i], r=el.parentElement.getBoundingClientRect(); if(r.bottom<0||r.top>vh) continue; el.style.transform='translate3d(0,'+((r.top-vh/2)*parseFloat(el.getAttribute('data-par'))).toFixed(1)+'px,0)'; }
+      for(var j=0;j<parImgs.length;j++){ var im=parImgs[j], rr=im.parentElement.getBoundingClientRect(); if(rr.bottom<0||rr.top>vh) continue; im.style.translate='0 '+(((rr.top+rr.height/2)-vh/2)/vh*-14).toFixed(1)+'px'; }
+      var sr=spot.getBoundingClientRect();
+      if(sr.bottom>0 && sr.top<vh){ var sp=((sr.top+sr.height/2)-vh/2)/vh; kb.style.transform='translate3d(0,'+(sp*-50).toFixed(1)+'px,0)'; spotCard.style.transform='translate3d(0,'+(sp*24).toFixed(1)+'px,0)'; }
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  if('serviceWorker' in navigator){ window.addEventListener('load', function(){ navigator.serviceWorker.register('./sw.js', {scope:'./'}).catch(function(){}); }); }
+})();
+</script>
+</body>
+</html>

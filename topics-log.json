@@ -125,5 +125,23 @@
     "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-crimpwell/",
     "buffer_post_id": "6abf68fad4210a2275d063da",
     "fb_post_url": "https://facebook.com/1277092185496389_122101193271495093"
+  },
+  {
+    "date": "2026-10-02",
+    "slug": "2026-10-02-gableworth",
+    "business_type": "architecture studio",
+    "brand_name": "Gableworth Studio",
+    "design_style": "TypeUI 'perspective' — spatial depth with isometric line drawings, vanishing-point grid and layered parallax (Oswald display + Poppins body + JetBrains Mono labels, 4–8px radii) adapting its green #00BD7D token into a limestone/paper palette with a deeper #00704A action green; hero = left-aligned headline + glass 'drawing sheet' stat card over a full-bleed white house with a self-drawing isometric house and vanishing-point grid, work = TypeUI 'uniform six-card grid' with 3D tilt reveals, services = sticky left intro + 3 price cards, process = perspective 'stairs' of stepped cards, form = centered stack, footer = logo/links centered stack; chosen because architecture is literally about perspective and it differs from the recent geometric/storytelling/bento/riso runs",
+    "palette": {
+      "stone": "#F4F2EC",
+      "paper": "#FFFFFF",
+      "concrete": "#E8E5DD",
+      "mint": "#DDF4EA",
+      "green": "#00704A",
+      "greenBright": "#00BD7D",
+      "clay": "#B04A2A",
+      "ink": "#121417"
+    },
+    "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-gableworth/"
   }
 ]
