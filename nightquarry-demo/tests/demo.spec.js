@@ -148,6 +148,14 @@ for (const p of profiles) {
         expect(Math.abs(top)).toBeLessThan(200);
       });
 
+      test('closed menu does not enlarge the sticky header', async ({ page }) => {
+        await page.goto(BASE + PATH, { waitUntil: 'load' });
+        await page.evaluate(() => window.scrollTo(0, 1200));
+        await page.waitForTimeout(400);
+        const h = await page.locator('#nav').evaluate((el) => el.getBoundingClientRect().height);
+        expect(h).toBeLessThan(100);
+      });
+
       test('no horizontal overflow at mobile width', async ({ page }) => {
         await page.goto(BASE + PATH, { waitUntil: 'load' });
         // the layout viewport must stay at device width (no zoom-out from wide content)
