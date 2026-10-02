@@ -253,5 +253,24 @@
     "music_style": "bright electro-pop — 112.5 BPM, Ab major (Fm–Db–Ab–Eb), detuned-saw pads opening from a filtered intro, sidechained offbeat-pumping bass, swung square/sine pluck arpeggio with ping-pong delay, soft FM lead, kick/clap with swung 8th and 16th hats, half-time bar and noise/sine riser into the drip wipe, boom + Ab chord stab + FM bell on the logo",
     "buffer_post_id": "6ac02d5b5831428806a68718",
     "fb_post_url": "https://facebook.com/1277092185496389_122101752525495093"
+  },
+  {
+    "date": "2026-10-02",
+    "slug": "gizmoberry-demo",
+    "business_type": "kids' after-school robotics club",
+    "brand_name": "Gizmoberry Robot Club",
+    "design_style": "TypeUI 'claymorphism' — soft, puffy clay surfaces (Poppins 800 display + Montserrat body + JetBrains Mono labels, 22–44px radii, double inset/outer clay shadows, pastel butter/peach/mint/lilac tiles on a lilac-cream base with a bright primary blue); layouts = 'centered stack' hero as a frosted clay card floating over the full-screen robot photo, 'centered inline stat row' count-up pills, three program image cards with age tags and prices, 'left-aligned intro with icon grid' turned into a four-step coloured session timeline, Ken Burns spotlight, three camp/party cards, split blue CTA panel with clay form, 'logo, links and copyright centered stack' footer; chosen because a playful, toy-like light look suits a kids' club and breaks hard from the recent dark power/cosmic and muted refined/terracotta styles",
+    "palette": {
+      "bg": "#F3F0FF",
+      "surface": "#FFFFFF",
+      "ink": "#1C2A6B",
+      "ink_soft": "#44508A",
+      "primary": "#2F5BEA",
+      "berry": "#7C5CFF",
+      "coral": "#FF7A59",
+      "sun": "#FFC94D",
+      "mint": "#4ADE9A"
+    },
+    "live_url": "https://webdripsamples.netlify.app/gizmoberry-demo/"
   }
 ]
