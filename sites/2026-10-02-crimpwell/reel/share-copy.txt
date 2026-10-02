@@ -1,0 +1,1 @@
+Crimpwell Boulder Hall is a fictional bouldering gym we designed to show what a climbing website can feel like: a 3D scroll-driven hero, a live "grades on the wall" panel, clear passes and a weekly class timeline that works just as well on a phone. Your bouldering gym could look like this: https://webdripsamples.netlify.app/sites/2026-10-02-crimpwell/
