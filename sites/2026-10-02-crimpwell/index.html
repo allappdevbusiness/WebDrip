@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Crimpwell Boulder Hall — fresh problems every week (concept)</title>
+<meta name="description" content="Crimpwell Boulder Hall is a bright bouldering gym with three wall zones, fresh routes every Tuesday, intro sessions and a kids' crew. A fictional concept site by WebDrip.">
+<meta name="theme-color" content="#F6F7F9">
+<link rel="canonical" href="https://webdripsamples.netlify.app/sites/2026-10-02-crimpwell/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Crimpwell Boulder Hall (concept by WebDrip)">
+<meta property="og:title" content="Crimpwell Boulder Hall — find your next move">
+<meta property="og:description" content="180 problems, reset every Tuesday. Day passes, intro sessions and a kids' crew in a bright bouldering hall. A fictional concept designed by WebDrip.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1775655111243-9382dc0cc089?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8Ym91bGRlcmluZyUyMGZyaWVuZHN8ZW58MHwwfHx8MTc5MDkyNzA3N3ww&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<meta property="og:image:alt" content="A climber hanging upside down from a bright indoor bouldering roof while friends watch">
+<meta property="og:url" content="https://webdripsamples.netlify.app/sites/2026-10-02-crimpwell/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Crimpwell Boulder Hall — find your next move">
+<meta name="twitter:description" content="180 problems, reset every Tuesday. A fictional bouldering gym concept by WebDrip.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1775655111243-9382dc0cc089?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8Ym91bGRlcmluZyUyMGZyaWVuZHN8ZW58MHwwfHx8MTc5MDkyNzA3N3ww&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1775655111243-9382dc0cc089?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8Ym91bGRlcmluZyUyMGZyaWVuZHN8ZW58MHwwfHx8MTc5MDkyNzA3N3ww&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { chalk:'#F6F7F9', card:'#FFFFFF', mist:'#EAEFF7', cobalt:'#2450D8', sky:'#DCE6FB', violet:'#6D45D6', lilac:'#ECE6FB', tang:'#E8581F', peach:'#FDE5D8', lime:'#4E7A12', limeSoft:'#E6F2CF', sun:'#F5C33B', ink:'#111827', muted:'#4B5563' },
+    fontFamily: { sans:['Inter','system-ui','sans-serif'], display:['Outfit','Inter','system-ui','sans-serif'], mono:['"JetBrains Mono"','ui-monospace','monospace'] }
+  } } };
+</script>
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  :root{--chalk:#F6F7F9;--card:#fff;--mist:#EAEFF7;--cobalt:#2450D8;--sky:#DCE6FB;--violet:#6D45D6;--tang:#E8581F;--lime:#4E7A12;--sun:#F5C33B;--ink:#111827;--muted:#4B5563;--line:rgba(17,24,39,.10);
+    --ease:cubic-bezier(.22,1,.36,1);--shadow:0 1px 2px rgba(17,24,39,.05),0 10px 28px -14px rgba(36,80,216,.25);--shadow-lift:0 2px 4px rgba(17,24,39,.06),0 24px 48px -18px rgba(36,80,216,.38)}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{background:var(--chalk);color:var(--ink);font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+  #main{overflow-x:clip}
+  .mono{font-family:"JetBrains Mono",ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase}
+  .display{font-family:Outfit,Inter,sans-serif;font-weight:800;letter-spacing:-.035em;line-height:.98}
+  :focus-visible{outline:3px solid var(--cobalt);outline-offset:3px;border-radius:4px;animation:ring .5s var(--ease)}
+  @keyframes ring{from{outline-offset:9px;outline-color:rgba(36,80,216,.2)}to{outline-offset:3px}}
+  .skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ink);color:#fff;padding:12px 16px;border-radius:4px}
+  .skip:focus{top:12px}
+  .grid-bg{background-image:linear-gradient(rgba(17,24,39,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(17,24,39,.045) 1px,transparent 1px);background-size:32px 32px}
+
+  /* progress + nav */
+  #progress{position:fixed;left:0;top:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--cobalt),var(--violet),var(--tang));z-index:60}
+  #nav{position:fixed;inset:0 0 auto 0;z-index:50}
+  #nav .bg{position:absolute;inset:0;background:rgba(246,247,249,.97);border-bottom:1px solid var(--line);box-shadow:0 8px 30px -22px rgba(17,24,39,.4);opacity:0;transition:opacity .35s var(--ease)}
+  @media (min-width:768px){#nav .bg{background:rgba(246,247,249,.72);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4)}}
+  #nav.scrolled .bg,#nav.open .bg{opacity:1}
+  #nav .inner{transition:padding .4s var(--ease)}
+  #nav.scrolled .inner{padding-top:8px;padding-bottom:8px}
+  #nav .logo-mark{transition:transform .6s var(--ease)}
+  #nav.scrolled .logo-mark{transform:scale(.86) rotate(60deg)}
+  .ulink{position:relative}
+  .ulink::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:2px;background:var(--cobalt);transform:scaleX(0);transform-origin:100% 50%;transition:transform .35s var(--ease)}
+  .ulink:hover::after,.ulink:focus-visible::after{transform:scaleX(1);transform-origin:0 50%}
+
+  /* buttons */
+  .btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:0 22px;border-radius:4px;font-weight:600;overflow:hidden;isolation:isolate;transition:transform .3s var(--ease),box-shadow .3s var(--ease),background-color .3s,color .3s;-webkit-tap-highlight-color:transparent}
+  .btn::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s var(--ease)}
+  .btn:hover::before{transform:translateX(120%)}
+  .btn:active{transform:scale(.96)!important}
+  .btn-cobalt{background:var(--cobalt);color:#fff;box-shadow:0 10px 24px -10px rgba(36,80,216,.7)}
+  .btn-cobalt:hover{background:#1C43BD;box-shadow:0 16px 30px -12px rgba(36,80,216,.8)}
+  .btn-line{background:#fff;color:var(--ink);border:1.5px solid rgba(17,24,39,.2)}
+  .btn-line:hover{border-color:var(--ink)}
+  .btn .arr{transition:transform .3s var(--ease)}
+  .btn:hover .arr{transform:translateX(4px)}
+
+  /* hamburger */
+  .burger span{position:absolute;left:12px;right:12px;height:2px;background:currentColor;transition:transform .35s var(--ease),opacity .2s}
+  .burger span:nth-child(1){top:16px}.burger span:nth-child(2){top:23px}.burger span:nth-child(3){top:30px}
+  .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger[aria-expanded="true"] span:nth-child(2){opacity:0;transform:scaleX(.2)}
+  .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  #mobileMenu{visibility:hidden;opacity:0;transform:translateY(-12px);transition:opacity .3s var(--ease),transform .35s var(--ease),visibility 0s linear .35s}
+  #mobileMenu.open{visibility:visible;opacity:1;transform:none;transition:opacity .3s var(--ease),transform .35s var(--ease),visibility 0s}
+  #mobileMenu li{opacity:0;transform:translateY(-6px);transition:opacity .3s var(--ease),transform .3s var(--ease)}
+  #mobileMenu.open li{opacity:1;transform:none}
+  #mobileMenu.open li:nth-child(2){transition-delay:.04s}#mobileMenu.open li:nth-child(3){transition-delay:.08s}#mobileMenu.open li:nth-child(4){transition-delay:.12s}#mobileMenu.open li:nth-child(5){transition-delay:.16s}
+
+  /* hero */
+  .hero-stage{position:fixed;left:0;right:0;top:-6vh;height:112vh;z-index:0;perspective:1000px;overflow:hidden;pointer-events:none;background:#DDE3EC}
+  #heroImg{position:absolute;left:-4%;top:-4%;width:108%;height:108%;max-width:none;object-fit:cover;object-position:64% 40%;transform-origin:64% 50%;will-change:transform}
+  .hero-wash{position:absolute;inset:0;background:linear-gradient(180deg,rgba(246,247,249,.95) 0%,rgba(246,247,249,.92) 62%,rgba(246,247,249,.78) 82%,rgba(246,247,249,.5) 100%)}
+  @media (min-width:900px){.hero-wash{background:linear-gradient(90deg,rgba(246,247,249,.97) 0%,rgba(246,247,249,.9) 36%,rgba(246,247,249,.35) 60%,rgba(246,247,249,.05) 80%),linear-gradient(180deg,rgba(246,247,249,.85) 0,rgba(246,247,249,0) 16%)}}
+  .blob{position:absolute;border-radius:50%;filter:blur(50px);will-change:transform}
+  .blob.a{width:38vmax;height:38vmax;left:-12vmax;top:-4vh;opacity:.7;background:radial-gradient(circle,#C9D7FA 0%,rgba(201,215,250,0) 68%);animation:floatA 17s ease-in-out infinite alternate}
+  .blob.b{width:28vmax;height:28vmax;left:26vw;bottom:-6vh;opacity:.55;background:radial-gradient(circle,#FCD6C2 0%,rgba(252,214,194,0) 68%);animation:floatB 21s ease-in-out infinite alternate}
+  @keyframes floatA{to{transform:translate3d(7vmax,6vmax,0) scale(1.12)}}
+  @keyframes floatB{to{transform:translate3d(-6vmax,-5vmax,0) scale(.88)}}
+  #hero{position:relative;z-index:1;min-height:100svh}
+  .w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .03em .12em;margin-bottom:-.12em}
+  .w>span{display:inline-block}
+  .js .w>span{transform:translateY(112%);transition:transform .9s var(--ease);transition-delay:var(--wd,0s)}
+  .js .loaded .w>span{transform:none}
+  .js .intro{opacity:0;transform:translateY(14px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .js .loaded .intro{opacity:1;transform:none}
+  .js .loaded .intro.d1{transition-delay:.55s}.js .loaded .intro.d2{transition-delay:.7s}.js .loaded .intro.d3{transition-delay:.85s}.js .loaded .intro.d4{transition-delay:1s}
+  .js #nav .inner{opacity:0;transform:translateY(-8px)}
+  .js #nav.ready .inner{opacity:1;transform:none;transition:opacity .6s var(--ease),transform .6s var(--ease),padding .4s var(--ease)}
+  .shape{position:absolute;pointer-events:none;will-change:transform}
+  .shape svg{animation:spinfloat 14s ease-in-out infinite alternate}
+  @keyframes spinfloat{from{transform:rotate(-10deg) translateY(0)}to{transform:rotate(14deg) translateY(-16px)}}
+  .panel{background:rgba(255,255,255,.88);border:1px solid rgba(17,24,39,.08);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 30px 60px -30px rgba(17,24,39,.45);border-radius:8px}
+  .bar{height:10px;border-radius:2px;transform-origin:0 50%}
+  .js .bar{transform:scaleX(0);transition:transform 1.1s var(--ease);transition-delay:var(--bd,1.1s)}
+  .js .loaded .bar{transform:scaleX(1)}
+  .hl{background:linear-gradient(transparent 60%,rgba(245,195,59,.75) 60%,rgba(245,195,59,.75) 90%,transparent 90%)}
+
+  /* sections */
+  .sheet{position:relative;z-index:2;background:var(--chalk)}
+  .idx{font-family:Outfit,sans-serif;font-weight:800;line-height:.8;color:transparent;-webkit-text-stroke:1.5px rgba(36,80,216,.22);user-select:none}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s;-webkit-tap-highlight-color:transparent}
+  .card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lift);border-color:rgba(36,80,216,.3)}
+  .card:active{transform:translateY(-2px) scale(.99)}
+  .card .ph{overflow:hidden;border-radius:4px;position:relative}
+  .card .ph img{transition:transform .9s var(--ease)}
+  .card:hover .ph img{transform:scale(1.07)}
+  .corner{position:absolute;right:0;top:0;width:44px;height:44px;clip-path:polygon(100% 0,0 0,100% 100%)}
+  .chip{display:inline-flex;align-items:center;gap:6px;border-radius:2px;padding:4px 8px;font-size:11px}
+  .par{will-change:transform}
+  .tl-dot{width:14px;height:14px;transform:rotate(45deg);border:3px solid var(--cobalt);background:#fff}
+
+  /* reveals (JS opts elements into the hidden state) */
+  .js [data-reveal]{transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+  .js [data-reveal="up"]:not(.in){opacity:0;transform:translateY(28px)}
+  .js [data-reveal="scale"]:not(.in){opacity:0;transform:scale(.92)}
+  .js [data-reveal="left"]:not(.in){opacity:0;transform:translateX(-40px)}
+  .js [data-reveal="right"]:not(.in){opacity:0;transform:translateX(40px)}
+  .js [data-reveal="flip"]:not(.in){opacity:0;transform:perspective(900px) rotateY(-16deg) translateX(-20px)}
+  .js [data-reveal="tilt"]:not(.in){opacity:0;transform:perspective(900px) rotateX(14deg) translateY(30px)}
+  .js [data-reveal="mask"]{transition:clip-path 1.1s var(--ease),opacity .6s var(--ease)}
+  .js [data-reveal="mask"]:not(.in){opacity:0;clip-path:polygon(0 0,0 0,0 100%,0 100%)}
+  .js [data-reveal="mask"].in{clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+
+  /* spotlight */
+  .spot{position:relative;overflow:hidden;border-radius:8px}
+  .spot img{animation:kenburns 24s ease-in-out infinite alternate;transform-origin:45% 55%}
+  @keyframes kenburns{from{transform:scale(1.05) translate3d(0,0,0)}to{transform:scale(1.18) translate3d(-2.5%,-2%,0)}}
+  .sweep{position:absolute;inset:-20% -60%;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);animation:sweep 10s ease-in-out infinite;pointer-events:none}
+  @keyframes sweep{0%{transform:translateX(-45%)}60%,100%{transform:translateX(45%)}}
+  .glow{position:absolute;width:60%;aspect-ratio:1;border-radius:50%;filter:blur(60px);opacity:.5;background:radial-gradient(circle,#BFD0FA,rgba(191,208,250,0) 70%);animation:floatA 16s ease-in-out infinite alternate;pointer-events:none}
+  .spot.paused img,.spot.paused .sweep,.spot.paused .glow,.spot.paused .shape svg{animation-play-state:paused}
+
+  /* form */
+  .field{width:100%;min-height:48px;border-radius:4px;border:1.5px solid rgba(17,24,39,.18);background:#fff;padding:12px 14px;font-size:16px;transition:border-color .25s,box-shadow .25s}
+  .field:focus{outline:none;border-color:var(--cobalt);box-shadow:0 0 0 4px rgba(36,80,216,.18)}
+  .field[aria-invalid="true"]{border-color:#C2261B;box-shadow:0 0 0 4px rgba(194,38,27,.12)}
+  .err{color:#B42318;font-size:13px;min-height:18px}
+  .shake{animation:shake .45s var(--ease)}
+  @keyframes shake{20%{transform:translateX(-8px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(3px)}}
+  #formOk{opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+  #formOk.show{opacity:1;transform:none}
+  #formOk .ck{stroke-dasharray:30;stroke-dashoffset:30}
+  #formOk.show .ck{animation:draw .6s .2s var(--ease) forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
+    .js [data-reveal]:not(.in){transform:none!important}
+    .js .w>span,.js .intro,.js .bar{transform:none!important}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="progress" aria-hidden="true"></div>
+
+<header id="nav">
+  <div class="bg"></div>
+  <nav class="inner relative mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6" aria-label="Main">
+    <a href="#top" class="flex min-h-[44px] items-center gap-2.5 font-display text-lg font-bold tracking-tight" aria-label="Crimpwell Boulder Hall, back to top">
+      <svg class="logo-mark" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><polygon points="17,2 31,10 31,24 17,32 3,24 3,10" fill="#2450D8"/><polygon points="17,9 25,23 9,23" fill="#F5C33B"/><circle cx="17" cy="19" r="3" fill="#E8581F"/></svg>
+      <span>Crimpwell<span class="text-cobalt">.</span></span>
+    </a>
+    <ul class="hidden items-center gap-7 text-[15px] font-medium md:flex">
+      <li><a class="ulink inline-flex min-h-[44px] items-center" href="#walls">The walls</a></li>
+      <li><a class="ulink inline-flex min-h-[44px] items-center" href="#passes">Passes</a></li>
+      <li><a class="ulink inline-flex min-h-[44px] items-center" href="#week">This week</a></li>
+      <li><a class="btn btn-cobalt magnetic !min-h-[44px] !px-5 text-sm" href="#join">Join the reset list</a></li>
+    </ul>
+    <button id="burger" class="burger relative h-12 w-12 rounded md:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </nav>
+  <div id="mobileMenu" class="relative border-t border-black/10 bg-chalk md:hidden">
+    <ul class="mx-auto flex max-w-6xl flex-col px-4 py-3 text-lg font-semibold">
+      <li><a class="flex min-h-[48px] items-center" href="#walls">The walls</a></li>
+      <li><a class="flex min-h-[48px] items-center" href="#passes">Passes</a></li>
+      <li><a class="flex min-h-[48px] items-center" href="#week">This week</a></li>
+      <li><a class="flex min-h-[48px] items-center" href="#join">Join the reset list</a></li>
+    </ul>
+  </div>
+</header>
+
+<div id="heroStage" class="hero-stage" aria-hidden="true">
+  <img id="heroImg" src="https://images.unsplash.com/photo-1775655111243-9382dc0cc089?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8Ym91bGRlcmluZyUyMGZyaWVuZHN8ZW58MHwwfHx8MTc5MDkyNzA3N3ww&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80" alt="" fetchpriority="high">
+  <div class="hero-wash"></div>
+  <div id="blobA" class="blob a"></div>
+  <div id="blobB" class="blob b"></div>
+</div>
+
+<main id="main">
+  <section id="hero" aria-labelledby="heroTitle">
+    <span id="top"></span>
+    <div id="shapeA" class="shape left-[3%] top-[11%] hidden sm:block" aria-hidden="true"><svg width="54" height="54" viewBox="0 0 54 54"><polygon points="27,3 51,47 3,47" fill="none" stroke="#2450D8" stroke-width="3"/></svg></div>
+    <div id="shapeB" class="shape right-[8%] bottom-[12%]" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40"><rect x="6" y="6" width="28" height="28" fill="#F5C33B" transform="rotate(20 20 20)"/></svg></div>
+    <div id="heroFg" class="relative mx-auto grid min-h-[100svh] max-w-6xl items-center gap-10 px-4 pb-16 pt-28 sm:px-6 lg:grid-cols-[1.15fr_.85fr] lg:pt-24">
+      <div>
+        <p class="intro d1 mono mb-5 inline-flex items-center gap-2 rounded-sm border border-black/10 bg-white/80 px-3 py-2 text-[11px] font-semibold text-cobalt"><span class="inline-block h-2 w-2 rotate-45 bg-tang"></span>Bouldering hall · Fresh set every Tuesday</p>
+        <h1 id="heroTitle" class="display text-[3.1rem] sm:text-7xl lg:text-[5.4rem]">
+          <span class="w"><span style="--wd:.15s">Find</span></span> <span class="w"><span style="--wd:.23s">your</span></span><br>
+          <span class="w"><span style="--wd:.31s">next</span></span> <span class="w"><span style="--wd:.39s" class="text-cobalt">move.</span></span>
+        </h1>
+        <p class="intro d2 mt-6 max-w-lg text-lg leading-relaxed text-muted">180 problems across three bright walls, from your very first climb to that project you keep falling off. Chalk up, try hard, rest on the mats, go again.</p>
+        <div class="intro d3 mt-8 flex flex-wrap gap-3">
+          <a href="#passes" class="btn btn-cobalt magnetic">Get a day pass <span class="arr" aria-hidden="true">→</span></a>
+          <a href="#week" class="btn btn-line magnetic">Book an intro session</a>
+        </div>
+        <p class="intro d4 mono mt-6 text-[11px] text-muted">Open 7am–11pm · Shoes &amp; chalk to rent · No experience needed</p>
+      </div>
+      <aside class="intro d3 panel p-5 sm:p-6" aria-label="Today's set at a glance">
+        <div class="flex items-center justify-between">
+          <p class="mono text-[11px] font-semibold text-muted">Today's set</p>
+          <p class="mono rounded-sm bg-limeSoft px-2 py-1 text-[11px] font-semibold text-lime">● Open now</p>
+        </div>
+        <p class="mt-3 font-display text-2xl font-bold">Grades on the wall</p>
+        <ul class="mt-4 space-y-3 text-sm">
+          <li><div class="mb-1 flex justify-between"><span class="font-medium">V0–V1 · warm-ups</span><span class="mono text-[11px] text-muted">52</span></div><div class="bar bg-lime" style="width:72%;--bd:1.0s"></div></li>
+          <li><div class="mb-1 flex justify-between"><span class="font-medium">V2–V3 · getting there</span><span class="mono text-[11px] text-muted">61</span></div><div class="bar bg-cobalt" style="width:85%;--bd:1.1s"></div></li>
+          <li><div class="mb-1 flex justify-between"><span class="font-medium">V4–V5 · projects</span><span class="mono text-[11px] text-muted">44</span></div><div class="bar bg-violet" style="width:61%;--bd:1.2s"></div></li>
+          <li><div class="mb-1 flex justify-between"><span class="font-medium">V6+ · the hard stuff</span><span class="mono text-[11px] text-muted">23</span></div><div class="bar bg-tang" style="width:32%;--bd:1.3s"></div></li>
+        </ul>
+        <div class="mt-5 grid grid-cols-3 gap-2 border-t border-black/10 pt-4 text-center">
+          <div><p class="font-display text-2xl font-bold">4.5<span class="text-base">m</span></p><p class="mono text-[10px] text-muted">Wall height</p></div>
+          <div><p class="font-display text-2xl font-bold">600<span class="text-base">m²</span></p><p class="mono text-[10px] text-muted">Of mats</p></div>
+          <div><p class="font-display text-2xl font-bold">7</p><p class="mono text-[10px] text-muted">Days a week</p></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="sheet grid-bg">
+    <!-- THE WALLS -->
+    <section id="walls" class="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-28" aria-labelledby="wallsTitle">
+      <div class="pointer-events-none absolute right-2 top-10 hidden sm:block" aria-hidden="true"><span class="idx par text-[11rem]" data-speed="0.08">01</span></div>
+      <div class="max-w-2xl">
+        <p data-reveal="left" class="mono text-xs font-semibold text-cobalt">01 — The walls</p>
+        <h2 data-reveal="up" class="display mt-3 text-4xl sm:text-6xl">Three zones. One for every mood.</h2>
+        <p data-reveal="up" class="mt-5 text-lg leading-relaxed text-muted">Our setters reset one zone every Tuesday, so there's always something new by the weekend. Colours mark the problem, tags mark the grade.</p>
+      </div>
+      <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-stagger>
+        <article data-reveal="tilt" class="card group p-3">
+          <div class="ph aspect-[4/3]"><img class="par h-full w-full object-cover" data-speed="0.03" src="https://images.unsplash.com/photo-1696105538782-7815474f28e0?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Mnx8Y2xpbWJlciUyMG92ZXJoYW5nJTIwYm91bGRlcmluZ3xlbnwwfDB8fHwxNzkwOTI2NjUxfDA&amp;ixlib=rb-4.1.0&amp;w=1000&amp;h=750&amp;fit=crop&amp;q=80" alt="A climber on a slab wall with large yellow footholds" loading="lazy" width="1000" height="750"><span class="corner bg-lime" aria-hidden="true"></span></div>
+          <div class="p-3 pt-5">
+            <div class="flex items-center justify-between"><h3 class="font-display text-2xl font-bold">The Slab</h3><span class="chip mono bg-limeSoft font-semibold text-lime">V0–V4</span></div>
+            <p class="mt-2 leading-relaxed text-muted">Gentle angles and big yellow feet. Where balance beats strength and first-timers find their feet.</p>
+            <p class="mono mt-4 border-t border-black/10 pt-3 text-[11px] font-semibold text-ink">54 problems · reset week 1</p>
+          </div>
+        </article>
+        <article data-reveal="tilt" class="card group p-3">
+          <div class="ph aspect-[4/3]"><img class="par h-full w-full object-cover" data-speed="0.03" src="https://images.unsplash.com/photo-1696105538708-6be6c90707a1?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8M3x8Ym91bGRlcmluZyUyMGd5bSUyMHdhbGx8ZW58MHwwfHx8MTc5MDkyNjY1MHww&amp;ixlib=rb-4.1.0&amp;w=1000&amp;h=750&amp;fit=crop&amp;q=80" alt="Big yellow faceted volumes on a grey bouldering wall" loading="lazy" width="1000" height="750"><span class="corner bg-sun" aria-hidden="true"></span></div>
+          <div class="p-3 pt-5">
+            <div class="flex items-center justify-between"><h3 class="font-display text-2xl font-bold">The Prism</h3><span class="chip mono bg-sky font-semibold text-cobalt">V2–V6</span></div>
+            <p class="mt-2 leading-relaxed text-muted">Giant faceted volumes you can smear, pinch and press. Puzzles that reward a second look.</p>
+            <p class="mono mt-4 border-t border-black/10 pt-3 text-[11px] font-semibold text-ink">68 problems · reset week 2</p>
+          </div>
+        </article>
+        <article data-reveal="tilt" class="card group p-3 sm:col-span-2 lg:col-span-1">
+          <div class="ph aspect-[4/3]"><img class="par h-full w-full object-cover" data-speed="0.03" src="https://images.unsplash.com/photo-1689775884478-9ed19b79d659?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OHx8aW5kb29yJTIwY2xpbWJpbmclMjBraWRzfGVufDB8MHx8fDE3OTA5MjY2NTF8MA&amp;ixlib=rb-4.1.0&amp;w=1000&amp;h=750&amp;fit=crop&amp;q=80" alt="A climber reaching across a steep wall of blue and green holds" loading="lazy" width="1000" height="750"><span class="corner bg-tang" aria-hidden="true"></span></div>
+          <div class="p-3 pt-5">
+            <div class="flex items-center justify-between"><h3 class="font-display text-2xl font-bold">The Cave</h3><span class="chip mono bg-peach font-semibold text-tang">V4–V9</span></div>
+            <p class="mt-2 leading-relaxed text-muted">A 40° overhang for power, heel hooks and big swings. Bring your strongest friends.</p>
+            <p class="mono mt-4 border-t border-black/10 pt-3 text-[11px] font-semibold text-ink">58 problems · reset week 3</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SPOTLIGHT -->
+    <section class="mx-auto max-w-6xl px-4 pb-8 sm:px-6" aria-labelledby="spotTitle">
+      <div id="spot" data-reveal="mask" class="spot par min-h-[520px] sm:min-h-[480px]" data-speed="-0.04">
+        <img src="https://images.unsplash.com/photo-1619995621826-94cafa15fc9f?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Nnx8Y2xpbWJpbmclMjBjaGFsayUyMGhhbmRzfGVufDB8MHx8fDE3OTA5MjY2NTF8MA&amp;ixlib=rb-4.1.0&amp;w=2000&amp;q=80" alt="Chalk-covered hands held open before a climb" class="absolute inset-0 h-full w-full object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-white/95 via-white/70 to-white/10 sm:bg-gradient-to-r sm:from-white/95 sm:via-white/75 sm:to-white/0"></div>
+        <div class="glow -left-20 -top-20" aria-hidden="true"></div>
+        <div class="sweep" aria-hidden="true"></div>
+        <div class="shape right-[10%] top-[12%] hidden sm:block" aria-hidden="true"><svg width="70" height="70" viewBox="0 0 70 70"><polygon points="35,4 64,20 64,50 35,66 6,50 6,20" fill="none" stroke="#fff" stroke-width="3"/></svg></div>
+        <div class="relative flex min-h-[520px] flex-col justify-end p-6 sm:min-h-[480px] sm:max-w-xl sm:justify-center sm:p-12">
+          <p class="mono text-xs font-semibold text-cobalt">Reset day</p>
+          <h2 id="spotTitle" class="display mt-3 text-4xl sm:text-5xl">Every Tuesday, the wall <span class="hl">changes its mind.</span></h2>
+          <p class="mt-4 max-w-md leading-relaxed text-ink/80">Holds come down, get scrubbed, and go back up as brand-new problems. Come Wednesday and be the first to flash them.</p>
+          <dl class="mt-7 grid max-w-md grid-cols-3 gap-4">
+            <div><dt class="mono text-[10px] font-semibold text-muted">Problems</dt><dd class="font-display text-4xl font-bold"><span data-count="180">180</span></dd></div>
+            <div><dt class="mono text-[10px] font-semibold text-muted">New weekly</dt><dd class="font-display text-4xl font-bold"><span data-count="60">60</span></dd></div>
+            <div><dt class="mono text-[10px] font-semibold text-muted">Setters</dt><dd class="font-display text-4xl font-bold"><span data-count="6">6</span></dd></div>
+          </dl>
+        </div>
+        <button id="motionToggle" class="absolute right-3 top-3 inline-flex min-h-[44px] items-center gap-2 rounded bg-white/90 px-4 text-sm font-semibold shadow sm:right-4 sm:top-auto sm:bottom-4" aria-pressed="false" aria-label="Pause background motion">
+          <svg class="ic-pause" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" fill="currentColor"/><rect x="8.5" y="1" width="3.5" height="12" fill="currentColor"/></svg>
+          <svg class="ic-play hidden" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><polygon points="2,1 13,7 2,13" fill="currentColor"/></svg>
+          <span class="lbl">Pause motion</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- PASSES -->
+    <section id="passes" class="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-28" aria-labelledby="passTitle">
+      <div class="pointer-events-none absolute left-0 top-12 hidden sm:block" aria-hidden="true"><span class="idx par text-[11rem]" data-speed="0.08">02</span></div>
+      <div class="relative mx-auto max-w-2xl text-center">
+        <p data-reveal="scale" class="mono text-xs font-semibold text-cobalt">02 — Passes</p>
+        <h2 data-reveal="scale" class="display mt-3 text-4xl sm:text-6xl">Pick how often you climb.</h2>
+        <p data-reveal="scale" class="mt-5 text-lg leading-relaxed text-muted">Every pass includes the full hall, the training room and free tea at the bench. Shoes are £4 to rent.</p>
+      </div>
+      <div class="mt-14 grid gap-6 md:grid-cols-3" data-stagger>
+        <article data-reveal="up" class="card flex flex-col p-3">
+          <div class="ph aspect-[16/10]"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1703949174168-dc487811ab05?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTB8fGNsaW1iZXIlMjBvdmVyaGFuZyUyMGJvdWxkZXJpbmd8ZW58MHwwfHx8MTc5MDkyNjY1MXww&amp;ixlib=rb-4.1.0&amp;w=1000&amp;h=750&amp;fit=crop&amp;q=80" alt="A climber moving up a wall of purple and yellow holds" loading="lazy" width="1000" height="750"></div>
+          <div class="flex flex-1 flex-col p-3 pt-5">
+            <h3 class="font-display text-2xl font-bold">Day pass</h3>
+            <p class="mt-2 text-muted">Drop in any day, stay as long as your arms allow.</p>
+            <p class="mt-5 font-display text-5xl font-extrabold">£16</p>
+            <ul class="mt-4 space-y-2 text-sm text-ink/80"><li>◆ All three zones</li><li>◆ Free safety briefing</li></ul>
+            <a href="#join" class="btn btn-line mt-6 w-full">Buy at the desk</a>
+          </div>
+        </article>
+        <article data-reveal="up" class="card relative flex flex-col border-cobalt/40 p-3 ring-2 ring-cobalt">
+          <span class="mono absolute -top-3 left-5 z-10 rounded-sm bg-cobalt px-2 py-1 text-[10px] font-semibold text-white">Most popular</span>
+          <div class="ph aspect-[16/10]"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1564769662533-4f00a87b4056?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8Y2xpbWJlciUyMG92ZXJoYW5nJTIwYm91bGRlcmluZ3xlbnwwfDB8fHwxNzkwOTI2NjUxfDA&amp;ixlib=rb-4.1.0&amp;w=1000&amp;h=750&amp;fit=crop&amp;q=80" alt="A woman bouldering on a steep indoor wall" loading="lazy" width="1000" height="750"></div>
+          <div class="flex flex-1 flex-col p-3 pt-5">
+            <h3 class="font-display text-2xl font-bold">Monthly</h3>
+            <p class="mt-2 text-muted">Unlimited climbing plus two guest passes a month.</p>
+            <p class="mt-5 font-display text-5xl font-extrabold">£58<span class="text-lg font-semibold text-muted">/mo</span></p>
+            <ul class="mt-4 space-y-2 text-sm text-ink/80"><li>◆ Unlimited visits</li><li>◆ 10% off classes</li></ul>
+            <a href="#join" class="btn btn-cobalt mt-6 w-full">Start this month</a>
+          </div>
+        </article>
+        <article data-reveal="up" class="card flex flex-col p-3">
+          <div class="ph aspect-[16/10]"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1608027179000-3a1d254a0f46?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OHx8Ym91bGRlcmluZyUyMGZyaWVuZHN8ZW58MHwwfHx8MTc5MDkyNzA3N3ww&amp;ixlib=rb-4.1.0&amp;w=1000&amp;h=750&amp;fit=crop&amp;q=80" alt="Three friends studying a problem on an indoor bouldering wall" loading="lazy" width="1000" height="750"></div>
+          <div class="flex flex-1 flex-col p-3 pt-5">
+            <h3 class="font-display text-2xl font-bold">10-visit card</h3>
+            <p class="mt-2 text-muted">For weekend climbers. Shareable with a friend.</p>
+            <p class="mt-5 font-display text-5xl font-extrabold">£135</p>
+            <ul class="mt-4 space-y-2 text-sm text-ink/80"><li>◆ Never expires</li><li>◆ Two climbers can share</li></ul>
+            <a href="#join" class="btn btn-line mt-6 w-full">Get the card</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- THIS WEEK -->
+    <section id="week" class="relative border-y border-black/10 bg-white py-24 sm:py-28" aria-labelledby="weekTitle">
+      <div class="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[.8fr_1.2fr]">
+        <div class="lg:sticky lg:top-28 lg:self-start">
+          <p data-reveal="left" class="mono text-xs font-semibold text-cobalt">03 — This week</p>
+          <h2 data-reveal="left" class="display mt-3 text-4xl sm:text-6xl">Learn it, then send it.</h2>
+          <p data-reveal="left" class="mt-5 text-lg leading-relaxed text-muted">Small groups, friendly coaches and everything you need provided. Book one session or come every week.</p>
+          <div data-reveal="left" class="mt-8 hidden lg:block" aria-hidden="true">
+            <svg class="par" data-speed="0.06" width="180" height="120" viewBox="0 0 180 120"><polygon points="0,120 60,10 120,120" fill="#DCE6FB"/><polygon points="70,120 120,40 170,120" fill="#FDE5D8"/><circle cx="150" cy="22" r="14" fill="#F5C33B"/></svg>
+          </div>
+        </div>
+        <ol class="relative space-y-6 border-l-2 border-dashed border-cobalt/30 pl-6 sm:pl-10" data-stagger>
+          <li data-reveal="flip" class="card relative grid gap-4 p-3 sm:grid-cols-[200px_1fr]">
+            <span class="tl-dot absolute -left-[33px] top-8 sm:-left-[49px]" aria-hidden="true"></span>
+            <div class="ph aspect-[4/3] sm:aspect-auto sm:h-full"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1516641380162-35b44adf4697?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8Y2xpbWJpbmclMjBjaGFsayUyMGhhbmRzfGVufDB8MHx8fDE3OTA5MjY2NTF8MA&amp;ixlib=rb-4.1.0&amp;w=1000&amp;h=750&amp;fit=crop&amp;q=80" alt="Two hands dusted with climbing chalk" loading="lazy" width="1000" height="750"></div>
+            <div class="p-2 sm:py-3">
+              <p class="mono text-[11px] font-semibold text-cobalt">Mon &amp; Thu · 6:30pm · 90 min</p>
+              <h3 class="mt-1 font-display text-2xl font-bold">First Ascent intro</h3>
+              <p class="mt-2 text-muted">Never climbed? Learn how to fall, read a problem and move your feet. Shoes included.</p>
+              <p class="mt-3 font-semibold">£24 · max 8 people</p>
+            </div>
+          </li>
+          <li data-reveal="flip" class="card relative grid gap-4 p-3 sm:grid-cols-[200px_1fr]">
+            <span class="tl-dot absolute -left-[33px] top-8 sm:-left-[49px]" aria-hidden="true"></span>
+            <div class="ph aspect-[4/3] sm:aspect-auto sm:h-full"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1509398484917-2a5b6439feef?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8NHx8aW5kb29yJTIwY2xpbWJpbmclMjBraWRzfGVufDB8MHx8fDE3OTA5MjY2NTF8MA&amp;ixlib=rb-4.1.0&amp;w=1000&amp;h=750&amp;fit=crop&amp;q=80" alt="A young boy climbing an indoor wall" loading="lazy" width="1000" height="750"></div>
+            <div class="p-2 sm:py-3">
+              <p class="mono text-[11px] font-semibold text-cobalt">Saturday · 10am · 60 min</p>
+              <h3 class="mt-1 font-display text-2xl font-bold">Kids' crew (ages 6–12)</h3>
+              <p class="mt-2 text-muted">Games, colour challenges and plenty of high fives on our low wall. Parents can climb too.</p>
+              <p class="mt-3 font-semibold">£14 · per child</p>
+            </div>
+          </li>
+          <li data-reveal="flip" class="card relative grid gap-4 p-3 sm:grid-cols-[200px_1fr]">
+            <span class="tl-dot absolute -left-[33px] top-8 sm:-left-[49px]" aria-hidden="true"></span>
+            <div class="ph aspect-[4/3] sm:aspect-auto sm:h-full"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1775655111279-748c2dccd065?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTB8fGJvdWxkZXJpbmclMjBneW0lMjB3YWxsfGVufDB8MHx8fDE3OTA5MjY2NTB8MA&amp;ixlib=rb-4.1.0&amp;w=1000&amp;h=750&amp;fit=crop&amp;q=80" alt="A smiling climber stretched out flat against a bouldering wall" loading="lazy" width="1000" height="750"></div>
+            <div class="p-2 sm:py-3">
+              <p class="mono text-[11px] font-semibold text-cobalt">Wednesday · 7pm · 75 min</p>
+              <h3 class="mt-1 font-display text-2xl font-bold">Technique lab</h3>
+              <p class="mt-2 text-muted">Heel hooks, drop knees and quiet feet. Break through your grade plateau with a coach.</p>
+              <p class="mt-3 font-semibold">£20 · V3 and up</p>
+            </div>
+          </li>
+          <li data-reveal="flip" class="card relative grid gap-4 p-3 sm:grid-cols-[200px_1fr]">
+            <span class="tl-dot absolute -left-[33px] top-8 sm:-left-[49px]" aria-hidden="true"></span>
+            <div class="ph aspect-[4/3] sm:aspect-auto sm:h-full"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1775654792415-fa6c6760b886?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OXx8Ym91bGRlcmluZyUyMGd5bSUyMHdhbGx8ZW58MHwwfHx8MTc5MDkyNjY1MHww&amp;ixlib=rb-4.1.0&amp;w=1000&amp;h=750&amp;fit=crop&amp;q=80" alt="Two climbers watching a friend on an indoor wall" loading="lazy" width="1000" height="750"></div>
+            <div class="p-2 sm:py-3">
+              <p class="mono text-[11px] font-semibold text-cobalt">Friday · 6pm till late</p>
+              <h3 class="mt-1 font-display text-2xl font-bold">Reset social</h3>
+              <p class="mt-2 text-muted">Try the week's freshest problems together, swap beta and stay for music on the mats.</p>
+              <p class="mt-3 font-semibold">Free with any pass</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- JOIN -->
+    <section id="join" class="relative mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 sm:py-28" aria-labelledby="joinTitle">
+      <div class="pointer-events-none absolute -left-4 top-16 hidden md:block" aria-hidden="true"><svg class="par" data-speed="-0.06" width="64" height="64" viewBox="0 0 64 64"><polygon points="32,4 60,56 4,56" fill="#ECE6FB"/></svg></div>
+      <div class="pointer-events-none absolute -right-2 bottom-24 hidden md:block" aria-hidden="true"><svg class="par" data-speed="0.07" width="54" height="54" viewBox="0 0 54 54"><circle cx="27" cy="27" r="24" fill="#FDE5D8"/></svg></div>
+      <p data-reveal="up" class="mono text-xs font-semibold text-cobalt">04 — The reset list</p>
+      <h2 data-reveal="up" class="display mt-3 text-4xl sm:text-6xl">Hear about new sets first.</h2>
+      <p data-reveal="up" class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-muted">One short email every Tuesday with what's new on the wall, class spaces and the occasional free guest pass.</p>
+      <form id="joinForm" data-reveal="scale" class="card mx-auto mt-10 max-w-xl p-6 text-left sm:p-8" novalidate>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label for="name" class="mb-1.5 block text-sm font-semibold">First name</label>
+            <input id="name" name="name" class="field" autocomplete="given-name" required aria-describedby="nameErr">
+            <p id="nameErr" class="err mt-1" aria-live="polite"></p>
+          </div>
+          <div>
+            <label for="level" class="mb-1.5 block text-sm font-semibold">Your level</label>
+            <select id="level" name="level" class="field" required aria-describedby="levelErr">
+              <option value="">Choose one</option><option>Brand new</option><option>V0–V3</option><option>V4 and up</option>
+            </select>
+            <p id="levelErr" class="err mt-1" aria-live="polite"></p>
+          </div>
+        </div>
+        <label for="email" class="mb-1.5 mt-2 block text-sm font-semibold">Email</label>
+        <input id="email" name="email" type="email" class="field" autocomplete="email" required aria-describedby="emailErr" placeholder="you@example.com">
+        <p id="emailErr" class="err mt-1" aria-live="polite"></p>
+        <button type="submit" class="btn btn-cobalt magnetic mt-4 w-full">Join the reset list <span class="arr" aria-hidden="true">→</span></button>
+        <div id="formOk" class="mt-5 hidden items-start gap-3 rounded border border-lime/30 bg-limeSoft p-4 text-sm text-ink" role="status">
+          <svg width="26" height="26" viewBox="0 0 26 26" class="shrink-0" aria-hidden="true"><circle cx="13" cy="13" r="12" fill="#4E7A12"/><path class="ck" d="M7.5 13.5l3.5 3.5 7.5-8" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p id="okText"></p>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <footer class="relative z-[2] border-t border-black/10 bg-white">
+    <div class="mx-auto max-w-6xl px-4 py-12 text-center sm:px-6">
+      <a href="#top" class="inline-flex min-h-[44px] items-center gap-2 font-display text-lg font-bold"><svg width="28" height="28" viewBox="0 0 34 34" aria-hidden="true"><polygon points="17,2 31,10 31,24 17,32 3,24 3,10" fill="#2450D8"/><polygon points="17,9 25,23 9,23" fill="#F5C33B"/><circle cx="17" cy="19" r="3" fill="#E8581F"/></svg>Crimpwell Boulder Hall</a>
+      <ul class="mt-4 flex flex-wrap justify-center gap-x-6 text-sm font-medium">
+        <li><a class="ulink inline-flex min-h-[44px] items-center" href="#walls">The walls</a></li>
+        <li><a class="ulink inline-flex min-h-[44px] items-center" href="#passes">Passes</a></li>
+        <li><a class="ulink inline-flex min-h-[44px] items-center" href="#week">This week</a></li>
+        <li><a class="ulink inline-flex min-h-[44px] items-center" href="#join">Reset list</a></li>
+      </ul>
+      <p class="mx-auto mt-6 max-w-3xl text-xs leading-relaxed text-muted">Photos on Unsplash: Photo by <a class="underline" href="https://unsplash.com/@betaboulders?utm_source=webdrip_concepts&utm_medium=referral">Beta Boulders</a> on <a class="underline" href="https://unsplash.com/?utm_source=webdrip_concepts&utm_medium=referral">Unsplash</a> · Photo by <a class="underline" href="https://unsplash.com/@tomtherapidcodeguy?utm_source=webdrip_concepts&utm_medium=referral">tom Parandyk</a> on <a class="underline" href="https://unsplash.com/?utm_source=webdrip_concepts&utm_medium=referral">Unsplash</a> · Photo by <a class="underline" href="https://unsplash.com/@nathan_cima?utm_source=webdrip_concepts&utm_medium=referral">Nathan Cima</a> on <a class="underline" href="https://unsplash.com/?utm_source=webdrip_concepts&utm_medium=referral">Unsplash</a> · Photo by <a class="underline" href="https://unsplash.com/@tofanteo?utm_source=webdrip_concepts&utm_medium=referral">Tofan Teodor</a> on <a class="underline" href="https://unsplash.com/?utm_source=webdrip_concepts&utm_medium=referral">Unsplash</a> · Photo by <a class="underline" href="https://unsplash.com/@lucniner?utm_source=webdrip_concepts&utm_medium=referral">Lukas K</a> on <a class="underline" href="https://unsplash.com/?utm_source=webdrip_concepts&utm_medium=referral">Unsplash</a> · Photo by <a class="underline" href="https://unsplash.com/@ynsplt?utm_source=webdrip_concepts&utm_medium=referral">Yns Plt</a> on <a class="underline" href="https://unsplash.com/?utm_source=webdrip_concepts&utm_medium=referral">Unsplash</a> · Photo by <a class="underline" href="https://unsplash.com/@tannnpro?utm_source=webdrip_concepts&utm_medium=referral">Tanya Prodaan</a> on <a class="underline" href="https://unsplash.com/?utm_source=webdrip_concepts&utm_medium=referral">Unsplash</a> · Photo by <a class="underline" href="https://unsplash.com/@brookanderson?utm_source=webdrip_concepts&utm_medium=referral">Brook Anderson</a> on <a class="underline" href="https://unsplash.com/?utm_source=webdrip_concepts&utm_medium=referral">Unsplash</a> · Photo by <a class="underline" href="https://unsplash.com/@noguidebook?utm_source=webdrip_concepts&utm_medium=referral">Rachel</a> on <a class="underline" href="https://unsplash.com/?utm_source=webdrip_concepts&utm_medium=referral">Unsplash</a>.</p>
+      <p class="mt-4 text-sm text-muted"><a class="ulink inline-flex min-h-[44px] items-center font-semibold text-cobalt" href="https://getwebdrip.com">Concept design by WebDrip — fictional brand</a></p>
+    </div>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav=document.getElementById('nav'), hero=document.getElementById('hero'), stage=document.getElementById('heroStage'), img=document.getElementById('heroImg'), fg=document.getElementById('heroFg'), blobA=document.getElementById('blobA'), blobB=document.getElementById('blobB'), shapeA=document.getElementById('shapeA'), shapeB=document.getElementById('shapeB'), bar=document.getElementById('progress');
+
+  // intro
+  requestAnimationFrame(function(){ nav.classList.add('ready'); setTimeout(function(){ hero.classList.add('loaded'); }, reduce?0:200); });
+
+  // count-up
+  function countUp(el){ if(el.dataset.done) return; el.dataset.done=1; var to=+el.dataset.count; if(reduce||to<2){ el.textContent=to; return; }
+    var t0=performance.now(), dur=1400; (function step(t){ var k=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-k,3); el.textContent=Math.round(to*e); if(k<1) requestAnimationFrame(step); })(t0); }
+  var nums=[].slice.call(document.querySelectorAll('[data-count]'));
+  nums.forEach(function(n){ if(!reduce) n.textContent='0'; });
+
+  // reveals
+  var items=[].slice.call(document.querySelectorAll('[data-reveal]'));
+  document.querySelectorAll('[data-stagger]').forEach(function(g){ [].slice.call(g.querySelectorAll('[data-reveal]')).forEach(function(el,i){ el.style.setProperty('--d',(i*0.09)+'s'); }); });
+  function reveal(el){ if(el.classList.contains('in')) return; el.classList.add('in'); setTimeout(function(){ el.style.setProperty('--d','0s'); },1400); el.querySelectorAll('[data-count]').forEach(countUp); if(el.matches('[data-count]')) countUp(el); }
+  if(reduce||!('IntersectionObserver' in window)){ items.forEach(reveal); nums.forEach(countUp); }
+  else { var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ reveal(e.target); io.unobserve(e.target); } }); },{rootMargin:'0px 0px -8% 0px',threshold:0.01}); items.forEach(function(el){ io.observe(el); }); }
+
+  // shared scroll loop
+  var pars=[].slice.call(document.querySelectorAll('.par'));
+  var target=0, cur=0, ticking=false, lastY=-1;
+  function measure(){ target=window.scrollY; if(!ticking){ ticking=true; requestAnimationFrame(loop); } }
+  function loop(){
+    cur+=(target-cur)*(reduce?1:0.12); if(Math.abs(target-cur)<0.3) cur=target;
+    var vh=window.innerHeight, docH=document.documentElement.scrollHeight-vh;
+    bar.style.transform='scaleX('+(docH>0?Math.min(1,target/docH):0)+')';
+    nav.classList.toggle('scrolled', target>40 || nav.classList.contains('open'));
+    var p=Math.min(1.2,cur/Math.max(1,hero.offsetHeight));
+    if(!reduce){
+      var e=p*p*(3-2*Math.min(1,p));
+      img.style.transform='translate3d('+(p*3).toFixed(2)+'%,'+(-p*5).toFixed(2)+'%,0) scale('+(1+p*0.26).toFixed(4)+') rotateX('+(p*9).toFixed(2)+'deg) rotateY('+(p*5).toFixed(2)+'deg)';
+      fg.style.transform='translate3d(0,'+(-cur*0.36).toFixed(1)+'px,0) scale('+(1-e*0.05).toFixed(4)+')';
+      fg.style.opacity=Math.max(0,1-p*1.35).toFixed(3);
+      shapeA.style.transform='translate3d(0,'+(-cur*0.7).toFixed(1)+'px,0) rotate('+(cur*0.08).toFixed(1)+'deg)';
+      shapeB.style.transform='translate3d(0,'+(-cur*0.95).toFixed(1)+'px,0) rotate('+(-cur*0.1).toFixed(1)+'deg)';
+      blobA.style.translate='0 '+(-cur*0.18).toFixed(1)+'px'; blobB.style.translate='0 '+(-cur*0.1).toFixed(1)+'px';
+      pars.forEach(function(el){ var r=el.getBoundingClientRect(); if(r.bottom<-200||r.top>vh+200) return; var c=(r.top+r.height/2-vh/2); el.style.translate='0 '+(c*parseFloat(el.dataset.speed||0.05)).toFixed(1)+'px'; });
+    }
+    stage.style.opacity = target > hero.offsetHeight*1.4 ? '0' : '1';
+    // safety: anything already above the fold bottom is revealed (covers fast jumps)
+    if(target!==lastY){ lastY=target; for(var i=0;i<items.length;i++){ var it=items[i]; if(!it.classList.contains('in') && it.getBoundingClientRect().top < vh*0.98) reveal(it); } }
+    if(cur!==target) requestAnimationFrame(loop); else ticking=false;
+  }
+  window.addEventListener('scroll',measure,{passive:true}); window.addEventListener('resize',measure); measure();
+
+  // magnetic buttons (desktop)
+  if(!reduce && window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+    document.querySelectorAll('.magnetic').forEach(function(b){
+      b.addEventListener('pointermove',function(ev){ var r=b.getBoundingClientRect(); b.style.transform='translate('+((ev.clientX-r.left-r.width/2)*0.18).toFixed(1)+'px,'+((ev.clientY-r.top-r.height/2)*0.28).toFixed(1)+'px)'; });
+      b.addEventListener('pointerleave',function(){ b.style.transform=''; });
+    });
+  }
+
+  // mobile menu
+  var burger=document.getElementById('burger'), menu=document.getElementById('mobileMenu');
+  function setMenu(open){ burger.setAttribute('aria-expanded',open); burger.setAttribute('aria-label',open?'Close menu':'Open menu'); menu.classList.toggle('open',open); nav.classList.toggle('open',open); nav.classList.toggle('scrolled', open || window.scrollY>40); }
+  burger.addEventListener('click',function(){ setMenu(burger.getAttribute('aria-expanded')!=='true'); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && burger.getAttribute('aria-expanded')==='true'){ setMenu(false); burger.focus(); } });
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ setMenu(false); }); });
+
+  // spotlight motion toggle
+  var tog=document.getElementById('motionToggle'), spot=document.getElementById('spot');
+  tog.addEventListener('click',function(){ var paused=spot.classList.toggle('paused'); tog.setAttribute('aria-pressed',paused); tog.setAttribute('aria-label',paused?'Play background motion':'Pause background motion'); tog.querySelector('.lbl').textContent=paused?'Play motion':'Pause motion'; tog.querySelector('.ic-pause').classList.toggle('hidden',paused); tog.querySelector('.ic-play').classList.toggle('hidden',!paused); });
+
+  // form
+  var form=document.getElementById('joinForm'), ok=document.getElementById('formOk');
+  var emailRe=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function setErr(id,msg){ var f=document.getElementById(id); document.getElementById(id+'Err').textContent=msg; if(msg) f.setAttribute('aria-invalid','true'); else f.removeAttribute('aria-invalid'); return !msg; }
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=form.elements.name.value.trim(), em=form.elements.email.value.trim(), lv=form.elements.level.value;
+    var a=setErr('name', n?'':'Please tell us your first name.');
+    var c=setErr('level', lv?'':'Pick your level so we can suggest problems.');
+    var b=setErr('email', !em?'Please enter your email.':(emailRe.test(em)?'':'That email doesn’t look right. Check for typos?'));
+    if(!(a&&b&&c)){ ok.classList.add('hidden'); ok.classList.remove('flex','show'); form.classList.remove('shake'); void form.offsetWidth; form.classList.add('shake'); var first=form.querySelector('[aria-invalid="true"]'); if(first) first.focus(); return; }
+    document.getElementById('okText').textContent='You’re on the list, '+n.split(' ')[0]+'! Next Tuesday’s new problems will land in '+em+'.';
+    ok.classList.remove('hidden'); ok.classList.add('flex'); requestAnimationFrame(function(){ ok.classList.add('show'); });
+    form.reset();
+  });
+
+  if('serviceWorker' in navigator){ window.addEventListener('load',function(){ navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(function(){}); }); }
+})();
+</script>
+</body>
+</html>

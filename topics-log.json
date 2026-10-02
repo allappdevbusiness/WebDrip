@@ -104,5 +104,24 @@
     "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-larkmere/",
     "buffer_post_id": "6abf521f8bccc8e6416dafdc",
     "fb_post_url": "https://facebook.com/1277092185496389_122101146921495093"
+  },
+  {
+    "date": "2026-10-02",
+    "slug": "2026-10-02-crimpwell",
+    "business_type": "bouldering gym",
+    "brand_name": "Crimpwell Boulder Hall",
+    "design_style": "TypeUI 'geometric' — structured, precise shapes (Outfit 800 display + Inter body + JetBrains Mono labels, 2–8px radii, hexagon logo, triangle/diamond motifs, 32px blueprint grid) adapting its blue #3B82F6 / violet #8B5CF6 tokens into a chalk-white palette with deeper cobalt actions and tangerine/lime/sun hold accents; hero = TypeUI two-column split (copy + CTAs left, glass 'today's set' grade-bar panel right) over a full-bleed bright bouldering roof, walls = 3-up cards with grade chips, passes = 'three pricing cards in a row', classes = ruled vertical timeline with sticky intro, form = centered stack; chosen because route grades and volumes are naturally geometric and it differs from the recent storytelling/bento/riso runs",
+    "palette": {
+      "chalk": "#F6F7F9",
+      "card": "#FFFFFF",
+      "sky": "#DCE6FB",
+      "cobalt": "#2450D8",
+      "violet": "#6D45D6",
+      "tangerine": "#E8581F",
+      "sun": "#F5C33B",
+      "lime": "#4E7A12",
+      "ink": "#111827"
+    },
+    "live_url": "https://webdripsamples.netlify.app/sites/2026-10-02-crimpwell/"
   }
 ]
