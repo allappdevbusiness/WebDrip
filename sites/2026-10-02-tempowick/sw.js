@@ -1,5 +1,5 @@
 // Tempowick Music School concept — service worker
-const CACHE = 'webdrip-2026-10-02-tempowick-v1';
+const CACHE = 'webdrip-2026-10-02-tempowick-v2';
 const PRECACHE = [
   './',
   './index.html',
