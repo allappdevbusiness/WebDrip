@@ -333,5 +333,23 @@
     "video": "https://webdripsamples.netlify.app/sablethorn-demo/reel/video.mp4",
     "buffer_post_id": "6ac06b97d58436703227d0af",
     "fb_post_url": "https://facebook.com/1277092185496389_122101886295495093"
+  },
+  {
+    "date": "2026-10-03",
+    "slug": "lockmoth-demo",
+    "business_type": "escape room venue",
+    "brand_name": "Lockmoth Escape Rooms",
+    "design_style": "TypeUI 'immersive' — exhibit-style game interface on one continuous deep-green canvas (Oswald 300–700 display + body, JetBrains Mono labels, 4–8px radii, 3px black borders, hard 6–12px offset block shadows, skewed white/pink poster buttons with growing shadows, cobalt and hot-pink decorative blocks layered behind content, numbered 'Exhibit 01–04' section kickers); layouts = left-aligned poster hero (masked three-line headline over the fixed attic-stair photo) with a live 'Now playing' countdown HUD card bottom-right, lamp-yellow marquee strip, four room cards with difficulty pips and prices, centred inline stat row as HUD count-up tiles, sticky-intro split with a 2×2 numbered step grid, framed Ken Burns key spotlight with light sweep, centred-intro party cards + cobalt private-hire CTA card, single-column FAQ accordion, split booking form with offset pink backdrop, centred stack footer; chosen because an escape room is literally a playable exhibit, and the loud, gamified poster look breaks from the recent soft editorial, vintage-OS and claymorphism runs",
+    "palette": {
+      "canvas": "#063A27",
+      "deep": "#042A1C",
+      "ink": "#0B0B0C",
+      "paper": "#FFFFFF",
+      "mist": "#D7EBDD",
+      "cobalt": "#2442F0",
+      "pink": "#FF3D8B",
+      "lamp": "#FFC24A"
+    },
+    "live_url": "https://webdripsamples.netlify.app/lockmoth-demo/"
   }
 ]
