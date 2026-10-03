@@ -572,6 +572,25 @@
    "line": "#E6E4DC",
    "text": "#111827",
    "soft": "#4B5563"
-  }
+  },
+  "buffer_post_id": "6ac186c27d53b827e0f14f7f",
+  "buffer_tiktok_post_id": "6ac186c97ff895d757bed3ae",
+  "fb_post_url": "https://facebook.com/1277092185496389_122102854245495093",
+  "tiktok_status": "error — TikTok: 'TikTok has detected a large number of posts published through the API for this channel. Wait 24 hours before trying to publish again.'",
+  "music_brief": "confident, warm modern cinematic pop (85–110 BPM) instrumental with a soft, sparse opening, a steady pulse through the tour and a clear lift for the scrolls — trustworthy and upbeat to match a black-and-yellow plain-English law firm site",
+  "music_track": {
+   "id": "731a4110-972b-3328-af1d-c1a00daeee66",
+   "title": "Heartbeats (Instrumental Version)",
+   "artist": "In Situ",
+   "why": "instrumental, 96 BPM, tagged pop/hopeful/sentimental; from a 10-track instrumental shortlist it had the clearest arc (quiet sparse intro, big entry) with moderate 1–4 kHz density so the voice sits on top; fitted to 60 s with Epidemic Sound EditRecording keeping the intro (0–18 s) and the build+entry (34–56 s placed at 30 s) so the lift lands on the desktop scroll at 34.16 s; strongest late hit at 54.36 s lands the WebDrip logo, natural fade to 60 s"
+  },
+  "voice": "bf_emma",
+  "voiceover": "Kokoro-82M via kokoro-onnx (en-gb), speed 0.95–1.0, 11 lines / ~125 words; word-level subtitles from faster-whisper tiny.en timings (Hugging Face reachable)",
+  "vo_hook": "Read your firm's homepage out loud… would a shop owner actually get it?",
+  "vo_hook_type": "challenge",
+  "caption_hook": "POV: your lawyer's website finally speaks human.",
+  "hook_type": "POV",
+  "sound_effects": "synthesized in code (whooshes, pops, rise, ticks, impact)",
+  "videos_deleted": true
  }
 ]

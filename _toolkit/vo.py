@@ -29,7 +29,7 @@ def gen(cfg, only):
     for l in cfg['lines']:
         if only and l['id'] not in only:
             continue
-        s, sr = k.create(l['say'], voice=l.get('voice', cfg['voice']), speed=l.get('speed', 1.0), lang='en-us')
+        s, sr = k.create(l['say'], voice=l.get('voice', cfg['voice']), speed=l.get('speed', 1.0), lang=l.get('lang', cfg.get('lang', 'en-us')))
         idx = np.where(np.abs(s) > 0.01)[0]
         s = s[max(0, idx[0] - int(.06 * sr)): idx[-1] + int(.12 * sr)]
         s = s * (0.9 / max(0.9, float(np.abs(s).max())))

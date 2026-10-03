@@ -8,7 +8,7 @@ Reusable pieces for each daily concept-site + promo run. Copy, then change only 
 | `pw.config.js` | Minimal Playwright config: `TEST_DIR=<repo>/<slug>/tests NODE_PATH=<video>/node_modules npx playwright test -c pw.config.js` |
 | `rec.js` | Frame-by-frame recorder. Takes a JSON plan of shots (scroll from/to, holds, clicks/taps/fills), slows CSS animations with `Animation.setPlaybackRate`, sets `window.__wdTimeScale` for JS timing, retries flaky proxy image loads and encodes each shot to `<out>/<profile>-<shot>.mp4`. |
 | `mix.py` | Music + voice mix: places voice lines, ducks music ~9 dB under speech, synthesises whoosh / impact / tick / pop / rise in code, masters to −14 LUFS with peaks under −1 dBFS. |
-| `vo.py` | Voiceover + subtitles: `gen` makes each line with Kokoro (kokoro-onnx, trimmed, scaled to a 0.9 peak), `align` gets word timings with faster-whisper tiny.en, `captions` maps them onto the display text (difflib + gap fill + alias map) and writes the Remotion `captions.json`. |
+| `vo.py` | Voiceover + subtitles: `gen` makes each line with Kokoro (kokoro-onnx, trimmed, scaled to a 0.9 peak; set `"lang": "en-gb"` in vo.json for bf_emma), `align` gets word timings with faster-whisper tiny.en, `captions` maps them onto the display text (difflib + gap fill + alias map) and writes the Remotion `captions.json`. |
 | `remotion/` | Promo project template. `src/layout.ts` holds the shared layout system (canvas, safe areas, subtitle lanes, TikTok UI mock, spacing scale, scene boundaries, motion); `src/Promo.tsx` renders the Feed (4:5) and TikTok (9:16) cuts with centred frames, a split screen (type column + tall tile), a bento (one wide tile over two halves), a TikTok desktop-tile + overlapping phone, an "explode" card lift, zoom highlights with `Chip` labels, and `CropTile` windows onto desktop *or* mobile clips; `check.mjs` renders stills at the start/middle/end of every scene and every transition midpoint for both cuts, logs DOM bounding boxes from the composition and fails on safe-area, centring, clip-fill, overlap, TikTok-UI and tilt violations. Pieces tagged `data-offset` (split screen, bento halves) are checked as one centred group. |
 
 Notes that saved time:
@@ -25,3 +25,5 @@ Notes that saved time:
 - Whisper tiny hears an American "riding" as "writing" and can return zero-length words — `vo.py captions` handles both (alias map + span split).
 - Count-ups started late in some recordings; if a number must read final in the video, give the shot a longer hold after the section enters.
 
+- Buffer TikTok can fail with "TikTok has detected a large number of posts published through the API for this channel. Wait 24 hours" — it's a final error on the post; don't retry the same run.
+- Poppins is much wider than Oswald: keep video label titles ≤ ~24 characters (56 px feed / 54 px TikTok) so they stay on one line.
