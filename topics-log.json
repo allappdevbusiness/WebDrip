@@ -293,6 +293,13 @@
    "stamp_orange": "#E8641B",
    "safelight_red": "#B3261E"
   },
-  "live_url": "https://webdripsamples.netlify.app/grainhaven-demo/"
+  "live_url": "https://webdripsamples.netlify.app/grainhaven-demo/",
+  "music_brief": "nostalgic retro synth-funk with punchy drums, a warm analog bassline and a big bright drop — darkroom-warm, vintage-OS playful",
+  "music_track": "original fallback composition (Epidemic Sound API returned HTTP 401 {\"message\":\"Unauthorized\"} on /v0/tracks/search, so no licensed track was used)",
+  "music_style": "retro synth-funk — 120 BPM, A minor (Am7–Fmaj7–C–G), lead hook from beat 1, funky octave saw bass with sidechain, detuned-saw pads, square/saw 16th pluck arp, kick/clap with swung hats, drop at 4s, snare fill into the phone shot, riser into the drip wipe, boom on the logo, mastered to -14 LUFS",
+  "caption_hook": "Does your website feel as special as what you do?",
+  "hook_type": "bold question",
+  "buffer_post_id": "6ac061f3f942e391370583e9",
+  "fb_post_url": "https://facebook.com/1277092185496389_122101868739495093"
  }
 ]
