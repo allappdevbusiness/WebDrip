@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hushwren Tattoo — quiet lines, loud stories (concept)</title>
+<meta name="description" content="Hushwren Tattoo is a concept site by WebDrip: a calm, private fine-line tattoo studio for botanical, script, micro and blackwork pieces, drawn slowly and kept for life.">
+<meta name="theme-color" content="#09090B">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hushwren Tattoo — quiet lines, loud stories">
+<meta property="og:description" content="Fine-line tattoos drawn slowly in a calm, private studio. A concept site by WebDrip.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1712432321375-226f466fff85?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTB8fGZpbmUlMjBsaW5lJTIwdGF0dG9vfGVufDB8fHx8MTc5MTA0ODIxMnww&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hushwren Tattoo — quiet lines, loud stories">
+<meta name="twitter:description" content="Fine-line tattoos drawn slowly in a calm, private studio. A concept site by WebDrip.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1712432321375-226f466fff85?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTB8fGZpbmUlMjBsaW5lJTIwdGF0dG9vfGVufDB8fHx8MTc5MTA0ODIxMnww&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2309090B'/%3E%3Cpath d='M7 20c4-1 7-4 9-8 1 3 3 5 6 5l3 1-3 1c-3 0-5 1-7 3-2 1-5 1-8-2z' fill='none' stroke='%23F43F5E' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='21' cy='14' r='1' fill='%23FAFAFA'/%3E%3C/svg%3E">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { ink: '#09090B', char: '#121215', smoke: '#1C1C21', bone: '#FAFAFA', mist: '#A1A1AA', rose: '#F43F5E', roseSoft: '#FB7185', violet: '#A78BFA' },
+    fontFamily: { sans: ['Outfit', 'system-ui', 'sans-serif'], mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'] }
+  } } };
+</script>
+<style>
+  :root {
+    --ink: #09090B; --char: #121215; --smoke: #1C1C21; --bone: #FAFAFA; --mist: #A1A1AA;
+    --rose: #F43F5E; --rose-2: #FB7185; --violet: #A78BFA;
+    --line: rgba(250,250,250,.09); --line-2: rgba(244,63,94,.45);
+    --r-sm: 4px; --r-md: 8px;
+    --shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 24px 50px -28px rgba(0,0,0,.9);
+    --shadow-hi: 0 1px 0 rgba(255,255,255,.06) inset, 0 36px 70px -30px rgba(244,63,94,.38);
+    --ease: cubic-bezier(.2, .8, .2, 1);
+    --spring: cubic-bezier(.34, 1.3, .5, 1);
+  }
+  html { scroll-behavior: smooth; background: var(--ink); overflow-x: clip; }
+  body { background: var(--ink); color: var(--bone); font-family: Outfit, system-ui, sans-serif; font-size: 18px; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+  main, footer { overflow-x: clip; }
+  ::selection { background: var(--rose); color: var(--ink); }
+  .wd-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; font-size: .72rem; }
+  h1, h2, h3 { letter-spacing: -0.035em; }
+  h2, h3, p { text-wrap: pretty; }
+  h2 { text-wrap: balance; }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible {
+    outline: 3px solid var(--rose); outline-offset: 3px; border-radius: 6px; animation: wd-ring .5s var(--ease);
+  }
+  @keyframes wd-ring { from { outline-offset: 9px; outline-color: transparent; } to { outline-offset: 3px; } }
+
+  #progress { position: fixed; left: 0; top: 0; height: 3px; width: 100%; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, var(--rose), var(--violet)); z-index: 70; }
+
+  /* nav */
+  #nav { position: fixed; inset: 0 0 auto 0; z-index: 60; }
+  #nav .wd-bar { transition: padding .4s var(--ease); }
+  #nav .wd-navpill { background: rgba(9,9,11,.94); border: 1px solid var(--line); box-shadow: 0 18px 40px -24px rgba(0,0,0,.9); transition: box-shadow .4s, background-color .4s, border-color .4s; }
+  @media (min-width: 768px) { #nav .wd-navpill { background: rgba(9,9,11,.55); backdrop-filter: blur(18px) saturate(140%); -webkit-backdrop-filter: blur(18px) saturate(140%); } }
+  #nav.wd-scrolled .wd-bar { padding-top: .4rem; padding-bottom: .4rem; }
+  #nav.wd-scrolled .wd-navpill { border-color: rgba(244,63,94,.3); background: rgba(9,9,11,.82); }
+  .wd-ulink { position: relative; }
+  .wd-ulink::after { content: ''; position: absolute; left: 12px; right: 12px; bottom: 8px; height: 1px; background: var(--rose); transform: scaleX(0); transform-origin: right; transition: transform .35s var(--ease); }
+  .wd-ulink:hover::after, .wd-ulink:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+
+  /* buttons */
+  .wd-btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 52px; padding: 0 1.6rem; border-radius: var(--r-md); font-weight: 700; font-size: 1rem; letter-spacing: -.01em; overflow: hidden; transition: transform .3s var(--spring), box-shadow .3s, background-color .3s; will-change: transform; -webkit-tap-highlight-color: transparent; }
+  .wd-btn-primary { background: var(--rose); color: var(--ink); box-shadow: 0 14px 34px -14px rgba(244,63,94,.85); }
+  .wd-btn-primary:hover { box-shadow: 0 20px 44px -14px rgba(244,63,94,1); }
+  .wd-btn-ghost { background: rgba(250,250,250,.04); color: var(--bone); border: 1px solid rgba(250,250,250,.22); }
+  .wd-btn-ghost:hover { background: rgba(250,250,250,.1); }
+  .wd-btn::before { content: ''; position: absolute; top: 0; bottom: 0; left: -60%; width: 45%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.55), transparent); transform: translateX(0) skewX(-18deg); opacity: 0; }
+  .wd-btn:hover::before { animation: wd-sheen .85s var(--ease); }
+  @keyframes wd-sheen { 0% { opacity: 1; transform: translateX(0) skewX(-18deg); } 100% { opacity: 0; transform: translateX(380%) skewX(-18deg); } }
+  .wd-btn:hover { transform: translateY(-2px); }
+  .wd-btn:active { transform: scale(.96); }
+  .wd-btn .wd-arr { transition: transform .3s var(--spring); }
+  .wd-btn:hover .wd-arr { transform: translateX(4px); }
+
+  /* hero camera */
+  .wd-stage { position: fixed; inset: 0; z-index: 0; perspective: 1000px; overflow: hidden; pointer-events: none; background: #0b0b0d; }
+  #heroImg { position: absolute; inset: -6%; width: 112%; height: 112%; max-width: none; object-fit: cover; object-position: 55% 45%; transform-origin: 50% 55%; will-change: transform; }
+  .wd-shade { position: absolute; inset: 0; background:
+      radial-gradient(ellipse 70% 60% at 62% 42%, transparent 0%, rgba(9,9,11,.35) 60%, rgba(9,9,11,.85) 100%),
+      linear-gradient(180deg, rgba(9,9,11,.55) 0%, rgba(9,9,11,.1) 28%, rgba(9,9,11,.35) 62%, var(--ink) 100%); }
+  .wd-hush { position: absolute; left: -2vw; top: 14vh; font-weight: 900; font-size: 30vw; line-height: .8; letter-spacing: -.07em; color: transparent; -webkit-text-stroke: 1.5px rgba(250,250,250,.16); white-space: nowrap; will-change: transform; user-select: none; }
+  .wd-wren { position: absolute; right: 5vw; top: 11vh; width: min(16vw, 210px); will-change: transform; }
+  .wd-wren path { stroke-dasharray: 900; stroke-dashoffset: 900; }
+  .js.loaded .wd-wren path { stroke-dashoffset: 0; transition: stroke-dashoffset 3.2s var(--ease) .5s; }
+  .no-js .wd-wren path { stroke-dashoffset: 0; }
+  .wd-glow { position: absolute; border-radius: 50%; filter: blur(40px); will-change: transform; pointer-events: none; }
+  .wd-glow-a { width: 38vw; height: 38vw; left: -10vw; bottom: -12vw; background: radial-gradient(circle, rgba(244,63,94,.35), transparent 65%); animation: wd-drift 14s ease-in-out infinite; }
+  .wd-glow-b { width: 30vw; height: 30vw; right: -8vw; top: 6vh; background: radial-gradient(circle, rgba(167,139,250,.28), transparent 65%); animation: wd-drift 18s ease-in-out -6s infinite; }
+  @keyframes wd-drift { 0%,100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(4vw,-3vh,0) scale(1.12); } }
+  .wd-needle { position: absolute; width: 1px; height: 26vh; left: 50%; top: 0; background: linear-gradient(180deg, transparent, rgba(244,63,94,.9)); transform-origin: top; }
+
+  /* masked headline + intro */
+  .wd-mask { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; }
+  .wd-mask > span { display: inline-block; }
+  .js .wd-mask > span { transform: translateY(110%); }
+  .js.loaded .wd-mask > span { transform: none; transition: transform 1.1s var(--ease); }
+  .js.loaded .wd-mask:nth-child(2) > span { transition-delay: .14s; }
+  .js .wd-intro { opacity: 0; transform: translateY(18px); }
+  .js.loaded .wd-intro { opacity: 1; transform: none; transition: opacity .8s var(--ease), transform .9s var(--spring); transition-delay: var(--d, .4s); }
+  .js #nav { opacity: 0; transform: translateY(-16px); }
+  .js.loaded #nav { opacity: 1; transform: none; transition: opacity .6s ease, transform .8s var(--spring); }
+  .js .wd-logo-mark { transform: scale(.3) rotate(-40deg); opacity: 0; }
+  .js.loaded .wd-logo-mark { transform: none; opacity: 1; transition: transform 1s var(--spring) .2s, opacity .4s ease .2s; }
+
+  /* reveals (content visible without JS) */
+  .js [data-reveal] { opacity: 0; transition: opacity .8s var(--ease), transform 1s var(--ease); transition-delay: var(--stagger, 0ms); }
+  .js [data-reveal="up"] { transform: translateY(42px); }
+  .js [data-reveal="pop"] { transform: scale(.88); transition: opacity .6s var(--ease), transform .85s var(--spring); transition-delay: var(--stagger, 0ms); }
+  .js [data-reveal="left"] { transform: translateX(-48px); }
+  .js [data-reveal="right"] { transform: translateX(48px); }
+  .js [data-reveal="tilt"] { transform: perspective(900px) rotateX(14deg) translateY(36px); transform-origin: 50% 100%; }
+  .js [data-reveal="swing"] { transform: perspective(900px) rotateY(-16deg) translateX(-24px); transform-origin: 0 50%; }
+  .js [data-reveal="wipe"] { opacity: 1; clip-path: inset(0 100% 0 0 round 8px); transition: clip-path 1.2s var(--ease); }
+  .js [data-reveal].in { opacity: 1; transform: none; }
+  .js [data-reveal="wipe"].in { clip-path: inset(0 0 0 0 round 8px); }
+
+  /* cards */
+  .wd-card { background: var(--char); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; box-shadow: var(--shadow); transition: transform .45s var(--spring), box-shadow .45s var(--ease), border-color .45s; position: relative; }
+  .js .wd-card.in { transition: transform .5s var(--spring), box-shadow .45s var(--ease), border-color .45s, opacity .8s var(--ease); transition-delay: var(--stagger, 0ms); }
+  .wd-card:hover, .js .wd-card.in:hover { transform: translateY(-8px); box-shadow: var(--shadow-hi); border-color: var(--line-2); }
+  .wd-card:active { transform: translateY(-2px) scale(.99); }
+  .wd-ph { overflow: hidden; position: relative; }
+  .wd-ph img { transition: transform 1.1s var(--ease), filter .6s; filter: grayscale(.35) contrast(1.05); }
+  .wd-card:hover .wd-ph img { transform: scale(1.07); filter: grayscale(0) contrast(1.05); }
+  .wd-ph::after { content: ''; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.22) 50%, transparent 70%); transform: translateX(-120%); }
+  .wd-card:hover .wd-ph::after { transform: translateX(120%); transition: transform 1s var(--ease); }
+  .wd-chip { display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .6rem; border-radius: var(--r-sm); border: 1px solid rgba(250,250,250,.16); background: rgba(9,9,11,.72); }
+  .wd-price { font-variant-numeric: tabular-nums; }
+  .wd-num { -webkit-text-stroke: 1px rgba(244,63,94,.75); color: transparent; }
+
+  /* marquee */
+  .wd-marquee { display: flex; width: max-content; animation: wd-marq 40s linear infinite; }
+  @keyframes wd-marq { to { transform: translateX(-50%); } }
+
+  /* spotlight */
+  .wd-spot-frame { border-radius: var(--r-md); overflow: hidden; position: relative; isolation: isolate; }
+  .wd-spot-img { animation: wd-kenburns 20s ease-in-out infinite alternate; transform-origin: 40% 50%; will-change: transform; }
+  @keyframes wd-kenburns { from { transform: scale(1.05) translate3d(0,0,0); } to { transform: scale(1.18) translate3d(-3%, -2%, 0); } }
+  .wd-sweep { position: absolute; inset: -20% auto -20% 0; width: 40%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.14), transparent); animation: wd-sweep 7s var(--ease) infinite; pointer-events: none; }
+  @keyframes wd-sweep { 0% { transform: translateX(-120%) skewX(-14deg); } 60%,100% { transform: translateX(320%) skewX(-14deg); } }
+  .wd-spot-pulse { animation: wd-pulse 2.4s ease-in-out infinite; }
+  @keyframes wd-pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.6); opacity: .35; } }
+  #spot.paused .wd-spot-img, #spot.paused .wd-sweep, #spot.paused .wd-spot-pulse { animation-play-state: paused; }
+
+  /* faq */
+  details summary { list-style: none; cursor: pointer; }
+  details summary::-webkit-details-marker { display: none; }
+  details .wd-plus { transition: transform .4s var(--spring); }
+  details[open] .wd-plus { transform: rotate(45deg); }
+  details[open] .wd-ans { animation: wd-drop .45s var(--ease); }
+  @keyframes wd-drop { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+
+  /* burger */
+  .wd-burger span { display: block; position: absolute; left: 12px; right: 12px; height: 2px; border-radius: 2px; background: var(--bone); transition: transform .4s var(--spring), opacity .25s; }
+  .wd-burger span:nth-child(1) { top: 16px; } .wd-burger span:nth-child(2) { top: 23px; } .wd-burger span:nth-child(3) { top: 30px; }
+  .wd-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .wd-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(.2); }
+  .wd-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  #mobileMenu { transform-origin: top center; }
+  #mobileMenu.open { animation: wd-menuIn .45s var(--spring); }
+  @keyframes wd-menuIn { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: none; } }
+  #mobileMenu.open li { animation: wd-itemIn .5s var(--ease) both; }
+  #mobileMenu.open li:nth-child(2) { animation-delay: .05s; } #mobileMenu.open li:nth-child(3) { animation-delay: .1s; } #mobileMenu.open li:nth-child(4) { animation-delay: .15s; } #mobileMenu.open li:nth-child(5) { animation-delay: .2s; } #mobileMenu.open li:nth-child(6) { animation-delay: .25s; }
+  @keyframes wd-itemIn { from { opacity: 0; transform: translateX(-14px); } to { opacity: 1; transform: none; } }
+
+  /* form */
+  .wd-field { min-height: 52px; border-radius: var(--r-md); border: 1px solid rgba(250,250,250,.2); background: rgba(250,250,250,.04); padding: 0 1rem; width: 100%; font-size: 1rem; color: var(--bone); transition: border-color .25s, box-shadow .25s; }
+  textarea.wd-field { padding-top: .85rem; padding-bottom: .85rem; min-height: 112px; resize: vertical; }
+  select.wd-field option { background: var(--char); }
+  .wd-field::placeholder { color: #8B8B94; }
+  .wd-field:focus { border-color: var(--rose); box-shadow: 0 0 0 4px rgba(244,63,94,.18); outline: none; }
+  .wd-field[aria-invalid="true"] { border-color: #FB7185; }
+  .wd-shake { animation: wd-shake .45s var(--ease); }
+  @keyframes wd-shake { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-8px); } 40% { transform: translateX(7px); } 60% { transform: translateX(-5px); } 80% { transform: translateX(3px); } }
+  #formOk.show { animation: wd-okIn .6s var(--spring); }
+  @keyframes wd-okIn { from { opacity: 0; transform: translateY(10px) scale(.96); } to { opacity: 1; transform: none; } }
+  #formOk .wd-check path { stroke-dasharray: 30; stroke-dashoffset: 30; }
+  #formOk.show .wd-check path { stroke-dashoffset: 0; transition: stroke-dashoffset .6s var(--ease) .25s; }
+  .wd-grid-bg { background-image: linear-gradient(rgba(250,250,250,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(250,250,250,.035) 1px, transparent 1px); background-size: 48px 48px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+    .js .wd-mask > span, .js .wd-intro, .js [data-reveal], .js #nav, .js .wd-logo-mark { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+    .wd-wren path { stroke-dashoffset: 0 !important; }
+  }
+</style>
+</head>
+<body class="antialiased">
+<a href="#styles" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded focus:bg-rose focus:px-4 focus:py-3 focus:text-ink focus:font-bold">Skip to content</a>
+<div id="progress" aria-hidden="true"></div>
+
+<!-- fixed hero stage -->
+<div class="wd-stage" aria-hidden="true">
+  <img id="heroImg" src="https://images.unsplash.com/photo-1712432321375-226f466fff85?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTB8fGZpbmUlMjBsaW5lJTIwdGF0dG9vfGVufDB8fHx8MTc5MTA0ODIxMnww&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80" alt="" fetchpriority="high" decoding="async">
+  <div class="wd-shade"></div>
+  <div class="wd-glow wd-glow-a"></div>
+  <div class="wd-glow wd-glow-b"></div>
+  <div class="wd-hush" data-hpar="-0.18">hush</div>
+  <svg class="wd-wren" data-hpar="-0.45" viewBox="0 0 300 220" fill="none" stroke="#FAFAFA" stroke-opacity=".75" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M30 150c40-6 70-30 92-64 10-16 26-26 46-24 18 2 30 14 36 30l40 6-38 10c-6 24-26 44-56 52-34 9-80 6-120-10z"/>
+    <path d="M118 120c18 10 40 14 62 8M150 92c10 22 6 46-10 64"/>
+    <circle cx="186" cy="80" r="3"/>
+    <path d="M44 148c-14 4-22 12-26 22M60 154c-6 12-6 24 0 34M206 112c20 30 34 60 40 96"/>
+  </svg>
+</div>
+
+<header id="nav">
+  <div class="wd-bar mx-auto max-w-7xl px-4 sm:px-6 py-4">
+    <nav class="wd-navpill flex items-center justify-between rounded-lg pl-4 pr-2 py-2" aria-label="Main">
+      <a href="#top" class="flex min-h-[44px] items-center gap-2.5 font-black text-lg tracking-[-0.04em]" aria-label="Hushwren Tattoo, back to top">
+        <svg class="wd-logo-mark h-8 w-8" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#F43F5E"/><path d="M7 20c4-1 7-4 9-8 1 3 3 5 6 5l3 1-3 1c-3 0-5 1-7 3-2 1-5 1-8-2z" fill="none" stroke="#09090B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="21" cy="14" r="1.2" fill="#09090B"/></svg>
+        <span>Hushwren<span class="font-light text-mist"> tattoo</span></span>
+      </a>
+      <ul class="hidden md:flex items-center gap-1 text-[15px] font-medium text-bone/85">
+        <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3 hover:text-bone" href="#styles">Styles</a></li>
+        <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3 hover:text-bone" href="#flash">Flash Fridays</a></li>
+        <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3 hover:text-bone" href="#artists">Artists</a></li>
+        <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3 hover:text-bone" href="#sessions">How it works</a></li>
+        <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3 hover:text-bone" href="#faq">Aftercare</a></li>
+      </ul>
+      <div class="flex items-center gap-2">
+        <a href="#book" class="wd-btn wd-btn-primary wd-magnetic hidden sm:inline-flex !min-h-[44px] !px-4 text-[15px]">Book a consult <span class="wd-arr" aria-hidden="true">→</span></a>
+        <button id="burger" class="wd-burger relative md:hidden h-[46px] w-[46px] rounded-md border border-white/15" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+    <div id="mobileMenu" class="md:hidden mt-2 rounded-lg border border-white/10 bg-char/95 p-3 shadow-2xl" hidden>
+      <ul class="flex flex-col text-lg font-semibold">
+        <li><a class="flex min-h-[48px] items-center justify-between rounded-md px-3 hover:bg-white/5" href="#styles">Styles <span class="wd-mono text-mist">01</span></a></li>
+        <li><a class="flex min-h-[48px] items-center justify-between rounded-md px-3 hover:bg-white/5" href="#flash">Flash Fridays <span class="wd-mono text-mist">02</span></a></li>
+        <li><a class="flex min-h-[48px] items-center justify-between rounded-md px-3 hover:bg-white/5" href="#artists">Artists <span class="wd-mono text-mist">03</span></a></li>
+        <li><a class="flex min-h-[48px] items-center justify-between rounded-md px-3 hover:bg-white/5" href="#sessions">How it works <span class="wd-mono text-mist">04</span></a></li>
+        <li><a class="flex min-h-[48px] items-center justify-between rounded-md px-3 hover:bg-white/5" href="#faq">Aftercare <span class="wd-mono text-mist">05</span></a></li>
+        <li class="pt-2"><a class="wd-btn wd-btn-primary w-full" href="#book">Book a free consult <span class="wd-arr" aria-hidden="true">→</span></a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main id="top" class="relative z-10">
+  <!-- HERO: asymmetric — glass booking card left, oversized headline bottom-right -->
+  <section class="relative min-h-[100svh] flex items-end" aria-labelledby="heroTitle">
+    <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 pb-14 sm:pb-20 pt-32">
+      <div class="grid items-end gap-8 lg:grid-cols-12">
+        <aside id="heroCard" class="wd-intro order-2 lg:order-1 lg:col-span-4 max-w-sm rounded-lg border border-white/15 bg-ink/70 p-5 shadow-2xl md:backdrop-blur-md" style="--d:.9s" aria-label="Studio status">
+          <p class="wd-mono flex items-center gap-2 text-roseSoft"><span class="relative inline-flex h-2 w-2"><span class="wd-spot-pulse absolute inset-0 rounded-full bg-rose"></span><span class="relative h-2 w-2 rounded-full bg-rose"></span></span> Now booking · November</p>
+          <p class="mt-3 text-[15px] leading-relaxed text-bone/90">One client in the studio at a time. Free 20-minute consults, in person or on a video call.</p>
+          <dl class="mt-4 grid grid-cols-3 gap-2 border-t border-white/10 pt-4 text-center">
+            <div><dt class="wd-mono text-mist !text-[10px]">Small</dt><dd class="mt-1 text-lg font-extrabold">$120</dd></div>
+            <div><dt class="wd-mono text-mist !text-[10px]">Half day</dt><dd class="mt-1 text-lg font-extrabold">$480</dd></div>
+            <div><dt class="wd-mono text-mist !text-[10px]">Flash</dt><dd class="mt-1 text-lg font-extrabold">$90</dd></div>
+          </dl>
+        </aside>
+        <div id="heroCopy" class="order-1 lg:order-2 lg:col-span-8 lg:text-right">
+          <p class="wd-intro wd-mono text-roseSoft" style="--d:.2s">Fine-line tattoo studio · est. in a quiet room</p>
+          <h1 id="heroTitle" class="mt-4 font-black leading-[.88] text-[clamp(3.2rem,10.5vw,9.4rem)] tracking-[-0.055em]">
+            <span class="wd-mask"><span>Quiet lines.</span></span>
+            <span class="wd-mask"><span class="text-rose">Loud stories.</span></span>
+          </h1>
+          <p class="wd-intro mt-6 max-w-xl text-lg sm:text-xl leading-relaxed text-bone/85 lg:ml-auto" style="--d:.55s">Botanical, script, micro and blackwork tattoos, drawn slowly with you and made to heal clean.</p>
+          <div class="wd-intro mt-8 flex flex-wrap gap-3 lg:justify-end" style="--d:.7s">
+            <a href="#book" class="wd-btn wd-btn-primary wd-magnetic">Book a free consult <span class="wd-arr" aria-hidden="true">→</span></a>
+            <a href="#styles" class="wd-btn wd-btn-ghost">See the styles</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- marquee -->
+  <div class="relative border-y border-white/10 bg-rose py-4 text-ink overflow-hidden" aria-hidden="true">
+    <div class="wd-marquee gap-10 text-2xl sm:text-3xl font-black tracking-[-0.04em] whitespace-nowrap">
+      <span>fine line ✦ botanical ✦ micro script ✦ blackwork ✦ single needle ✦ ornamental ✦ flash fridays ✦</span>
+      <span>fine line ✦ botanical ✦ micro script ✦ blackwork ✦ single needle ✦ ornamental ✦ flash fridays ✦</span>
+    </div>
+  </div>
+
+  <div class="relative bg-ink">
+  <!-- STYLES: uniform six-card grid -->
+  <section id="styles" class="relative scroll-mt-24 py-24 sm:py-32 wd-grid-bg" aria-labelledby="stylesTitle">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="grid gap-6 lg:grid-cols-12 lg:items-end">
+        <div class="lg:col-span-7" data-reveal="left">
+          <p class="wd-mono text-roseSoft">01 — Styles</p>
+          <h2 id="stylesTitle" class="mt-4 text-4xl sm:text-6xl font-black leading-[.95]">Six ways to wear <span class="text-rose">a whisper.</span></h2>
+        </div>
+        <p class="lg:col-span-5 text-lg text-mist leading-relaxed" data-reveal="right">Every piece starts as a pencil sketch on your skin's real shape. Prices below are starting points for a palm-sized piece.</p>
+      </div>
+      <ul class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <li class="wd-card" data-reveal="up">
+          <div class="wd-ph aspect-[4/3]"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1570168983832-8989dae1522e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8M3x8ZmluZSUyMGxpbmUlMjB0YXR0b298ZW58MHx8fHwxNzkxMDQ4MjEyfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="grayswash arm tattoo" loading="lazy" decoding="async"><span class="wd-chip wd-mono absolute left-3 top-3 text-bone">Most loved</span></div>
+          <div class="p-6"><div class="flex items-baseline justify-between gap-3"><h3 class="text-2xl font-extrabold">Fine line</h3><span class="wd-num text-3xl font-black">01</span></div>
+          <p class="mt-2 text-mist leading-relaxed">Hair-thin single-needle work with soft grey shading that sits close to the skin.</p>
+          <p class="wd-price mt-5 flex items-center justify-between border-t border-white/10 pt-4 font-semibold"><span>From $120</span><span class="wd-mono text-roseSoft">Palm-sized</span></p></div>
+        </li>
+        <li class="wd-card" data-reveal="pop">
+          <div class="wd-ph aspect-[4/3]"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1787308094157-73e9eb65e2e7?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8M3x8Ym90YW5pY2FsJTIwdGF0dG9vJTIwYXJtfGVufDB8fHx8MTc5MTA0ODIxNHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A hand with a tattooed arm holding a small branch of white flowers" loading="lazy" decoding="async"><span class="wd-chip wd-mono absolute left-3 top-3 text-bone">Hand-drawn</span></div>
+          <div class="p-6"><div class="flex items-baseline justify-between gap-3"><h3 class="text-2xl font-extrabold">Botanical</h3><span class="wd-num text-3xl font-black">02</span></div>
+          <p class="mt-2 text-mist leading-relaxed">Sprigs, stems and wildflowers drawn to follow the curve of your arm.</p>
+          <p class="wd-price mt-5 flex items-center justify-between border-t border-white/10 pt-4 font-semibold"><span>From $160</span><span class="wd-mono text-roseSoft">Palm-sized</span></p></div>
+        </li>
+        <li class="wd-card" data-reveal="up">
+          <div class="wd-ph aspect-[4/3]"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1736628283631-8d9c8167fa88?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTd8fGZpbmUlMjBsaW5lJTIwdGF0dG9vfGVufDB8fHx8MTc5MTA0ODIxMnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A person with a small heart tattoo on their finger" loading="lazy" decoding="async"><span class="wd-chip wd-mono absolute left-3 top-3 text-bone">Under 2 cm</span></div>
+          <div class="p-6"><div class="flex items-baseline justify-between gap-3"><h3 class="text-2xl font-extrabold">Micro</h3><span class="wd-num text-3xl font-black">03</span></div>
+          <p class="mt-2 text-mist leading-relaxed">Tiny symbols for fingers, ears and wrists, sized so they stay crisp.</p>
+          <p class="wd-price mt-5 flex items-center justify-between border-t border-white/10 pt-4 font-semibold"><span>From $90</span><span class="wd-mono text-roseSoft">Palm-sized</span></p></div>
+        </li>
+        <li class="wd-card" data-reveal="tilt">
+          <div class="wd-ph aspect-[4/3]"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1547754145-ef9ff306e3f3?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Mnx8ZmluZSUyMGxpbmUlMjB0YXR0b298ZW58MHx8fHwxNzkxMDQ4MjEyfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="music bicep tattoo" loading="lazy" decoding="async"><span class="wd-chip wd-mono absolute left-3 top-3 text-bone">Your handwriting</span></div>
+          <div class="p-6"><div class="flex items-baseline justify-between gap-3"><h3 class="text-2xl font-extrabold">Script</h3><span class="wd-num text-3xl font-black">04</span></div>
+          <p class="mt-2 text-mist leading-relaxed">Names, dates and lines of a song, in your own handwriting or ours.</p>
+          <p class="wd-price mt-5 flex items-center justify-between border-t border-white/10 pt-4 font-semibold"><span>From $110</span><span class="wd-mono text-roseSoft">Palm-sized</span></p></div>
+        </li>
+        <li class="wd-card" data-reveal="pop">
+          <div class="wd-ph aspect-[4/3]"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1588417490421-63d4e4175f95?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Mnx8Ym90YW5pY2FsJTIwdGF0dG9vJTIwYXJtfGVufDB8fHx8MTc5MTA0ODIxNHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="black and red flower tattoo on right human hand" loading="lazy" decoding="async"><span class="wd-chip wd-mono absolute left-3 top-3 text-bone">Bold</span></div>
+          <div class="p-6"><div class="flex items-baseline justify-between gap-3"><h3 class="text-2xl font-extrabold">Blackwork</h3><span class="wd-num text-3xl font-black">05</span></div>
+          <p class="mt-2 text-mist leading-relaxed">Bold, solid ink and geometric shapes for pieces that speak up.</p>
+          <p class="wd-price mt-5 flex items-center justify-between border-t border-white/10 pt-4 font-semibold"><span>From $220</span><span class="wd-mono text-roseSoft">Palm-sized</span></p></div>
+        </li>
+        <li class="wd-card" data-reveal="tilt">
+          <div class="wd-ph aspect-[4/3]"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1758404255679-9afd847ede1c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTV8fHRhdHRvbyUyMG1hY2hpbmUlMjBpbmt8ZW58MHx8fHwxNzkxMDQ4MjEzfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Tattoo artist applying ink to a client&#x27;s leg" loading="lazy" decoding="async"><span class="wd-chip wd-mono absolute left-3 top-3 text-bone">Half day</span></div>
+          <div class="p-6"><div class="flex items-baseline justify-between gap-3"><h3 class="text-2xl font-extrabold">Ornamental</h3><span class="wd-num text-3xl font-black">06</span></div>
+          <p class="mt-2 text-mist leading-relaxed">Lace, filigree and patterns built to wrap a shoulder, calf or spine.</p>
+          <p class="wd-price mt-5 flex items-center justify-between border-t border-white/10 pt-4 font-semibold"><span>From $380</span><span class="wd-mono text-roseSoft">Palm-sized</span></p></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- stat row -->
+  <section class="relative border-y border-white/10 bg-char py-16" aria-label="Studio in numbers">
+    <ul class="mx-auto grid max-w-6xl grid-cols-2 gap-y-10 px-4 sm:px-6 md:grid-cols-4 text-center">
+      <li data-reveal="pop"><p class="text-5xl sm:text-6xl font-black tracking-[-0.05em]"><span data-count="9">9</span></p><p class="wd-mono mt-2 text-mist">Years in the chair</p></li>
+      <li data-reveal="pop"><p class="text-5xl sm:text-6xl font-black tracking-[-0.05em] text-rose"><span data-count="1">1</span></p><p class="wd-mono mt-2 text-mist">Client at a time</p></li>
+      <li data-reveal="pop"><p class="text-5xl sm:text-6xl font-black tracking-[-0.05em]"><span data-count="4">4</span></p><p class="wd-mono mt-2 text-mist">Resident artists</p></li>
+      <li data-reveal="pop"><p class="text-5xl sm:text-6xl font-black tracking-[-0.05em] text-violet"><span data-count="20">20</span><span class="text-3xl">min</span></p><p class="wd-mono mt-2 text-mist">Free consults</p></li>
+    </ul>
+  </section>
+
+  <!-- SPOTLIGHT -->
+  <section id="flash" class="relative scroll-mt-24 py-24 sm:py-32" aria-labelledby="flashTitle">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div id="spot" class="wd-spot-frame border border-white/10 shadow-[0_40px_90px_-40px_rgba(244,63,94,.45)]" data-reveal="wipe">
+        <div class="relative aspect-[4/5] sm:aspect-[16/10] lg:aspect-[21/9] overflow-hidden">
+          <img class="wd-spot-img absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1769485016772-c5a4234a6be3?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTV8fHRhdHRvbyUyMGZsYXNoJTIwc2hlZXR8ZW58MHx8fHwxNzkxMDQ4MjEyfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A wall of hand-drawn tattoo flash designs pinned up in the studio" loading="lazy" decoding="async">
+          <div class="wd-sweep" aria-hidden="true"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/10 lg:bg-gradient-to-r lg:from-ink/95 lg:via-ink/45 lg:to-transparent"></div>
+          <div class="absolute inset-x-0 bottom-0 p-6 sm:p-10 lg:inset-y-0 lg:right-auto lg:flex lg:max-w-xl lg:flex-col lg:justify-center">
+            <p class="wd-mono text-roseSoft">02 — Spotlight</p>
+            <h2 id="flashTitle" class="mt-3 text-4xl sm:text-6xl font-black leading-[.95]">Flash Fridays.</h2>
+            <p class="mt-4 text-lg text-bone/90 leading-relaxed">Every Friday, pick a ready-drawn piece off the wall and wear it home the same day. Walk-ins from noon to 8.</p>
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+              <span class="wd-chip wd-mono text-bone">Flash from <strong class="text-rose">$90</strong></span>
+              <span class="wd-chip wd-mono text-bone">Each design inked once</span>
+            </div>
+          </div>
+          <button id="spotToggle" type="button" class="absolute right-4 top-4 inline-flex min-h-[44px] items-center gap-2 rounded-md border border-white/20 bg-ink/75 px-4 text-sm font-semibold text-bone hover:bg-ink" aria-pressed="false">
+            <svg id="pauseIco" class="h-4 w-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg>
+            <svg id="playIco" class="hidden h-4 w-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>
+            <span id="spotLabel">Pause motion</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTISTS: four-column grid with badge, role and contact -->
+  <section id="artists" class="relative scroll-mt-24 py-24 sm:py-32 bg-char border-y border-white/10" aria-labelledby="artistsTitle">
+    <div class="wd-glow" data-par="-0.12" style="width:40vw;height:40vw;right:-14vw;top:10%;background:radial-gradient(circle,rgba(167,139,250,.18),transparent 65%)" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="max-w-2xl" data-reveal="up">
+        <p class="wd-mono text-roseSoft">03 — Artists</p>
+        <h2 id="artistsTitle" class="mt-4 text-4xl sm:text-6xl font-black leading-[.95]">Four steady hands.</h2>
+        <p class="mt-5 text-lg text-mist leading-relaxed">Each artist has a lane they love. Pick one, or tell us your idea and we'll match you.</p>
+      </div>
+      <ul class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <li class="wd-card flex flex-col" data-reveal="swing">
+          <div class="wd-ph aspect-[4/5]"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1767887874488-5f715c7db794?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MjB8fHRhdHRvbyUyMGFydGlzdCUyMHN0dWRpbyUyMGRhcmt8ZW58MHx8fHwxNzkxMDQ4MjExfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Portrait for Mara Quill, fine line & botanical artist" loading="lazy" decoding="async"><span class="wd-chip wd-mono absolute left-3 top-3 text-bone">Founder</span></div>
+          <div class="flex flex-1 flex-col p-5"><h3 class="text-xl font-extrabold">Mara Quill</h3><p class="mt-1 text-mist">Fine line & botanical</p>
+          <p class="wd-price mt-4 text-sm text-bone/90">Books from <strong class="text-bone">$180/hr</strong></p>
+          <a href="#book" class="wd-btn wd-btn-ghost mt-5 !min-h-[46px] w-full text-[15px]">Ask Mara <span class="wd-arr" aria-hidden="true">→</span></a></div>
+        </li>
+        <li class="wd-card flex flex-col" data-reveal="swing">
+          <div class="wd-ph aspect-[4/5]"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1759247943101-f1b32bcc6a8b?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8NXx8dGF0dG9vJTIwYXJ0aXN0JTIwc3R1ZGlvJTIwZGFya3xlbnwwfHx8fDE3OTEwNDgyMTF8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Portrait for Theo Brannock, blackwork & ornamental artist" loading="lazy" decoding="async"><span class="wd-chip wd-mono absolute left-3 top-3 text-bone">Resident</span></div>
+          <div class="flex flex-1 flex-col p-5"><h3 class="text-xl font-extrabold">Theo Brannock</h3><p class="mt-1 text-mist">Blackwork & ornamental</p>
+          <p class="wd-price mt-4 text-sm text-bone/90">Books from <strong class="text-bone">$170/hr</strong></p>
+          <a href="#book" class="wd-btn wd-btn-ghost mt-5 !min-h-[46px] w-full text-[15px]">Ask Theo <span class="wd-arr" aria-hidden="true">→</span></a></div>
+        </li>
+        <li class="wd-card flex flex-col" data-reveal="swing">
+          <div class="wd-ph aspect-[4/5]"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1542744383-8c330d91f4b1?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8NHx8ZmluZSUyMGxpbmUlMjB0YXR0b298ZW58MHx8fHwxNzkxMDQ4MjEyfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Portrait for Ines Varo, micro & script artist" loading="lazy" decoding="async"><span class="wd-chip wd-mono absolute left-3 top-3 text-bone">Resident</span></div>
+          <div class="flex flex-1 flex-col p-5"><h3 class="text-xl font-extrabold">Ines Varo</h3><p class="mt-1 text-mist">Micro & script</p>
+          <p class="wd-price mt-4 text-sm text-bone/90">Books from <strong class="text-bone">$160/hr</strong></p>
+          <a href="#book" class="wd-btn wd-btn-ghost mt-5 !min-h-[46px] w-full text-[15px]">Ask Ines <span class="wd-arr" aria-hidden="true">→</span></a></div>
+        </li>
+        <li class="wd-card flex flex-col" data-reveal="swing">
+          <div class="wd-ph aspect-[4/5]"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1482375702222-03a768d5ea3c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTJ8fHRhdHRvbyUyMG1hY2hpbmUlMjBpbmt8ZW58MHx8fHwxNzkxMDQ4MjEzfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Portrait for Jun Ashby, flash & single needle artist" loading="lazy" decoding="async"><span class="wd-chip wd-mono absolute left-3 top-3 text-bone">Guest · Fridays</span></div>
+          <div class="flex flex-1 flex-col p-5"><h3 class="text-xl font-extrabold">Jun Ashby</h3><p class="mt-1 text-mist">Flash & single needle</p>
+          <p class="wd-price mt-4 text-sm text-bone/90">Books from <strong class="text-bone">$150/hr</strong></p>
+          <a href="#book" class="wd-btn wd-btn-ghost mt-5 !min-h-[46px] w-full text-[15px]">Ask Jun <span class="wd-arr" aria-hidden="true">→</span></a></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SESSIONS -->
+  <section id="sessions" class="relative scroll-mt-24 py-24 sm:py-32" aria-labelledby="sessionsTitle">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="grid gap-6 lg:grid-cols-12 lg:items-end">
+        <h2 id="sessionsTitle" class="lg:col-span-7 text-4xl sm:text-6xl font-black leading-[.95]" data-reveal="left"><span class="wd-mono block text-roseSoft mb-4 !text-[.72rem] tracking-[.08em]">04 — How it works</span>Three calm steps, <span class="text-rose">zero rush.</span></h2>
+        <p class="lg:col-span-5 text-lg text-mist leading-relaxed" data-reveal="right">No pressure, no upsell. You see the stencil on your skin before a single line goes in.</p>
+      </div>
+      <ol class="mt-14 grid gap-5 md:grid-cols-3">
+        <li class="wd-card" data-reveal="up">
+          <div class="wd-ph aspect-[16/10]"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1711112109420-ecf9be11abb7?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTl8fHRhdHRvbyUyMGZsYXNoJTIwc2hlZXR8ZW58MHx8fHwxNzkxMDQ4MjEyfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="a card with a drawing of a rose on it" loading="lazy" decoding="async"><span class="absolute bottom-3 left-4 text-6xl font-black text-rose/90 tracking-[-0.06em]">01</span></div>
+          <div class="p-6"><h3 class="text-2xl font-extrabold">Consult</h3><p class="mt-2 text-mist leading-relaxed">Bring photos, words, a feeling. We sketch rough ideas together on paper.</p>
+          <p class="mt-5 border-t border-white/10 pt-4 wd-mono text-roseSoft">Free · 20 min</p></div>
+        </li>
+        <li class="wd-card" data-reveal="up">
+          <div class="wd-ph aspect-[16/10]"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1753260814170-9f77d48c016e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OHx8dGF0dG9vJTIwZmxhc2glMjBzaGVldHxlbnwwfHx8fDE3OTEwNDgyMTJ8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Someone is cutting out a small tattoo stencil" loading="lazy" decoding="async"><span class="absolute bottom-3 left-4 text-6xl font-black text-rose/90 tracking-[-0.06em]">02</span></div>
+          <div class="p-6"><h3 class="text-2xl font-extrabold">Stencil</h3><p class="mt-2 text-mist leading-relaxed">We print the final drawing and place it on your skin until it sits just right.</p>
+          <p class="mt-5 border-t border-white/10 pt-4 wd-mono text-roseSoft">Same day · 30 min</p></div>
+        </li>
+        <li class="wd-card" data-reveal="up">
+          <div class="wd-ph aspect-[16/10]"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8dGF0dG9vJTIwbWFjaGluZSUyMGlua3xlbnwwfHx8fDE3OTEwNDgyMTN8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="person doing tattoo" loading="lazy" decoding="async"><span class="absolute bottom-3 left-4 text-6xl font-black text-rose/90 tracking-[-0.06em]">03</span></div>
+          <div class="p-6"><h3 class="text-2xl font-extrabold">The session</h3><p class="mt-2 text-mist leading-relaxed">Slow, quiet work with breaks when you want them. Most pieces take 1 to 3 hours.</p>
+          <p class="mt-5 border-t border-white/10 pt-4 wd-mono text-roseSoft">From $120</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="relative scroll-mt-24 pb-24 sm:pb-32" aria-labelledby="faqTitle">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6">
+      <div class="text-center" data-reveal="up">
+        <p class="wd-mono text-roseSoft">05 — Aftercare</p>
+        <h2 id="faqTitle" class="mt-4 text-4xl sm:text-5xl font-black leading-[.95]">Good questions.</h2>
+      </div>
+      <div class="mt-10 divide-y divide-white/10 rounded-lg border border-white/10 bg-char" data-reveal="tilt">
+        <details class="group p-1"><summary class="flex min-h-[60px] items-center justify-between gap-4 px-5 text-lg font-semibold">Does fine line hurt more?<span class="wd-plus text-2xl text-rose" aria-hidden="true">+</span></summary><p class="wd-ans px-5 pb-5 text-mist leading-relaxed">Usually less. A single needle moves lightly, and we take breaks whenever you want one.</p></details>
+        <details class="group p-1"><summary class="flex min-h-[60px] items-center justify-between gap-4 px-5 text-lg font-semibold">Will tiny lines blur over time?<span class="wd-plus text-2xl text-rose" aria-hidden="true">+</span></summary><p class="wd-ans px-5 pb-5 text-mist leading-relaxed">We size every design so the lines have room to settle. If it's too small to last, we'll tell you.</p></details>
+        <details class="group p-1"><summary class="flex min-h-[60px] items-center justify-between gap-4 px-5 text-lg font-semibold">How do I look after it?<span class="wd-plus text-2xl text-rose" aria-hidden="true">+</span></summary><p class="wd-ans px-5 pb-5 text-mist leading-relaxed">You'll leave with a healing film, a printed care card and a check-in message on day three.</p></details>
+        <details class="group p-1"><summary class="flex min-h-[60px] items-center justify-between gap-4 px-5 text-lg font-semibold">Are touch-ups included?<span class="wd-plus text-2xl text-rose" aria-hidden="true">+</span></summary><p class="wd-ans px-5 pb-5 text-mist leading-relaxed">Yes. One free touch-up within three months of your session.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK: centered heading + stacked form with dual actions -->
+  <section id="book" class="relative scroll-mt-24 py-24 sm:py-32 border-t border-white/10 bg-char overflow-hidden" aria-labelledby="bookTitle">
+    <div class="wd-glow" data-par="0.15" style="width:46vw;height:46vw;left:-16vw;top:-10%;background:radial-gradient(circle,rgba(244,63,94,.22),transparent 65%)" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-2xl px-4 sm:px-6 text-center">
+      <div data-reveal="up">
+        <p class="wd-mono text-roseSoft">06 — Book</p>
+        <h2 id="bookTitle" class="mt-4 text-4xl sm:text-6xl font-black leading-[.95]">Tell us the story.<br><span class="text-rose">We'll draw the line.</span></h2>
+        <p class="mt-5 text-lg text-mist">Send your idea and we'll reply within two days with a consult time.</p>
+      </div>
+      <form id="bookForm" class="mt-10 space-y-5 text-left" novalidate data-reveal="pop">
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label for="name" class="mb-2 block text-sm font-semibold">Your name</label>
+            <input id="name" name="name" class="wd-field" type="text" autocomplete="name" placeholder="Robin Hale" aria-describedby="nameErr">
+            <p id="nameErr" class="mt-2 min-h-[1.25rem] text-sm text-roseSoft" aria-live="polite"></p>
+          </div>
+          <div>
+            <label for="email" class="mb-2 block text-sm font-semibold">Email</label>
+            <input id="email" name="email" class="wd-field" type="email" autocomplete="email" placeholder="you@example.com" aria-describedby="emailErr">
+            <p id="emailErr" class="mt-2 min-h-[1.25rem] text-sm text-roseSoft" aria-live="polite"></p>
+          </div>
+        </div>
+        <div>
+          <label for="tattooStyle" class="mb-2 block text-sm font-semibold">Style you're dreaming of</label>
+          <select id="tattooStyle" name="tattooStyle" class="wd-field">
+            <option>Fine line</option><option>Botanical</option><option>Micro script</option><option>Blackwork</option><option>Not sure yet</option>
+          </select>
+        </div>
+        <div>
+          <label for="idea" class="mb-2 block text-sm font-semibold">Your idea <span class="font-normal text-mist">(optional)</span></label>
+          <textarea id="idea" name="idea" class="wd-field" placeholder="A sprig of rosemary for my grandmother, on the inner wrist…"></textarea>
+        </div>
+        <div class="flex flex-col gap-3 sm:flex-row">
+          <button type="submit" class="wd-btn wd-btn-primary wd-magnetic flex-1">Request a consult <span class="wd-arr" aria-hidden="true">→</span></button>
+          <a href="#flash" class="wd-btn wd-btn-ghost flex-1">Browse Flash Fridays</a>
+        </div>
+        <div id="formOk" class="hidden items-center gap-3 rounded-lg border border-rose/40 bg-rose/10 p-4" role="status">
+          <svg class="wd-check h-8 w-8 flex-none" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="15" stroke="#F43F5E" stroke-width="2"/><path d="M9.5 16.5l4.5 4.5 8.5-9" stroke="#FAFAFA" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p class="text-bone"><strong>Got it.</strong> We'll be in touch within two days. (This is a demo — nothing was sent.)</p>
+        </div>
+      </form>
+    </div>
+  </section>
+  </div>
+</main>
+
+<footer class="relative z-10 border-t border-white/10 bg-ink py-16">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 text-center" data-reveal="up">
+    <a href="#top" class="inline-flex min-h-[44px] items-center gap-2.5 text-2xl font-black tracking-[-0.04em]">
+      <svg class="h-9 w-9" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#F43F5E"/><path d="M7 20c4-1 7-4 9-8 1 3 3 5 6 5l3 1-3 1c-3 0-5 1-7 3-2 1-5 1-8-2z" fill="none" stroke="#09090B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="21" cy="14" r="1.2" fill="#09090B"/></svg>
+      Hushwren<span class="font-light text-mist">tattoo</span>
+    </a>
+    <ul class="mt-6 flex flex-wrap justify-center gap-x-2 text-[15px] text-bone/80">
+      <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#styles">Styles</a></li>
+      <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#flash">Flash Fridays</a></li>
+      <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#artists">Artists</a></li>
+      <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#faq">Aftercare</a></li>
+      <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#book">Book</a></li>
+    </ul>
+    <p class="mt-6 text-sm text-mist">Tue–Sat, 11–8 · By appointment · Walk-ins on Fridays</p>
+    <p class="mt-8 text-xs leading-relaxed text-mist">Photos on Unsplash: <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/photos/a-person-getting-a-tattoo-on-their-arm-Y1rvLSe7zVA?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/@behindthetmuna?utm_source=webdrip_concept&utm_medium=referral">BehindTheTmuna</a> on <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a> · <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/photos/collection-of-intricate-drawings-displayed-on-a-wall-rCiO-B8mCQk?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/@nixiesh?utm_source=webdrip_concept&utm_medium=referral">Galih Jelih</a> on <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a> · <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/photos/grayswash-arm-tattoo-JPl0GPNoeoM?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/@agathelov?utm_source=webdrip_concept&utm_medium=referral">Agathè Lov</a> on <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a> · <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/photos/hand-holding-white-flowers-with-tattoo-X-q7mSuHNhM?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/@raymatthewx?utm_source=webdrip_concept&utm_medium=referral">Ray Freimanis</a> on <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a> · <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/photos/a-person-with-a-small-heart-tattoo-on-their-finger--Y2L9gFyzFQ?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/@haberdoedas?utm_source=webdrip_concept&utm_medium=referral">Haberdoedas</a> on <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a> · <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/photos/music-bicep-tattoo-B3JaMOFsydc?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/@antoninovisalli?utm_source=webdrip_concept&utm_medium=referral">Antonino Visalli</a> on <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a> · <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/photos/black-and-red-flower-tattoo-on-right-human-hand-eyzdb1C3JDM?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/@matheusfrade?utm_source=webdrip_concept&utm_medium=referral">Matheus Frade</a> on <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a> · <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/photos/tattoo-artist-applying-ink-to-a-clients-leg-1GkrGVoFuWA?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/@aykanakus?utm_source=webdrip_concept&utm_medium=referral">Aykan Nakus</a> on <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a> · <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/photos/young-woman-with-tattoos-looking-at-camera-UvNR1BgF7Mw?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/@dreamofdmitry?utm_source=webdrip_concept&utm_medium=referral">Dmitry Mineev</a> on <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a> · <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/photos/tattooed-man-looking-over-his-shoulder-against-black-background-pXW7MPoA6cs?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/@chuchu123456?utm_source=webdrip_concept&utm_medium=referral">Chu CHU</a> on <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a> · <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/photos/woman-holding-brown-tattoo-machine-879s_FY4254?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/@thomasdes?utm_source=webdrip_concept&utm_medium=referral">Thomas Despeyroux</a> on <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a> · <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/photos/shallow-focus-photography-of-person-holding-black-tattoo-machine-9_EknAv_9Hw?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/@seteph?utm_source=webdrip_concept&utm_medium=referral">Allef Vinicius</a> on <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a> · <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/photos/a-card-with-a-drawing-of-a-rose-on-it-TvRhLfKHsKQ?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/@ficklesupreme?utm_source=webdrip_concept&utm_medium=referral">Maxim Simonov</a> on <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a> · <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/photos/someone-is-cutting-out-a-small-tattoo-stencil-idwVAx2ohf8?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/@certifiedtattooacademy?utm_source=webdrip_concept&utm_medium=referral">Certified Tattoo Academy</a> on <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a> · <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/photos/person-doing-tattoo-hxNiXP498UI?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/@seteph?utm_source=webdrip_concept&utm_medium=referral">Allef Vinicius</a> on <a class="underline decoration-white/30 underline-offset-2 hover:text-bone" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a>.</p>
+    <p class="mt-4 text-sm text-mist"><a class="underline decoration-rose/60 underline-offset-4 hover:text-bone" href="https://getwebdrip.com">Concept design by WebDrip — fictional brand</a> · © 2026 Hushwren Tattoo</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.classList.add('js');
+  requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.add('loaded'); }); });
+  // recording hook: lets a frame-by-frame recorder slow JS timing to match slowed CSS animations
+  function timeScale() { return window.__wdTimeScale || 1; }
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(function () {}); });
+  }
+
+  /* mobile menu */
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  function setMenu(open) {
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (open) { menu.hidden = false; menu.classList.add('open'); } else { menu.classList.remove('open'); menu.hidden = true; }
+  }
+  burger.addEventListener('click', function () { setMenu(burger.getAttribute('aria-expanded') !== 'true'); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') { setMenu(false); burger.focus(); } });
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  window.addEventListener('resize', function () { if (window.innerWidth >= 768) setMenu(false); });
+
+  /* reveals */
+  var groups = new Map();
+  document.querySelectorAll('[data-reveal]').forEach(function (el) {
+    var p = el.parentElement; var i = groups.get(p) || 0; groups.set(p, i + 1);
+    el.style.setProperty('--stagger', (i * 110) + 'ms');
+  });
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  function markIn(el) { el.classList.add('in'); setTimeout(function () { el.style.setProperty('--stagger', '0ms'); }, 1600 / timeScale()); }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { markIn(en.target); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else { revealEls.forEach(markIn); }
+  function sweepReveals() {
+    var vh = window.innerHeight;
+    revealEls.forEach(function (el) { if (!el.classList.contains('in') && el.getBoundingClientRect().top < vh * 0.98) markIn(el); });
+  }
+
+  /* count-up */
+  var counters = document.querySelectorAll('[data-count]');
+  function runCount(el) {
+    var target = +el.getAttribute('data-count'); if (reduce || target < 2) { el.textContent = target; return; }
+    var t0 = null;
+    function step(t) { if (!t0) t0 = t; var k = Math.min(1, (t - t0) * timeScale() / 1500); var e = 1 - Math.pow(1 - k, 3); el.textContent = Math.round(target * e); if (k < 1) requestAnimationFrame(step); }
+    el.textContent = '0'; requestAnimationFrame(step);
+  }
+  if ('IntersectionObserver' in window) {
+    var co = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { runCount(en.target); co.unobserve(en.target); } }); }, { threshold: .6 });
+    counters.forEach(function (c) { co.observe(c); });
+  }
+
+  /* one shared rAF loop: progress, nav, hero camera, parallax */
+  var nav = document.getElementById('nav');
+  var bar = document.getElementById('progress');
+  var heroImg = document.getElementById('heroImg');
+  var stage = document.querySelector('.wd-stage');
+  var heroCopy = document.getElementById('heroCopy');
+  var heroCard = document.getElementById('heroCard');
+  var hpars = Array.prototype.slice.call(document.querySelectorAll('[data-hpar]'));
+  var pars = Array.prototype.slice.call(document.querySelectorAll('[data-par]'));
+  var cur = window.scrollY, target = window.scrollY, ticking = false;
+
+  function frame() {
+    target = window.scrollY;
+    cur += (target - cur) * Math.min(1, 0.12 / timeScale());
+    if (Math.abs(target - cur) < 0.3) cur = target;
+    var vh = window.innerHeight, docH = document.documentElement.scrollHeight - vh;
+    bar.style.transform = 'scaleX(' + (docH > 0 ? Math.min(1, target / docH) : 0) + ')';
+    nav.classList.toggle('wd-scrolled', target > 40);
+
+    if (!reduce) {
+      var p = Math.min(1.4, cur / vh);
+      var k = Math.min(1, p);
+      var ease = k * k * (3 - 2 * k);
+      heroImg.style.transform = 'translate3d(' + (-ease * 3) + '%,' + (ease * 6) + '%,0) scale(' + (1.04 + ease * 0.3) + ') rotateX(' + (ease * 7) + 'deg) rotateY(' + (-ease * 6) + 'deg)';
+      hpars.forEach(function (el) { el.style.transform = 'translate3d(0,' + (cur * parseFloat(el.getAttribute('data-hpar'))) + 'px,0)'; });
+      if (heroCopy) { heroCopy.style.transform = 'translate3d(0,' + (-cur * 0.22) + 'px,0)'; heroCopy.style.opacity = String(Math.max(0, 1 - p * 1.1)); }
+      if (heroCard) { heroCard.style.transform = 'translate3d(0,' + (-cur * 0.42) + 'px,0)'; }
+      pars.forEach(function (el) {
+        var r = el.getBoundingClientRect(); if (r.bottom < -200 || r.top > vh + 200) return;
+        var c = (r.top + r.height / 2 - vh / 2);
+        var f = parseFloat(el.getAttribute('data-par'));
+        el.style.transform = 'translate3d(0,' + (c * f) + 'px,0)' + (el.tagName === 'IMG' ? ' scale(1.12)' : '');
+      });
+    }
+    stage.style.opacity = String(Math.max(0, 1 - Math.max(0, target - vh * 0.85) / (vh * 0.5)));
+    sweepReveals();
+    if (Math.abs(target - cur) > 0.3 || target !== window.scrollY) requestAnimationFrame(frame); else ticking = false;
+  }
+  function kick() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+  window.addEventListener('scroll', kick, { passive: true });
+  window.addEventListener('resize', kick);
+  kick();
+
+  /* magnetic buttons (fine pointer only) */
+  if (!reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('.wd-magnetic').forEach(function (b) {
+      b.addEventListener('mousemove', function (e) {
+        var r = b.getBoundingClientRect(); var x = e.clientX - r.left - r.width / 2, y = e.clientY - r.top - r.height / 2;
+        b.style.transform = 'translate3d(' + x * 0.14 + 'px,' + y * 0.2 + 'px,0)';
+      });
+      b.addEventListener('mouseleave', function () { b.style.transform = ''; });
+    });
+  }
+
+  /* spotlight toggle */
+  var spot = document.getElementById('spot');
+  var tgl = document.getElementById('spotToggle');
+  function setSpot(paused) {
+    spot.classList.toggle('paused', paused);
+    tgl.setAttribute('aria-pressed', String(paused));
+    document.getElementById('spotLabel').textContent = paused ? 'Play motion' : 'Pause motion';
+    document.getElementById('pauseIco').classList.toggle('hidden', paused);
+    document.getElementById('playIco').classList.toggle('hidden', !paused);
+  }
+  tgl.addEventListener('click', function () { setSpot(!spot.classList.contains('paused')); });
+  if (reduce) setSpot(true);
+
+  /* form */
+  var form = document.getElementById('bookForm');
+  var ok = document.getElementById('formOk');
+  var nameI = document.getElementById('name'), emailI = document.getElementById('email');
+  var nameE = document.getElementById('nameErr'), emailE = document.getElementById('emailErr');
+  function fail(input, errEl, msg) {
+    input.setAttribute('aria-invalid', 'true'); errEl.textContent = msg;
+    input.classList.remove('wd-shake'); void input.offsetWidth; input.classList.add('wd-shake');
+  }
+  function clear(input, errEl) { input.removeAttribute('aria-invalid'); errEl.textContent = ''; }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    ok.classList.add('hidden'); ok.classList.remove('show', 'flex');
+    var good = true;
+    if (!nameI.value.trim()) { fail(nameI, nameE, 'Please tell us your name.'); good = false; } else clear(nameI, nameE);
+    var v = emailI.value.trim();
+    if (!v) { fail(emailI, emailE, 'Please enter your email.'); good = false; }
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { fail(emailI, emailE, 'That email looks incomplete — check it?'); good = false; }
+    else clear(emailI, emailE);
+    if (!good) { (form.querySelector('[aria-invalid="true"]') || nameI).focus(); return; }
+    ok.classList.remove('hidden'); ok.classList.add('flex'); void ok.offsetWidth; ok.classList.add('show');
+    form.reset();
+  });
+})();
+</script>
+</body>
+</html>
