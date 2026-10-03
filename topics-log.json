@@ -428,6 +428,26 @@
       "rose": "#D88BA0",
       "sage": "#A9C6A2"
     },
-    "live_url": "https://webdripsamples.netlify.app/ochrevale-demo/"
+    "live_url": "https://webdripsamples.netlify.app/ochrevale-demo/",
+    "music_brief": "warm, glossy afro-house with sultry percussion, a punchy groove and a big sunset drop — golden-hour desert luxury to match a dark frosted-glass dusk site in clay orange, dusty rose and night indigo",
+    "music_track": {
+      "id": "5cdc27a1-ab2c-4e2c-8f02-29dbe466c544",
+      "title": "Bongololo (Instrumental Version)",
+      "artist": "Kouba",
+      "why": "epic, hopeful afro house at 120 BPM with the strongest drum punch (highest onset strength) of an 8-track instrumental afro/deep-house shortlist and a clear breakdown into a big drop; cut to 25s with Epidemic Sound EditRecording from the 37s breakdown so the drop lands at 3.0s as the walkthrough kicks in"
+    },
+    "sound_effects": "synthesized in code (whooshes, impact, tick) — DownloadSoundEffect returned FORBIDDEN (no permission to download this asset)",
+    "voice": "bf_emma",
+    "voiceover": "Kokoro-82M via kokoro-onnx (model files from the kokoro-onnx GitHub release), speed 1.1; subtitles timed per line from the generated audio with word timing estimated within each line",
+    "vo_hook": "Your website is the lobby guests see first.",
+    "vo_hook_type": "bold truth",
+    "caption_hook": "Scroll this and tell me it doesn't feel like a holiday.",
+    "hook_type": "challenge",
+    "video_hosting": "GitHub release creation returned 403 for this session type; Netlify did not deploy the temporary reel commit (b609d64) within ~20 min, so on Sourav's instruction the videos were posted from the jsDelivr GitHub CDN mirror of that commit, then removed from the repo",
+    "buffer_post_id": "6ac0a736713b7277a0aed3db",
+    "fb_post_url": "https://facebook.com/1277092185496389_122102033739495093",
+    "buffer_tiktok_post_id": "6ac0a742713b7277a0aed4ac",
+    "tiktok_post_url": "https://tiktok.com/@getwebdrip/video/7692331889696181517",
+    "videos_deleted": true
   }
 ]
