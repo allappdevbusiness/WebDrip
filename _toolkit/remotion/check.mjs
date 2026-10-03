@@ -23,7 +23,7 @@ for (const fmt of fmts) {
   const frames = [];
   L.SCENES.forEach((s, i) => {
     const st = L.sceneStart(i), en = L.sceneEnd(i);
-    const restStart = s === 'hook' ? 66 : s === 'end' ? 1580 : st + 2 * L.X + 18;
+    const restStart = s === 'hook' ? 66 : s === 'end' ? L.LOGO_HIT + 50 : st + 2 * L.X + 18;
     frames.push({ f: Math.max(0, i === 0 ? 0 : st), kind: 'scene-start', s });
     frames.push({ f: restStart, kind: 'rest', s });
     frames.push({ f: Math.round((restStart + en - 2 * L.X) / 2), kind: 'rest', s });
@@ -49,9 +49,18 @@ for (const fmt of fmts) {
         if (fmt === 'tiktok' && rest) for (const u of L.TT_UI) if (inter(b, u)) errs.push(`${b.id} touches TikTok UI ${JSON.stringify(u)}`);
       }
       if (rest) {
-        for (const b of vis.filter((x) => ['frame', 'phone', 'tile', 'logo', 'button'].includes(x.kind))) {
+        const tol = fmt === 'tiktok' ? 4 : 2;
+        const centred = (b, id) => {
           const lm = b.x - SAFE.x, rm = SAFE.x + SAFE.w - (b.x + b.w);
-          if (Math.abs(lm - rm) > (fmt === 'tiktok' ? 4 : 2)) errs.push(`${b.id} not centred (L ${lm.toFixed(1)} / R ${rm.toFixed(1)})`);
+          if (Math.abs(lm - rm) > tol) errs.push(`${id} not centred (L ${lm.toFixed(1)} / R ${rm.toFixed(1)})`);
+        };
+        for (const b of vis.filter((x) => ['frame', 'phone', 'tile', 'logo', 'button'].includes(x.kind) && !x.offset)) centred(b, b.id);
+        // deliberately offset pieces (split screen, bento halves) must be centred as one group
+        const byScene = {};
+        for (const b of vis.filter((x) => x.offset)) (byScene[b.scene] = byScene[b.scene] || []).push(b);
+        for (const [sc, bs] of Object.entries(byScene)) {
+          const x0 = Math.min(...bs.map((b) => b.x)), x1 = Math.max(...bs.map((b) => b.x + b.w));
+          centred({ x: x0, w: x1 - x0 }, `${sc} offset group [${bs.map((b) => b.id).join('+')}]`);
         }
         // device screens: correct aspect and fully covered by their video (no gaps)
         for (const sc of vis.filter((x) => x.kind === 'screen')) {

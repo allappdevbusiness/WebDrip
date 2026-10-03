@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { AbsoluteFill, Audio, OffthreadVideo, Sequence, continueRender, delayRender, staticFile, useCurrentFrame, interpolate, Easing } from 'remotion';
+import { AbsoluteFill, Audio, OffthreadVideo, Sequence, continueRender, delayRender, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 import {
-  B, CANVAS, COLORS, CX, DESK, END, Fmt, LABELS, LABEL_H, LANE, MOB, Rect, SCENES, SceneId, SPACE, X,
-  browser, endCard, groupRect, phone, sceneEnd, sceneLayout, sceneMotion, sceneStart, springNoOvershoot, easeInOut, easeOut, labelHeight,
+  B, CANVAS, COLORS, CX, DESK, END, Fmt, LABELS, LABEL_H, LANE, LOGO_HIT, MOB, Rect, SCENES, SceneId, SPACE, X,
+  browser, endCard, groupRect, phone, sceneEnd, sceneLayout, sceneMotion, sceneStart, springNoOvershoot, easeInOut, easeOut,
 } from './layout';
 import captions from './captions.json';
 
@@ -11,8 +11,11 @@ const useFonts = () => {
   const [handle] = useState(() => delayRender('fonts'));
   useEffect(() => {
     const faces = [
-      new FontFace('Outfit', `url(${staticFile('Outfit.woff2')}) format('woff2')`, { weight: '100 900' }),
-      new FontFace('JBMono', `url(${staticFile('JBMono.woff2')}) format('woff2')`, { weight: '100 900' }),
+      new FontFace('Oswald', `url(${staticFile('Oswald.woff2')}) format('woff2')`, { weight: '400 700' }),
+      new FontFace('Ubuntu', `url(${staticFile('Ubuntu-500.woff2')}) format('woff2')`, { weight: '500' }),
+      new FontFace('Ubuntu', `url(${staticFile('Ubuntu-700.woff2')}) format('woff2')`, { weight: '700' }),
+      new FontFace('UMono', `url(${staticFile('UbuntuMono-700.woff2')}) format('woff2')`, { weight: '700' }),
+      new FontFace('Inter', `url(${staticFile('Inter.woff2')}) format('woff2')`, { weight: '400 800' }),
     ];
     Promise.all(faces.map((f) => f.load())).then((loaded) => { loaded.forEach((f) => document.fonts.add(f)); continueRender(handle); })
       .catch((e) => { console.error(e); continueRender(handle); });
@@ -21,35 +24,39 @@ const useFonts = () => {
 
 const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 const ramp = (t: number, a: number, b: number) => clamp((t - a) / (b - a));
-const OUTFIT = 'Outfit, system-ui, sans-serif';
-const MONO = 'JBMono, ui-monospace, monospace';
+const OSWALD = 'Oswald, Impact, sans-serif';
+const UBUNTU = 'Ubuntu, system-ui, sans-serif';
+const MONO = 'UMono, ui-monospace, monospace';
+const INTER = 'Inter, system-ui, sans-serif';
 
 // ---------- clip config per scene ----------
 type Clip = { src: string; from: number; rate: number; kind: 'desk' | 'mob' };
 const D = (n: string, from: number, rate: number): Clip => ({ src: `desk-${n}.mp4`, from, rate, kind: 'desk' });
 const M = (n: string, from: number, rate: number): Clip => ({ src: `mob-${n}.mp4`, from, rate, kind: 'mob' });
-const FEED_CLIPS: Partial<Record<SceneId, { main: Clip; back?: Clip }>> = {
+type SceneClips = { main: Clip; back?: Clip; b?: Clip; c?: Clip; phone?: Clip };
+const FEED_CLIPS: Partial<Record<SceneId, SceneClips>> = {
   hook: { main: D('hero', 0, 0.55) },
-  hero: { main: D('hero', 60, 0.95) },
-  nav: { main: D('nav', 0, 0.97) },
-  styles: { main: D('styles', 5, 1) },
-  spot: { main: D('spot', 10, 1) },
-  artists: { main: D('artists', 5, 1) },
-  form: { main: D('book', 0, 1) },
-  dscroll: { main: D('scroll', 0, 1.26) },
-  mobile: { main: M('scroll', 0, 1.37), back: D('scroll', 120, 0.6) },
+  hero: { main: D('hero', 60, 1) },
+  nav: { main: D('nav', 0, 1) },
+  lessons: { main: D('lessons', 20, 1) },
+  spot: { main: D('spot', 4, 0.97) },
+  herd: { main: D('herd', 8, 0.98), b: D('timetable', 10, 0.98), c: M('herd', 60, 0.7) },
+  form: { main: D('book', 20, 0.98) },
+  dscroll: { main: D('scroll', 0, 1.45) },
+  mobile: { main: M('scroll', 0, 1.47), back: D('scroll', 100, 0.6) },
 };
-const TT_CLIPS: Partial<Record<SceneId, { main: Clip; back?: Clip }>> = {
+const TT_CLIPS: Partial<Record<SceneId, SceneClips>> = {
   hook: { main: D('hero', 0, 0.55) },
-  hero: { main: M('hero', 15, 1), back: D('hero', 60, 0.95) },
-  nav: { main: M('menu', 0, 1), back: D('nav', 0, 0.97) },
-  styles: { main: M('styles', 5, 1), back: D('styles', 5, 1) },
-  spot: { main: M('spot', 5, 1), back: D('spot', 10, 1) },
-  artists: { main: M('artists', 5, 1), back: D('artists', 5, 1) },
-  form: { main: M('book', 0, 1), back: D('book', 0, 1) },
-  dscroll: { main: D('scroll', 0, 1.26) },
-  mobile: { main: M('scroll', 0, 1.37), back: D('scroll', 120, 0.6) },
+  hero: { main: M('hero', 30, 1), back: D('hero', 60, 1) },
+  nav: { main: M('menu', 0, 0.92), back: D('nav', 0, 1) },
+  lessons: { main: D('lessons', 20, 1), phone: M('lessons', 20, 1) },
+  spot: { main: M('spot', 4, 0.97), back: D('spot', 4, 0.97) },
+  herd: { main: D('herd', 8, 0.98), b: M('herd', 60, 0.7), c: D('timetable', 10, 0.98) },
+  form: { main: M('book', 20, 0.98), back: D('book', 20, 0.98) },
+  dscroll: { main: D('scroll', 0, 1.45) },
+  mobile: { main: M('scroll', 0, 1.47), back: D('scroll', 100, 0.6) },
 };
+const srcDims = (c: Clip) => (c.kind === 'desk' ? DESK : MOB);
 
 const Vid: React.FC<{ clip: Clip; w: number; h: number; style?: React.CSSProperties; tag?: boolean }> = ({ clip, w, h, style, tag = true }) => (
   <div data-box={tag ? 'video' : undefined} data-kind={tag ? 'video' : undefined} style={{ position: 'absolute', left: 0, top: 0, width: w, height: h, ...style }}>
@@ -63,20 +70,21 @@ const LightSweep: React.FC<{ t: number; at: number; w: number; h: number }> = ({
   if (p <= 0 || p >= 1) return null;
   return <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden' }}>
     <div style={{ position: 'absolute', top: -h * 0.2, height: h * 1.4, width: w * 0.35, left: -w * 0.4 + easeInOut(p) * w * 1.5,
-      background: 'linear-gradient(100deg, transparent, rgba(255,255,255,.16), transparent)', transform: 'skewX(-14deg)' }} />
+      background: 'linear-gradient(100deg, transparent, rgba(255,236,205,.2), transparent)', transform: 'skewX(-14deg)' }} />
   </div>;
 };
 
-const BrowserFrame: React.FC<{ box: Rect; clip: Clip; t: number; zoom?: { z: number; ox: string; oy: string }; children?: React.ReactNode; sweepAt?: number; dim?: number }> = ({ box, clip, t, zoom, children, sweepAt = 6, dim = 0 }) => {
+const FRAME_SHADOW = '0 50px 90px -40px rgba(0,0,0,.85), 0 0 0 1px rgba(247,245,238,.14), 0 30px 120px -60px rgba(255,95,3,.38)';
+
+const BrowserFrame: React.FC<{ box: Rect; clip: Clip; t: number; zoom?: { z: number; ox: string; oy: string }; children?: React.ReactNode; over?: React.ReactNode; sweepAt?: number }> = ({ box, clip, t, zoom, children, over, sweepAt = 6 }) => {
   const bf = browser(box.w);
   const r = Math.round(box.w * 0.018);
-  return <div data-box="frame" data-kind="frame" style={{ position: 'absolute', left: box.x, top: box.y, width: bf.w, height: bf.h, borderRadius: r, background: '#16161A',
-    boxShadow: '0 50px 90px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(250,250,250,.12), 0 30px 120px -60px rgba(244,63,94,.45)', overflow: 'hidden' }}>
-    <div style={{ height: bf.bar, display: 'flex', alignItems: 'center', gap: bf.bar * 0.22, padding: `0 ${bf.bar * 0.5}px`, background: '#1B1B20', borderBottom: '1px solid rgba(250,250,250,.08)' }}>
+  return <div data-box="frame" data-kind="frame" style={{ position: 'absolute', left: box.x, top: box.y, width: bf.w, height: bf.h, borderRadius: r, background: '#0B2423', boxShadow: FRAME_SHADOW, overflow: 'hidden' }}>
+    <div style={{ height: bf.bar, display: 'flex', alignItems: 'center', gap: bf.bar * 0.22, padding: `0 ${bf.bar * 0.5}px`, background: '#0E2E2D', borderBottom: '1px solid rgba(247,245,238,.08)' }}>
       {['#FF5F57', '#FEBC2E', '#28C840'].map((c) => <div key={c} style={{ width: bf.bar * 0.28, height: bf.bar * 0.28, borderRadius: 99, background: c, opacity: 0.85 }} />)}
       <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-        <div style={{ height: bf.bar * 0.62, width: '52%', borderRadius: bf.bar * 0.31, background: 'rgba(250,250,250,.07)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontFamily: OUTFIT, fontSize: bf.bar * 0.36, color: 'rgba(250,250,250,.72)', letterSpacing: '-0.01em' }}>Hushwren Tattoo — demo by WebDrip</div>
+        <div style={{ height: bf.bar * 0.62, width: '54%', borderRadius: bf.bar * 0.31, background: 'rgba(247,245,238,.08)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+          fontFamily: UBUNTU, fontWeight: 500, fontSize: bf.bar * 0.36, color: 'rgba(247,245,238,.75)' }}>Ashcanter Riding School — demo by WebDrip</div>
       </div>
       <div style={{ width: bf.bar * 1.2 }} />
     </div>
@@ -85,30 +93,34 @@ const BrowserFrame: React.FC<{ box: Rect; clip: Clip; t: number; zoom?: { z: num
         <Vid clip={clip} w={bf.w} h={bf.screenH} />
         {children}
       </div>
-      {dim > 0 && <div style={{ position: 'absolute', inset: 0, background: `rgba(9,9,11,${dim})` }} />}
+      {over}
       <LightSweep t={t} at={sweepAt} w={bf.w} h={bf.screenH} />
     </div>
   </div>;
 };
 
-const PhoneFrame: React.FC<{ box: Rect; clip: Clip; t: number; sweepAt?: number }> = ({ box, clip, t, sweepAt = 8 }) => {
+const PhoneFrame: React.FC<{ box: Rect; clip: Clip; t: number; sweepAt?: number; zoom?: { z: number; ox: string; oy: string }; over?: React.ReactNode }> = ({ box, clip, t, sweepAt = 8, zoom, over }) => {
   const p = phone(box.h);
-  return <div data-box="phone" data-kind="phone" style={{ position: 'absolute', left: box.x, top: box.y, width: p.w, height: p.h, borderRadius: p.r, background: 'linear-gradient(160deg,#2A2A31,#0E0E11)',
-    boxShadow: '0 60px 110px -40px rgba(0,0,0,.95), 0 0 0 1.5px rgba(250,250,250,.16), inset 0 0 0 1px rgba(255,255,255,.06), 0 30px 140px -60px rgba(244,63,94,.5)' }}>
+  return <div data-box="phone" data-kind="phone" style={{ position: 'absolute', left: box.x, top: box.y, width: p.w, height: p.h, borderRadius: p.r, background: 'linear-gradient(160deg,#20403E,#081A19)',
+    boxShadow: '0 60px 110px -40px rgba(0,0,0,.9), 0 0 0 1.5px rgba(247,245,238,.18), inset 0 0 0 1px rgba(255,255,255,.06), 0 30px 140px -60px rgba(255,95,3,.45)' }}>
     <div data-box="phone-screen" data-kind="screen" style={{ position: 'absolute', left: p.bezel, top: p.bezel, width: p.sw, height: p.sh, borderRadius: p.r - p.bezel, overflow: 'hidden', background: '#000' }}>
-      <Vid clip={clip} w={p.sw} h={p.sh} />
+      <div style={{ position: 'absolute', inset: 0, transformOrigin: zoom ? `${zoom.ox} ${zoom.oy}` : 'center', transform: `scale(${zoom ? zoom.z : 1})` }}>
+        <Vid clip={clip} w={p.sw} h={p.sh} />
+      </div>
+      {over}
       <LightSweep t={t} at={sweepAt} w={p.sw} h={p.sh} />
     </div>
   </div>;
 };
 
-// a rounded window onto the desktop recording at a fixed scale (vertical crops for 9:16)
-const CropTile: React.FC<{ box: Rect; clip: Clip; scale: number; focusX: number; focusY: number; t: number; radius?: number; style?: React.CSSProperties; sweepAt?: number; zoom?: number; boxId?: string }> = ({ box, clip, scale, focusX, focusY, t, radius = 28, style, sweepAt = 6, zoom = 1, boxId = 'tile' }) => {
-  const vw = DESK.w * scale, vh = DESK.h * scale;
+// a rounded window onto a recording at a fixed scale (vertical crops for 9:16, bento tiles)
+const CropTile: React.FC<{ box: Rect; clip: Clip; scale: number; focusX: number; focusY: number; t: number; radius?: number; style?: React.CSSProperties; sweepAt?: number; zoom?: number; boxId?: string; offset?: boolean }> = ({ box, clip, scale, focusX, focusY, t, radius = 26, style, sweepAt = 6, zoom = 1, boxId = 'tile', offset }) => {
+  const S = srcDims(clip);
+  const vw = S.w * scale, vh = S.h * scale;
   const left = clamp(box.w / 2 - focusX * scale, box.w - vw, 0);
   const top = clamp(box.h / 2 - focusY * scale, box.h - vh, 0);
-  return <div data-box={boxId} data-kind={boxId === 'backdrop' ? 'decor' : 'tile'} style={{ position: 'absolute', left: box.x, top: box.y, width: box.w, height: box.h, borderRadius: radius, overflow: 'hidden', background: '#000',
-    boxShadow: '0 50px 100px -40px rgba(0,0,0,.95), 0 0 0 1px rgba(250,250,250,.12)', ...style }}>
+  return <div data-box={boxId} data-kind={boxId === 'backdrop' ? 'decor' : 'tile'} data-offset={offset ? '1' : undefined} style={{ position: 'absolute', left: box.x, top: box.y, width: box.w, height: box.h, borderRadius: radius, overflow: 'hidden', background: '#000',
+    boxShadow: '0 50px 100px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(247,245,238,.14)', ...style }}>
     <div style={{ position: 'absolute', inset: 0, transform: `scale(${zoom})`, transformOrigin: `${focusX * scale + left}px ${focusY * scale + top}px` }}>
       <Vid clip={clip} w={vw} h={vh} style={{ left, top }} />
     </div>
@@ -117,12 +129,12 @@ const CropTile: React.FC<{ box: Rect; clip: Clip; scale: number; focusX: number;
 };
 
 // ---------- text ----------
-const WordsUp: React.FC<{ text: string; t: number; at: number; size: number; weight: number; color?: string; stagger?: number; tracking?: string; font?: string; upper?: boolean }> = ({ text, t, at, size, weight, color = COLORS.bone, stagger = 3, tracking = '-0.035em', font = OUTFIT, upper }) => (
-  <span style={{ display: 'inline-flex', flexWrap: 'wrap', justifyContent: 'center', columnGap: size * 0.26 }}>
+const WordsUp: React.FC<{ text: string; t: number; at: number; size: number; weight: number; color?: string; stagger?: number; tracking?: string; font?: string; align?: 'center' | 'flex-start'; lh?: number }> = ({ text, t, at, size, weight, color = COLORS.paper, stagger = 3, tracking = '-0.01em', font = OSWALD, align = 'center', lh = 1.1 }) => (
+  <span style={{ display: 'inline-flex', flexWrap: 'wrap', justifyContent: align, columnGap: size * 0.24 }}>
     {text.split(' ').map((w, i) => {
       const p = easeOut(ramp(t, at + i * stagger, at + i * stagger + 14));
       return <span key={i} style={{ display: 'inline-block', overflow: 'hidden', paddingBottom: size * 0.12, marginBottom: -size * 0.12 }}>
-        <span style={{ display: 'inline-block', transform: `translateY(${(1 - p) * 105}%)`, opacity: p, fontFamily: font, fontSize: size, fontWeight: weight, color, letterSpacing: tracking, lineHeight: 1.1, textTransform: upper ? 'uppercase' : undefined }}>{w}</span>
+        <span style={{ display: 'inline-block', transform: `translateY(${(1 - p) * 105}%)`, opacity: p, fontFamily: font, fontSize: size, fontWeight: weight, color, letterSpacing: tracking, lineHeight: lh }}>{w}</span>
       </span>;
     })}
   </span>
@@ -131,21 +143,37 @@ const WordsUp: React.FC<{ text: string; t: number; at: number; size: number; wei
 const Label: React.FC<{ f: Fmt; s: SceneId; box: Rect; t: number; st: number; en: number }> = ({ f, s, box, t, st, en }) => {
   const L = LABEL_H[f];
   const out = easeInOut(ramp(t, en - 2 * X, en));
+  const line = easeOut(ramp(t, st + 6, st + 26));
   return <div data-box="label" data-kind="text" style={{ position: 'absolute', left: box.x, top: box.y, width: box.w, height: box.h, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: L.gap, opacity: 1 - out, transform: `translateY(${-out * 20}px)` }}>
-    <WordsUp text={LABELS[s].kicker} t={t} at={st + 8} size={L.kicker} weight={500} color={COLORS.roseSoft} font={MONO} tracking="0.12em" upper stagger={2} />
-    <WordsUp text={LABELS[s].title} t={t} at={st + 12} size={L.title} weight={800} />
+    <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+      <div style={{ width: 36, height: 3, borderRadius: 2, background: COLORS.saddle, transform: `scaleX(${line})`, transformOrigin: 'right' }} />
+      <WordsUp text={LABELS[s].kicker} t={t} at={st + 8} size={L.kicker} weight={700} color={COLORS.hay} font={MONO} tracking="0.08em" stagger={2} />
+      <div style={{ width: 36, height: 3, borderRadius: 2, background: COLORS.saddle, transform: `scaleX(${line})`, transformOrigin: 'left' }} />
+    </div>
+    <WordsUp text={LABELS[s].title} t={t} at={st + 12} size={L.title} weight={600} />
+  </div>;
+};
+
+// small highlight label placed next to a zoomed detail
+const Chip: React.FC<{ text: string; x: number; y: number; t: number; at: number; until: number; size?: number }> = ({ text, x, y, t, at, until, size = 26 }) => {
+  const p = easeOut(ramp(t, at, at + 12)) * (1 - easeInOut(ramp(t, until - 10, until)));
+  if (p <= 0) return null;
+  return <div data-kind="chip" style={{ position: 'absolute', left: x, top: y, opacity: p, transform: `translateY(${(1 - p) * 14}px) scale(${0.94 + 0.06 * p})`, transformOrigin: 'left center',
+    display: 'flex', alignItems: 'center', gap: 10, padding: `${size * 0.34}px ${size * 0.6}px`, borderRadius: 999, background: COLORS.saddle, color: COLORS.pine,
+    fontFamily: UBUNTU, fontWeight: 700, fontSize: size, letterSpacing: '-0.01em', boxShadow: '0 18px 40px -16px rgba(255,95,3,.9)', whiteSpace: 'nowrap', zIndex: 5 }}>
+    <span style={{ width: size * 0.36, height: size * 0.36, borderRadius: 99, background: COLORS.pine }} />{text}
   </div>;
 };
 
 // ---------- background ----------
 const Background: React.FC<{ f: Fmt; t: number }> = ({ f, t }) => {
   const { w, h } = CANVAS[f];
-  const gx = 50 + 8 * Math.sin(t / 140), gy = 42 + 6 * Math.cos(t / 170);
-  return <AbsoluteFill style={{ background: COLORS.ink }}>
-    <AbsoluteFill style={{ background: `radial-gradient(ellipse 70% 50% at ${gx}% ${gy}%, rgba(244,63,94,.16), transparent 70%), radial-gradient(ellipse 60% 40% at ${100 - gx}% ${100 - gy}%, rgba(167,139,250,.10), transparent 70%)` }} />
-    <AbsoluteFill style={{ backgroundImage: 'radial-gradient(rgba(250,250,250,.07) 1.2px, transparent 1.2px)', backgroundSize: '36px 36px', opacity: 0.6,
+  const gx = 50 + 8 * Math.sin(t / 140), gy = 40 + 6 * Math.cos(t / 170);
+  return <AbsoluteFill style={{ background: COLORS.bg }}>
+    <AbsoluteFill style={{ background: `radial-gradient(ellipse 75% 55% at ${gx}% ${gy}%, rgba(20,82,80,.55), transparent 70%), radial-gradient(ellipse 60% 40% at ${100 - gx}% ${100 - gy * 0.6}%, rgba(255,95,3,.13), transparent 70%), radial-gradient(ellipse 50% 30% at ${gx * 0.6}% ${100 - gy}%, rgba(242,193,78,.07), transparent 70%)` }} />
+    <AbsoluteFill style={{ backgroundImage: 'radial-gradient(rgba(247,245,238,.07) 1.2px, transparent 1.2px)', backgroundSize: '36px 36px', opacity: 0.55,
       maskImage: 'radial-gradient(ellipse 80% 70% at 50% 45%, black, transparent)', WebkitMaskImage: 'radial-gradient(ellipse 80% 70% at 50% 45%, black, transparent)' }} />
-    <div style={{ position: 'absolute', left: 0, top: 0, width: w, height: h, boxShadow: 'inset 0 0 220px rgba(0,0,0,.85)' }} />
+    <div style={{ position: 'absolute', left: 0, top: 0, width: w, height: h, boxShadow: 'inset 0 0 240px rgba(0,8,8,.85)' }} />
   </AbsoluteFill>;
 };
 
@@ -157,7 +185,6 @@ const Scene: React.FC<{ f: Fmt; i: number }> = ({ f, i }) => {
   const s = SCENES[i];
   const lay = sceneLayout(f, s);
   const m = sceneMotion(f, i, t);
-  const box = (id: string) => lay.boxes.find((b) => b.id === id)!;
   const group = groupRect(lay.boxes.filter((b) => b.kind !== 'text'));
   const clips = (f === 'feed' ? FEED_CLIPS : TT_CLIPS)[s];
   const { w: W, h: H } = CANVAS[f];
@@ -171,7 +198,7 @@ const Scene: React.FC<{ f: Fmt; i: number }> = ({ f, i }) => {
   if (s === 'hook') {
     // macro close-up on the hero headline, pulling back to the full page
     const fr = lay.boxes.find((b) => b.kind === 'frame' || b.kind === 'tile')!;
-    origin = f === 'feed' ? `${fr.x + fr.w * 0.68}px ${fr.y + fr.h * 0.42}px` : `${fr.x + fr.w * 0.5}px ${fr.y + fr.h * 0.42}px`;
+    origin = f === 'feed' ? `${fr.x + fr.w * 0.5}px ${fr.y + fr.h * 0.44}px` : `${fr.x + fr.w * 0.5}px ${fr.y + fr.h * 0.42}px`;
   }
   const groupStyle: React.CSSProperties = {
     position: 'absolute', left: 0, top: 0, width: W, height: H, transformOrigin: origin,
@@ -184,61 +211,120 @@ const Scene: React.FC<{ f: Fmt; i: number }> = ({ f, i }) => {
   if (back && clips?.back) {
     const bscale = Math.max(back.h / DESK.h, back.w / DESK.w, 0.92);
     content.push(<CropTile key="back" boxId="backdrop" box={back} clip={clips.back} scale={bscale} focusX={720} focusY={450} t={t} radius={24} sweepAt={-100}
-      style={{ opacity: 0.42, filter: 'blur(3px) saturate(.8)' }} />);
+      style={{ opacity: 0.4, filter: 'blur(4px) saturate(.85)' }} />);
   }
+  let overlay: React.ReactNode = null;
   if (clips) {
     const main = clips.main;
     const fr = lay.boxes.find((b) => b.kind === 'frame');
     const ph = lay.boxes.find((b) => b.kind === 'phone');
     const tile = lay.boxes.find((b) => b.id === 'tile');
     const tile2 = lay.boxes.find((b) => b.id === 'tile2');
+    const tileB = lay.boxes.find((b) => b.id === 'tileB');
+    const tileC = lay.boxes.find((b) => b.id === 'tileC');
     if (fr) {
+      const bf = browser(fr.w);
+      const k = bf.w / DESK.w;
       let zoom: { z: number; ox: string; oy: string } | undefined;
-      let dim = 0;
       let child: React.ReactNode = null;
-      if (s === 'hero') zoom = { z: 1 + 0.1 * easeInOut(ramp(local, 20, 140)), ox: '60%', oy: '45%' };
-      if (s === 'nav') zoom = { z: 1 + 0.42 * easeInOut(ramp(local, 18, 46)) - 0.42 * easeInOut(ramp(local, 132, 160)), ox: '0%', oy: '0%' };
-      if (s === 'artists') {
-        // "explode": the hovered artist card lifts out of the page in 3D, the rest dims, then it settles back
-        const up = easeInOut(ramp(local, 100, 116)) * (1 - easeInOut(ramp(local, 146, 162)));
-        const bf = browser(fr.w);
-        const k = bf.w / DESK.w;
-        const card = { x: 417 * k, y: 189 * k, w: 293 * k, h: 567 * k };
-        dim = 0.55 * up;
-        child = up > 0 ? <><div style={{ position: 'absolute', inset: 0, background: `rgba(9,9,11,${dim})`, backdropFilter: `blur(${3 * up}px)`, zIndex: 2 }} /><div style={{ position: 'absolute', left: card.x, top: card.y, width: card.w, height: card.h, borderRadius: 8 * k + 2, overflow: 'hidden', zIndex: 3,
-          transform: `translateY(${-18 * up}px) scale(${1 + 0.1 * up})`, boxShadow: `0 ${40 * up}px ${80 * up}px -20px rgba(0,0,0,.9), 0 0 0 ${2 * up}px rgba(244,63,94,${0.8 * up})` }}>
-          <Vid tag={false} clip={main} w={bf.w} h={bf.screenH} style={{ left: -card.x, top: -card.y }} />
-        </div></> : null;
+      let over: React.ReactNode = null;
+      if (s === 'hero') zoom = { z: 1 + 0.1 * easeInOut(ramp(local, 20, 150)), ox: '50%', oy: '45%' };
+      if (s === 'nav') {
+        // highlight: glide into the sticky nav while it shrinks, the page below softly dimmed
+        const zin = easeInOut(ramp(local, 22, 50)), zout = easeInOut(ramp(local, 118, 142));
+        const zp = zin - zout;
+        zoom = { z: 1 + 0.42 * zp, ox: '0%', oy: '0%' };
+        over = <>
+          <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(180deg, transparent 0%, transparent 22%, rgba(5,34,34,${0.55 * zp}) 40%, rgba(5,34,34,${0.62 * zp}) 100%)` }} />
+          <Chip text="Shrinks as you scroll" x={bf.w * 0.06} y={bf.screenH * 0.36} t={local} at={50} until={124} />
+        </>;
+      }
+      if (s === 'lessons') {
+        // "explode": two lesson cards lift out of the page in 3D layers, the rest dims, then they settle back
+        const cards = [{ x: 418, y: 401, w: 290, h: 490, at: 62 }, { x: 732, y: 401, w: 290, h: 490, at: 70 }];
+        const dimP = easeInOut(ramp(local, 58, 72)) * (1 - easeInOut(ramp(local, 122, 136)));
+        child = dimP > 0 ? <>
+          <div style={{ position: 'absolute', inset: 0, background: `rgba(5,34,34,${0.5 * dimP})`, backdropFilter: `blur(${3 * dimP}px)`, zIndex: 2 }} />
+          {cards.map((c, n) => {
+            const up = easeInOut(ramp(local, c.at, c.at + 16)) * (1 - easeInOut(ramp(local, 120 + n * 4, 136 + n * 4)));
+            return <div key={n} style={{ position: 'absolute', left: c.x * k, top: c.y * k, width: c.w * k, height: c.h * k, borderRadius: 8 * k + 2, overflow: 'hidden', zIndex: 3 + n,
+              transform: `perspective(900px) translateY(${-22 * up}px) rotateX(${4 * up}deg) scale(${1 + 0.12 * up})`, transformOrigin: '50% 100%',
+              boxShadow: `0 ${44 * up}px ${80 * up}px -20px rgba(0,0,0,.85), 0 0 0 ${2 * up}px rgba(255,95,3,${0.85 * up})` }}>
+              <Vid tag={false} clip={main} w={bf.w} h={bf.screenH} style={{ left: -c.x * k, top: -c.y * k }} />
+            </div>;
+          })}
+        </> : null;
+        over = <Chip text="Cards lift as you hover" x={bf.w * 0.05} y={bf.screenH * 0.06} t={local} at={76} until={130} />;
       }
       if (s === 'form') {
-        const xf = ramp(local, 118, 132);
-        child = xf > 0 ? <div style={{ position: 'absolute', inset: 0, opacity: easeInOut(xf) }}><Sequence from={110} premountFor={30}><Vid clip={D('footer', 0, 1)} w={browser(fr.w).w} h={browser(fr.w).screenH} /></Sequence></div> : null;
+        // highlight: push into the booking form as it checks itself, soft spotlight around it
+        const zp = easeInOut(ramp(local, 30, 60)) * (1 - easeInOut(ramp(local, 150, 172)));
+        zoom = { z: 1 + 0.3 * zp, ox: '50%', oy: '43%' };
+        over = <>
+          <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse 42% 60% at 50% 48%, transparent 60%, rgba(5,34,34,${0.6 * zp}) 100%)` }} />
+          <Chip text="Friendly, instant checks" x={bf.w * 0.04} y={bf.screenH * 0.06} t={local} at={58} until={160} />
+        </>;
       }
-      const frameEl = <BrowserFrame key="frame" box={fr} clip={main} t={local} zoom={zoom}>{child}</BrowserFrame>;
-      content.push(frameEl);
+      content.push(<BrowserFrame key="frame" box={fr} clip={main} t={local} zoom={zoom} over={over}>{child}</BrowserFrame>);
     }
-    if (ph) content.push(<PhoneFrame key="phone" box={ph} clip={main} t={local} />);
     if (tile) {
-      if (s === 'hook') content.push(<CropTile key="tile" box={tile} clip={main} scale={0.86} focusX={985} focusY={450} t={local} sweepAt={70} />);
+      if (s === 'hook') content.push(<CropTile key="tile" box={tile} clip={main} scale={0.86} focusX={720} focusY={430} t={local} sweepAt={70} />);
+      else if (s === 'spot') content.push(<CropTile key="tile" box={tile} clip={main} scale={0.88} focusX={480} focusY={376} t={local} offset zoom={1 + 0.06 * easeInOut(ramp(local, 20, 170))} />);
+      else if (s === 'herd') {
+        // bento: tiles animate in one by one
+        const tin = (n: number) => { const p = easeOut(ramp(local, 4 + n * 6, 20 + n * 6)); return { opacity: p, transform: `translateY(${(1 - p) * 40}px) scale(${0.94 + 0.06 * p})` }; };
+        if (f === 'feed') {
+          content.push(<CropTile key="tile" box={tile} clip={main} scale={0.67} focusX={720} focusY={533} t={local} sweepAt={24} style={tin(0)} />);
+          content.push(<CropTile key="tileB" boxId="tileB" offset box={tileB!} clip={clips.b!} scale={0.62} focusX={480} focusY={460} t={local} sweepAt={34} style={tin(1)} />);
+          content.push(<CropTile key="tileC" boxId="tileC" offset box={tileC!} clip={clips.c!} scale={1.2} focusX={195} focusY={330} t={local} sweepAt={44} style={tin(2)} />);
+        } else {
+          content.push(<CropTile key="tile" box={tile} clip={main} scale={0.62} focusX={720} focusY={480} t={local} sweepAt={24} style={tin(0)} />);
+          content.push(<CropTile key="tileB" boxId="tileB" offset box={tileB!} clip={clips.b!} scale={1.05} focusX={195} focusY={330} t={local} sweepAt={34} style={tin(1)} />);
+          content.push(<CropTile key="tileC" boxId="tileC" offset box={tileC!} clip={clips.c!} scale={0.62} focusX={420} focusY={470} t={local} sweepAt={44} style={tin(2)} />);
+        }
+      } else if (s === 'lessons') content.push(<CropTile key="tile" box={tile} clip={main} scale={0.6} focusX={720} focusY={646} t={local} />);
       else content.push(<CropTile key="tile" box={tile} clip={main} scale={0.62} focusX={720} focusY={450} t={local} />);
       if (tile2) content.push(<CropTile key="tile2" boxId="tile2" box={tile2} clip={{ ...main, from: main.from + 90 }} scale={0.62} focusX={720} focusY={450} t={local} sweepAt={20} />);
+    }
+    if (ph) {
+      let zoom: { z: number; ox: string; oy: string } | undefined;
+      let over: React.ReactNode = null;
+      if (f === 'tiktok' && s === 'nav') {
+        // highlight: the phone screen glides into the opening menu, the page beneath dims
+        const zp = easeInOut(ramp(local, 30, 52)) * (1 - easeInOut(ramp(local, 112, 134)));
+        zoom = { z: 1 + 0.16 * zp, ox: '50%', oy: '12%' };
+        over = <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(180deg, transparent 0%, transparent 58%, rgba(5,34,34,${0.5 * zp}) 80%)` }} />;
+      }
+      content.push(<PhoneFrame key="phone" box={ph} clip={clips.phone ?? main} t={local} zoom={zoom} over={over} />);
     }
   }
   const labelBox = lay.boxes.find((b) => b.id === 'label');
   const brand = lay.boxes.find((b) => b.id === 'brand');
+  const split = lay.boxes.find((b) => b.id === 'splitText');
+  const out = easeInOut(ramp(t, en - 2 * X, en));
   return <AbsoluteFill style={{ clipPath: wipe, perspective: 1800 }}>
     <div style={{ position: 'absolute', left: 0, top: 0, width: W, height: H, transformOrigin: `${gcx}px ${gcy}px`, transform: `scale(${m.push})`, transformStyle: 'preserve-3d' }}>
-    <div style={groupStyle}>
-      {/* soft floor shadow under the device */}
-      <div style={{ position: 'absolute', left: gcx - group.w * 0.42, top: group.y + group.h - 30, width: group.w * 0.84, height: 70, borderRadius: '50%', background: 'rgba(0,0,0,.65)', filter: 'blur(30px)' }} />
-      {content}
-    </div>
+      <div style={groupStyle}>
+        {/* soft floor shadow under the devices */}
+        <div style={{ position: 'absolute', left: gcx - group.w * 0.42, top: group.y + group.h - 30, width: group.w * 0.84, height: 70, borderRadius: '50%', background: 'rgba(0,0,0,.6)', filter: 'blur(30px)' }} />
+        {content}
+        {overlay}
+      </div>
     </div>
     {labelBox && <Label f={f} s={s} box={labelBox} t={t} st={st} en={en} />}
+    {split && <div data-box="splitText" data-kind="text" data-offset="1" style={{ position: 'absolute', left: split.x, top: split.y, width: split.w, height: split.h, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: SPACE.md,
+      opacity: 1 - out, transform: `translateY(${-out * 20}px)` }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+        <div style={{ width: 36, height: 3, borderRadius: 2, background: COLORS.saddle, transform: `scaleX(${easeOut(ramp(t, st + 6, st + 26))})`, transformOrigin: 'left' }} />
+        <WordsUp text={LABELS[s].kicker} t={t} at={st + 8} size={26} weight={700} color={COLORS.hay} font={MONO} tracking="0.08em" stagger={2} align="flex-start" />
+      </div>
+      <WordsUp text={LABELS[s].title} t={t} at={st + 12} size={64} weight={600} align="flex-start" lh={1.06} />
+      <WordsUp text="Gentle motion, with a pause button." t={t} at={st + 30} size={28} weight={500} font={UBUNTU} color={COLORS.mist} tracking="0" align="flex-start" stagger={1} lh={1.4} />
+    </div>}
     {brand && <div data-box="brand" data-kind="text" style={{ position: 'absolute', left: brand.x, top: brand.y, width: brand.w, height: brand.h, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: SPACE.sm,
-      opacity: 1 - easeInOut(ramp(t, en - 2 * X, en)) }}>
-      <WordsUp text="Hushwren Tattoo" t={t} at={64} size={f === 'feed' ? 92 : 100} weight={900} stagger={4} tracking="-0.05em" />
-      <WordsUp text="Quiet lines. Loud stories." t={t} at={80} size={f === 'feed' ? 46 : 50} weight={500} color={COLORS.roseSoft} stagger={3} tracking="-0.02em" />
+      opacity: 1 - out }}>
+      <WordsUp text="Ashcanter Riding School" t={t} at={64} size={f === 'feed' ? 88 : 92} weight={600} stagger={4} />
+      <WordsUp text="Ride with quiet confidence." t={t} at={80} size={f === 'feed' ? 44 : 48} weight={500} font={UBUNTU} color={COLORS.saddleSoft} stagger={3} tracking="-0.01em" />
     </div>}
   </AbsoluteFill>;
 };
@@ -253,44 +339,43 @@ const WebDripMark: React.FC<{ size: number }> = ({ size }) => (
   </svg>
 );
 
-export const LOGO_HIT = 1526; // strongest late music hit (50.87 s)
 const EndCard: React.FC<{ f: Fmt; t: number; wipe?: string }> = ({ f, t, wipe }) => {
   const e = END[f];
   const bx = endCard(f);
   const head = bx[0], logo = bx[1], btn = bx[2], fol = bx[3];
-  const lines = ['Your tattoo studio', 'could look', 'like this.'];
-  const lineP = (k: number) => easeOut(ramp(t, 1508 + k * 3, 1508 + k * 3 + 16));
-  const hl = easeInOut(ramp(t, 1522, 1540));
-  const lp = springNoOvershoot(ramp(t, 1510, LOGO_HIT));
+  const lines = ['Your riding school', 'could look', 'like this.'];
+  const H0 = B[9];
+  const lineP = (k: number) => easeOut(ramp(t, H0 + 4 + k * 3, H0 + 4 + k * 3 + 16));
+  const hl = easeInOut(ramp(t, H0 + 20, H0 + 38));
+  const lp = springNoOvershoot(ramp(t, LOGO_HIT - 22, LOGO_HIT));
   const glow = Math.exp(-Math.max(0, t - LOGO_HIT) / 18) * (t >= LOGO_HIT ? 1 : 0);
-  const sweep = ramp(t, 1532, 1566);
-  const bp = easeOut(ramp(t, 1538, 1556));
-  const fp = easeOut(ramp(t, 1558, 1576));
-  const wordSize = e.word;
+  const sweep = ramp(t, LOGO_HIT + 6, LOGO_HIT + 40);
+  const bp = easeOut(ramp(t, LOGO_HIT + 10, LOGO_HIT + 28));
+  const fp = easeOut(ramp(t, LOGO_HIT + 28, LOGO_HIT + 46));
   return <AbsoluteFill style={{ clipPath: wipe }}>
-    <AbsoluteFill style={{ background: `radial-gradient(ellipse 70% 45% at 50% ${((logo.y + logo.h / 2) / CANVAS[f].h) * 100}%, rgba(0,117,222,${0.16 + 0.18 * glow}), transparent 70%), ${COLORS.ink}` }} />
+    <AbsoluteFill style={{ background: `radial-gradient(ellipse 70% 45% at 50% ${((logo.y + logo.h / 2) / CANVAS[f].h) * 100}%, rgba(0,117,222,${0.14 + 0.16 * glow}), transparent 70%), radial-gradient(ellipse 80% 50% at 50% 0%, rgba(20,82,80,.6), transparent 70%), ${COLORS.bg}` }} />
     <div data-box="endHead" data-kind="text" style={{ position: 'absolute', left: head.x, top: head.y, width: head.w, height: head.h, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       {lines.map((l, k) => <div key={k} style={{ overflow: lineP(k) < 1 ? 'hidden' : 'visible', height: e.head * e.headLH, display: 'flex', alignItems: 'center' }}>
-        <div style={{ position: 'relative', transform: `translateY(${(1 - lineP(k)) * 100}%)`, opacity: lineP(k), fontFamily: OUTFIT, fontWeight: 900, fontSize: e.head, letterSpacing: '-0.045em', lineHeight: e.headLH, color: COLORS.bone }}>
-          {k === 2 && <div style={{ position: 'absolute', left: -e.head * 0.14, right: -e.head * 0.14, top: '8%', bottom: '-4%', background: COLORS.rose, borderRadius: 14, transformOrigin: 'left center', transform: `scaleX(${hl}) skewX(-6deg)`, zIndex: 0 }} />}
-          <span style={{ position: 'relative', zIndex: 1, color: k === 2 ? (hl > 0.5 ? COLORS.ink : COLORS.bone) : COLORS.bone }}>{l}</span>
+        <div style={{ position: 'relative', transform: `translateY(${(1 - lineP(k)) * 100}%)`, opacity: lineP(k), fontFamily: OSWALD, fontWeight: 600, fontSize: e.head, letterSpacing: '-0.01em', lineHeight: e.headLH, color: COLORS.paper }}>
+          {k === 2 && <div style={{ position: 'absolute', left: -e.head * 0.16, right: -e.head * 0.16, top: '10%', bottom: '-2%', background: COLORS.saddle, borderRadius: 12, transformOrigin: 'left center', transform: `scaleX(${hl}) skewX(-6deg)`, zIndex: 0 }} />}
+          <span style={{ position: 'relative', zIndex: 1, color: k === 2 ? (hl > 0.5 ? COLORS.pine : COLORS.paper) : COLORS.paper }}>{l}</span>
         </div>
       </div>)}
     </div>
     <div data-box="endLogo" data-kind="logo" style={{ position: 'absolute', left: logo.x, top: logo.y, width: logo.w, height: logo.h, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: SPACE.md,
       opacity: clamp(lp * 1.6), transform: `translateY(${(1 - lp) * 60}px) scale(${0.7 + 0.3 * lp})` }}>
       <div style={{ filter: `drop-shadow(0 0 ${30 + 40 * glow}px rgba(0,117,222,${0.35 + 0.4 * glow}))` }}><WebDripMark size={e.logoMark} /></div>
-      <div style={{ position: 'relative', fontFamily: OUTFIT, fontWeight: 700, fontSize: wordSize, letterSpacing: '-0.035em', lineHeight: 1.1, color: COLORS.bone, whiteSpace: 'nowrap' }}>
-        Web<span style={{ color: COLORS.wdBlue, textShadow: `0 0 ${24 * glow + 10}px rgba(0,117,222,.55)` }}>Drip</span>
+      <div style={{ position: 'relative', fontFamily: INTER, fontWeight: 600, fontSize: e.word, letterSpacing: '-0.035em', lineHeight: 1.1, color: COLORS.paper, whiteSpace: 'nowrap' }}>
+        Web<span style={{ color: '#2F8FE8', textShadow: `0 0 ${24 * glow + 10}px rgba(0,117,222,.55)` }}>Drip</span>
         {sweep > 0 && sweep < 1 && <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}><div style={{ position: 'absolute', top: 0, bottom: 0, width: '40%', left: `${-50 + sweep * 160}%`, background: 'linear-gradient(100deg, transparent, rgba(255,255,255,.5), transparent)', transform: 'skewX(-16deg)', mixBlendMode: 'overlay' }} /></div>}
       </div>
     </div>
-    <div data-box="endButton" data-kind="button" style={{ position: 'absolute', left: btn.x, top: btn.y, width: btn.w, height: btn.h, borderRadius: btn.h / 2, background: COLORS.rose, display: 'flex', alignItems: 'center', justifyContent: 'center',
-      boxShadow: '0 24px 60px -24px rgba(244,63,94,.9)', opacity: bp, transform: `translateY(${(1 - bp) * 40}px)`, fontFamily: OUTFIT, fontWeight: 800, fontSize: e.btnFont, color: COLORS.ink, letterSpacing: '-0.02em' }}>
+    <div data-box="endButton" data-kind="button" style={{ position: 'absolute', left: btn.x, top: btn.y, width: btn.w, height: btn.h, borderRadius: btn.h / 2, background: COLORS.saddle, display: 'flex', alignItems: 'center', justifyContent: 'center',
+      boxShadow: '0 24px 60px -24px rgba(255,95,3,.9)', opacity: bp, transform: `translateY(${(1 - bp) * 40}px)`, fontFamily: UBUNTU, fontWeight: 700, fontSize: e.btnFont, color: COLORS.pine, letterSpacing: '-0.01em' }}>
       Book your meeting → getwebdrip.com
     </div>
     <div data-box="endFollow" data-kind="text" style={{ position: 'absolute', left: fol.x, top: fol.y, width: fol.w, height: fol.h, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, opacity: fp, transform: `translateY(${(1 - fp) * 16}px)`,
-      fontFamily: OUTFIT, fontWeight: 500, fontSize: e.follow, color: COLORS.mist }}>
+      fontFamily: UBUNTU, fontWeight: 500, fontSize: e.follow, color: COLORS.mist }}>
       <svg width={e.follow * 1.05} height={e.follow * 1.05} viewBox="0 0 24 24" fill="none" stroke={COLORS.mist} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="8" r="4" /><path d="M2 21c0-3.9 3.1-7 7-7s7 3.1 7 7" /><path d="M19 8v6M16 11h6" /></svg>
       Follow for more content like this
     </div>
@@ -308,7 +393,7 @@ const CHUNKS: { words: W[]; start: number; end: number }[] = (() => {
       const len = cur.map((c) => c.text).join(' ').length + w.text.length + 1;
       if (cur.length >= 4 || (cur.length >= 2 && len > 24)) flush();
       cur.push(w);
-      if (/[.?!…]$/.test(w.text) && cur.length >= 2) flush();
+      if (/[.?!…,]$/.test(w.text) && cur.length >= 2) flush();
     });
     flush();
   });
@@ -323,15 +408,15 @@ const Subtitles: React.FC<{ f: Fmt; t: number }> = ({ f, t }) => {
   const c = CHUNKS.find((k) => sec >= k.start - 0.04 && sec < k.end);
   if (!c) return null;
   const inP = easeOut(clamp((sec - (c.start - 0.04)) / 0.18));
-  const size = f === 'feed' ? 48 : 50;
+  const size = f === 'feed' ? 46 : 48;
   return <div style={{ position: 'absolute', left: lane.x, top: lane.y, width: lane.w, height: lane.h, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-    <div data-box="subs" data-kind="subs" style={{ display: 'flex', gap: size * 0.28, padding: `${size * 0.16}px ${size * 0.42}px`, borderRadius: 18, background: 'rgba(9,9,11,.72)', boxShadow: '0 0 0 1px rgba(250,250,250,.08)',
+    <div data-box="subs" data-kind="subs" style={{ display: 'flex', gap: size * 0.26, padding: `${size * 0.16}px ${size * 0.42}px`, borderRadius: 18, background: 'rgba(4,26,26,.82)', boxShadow: '0 0 0 1px rgba(247,245,238,.1)',
       opacity: inP, transform: `translateY(${(1 - inP) * 10}px)` }}>
       {c.words.map((w, k) => {
         const next = c.words[k + 1];
         const active = sec >= w.start - 0.03 && (next ? sec < next.start - 0.03 : sec < c.end);
-        return <span key={k} style={{ fontFamily: OUTFIT, fontWeight: 800, fontSize: size, letterSpacing: '-0.02em', lineHeight: 1.15, whiteSpace: 'nowrap',
-          color: active ? COLORS.rose : COLORS.bone, transform: `translateY(${active ? -2 : 0}px)`, display: 'inline-block' }}>{w.text}</span>;
+        return <span key={k} style={{ fontFamily: UBUNTU, fontWeight: 700, fontSize: size, letterSpacing: '-0.01em', lineHeight: 1.15, whiteSpace: 'nowrap',
+          color: active ? COLORS.saddle : COLORS.paper, transform: `translateY(${active ? -2 : 0}px)`, display: 'inline-block' }}>{w.text}</span>;
       })}
     </div>
   </div>;
@@ -341,6 +426,7 @@ const Subtitles: React.FC<{ f: Fmt; t: number }> = ({ f, t }) => {
 export const Promo: React.FC<{ fmt: Fmt; showGuides?: boolean; logBoxes?: boolean }> = ({ fmt, showGuides, logBoxes }) => {
   useFonts();
   const t = useCurrentFrame();
+  const { fps } = useVideoConfig();
   useEffect(() => {
     if (!logBoxes) return;
     const h = delayRender('boxes');
@@ -349,16 +435,16 @@ export const Promo: React.FC<{ fmt: Fmt; showGuides?: boolean; logBoxes?: boolea
       const out = Array.from(document.querySelectorAll<HTMLElement>('[data-box]')).map((e) => {
         const r = e.getBoundingClientRect();
         const sc = e.closest('[data-scene]') as HTMLElement | null;
-        return { id: e.dataset.box, kind: e.dataset.kind, scene: sc ? sc.dataset.scene : null, x: +r.x.toFixed(2), y: +r.y.toFixed(2), w: +r.width.toFixed(2), h: +r.height.toFixed(2), op: +getComputedStyle(e).opacity };
+        return { id: e.dataset.box, kind: e.dataset.kind, offset: e.dataset.offset === '1', scene: sc ? sc.dataset.scene : null, x: +r.x.toFixed(2), y: +r.y.toFixed(2), w: +r.width.toFixed(2), h: +r.height.toFixed(2), op: +getComputedStyle(e).opacity };
       });
       console.log('BOXES' + JSON.stringify(out));
       continueRender(h);
     }, 50);
   }, [t, logBoxes]);
-  return <AbsoluteFill style={{ background: COLORS.ink, overflow: 'hidden' }}>
+  return <AbsoluteFill style={{ background: COLORS.bg, overflow: 'hidden' }}>
     <Background f={fmt} t={t} />
     {SCENES.map((s, i) => (
-      <Sequence key={s} from={sceneStart(i)} durationInFrames={sceneEnd(i) - sceneStart(i)} premountFor={30} name={s}>
+      <Sequence key={s} from={sceneStart(i)} durationInFrames={sceneEnd(i) - sceneStart(i)} premountFor={fps} name={s}>
         <AbsoluteFill data-scene={s}><Scene f={fmt} i={i} /></AbsoluteFill>
       </Sequence>
     ))}

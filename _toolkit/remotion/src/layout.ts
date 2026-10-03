@@ -9,7 +9,10 @@ export type Box = Rect & { id: string; kind: 'frame' | 'phone' | 'tile' | 'text'
 export const FPS = 30;
 export const DURATION = 1800;
 export const SPACE = { xs: 8, sm: 16, md: 24, lg: 32, xl: 48, xxl: 64, xxxl: 96 };
-export const COLORS = { ink: '#09090B', char: '#121215', smoke: '#1C1C21', bone: '#FAFAFA', mist: '#A1A1AA', rose: '#F43F5E', roseSoft: '#FB7185', violet: '#A78BFA', wdBlue: '#0075DE', wdSky: '#dcecfa' };
+export const COLORS = {
+  bg: '#052222', pine: '#072C2C', pine2: '#0D3D3B', pine3: '#145250', oat: '#EDEADE', paper: '#F7F5EE', mist: '#B9C7C2',
+  saddle: '#FF5F03', saddleSoft: '#FF8A47', hay: '#F2C14E', ink: '#111827', wdBlue: '#0075DE', wdSky: '#dcecfa',
+};
 
 export const CANVAS = {
   feed: { w: 1080, h: 1350 },
@@ -42,22 +45,24 @@ export const CX = (f: Fmt) => CANVAS[f].w / 2;
 export const DESK = { w: 1440, h: 900 };
 export const MOB = { w: 390, h: 844 };
 
-// scene boundaries (frames) snapped to beats / music phrase hits
-export const B = [0, 155, 297, 451, 604, 746, 901, 1054, 1278, 1505, 1800];
+// scene boundaries (frames) snapped to beats / music phrase hits of the 60 s "Heart Hold On" edit
+// 5.05 s, 10.40 s, 14.79 s, 19.52 s, 24.85 s, 29.96 s, 35.39 s (lift), 43.41 s, 50.5 s (end card)
+export const B = [0, 152, 312, 444, 586, 746, 899, 1062, 1303, 1515, 1800];
 export const X = 8; // half transition length (frames) -> 16 frames ≈ 0.53 s
-export const SCENES = ['hook', 'hero', 'nav', 'styles', 'spot', 'artists', 'form', 'dscroll', 'mobile', 'end'] as const;
+export const SCENES = ['hook', 'hero', 'nav', 'lessons', 'spot', 'herd', 'form', 'dscroll', 'mobile', 'end'] as const;
 export type SceneId = typeof SCENES[number];
 export const sceneStart = (i: number) => Math.max(0, B[i] - (i === 0 ? 0 : X));
 export const sceneEnd = (i: number) => Math.min(DURATION, B[i + 1] + (i === SCENES.length - 1 ? 0 : X));
+export const LOGO_HIT = 1550; // strongest late music hit (51.66 s)
 
 export const LABELS: Record<SceneId, { kicker: string; title: string }> = {
   hook: { kicker: '', title: '' },
-  hero: { kicker: '01 — Hero', title: 'Photos that move as you scroll' },
-  nav: { kicker: '02 — Navigation', title: 'A menu that stays tidy' },
-  styles: { kicker: '03 — Styles', title: 'Every style, priced up front' },
-  spot: { kicker: '04 — Spotlight', title: 'A stage for Flash Fridays' },
-  artists: { kicker: '05 — Artists', title: 'Book an artist in one tap' },
-  form: { kicker: '06 — Booking', title: 'A form that checks itself' },
+  hero: { kicker: '01 · Hero', title: 'Photos that move as you scroll' },
+  nav: { kicker: '02 · Navigation', title: 'A tidy menu, one tap away' },
+  lessons: { kicker: '03 · Lessons', title: 'Every lesson, priced up front' },
+  spot: { kicker: '04 · Spotlight', title: 'A stage for sunrise hacks' },
+  herd: { kicker: '05 · The herd', title: 'Meet the horses first' },
+  form: { kicker: '06 · Booking', title: 'A form that checks itself' },
   dscroll: { kicker: 'Desktop', title: 'Smooth from top to bottom' },
   mobile: { kicker: 'Mobile', title: 'Looks great on any phone' },
   end: { kicker: '', title: '' },
@@ -65,8 +70,8 @@ export const LABELS: Record<SceneId, { kicker: string; title: string }> = {
 
 // ---------- element geometry ----------
 export const LABEL_H: Record<Fmt, { kicker: number; title: number; gap: number }> = {
-  feed: { kicker: 26, title: 60, gap: 14 },
-  tiktok: { kicker: 30, title: 56, gap: 16 },
+  feed: { kicker: 26, title: 62, gap: 12 },
+  tiktok: { kicker: 30, title: 60, gap: 14 },
 };
 export const labelHeight = (f: Fmt) => LABEL_H[f].kicker * 1.3 + LABEL_H[f].gap + LABEL_H[f].title * 1.1;
 
@@ -89,9 +94,39 @@ export const TT_PHONE_H = 1030;
 export const FEED_PHONE_H = 860;
 export const PUSH = 1.03; // max slow push-in scale during holds
 
+// split scene (feed): big type column + tall tile; bento scene: one wide tile over two halves
+export const SPLIT = { feed: { tileW: 560, tileH: 640, gap: 48 } };
+export const BENTO = {
+  feed: { w: 932, aH: 420, bH: 396, gap: SPACE.md },
+  tiktok: { w: 760, aH: 540, bH: 460, gap: SPACE.md },
+};
+// TikTok lessons: desktop crop tile with the phone overlapping its lower edge
+export const TT_DUO = { tileW: 800, tileH: 500, phoneH: 640, overlap: 110 };
+
 export type SceneLayout = { boxes: Box[] };
 
 const centerX = (f: Fmt, w: number) => CX(f) - w / 2;
+const phoneBox = (id: string, x: number, y: number, h: number): Box => {
+  const p = phone(h);
+  return { id, kind: 'phone', important: true, x, y, w: p.w, h: p.h, clip: { w: MOB.w, h: MOB.h, screen: { x: x + p.bezel, y: y + p.bezel, w: p.sw, h: p.sh } } };
+};
+
+// bento: one wide tile over two halves, centred; widths leave room for the slow push-in
+function bento(f: Fmt, label: (y: number) => void): Box[] {
+  const C = CONTENT[f];
+  const G = BENTO[f];
+  const total = labelHeight(f) + SPACE.lg + G.aH + G.gap + G.bH;
+  const top = C.y + (C.h - total) / 2;
+  label(top);
+  const y0 = top + labelHeight(f) + SPACE.lg;
+  const x0 = centerX(f, G.w);
+  const half = (G.w - G.gap) / 2;
+  return [
+    { id: 'tile', kind: 'tile', important: true, x: x0, y: y0, w: G.w, h: G.aH },
+    { id: 'tileB', kind: 'tile', important: true, offset: true, x: x0, y: y0 + G.aH + G.gap, w: half, h: G.bH },
+    { id: 'tileC', kind: 'tile', important: true, offset: true, x: x0 + half + G.gap, y: y0 + G.aH + G.gap, w: half, h: G.bH },
+  ];
+}
 
 // resting layout of each scene (before motion transforms)
 export function sceneLayout(f: Fmt, s: SceneId): SceneLayout {
@@ -117,11 +152,21 @@ export function sceneLayout(f: Fmt, s: SceneId): SceneLayout {
     }
     return { boxes };
   }
-  if (s === 'end') {
-    const E = endCard(f);
-    return { boxes: E };
-  }
+  if (s === 'end') return { boxes: endCard(f) };
+
   if (f === 'feed') {
+    if (s === 'spot') {
+      // split screen: big type on the left, a tall window onto the spotlight on the right
+      const S = SPLIT.feed;
+      const top = C.y + (C.h - S.tileH) / 2;
+      const textW = C.w - S.tileW - S.gap;
+      boxes.push({ id: 'splitText', kind: 'text', important: true, x: C.x, y: top + S.tileH / 2 - 190, w: textW, h: 380 });
+      boxes.push({ id: 'tile', kind: 'tile', important: true, offset: true, x: C.x + textW + S.gap, y: top, w: S.tileW, h: S.tileH });
+      return { boxes };
+    }
+    if (s === 'herd') {
+      const bb = bento(f, label); return { boxes: [...boxes, ...bb] };
+    }
     if (s === 'mobile') {
       const p = phone(FEED_PHONE_H);
       const total = L + SPACE.lg + p.h;
@@ -129,7 +174,7 @@ export function sceneLayout(f: Fmt, s: SceneId): SceneLayout {
       label(top);
       const bf = browser(FEED_FRAME_W);
       boxes.push({ id: 'backdrop', kind: 'decor', important: false, x: centerX(f, bf.w), y: top + L + SPACE.lg + (p.h - bf.h) / 2, w: bf.w, h: bf.h });
-      boxes.push({ id: 'phone', kind: 'phone', important: true, x: centerX(f, p.w), y: top + L + SPACE.lg, w: p.w, h: p.h, clip: { w: MOB.w, h: MOB.h, screen: { x: centerX(f, p.sw), y: top + L + SPACE.lg + p.bezel, w: p.sw, h: p.sh } } });
+      boxes.push(phoneBox('phone', centerX(f, p.w), top + L + SPACE.lg, FEED_PHONE_H));
       return { boxes };
     }
     const bf = browser(FEED_FRAME_W);
@@ -140,7 +185,7 @@ export function sceneLayout(f: Fmt, s: SceneId): SceneLayout {
     boxes.push({ id: 'frame', kind: 'frame', important: true, x: centerX(f, bf.w), y: fy, w: bf.w, h: bf.h, clip: { w: DESK.w, h: DESK.h, screen: { x: centerX(f, bf.w), y: fy + bf.bar, w: bf.w, h: bf.screenH } } });
     return { boxes };
   }
-  // tiktok
+  // ---------- tiktok ----------
   if (s === 'dscroll') {
     // two stacked windows onto the same scrolling page (the lower one runs ahead), each at 0.62x
     const tw = 760, th = 520;
@@ -151,20 +196,35 @@ export function sceneLayout(f: Fmt, s: SceneId): SceneLayout {
     boxes.push({ id: 'tile2', kind: 'tile', important: true, x: centerX(f, tw), y: top + L + SPACE.lg + th + SPACE.md, w: tw, h: th });
     return { boxes };
   }
-  const p = phone(s === 'mobile' ? TT_PHONE_H + 40 : TT_PHONE_H);
+  if (s === 'herd') {
+    const bb = bento(f, label); return { boxes: [...boxes, ...bb] };
+  }
+  if (s === 'lessons') {
+    const D = TT_DUO;
+    const total = L + SPACE.lg + D.tileH + D.phoneH - D.overlap;
+    const top = C.y + (C.h - total) / 2;
+    label(top);
+    const y0 = top + L + SPACE.lg;
+    const p = phone(D.phoneH);
+    boxes.push({ id: 'tile', kind: 'tile', important: true, x: centerX(f, D.tileW), y: y0, w: D.tileW, h: D.tileH });
+    boxes.push(phoneBox('phone', centerX(f, p.w), y0 + D.tileH - D.overlap, D.phoneH));
+    return { boxes };
+  }
+  const ph = s === 'mobile' ? TT_PHONE_H + 40 : TT_PHONE_H;
+  const p = phone(ph);
   const total = L + SPACE.lg + p.h;
   const top = C.y + (C.h - total) / 2;
   label(top);
   const py = top + L + SPACE.lg;
   boxes.push({ id: 'backdrop', kind: 'decor', important: false, x: centerX(f, 780), y: py + p.h * 0.12, w: 780, h: p.h * 0.76 });
-  boxes.push({ id: 'phone', kind: 'phone', important: true, x: centerX(f, p.w), y: py, w: p.w, h: p.h, clip: { w: MOB.w, h: MOB.h, screen: { x: centerX(f, p.sw), y: py + p.bezel, w: p.sw, h: p.sh } } });
+  boxes.push(phoneBox('phone', centerX(f, p.w), py, ph));
   return { boxes };
 }
 
 // end card stack: headline (3 lines), logo + wordmark, button, follow line
 export const END = {
-  feed: { head: 76, headLH: 1.02, logoMark: 132, word: 100, button: 84, btnFont: 34, follow: 30, gapA: SPACE.xxl, gapB: SPACE.xxl, gapC: SPACE.lg },
-  tiktok: { head: 90, headLH: 1.02, logoMark: 128, word: 88, button: 96, btnFont: 36, follow: 34, gapA: 80, gapB: 80, gapC: SPACE.xl },
+  feed: { head: 78, headLH: 1.04, logoMark: 132, word: 104, button: 84, btnFont: 34, follow: 30, gapA: SPACE.xxl, gapB: SPACE.xxl, gapC: SPACE.lg },
+  tiktok: { head: 92, headLH: 1.04, logoMark: 128, word: 92, button: 96, btnFont: 36, follow: 34, gapA: 80, gapB: 80, gapC: SPACE.xl },
 };
 export function endCard(f: Fmt): Box[] {
   const C = CONTENT[f];
@@ -179,7 +239,7 @@ export function endCard(f: Fmt): Box[] {
   out.push({ id: 'endHead', kind: 'text', important: true, x: CX(f) - maxW / 2, y, w: maxW, h: headH }); y += headH + e.gapA;
   const logoW = Math.round((f === 'feed' ? C.w : 840) * 0.6);
   out.push({ id: 'endLogo', kind: 'logo', important: true, x: CX(f) - logoW / 2, y, w: logoW, h: logoH }); y += logoH + e.gapB;
-  const btnW = f === 'feed' ? 760 : 760;
+  const btnW = 760;
   out.push({ id: 'endButton', kind: 'button', important: true, x: CX(f) - btnW / 2, y, w: btnW, h: e.button }); y += e.button + e.gapC;
   const fw = f === 'feed' ? 560 : 600;
   out.push({ id: 'endFollow', kind: 'text', important: true, x: CX(f) - fw / 2, y, w: fw, h: followH });
@@ -195,8 +255,8 @@ export const easeInOut = (t: number) => { t = clamp(t); return t < 0.5 ? 4 * t *
 export const springNoOvershoot = (t: number) => { t = clamp(t); const k = 7; return (1 - (1 + k * t) * Math.exp(-k * t)) / (1 - (1 + k) * Math.exp(-k)); };
 
 export type Motion = { scale: number; push: number; tx: number; ty: number; rotX: number; rotY: number; opacity: number; blur: number; wipe: number };
-export const TRANSITION_IN: Record<SceneId, 'blur' | 'wipe' | 'push' | 'scale' | 'none'> = {
-  hook: 'none', hero: 'blur', nav: 'wipe', styles: 'push', spot: 'scale', artists: 'wipe', form: 'blur', dscroll: 'push', mobile: 'scale', end: 'wipe',
+export const TRANSITION_IN: Record<SceneId, 'blur' | 'wipe' | 'push' | 'scale' | 'rise' | 'none'> = {
+  hook: 'none', hero: 'blur', nav: 'wipe', lessons: 'push', spot: 'scale', herd: 'wipe', form: 'rise', dscroll: 'push', mobile: 'scale', end: 'wipe',
 };
 export const MAX_TILT: Record<Fmt, number> = { feed: 10, tiktok: 6 };
 
@@ -212,11 +272,14 @@ export function sceneMotion(f: Fmt, i: number, t: number): Motion {
   const settle = easeOut(clamp((t - st) / 18));
   const dir = i % 2 === 0 ? 1 : -1;
   const pushT = clamp((t - (st + 2 * X)) / Math.max(1, en - st - 4 * X));
-  let m: Motion = { scale: 1, push: 1 + (PUSH - 1) * easeInOut(pushT), tx: 0, ty: 0, rotX: 0, rotY: 0, opacity: 1, blur: 0, wipe: 1 };
+  const pushMax = f === 'feed' && s === 'spot' ? 1 : PUSH;
+  const m: Motion = { scale: 1, push: 1 + (pushMax - 1) * easeInOut(pushT), tx: 0, ty: 0, rotX: 0, rotY: 0, opacity: 1, blur: 0, wipe: 1 };
   if (s !== 'hook' && s !== 'end') { m.rotY = dir * tilt * (1 - settle); m.rotX = tilt * 0.4 * (1 - settle); }
   const tr = TRANSITION_IN[s];
   if (tr === 'blur') { m.opacity = ei; m.blur = 14 * (1 - ei); m.scale *= 0.97 + 0.03 * ei; }
   if (tr === 'push') { m.ty = 70 * (1 - ei); m.opacity = ei; }
+  // crane-style rise: the group comes up from below while tilted back, then rests flat
+  if (tr === 'rise') { m.ty = 110 * (1 - ei); m.opacity = ei; m.rotX = (MAX_TILT[f] * 0.5) * (1 - settle); }
   if (tr === 'scale') { m.scale *= 0.92 + 0.08 * ei; m.opacity = ei; }
   if (tr === 'wipe') { m.wipe = ei; }
   // exit: soft fade, slight scale up and blur
@@ -241,7 +304,6 @@ export function boxesAt(f: Fmt, t: number): { scene: SceneId; i: number; boxes: 
     const g = groupRect(lay.boxes.filter((b) => b.kind !== 'text'));
     const cx = g.x + g.w / 2, cy = g.y + g.h / 2;
     const boxes = lay.boxes.map((b) => {
-      if (b.kind === 'text' && s !== 'hook' && s !== 'end') return b; // labels don't scale
       if (s === 'end' || b.kind === 'text') return b;
       const sc = m.scale * m.push;
       return { ...b, x: cx + (b.x - cx) * sc + m.tx, y: cy + (b.y - cy) * sc + m.ty, w: b.w * sc, h: b.h * sc };
