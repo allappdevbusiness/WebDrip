@@ -511,9 +511,10 @@
     "vo_hook": "Your art lasts forever. So why does your website feel… temporary?",
     "caption_hook": "Is your website as sharp as your linework? 🖋️",
     "hook_type": "bold question",
-    "buffer_post_id": null,
-    "buffer_tiktok_post_id": null,
-    "not_posted_reason": "Cloudflare R2 upload returned HTTP 403 {\"code\":10000,\"message\":\"Authentication error\"} (PUT objects/hushwrentattoo-demo/video.mp4), so no public video URL existed and nothing was sent to Buffer",
-    "videos_deleted": false
+    "buffer_post_id": "6ac147d93bfd38430fecb9f1",
+    "buffer_tiktok_post_id": "6ac147e3aa79e514b9f9bd4c",
+    "videos_deleted": true,
+    "fb_post_url": "https://www.facebook.com/reel/1414878903333625/",
+    "tiktok_post_url": "https://tiktok.com/@getwebdrip/video/7692508645816356110"
   }
 ]
