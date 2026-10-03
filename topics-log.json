@@ -466,6 +466,22 @@
    "muted": "#4B5563",
    "berry": "#9E2A4F",
    "leaf": "#1E6B4E"
-  }
+  },
+  "music_brief": "bright, bouncy feel-good dance-pop with punchy claps, a silent break and a sunny drop — upbeat and reassuring to match a pastel blush-and-mint dental studio that wants to feel fun, not scary",
+  "music_track": {
+   "id": "6d388437-6cf5-49c2-a318-75fb860e6bb5",
+   "title": "Let's Talk About Your Ex (Instrumental Version)",
+   "artist": "Mindme",
+   "why": "happy, hopeful instrumental dance-pop at ~124 BPM with the strongest drum punch (highest onset strength) of a 9-track instrumental house/dance-pop shortlist, and a clean silent break into a big drop; cut to 25s with Epidemic Sound EditRecording from the 35.5s break so the drop lands at 3.0s as the walkthrough kicks in"
+  },
+  "sound_effects": "synthesized in code (whooshes, impact, tick) — DownloadSoundEffect returned FORBIDDEN (no permission to download this asset)",
+  "voice": "af_bella",
+  "voiceover": "Kokoro-82M via kokoro-onnx (model files from the kokoro-onnx GitHub release), speed 1.08; subtitles timed from the speech segments of each generated line (faster-whisper blocked: Hugging Face 403 via proxy)",
+  "vo_hook": "Dentists can be scary. Their websites don't have to be.",
+  "vo_hook_type": "playful contrast",
+  "caption_hook": "Before: dentist websites that feel cold. After: this 🦷",
+  "hook_type": "before/after tease",
+  "video_hosting": "not posted — GitHub release creation returned HTTP 403 'Creating, editing, or deleting releases is not permitted for this session type' (3 attempts), so no temporary video URLs for Buffer; videos sent to Sourav directly",
+  "buffer_status": "skipped (no video URL)"
  }
 ]
