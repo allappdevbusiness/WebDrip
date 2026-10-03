@@ -63,11 +63,11 @@
   .ulink { position: relative; display: inline-block; }
 
   /* ---------- burger ---------- */
-  #burger span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; transition: transform .35s var(--ease), opacity .25s; }
-  #burger span + span { margin-top: 6px; }
-  #burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-  #burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(.2); }
-  #burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+  #burger .bars > span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; transition: transform .35s var(--ease), opacity .25s; }
+  #burger .bars > span + span { margin-top: 6px; }
+  #burger[aria-expanded="true"] .bars > span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  #burger[aria-expanded="true"] .bars > span:nth-child(2) { opacity: 0; transform: scaleX(.2); }
+  #burger[aria-expanded="true"] .bars > span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
   #mobileMenu { transform-origin: top; animation: menuIn .35s var(--ease); }
   #mobileMenu a { animation: menuItem .4s var(--ease) both; }
   #mobileMenu a:nth-child(2) { animation-delay: .05s; } #mobileMenu a:nth-child(3) { animation-delay: .1s; }
@@ -216,7 +216,7 @@
       <a class="btn magnetic !min-h-[46px] !py-2 !px-5 text-sm" href="#book">Book a flight</a>
     </nav>
     <button id="burger" class="md:hidden grid place-items-center w-12 h-12 -mr-2 rounded-lg" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
-      <span class="block"><span></span><span></span><span></span></span>
+      <span class="bars block"><span></span><span></span><span></span></span>
     </button>
   </div>
   <div id="mobileMenu" class="md:hidden bg-sky text-ink border-t border-line shadow-lg" hidden>
