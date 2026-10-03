@@ -534,6 +534,25 @@
       "saddle_deep": "#B33F00",
       "hay": "#F2C14E",
       "moss": "#15803D"
-    }
+    },
+    "buffer_post_id": "6ac157fa814d657011d34207",
+    "buffer_tiktok_post_id": "6ac158007d53b827e0eac606",
+    "music_brief": "warm, cinematic mid-tempo (80–110 BPM) instrumental with a gentle start, soft drums entering early, a breath mid-tour and a hopeful lift for the scrolls — golden-hour countryside feel to match a pine-and-saddle-orange riding school site",
+    "music_track": {
+      "id": "1f7e6aa0-5c37-3ae4-89f2-2f85caf05832",
+      "title": "Heart Hold On",
+      "artist": "Max Anson",
+      "why": "instrumental, 102 BPM, tagged build/happy/dreamy; from a 14-track instrumental shortlist it had the clearest emotional arc (near-silent intro, drums at ~5 s, steady build) with the lowest 1–4 kHz density of the builders so the voice sits on top; fitted to exactly 60 s with Epidemic Sound EditRecording keeping the intro (0–10 s) and the big entry (23.5–36 s placed at 34.5 s) so the lift lands on the desktop scroll at 35.4 s; strongest late hit at 51.66 s lands the WebDrip logo, natural fade to 60 s"
+    },
+    "voice": "af_heart",
+    "voiceover": "Kokoro-82M via kokoro-onnx (model files from the kokoro-onnx GitHub release), speed 0.95–1.0, 10 lines / 136 words; word-level subtitles from faster-whisper tiny.en timings (Hugging Face reachable)",
+    "vo_hook": "Picture this… a nervous first-timer finds your riding school, tonight.",
+    "vo_hook_type": "picture this",
+    "caption_hook": "Riding schools look magical in person. Online? Not always.",
+    "hook_type": "relatable truth",
+    "sound_effects": "synthesized in code (whooshes, pops, rise, ticks, impact)",
+    "fb_post_url": "https://facebook.com/1111396764872403",
+    "tiktok_post_url": "https://tiktok.com/@getwebdrip/video/7692526327559146766",
+    "videos_deleted": true
   }
 ]
