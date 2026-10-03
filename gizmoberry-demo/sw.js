@@ -1,5 +1,5 @@
 // Gizmoberry concept — service worker
-const CACHE = 'webdrip-gizmoberry-demo-v1';
+const CACHE = 'webdrip-gizmoberry-demo-v2';
 const PRECACHE = [
   './',
   './index.html',
@@ -34,9 +34,19 @@ self.addEventListener('fetch', (event) => {
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
   const isPage = url.origin === self.location.origin && (url.pathname.endsWith('/gizmoberry-demo/') || url.pathname.endsWith('/gizmoberry-demo/index.html'));
-  if (IMAGE_URLS.has(req.url) || isPage) {
+  if (isPage) {
+    // network-first for the page so updates always show; cached copy only when offline
     event.respondWith(
-      caches.match(req, { ignoreSearch: false }).then((hit) => hit || fetch(req).then((res) => {
+      fetch(req).then((res) => {
+        if (res && res.ok) { const copy = res.clone(); caches.open(CACHE).then((c) => c.put(req, copy)); }
+        return res;
+      }).catch(() => caches.match(req))
+    );
+    return;
+  }
+  if (IMAGE_URLS.has(req.url)) {
+    event.respondWith(
+      caches.match(req).then((hit) => hit || fetch(req).then((res) => {
         if (res && (res.ok || res.type === 'opaque')) { const copy = res.clone(); caches.open(CACHE).then((c) => c.put(req, copy)); }
         return res;
       }))
