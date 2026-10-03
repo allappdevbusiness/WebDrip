@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ashcanter Riding School — ride with quiet confidence (concept)</title>
+<meta name="description" content="Ashcanter Riding School is a concept site by WebDrip: a friendly riding school and stables with Pony Club, private lessons, adult beginner courses and sunrise woodland hacks.">
+<meta name="theme-color" content="#072C2C">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ashcanter Riding School — ride with quiet confidence">
+<meta property="og:description" content="Patient horses, kind instructors and woodland trails. A concept site by WebDrip.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1630431627244-493adc819107?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTV8fGhvcnNlYmFjayUyMHJpZGluZyUyMGdvbGRlbiUyMGhvdXJ8ZW58MHwwfHx8MTc5MTA1MjM3MHww&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ashcanter Riding School — ride with quiet confidence">
+<meta name="twitter:description" content="Patient horses, kind instructors and woodland trails. A concept site by WebDrip.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1630431627244-493adc819107?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTV8fGhvcnNlYmFjayUyMHJpZGluZyUyMGdvbGRlbiUyMGhvdXJ8ZW58MHwwfHx8MTc5MTA1MjM3MHww&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23072C2C'/%3E%3Cpath d='M10 25V15a6 6 0 0 1 12 0v10' fill='none' stroke='%23FF5F03' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { pine: '#072C2C', pine2: '#0D3D3B', pine3: '#145250', oat: '#EDEADE', paper: '#F7F5EE', ink: '#111827', soft: '#44514F', saddle: '#FF5F03', saddleDeep: '#B33F00', hay: '#F2C14E', moss: '#15803D', line: '#D8D2C0' },
+    fontFamily: { sans: ['Ubuntu', 'system-ui', 'sans-serif'], display: ['Oswald', 'Impact', 'sans-serif'], mono: ['"Ubuntu Mono"', 'ui-monospace', 'monospace'] }
+  } } };
+</script>
+<style>
+  :root {
+    --pine: #072C2C; --pine-2: #0D3D3B; --pine-3: #145250;
+    --oat: #EDEADE; --paper: #F7F5EE; --line: #D8D2C0;
+    --ink: #111827; --soft: #44514F;
+    --saddle: #FF5F03; --saddle-deep: #B33F00; --hay: #F2C14E; --moss: #15803D;
+    --r-sm: 4px; --r-md: 8px;
+    --shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 18px 40px -26px rgba(7,44,44,.45), 0 2px 6px -2px rgba(7,44,44,.12);
+    --shadow-hi: 0 1px 0 rgba(255,255,255,.8) inset, 0 34px 60px -30px rgba(7,44,44,.55), 0 0 0 1px rgba(255,95,3,.35);
+    --ease: cubic-bezier(.2, .8, .2, 1);
+    --spring: cubic-bezier(.34, 1.3, .5, 1);
+  }
+  html { scroll-behavior: smooth; background: var(--oat); overflow-x: clip; }
+  body { background: var(--oat); color: var(--ink); font-family: Ubuntu, system-ui, sans-serif; font-size: 17px; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+  main, footer { overflow-x: clip; }
+  ::selection { background: var(--saddle); color: var(--pine); }
+  .wd-display { font-family: Oswald, Impact, sans-serif; letter-spacing: -0.01em; }
+  .wd-mono { font-family: 'Ubuntu Mono', ui-monospace, monospace; letter-spacing: .12em; text-transform: uppercase; font-size: .8rem; font-weight: 700; }
+  h1, h2, h3 { font-family: Oswald, Impact, sans-serif; letter-spacing: -0.01em; }
+  h2, h3, p { text-wrap: pretty; }
+  h2 { text-wrap: balance; }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 3px solid var(--saddle); outline-offset: 3px; border-radius: 6px; animation: wd-ring .5s var(--ease);
+  }
+  @keyframes wd-ring { from { outline-offset: 9px; outline-color: transparent; } to { outline-offset: 3px; } }
+
+  #progress { position: fixed; left: 0; top: 0; height: 3px; width: 100%; transform-origin: 0 50%; transform: scaleX(0); background: var(--saddle); z-index: 70; }
+
+  /* nav */
+  #nav { position: fixed; inset: 0 0 auto 0; z-index: 60; }
+  #nav .wd-bar { transition: padding .4s var(--ease); }
+  #nav .wd-navpill { background: rgba(247,245,238,.97); border: 1px solid rgba(7,44,44,.12); box-shadow: 0 16px 36px -24px rgba(7,44,44,.6); transition: box-shadow .4s, background-color .4s, border-color .4s; }
+  @media (min-width: 768px) { #nav .wd-navpill { background: rgba(247,245,238,.74); backdrop-filter: blur(16px) saturate(150%); -webkit-backdrop-filter: blur(16px) saturate(150%); } }
+  #nav.wd-scrolled .wd-bar { padding-top: .45rem; padding-bottom: .45rem; }
+  #nav.wd-scrolled .wd-navpill { border-color: rgba(255,95,3,.35); background: rgba(247,245,238,.94); box-shadow: 0 18px 40px -22px rgba(7,44,44,.55); }
+  .wd-ulink { position: relative; }
+  .wd-ulink::after { content: ''; position: absolute; left: 12px; right: 12px; bottom: 9px; height: 2px; background: repeating-linear-gradient(90deg, var(--saddle) 0 6px, transparent 6px 10px); transform: scaleX(0); transform-origin: right; transition: transform .35s var(--ease); }
+  .wd-ulink:hover::after, .wd-ulink:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+
+  /* buttons */
+  .wd-btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 52px; padding: 0 1.5rem; border-radius: var(--r-md); font-weight: 700; font-size: 1rem; overflow: hidden; transition: transform .3s var(--spring), box-shadow .3s, background-color .3s; will-change: transform; -webkit-tap-highlight-color: transparent; }
+  .wd-btn-primary { background: var(--saddle); color: var(--pine); box-shadow: 0 14px 30px -14px rgba(255,95,3,.9); }
+  .wd-btn-primary:hover { box-shadow: 0 20px 40px -14px rgba(255,95,3,1); }
+  .wd-btn-pine { background: var(--pine); color: var(--paper); box-shadow: 0 14px 30px -16px rgba(7,44,44,.9); }
+  .wd-btn-ghost { background: rgba(247,245,238,.08); color: var(--paper); border: 1.5px solid rgba(247,245,238,.5); }
+  .wd-btn-ghost:hover { background: rgba(247,245,238,.16); }
+  .wd-btn-line { background: transparent; color: var(--pine); border: 1.5px solid rgba(7,44,44,.35); }
+  .wd-btn-line:hover { background: rgba(7,44,44,.06); }
+  .wd-btn::before { content: ''; position: absolute; top: 0; bottom: 0; left: -60%; width: 45%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.55), transparent); transform: translateX(0) skewX(-18deg); opacity: 0; }
+  .wd-btn:hover::before { animation: wd-sheen .85s var(--ease); }
+  @keyframes wd-sheen { 0% { opacity: 1; transform: translateX(0) skewX(-18deg); } 100% { opacity: 0; transform: translateX(380%) skewX(-18deg); } }
+  .wd-btn:hover { transform: translateY(-2px); }
+  .wd-btn:active { transform: scale(.96); }
+  .wd-btn .wd-arr { transition: transform .3s var(--spring); }
+  .wd-btn:hover .wd-arr { transform: translateX(4px); }
+
+  /* hero camera */
+  .wd-stage { position: fixed; inset: 0; z-index: 0; perspective: 1100px; overflow: hidden; pointer-events: none; background: #0a1f1e; }
+  #heroImg { position: absolute; inset: -6%; width: 112%; height: 112%; max-width: none; object-fit: cover; object-position: 50% 62%; transform-origin: 50% 60%; will-change: transform; }
+  .wd-shade { position: absolute; inset: 0; background:
+      radial-gradient(ellipse 80% 65% at 50% 52%, rgba(12,26,22,.18) 0%, rgba(8,30,28,.34) 62%, rgba(6,26,26,.84) 100%),
+      linear-gradient(180deg, rgba(6,24,24,.6) 0%, rgba(6,24,24,.12) 30%, rgba(6,24,24,.34) 64%, rgba(6,24,24,.92) 100%); }
+  .wd-dust { position: absolute; border-radius: 50%; filter: blur(42px); will-change: transform; pointer-events: none; }
+  .wd-dust-a { width: 42vw; height: 42vw; left: -12vw; bottom: -14vw; background: radial-gradient(circle, rgba(255,95,3,.38), transparent 65%); animation: wd-drift 15s ease-in-out infinite; }
+  .wd-dust-b { width: 30vw; height: 30vw; right: -8vw; top: 4vh; background: radial-gradient(circle, rgba(242,193,78,.32), transparent 65%); animation: wd-drift 19s ease-in-out -6s infinite; }
+  @keyframes wd-drift { 0%,100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(4vw,-3vh,0) scale(1.12); } }
+  .wd-mote { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: rgba(255,224,170,.85); box-shadow: 0 0 10px rgba(255,190,90,.9); animation: wd-mote 9s ease-in-out infinite; }
+  @keyframes wd-mote { 0%,100% { transform: translate3d(0,0,0); opacity: .2; } 50% { transform: translate3d(18px,-46px,0); opacity: 1; } }
+  .wd-stitchline { position: absolute; left: 0; right: 0; top: 18vh; width: 100%; height: 120px; will-change: transform; }
+  .wd-stitchline path { stroke-dasharray: 10 9; }
+  .js .wd-stitchline { clip-path: inset(0 100% 0 0); }
+  .js.loaded .wd-stitchline { clip-path: inset(0 0 0 0); transition: clip-path 3s var(--ease) .6s; }
+  .wd-shoe { position: absolute; right: 7vw; top: 22vh; width: min(11vw, 150px); will-change: transform; opacity: .9; }
+
+  /* masked headline + intro */
+  .wd-mask { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; }
+  .wd-mask > span { display: inline-block; }
+  .js .wd-mask > span { transform: translateY(110%); }
+  .js.loaded .wd-mask > span { transform: none; transition: transform 1.1s var(--ease); }
+  .js.loaded .wd-mask:nth-child(2) > span { transition-delay: .14s; }
+  .js .wd-intro { opacity: 0; transform: translateY(18px); }
+  .js.loaded .wd-intro { opacity: 1; transform: none; transition: opacity .8s var(--ease), transform .9s var(--spring); transition-delay: var(--d, .4s); }
+  .js #nav { opacity: 0; transform: translateY(-16px); }
+  .js.loaded #nav { opacity: 1; transform: none; transition: opacity .6s ease, transform .8s var(--spring); }
+  .js .wd-logo-mark { transform: scale(.3) rotate(-40deg); opacity: 0; }
+  .js.loaded .wd-logo-mark { transform: none; opacity: 1; transition: transform 1s var(--spring) .2s, opacity .4s ease .2s; }
+  .js .wd-dock-cell { opacity: 0; transform: translateY(24px); }
+  .js.loaded .wd-dock-cell { opacity: 1; transform: none; transition: opacity .7s var(--ease), transform .8s var(--spring); transition-delay: var(--d, 1s); }
+
+  /* reveals (content visible without JS) */
+  .js [data-reveal] { opacity: 0; transition: opacity .8s var(--ease), transform 1s var(--ease); transition-delay: var(--stagger, 0ms); }
+  .js [data-reveal="up"] { transform: translateY(42px); }
+  .js [data-reveal="pop"] { transform: scale(.88); transition: opacity .6s var(--ease), transform .85s var(--spring); transition-delay: var(--stagger, 0ms); }
+  .js [data-reveal="left"] { transform: translateX(-48px); }
+  .js [data-reveal="right"] { transform: translateX(48px); }
+  .js [data-reveal="tilt"] { transform: perspective(900px) rotateX(14deg) translateY(36px); transform-origin: 50% 100%; }
+  .js [data-reveal="swing"] { transform: perspective(900px) rotateY(-16deg) translateX(-24px); transform-origin: 0 50%; }
+  .js [data-reveal="wipe"] { opacity: 1; clip-path: inset(0 100% 0 0 round 8px); transition: clip-path 1.2s var(--ease); }
+  .js [data-reveal].in { opacity: 1; transform: none; }
+  .js [data-reveal="wipe"].in { clip-path: inset(0 0 0 0 round 8px); }
+
+  /* cards with a saddle-stitch inset */
+  .wd-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; box-shadow: var(--shadow); transition: transform .45s var(--spring), box-shadow .45s var(--ease), border-color .45s; position: relative; }
+  .js .wd-card.in { transition: transform .5s var(--spring), box-shadow .45s var(--ease), border-color .45s, opacity .8s var(--ease); transition-delay: var(--stagger, 0ms); }
+  .wd-card:hover, .js .wd-card.in:hover { transform: translateY(-8px); box-shadow: var(--shadow-hi); border-color: rgba(255,95,3,.5); }
+  .wd-card:active { transform: translateY(-2px) scale(.99); }
+  .wd-card::after { content: ''; position: absolute; inset: 7px; border: 1.5px dashed rgba(255,95,3,.75); border-radius: 5px; opacity: 0; transform: scale(1.02); transition: opacity .4s var(--ease), transform .5s var(--ease); pointer-events: none; z-index: 3; }
+  .wd-card:hover::after { opacity: 1; transform: none; }
+  .wd-ph { overflow: hidden; position: relative; }
+  .wd-ph img { transition: transform 1.1s var(--ease); }
+  .wd-card:hover .wd-ph img { transform: scale(1.07); }
+  .wd-ph::after { content: ''; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.3) 50%, transparent 70%); transform: translateX(-120%); }
+  .wd-card:hover .wd-ph::after { transform: translateX(120%); transition: transform 1s var(--ease); }
+  .wd-chip { display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .6rem; border-radius: var(--r-sm); background: rgba(7,44,44,.9); color: var(--paper); }
+  .wd-price { font-variant-numeric: tabular-nums; }
+  .wd-seam { height: 2px; background: repeating-linear-gradient(90deg, rgba(255,95,3,.8) 0 10px, transparent 10px 18px); }
+
+  /* marquee */
+  .wd-marquee { display: flex; width: max-content; animation: wd-marq 42s linear infinite; }
+  @keyframes wd-marq { to { transform: translateX(-50%); } }
+
+  /* spotlight */
+  .wd-spot-frame { border-radius: var(--r-md); overflow: hidden; position: relative; isolation: isolate; }
+  .wd-spot-img { animation: wd-kenburns 20s ease-in-out infinite alternate; transform-origin: 50% 60%; will-change: transform; }
+  @keyframes wd-kenburns { from { transform: scale(1.05) translate3d(0,0,0); } to { transform: scale(1.18) translate3d(-2%, -3%, 0); } }
+  .wd-sweep { position: absolute; inset: -20% auto -20% 0; width: 40%; background: linear-gradient(100deg, transparent, rgba(255,236,200,.22), transparent); animation: wd-sweep 7s var(--ease) infinite; pointer-events: none; }
+  @keyframes wd-sweep { 0% { transform: translateX(-120%) skewX(-14deg); } 60%,100% { transform: translateX(320%) skewX(-14deg); } }
+  .wd-pulse { animation: wd-pulse 2.4s ease-in-out infinite; }
+  @keyframes wd-pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.7); opacity: .3; } }
+  #spot.paused .wd-spot-img, #spot.paused .wd-sweep, #spot.paused .wd-pulse { animation-play-state: paused; }
+
+  /* timetable */
+  .wd-tab { min-height: 44px; padding: 0 1rem; border-radius: var(--r-md); border: 1.5px solid rgba(7,44,44,.25); font-weight: 700; transition: background-color .25s, color .25s, transform .3s var(--spring); }
+  .wd-tab:hover { transform: translateY(-1px); }
+  .wd-tab[aria-pressed="true"] { background: var(--pine); color: var(--paper); border-color: var(--pine); }
+  .wd-slot { border-left: 3px solid var(--saddle); background: var(--paper); border-radius: var(--r-sm); transition: transform .35s var(--spring), box-shadow .35s; }
+  .wd-slot:hover { transform: translateX(4px); box-shadow: 0 12px 24px -18px rgba(7,44,44,.6); }
+  .wd-slot[data-cat="kids"] { border-left-color: var(--hay); }
+  .wd-slot[data-cat="hacks"] { border-left-color: var(--moss); }
+  .wd-slot.wd-flash { animation: wd-slotIn .45s var(--ease); }
+  @keyframes wd-slotIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  /* burger */
+  .wd-burger span { display: block; position: absolute; left: 12px; right: 12px; height: 2px; border-radius: 2px; background: var(--pine); transition: transform .4s var(--spring), opacity .25s; }
+  .wd-burger span:nth-child(1) { top: 16px; } .wd-burger span:nth-child(2) { top: 23px; } .wd-burger span:nth-child(3) { top: 30px; }
+  .wd-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .wd-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(.2); }
+  .wd-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  #mobileMenu { transform-origin: top center; }
+  #mobileMenu.open { animation: wd-menuIn .45s var(--spring); }
+  @keyframes wd-menuIn { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: none; } }
+  #mobileMenu.open li { animation: wd-itemIn .5s var(--ease) both; }
+  #mobileMenu.open li:nth-child(2) { animation-delay: .05s; } #mobileMenu.open li:nth-child(3) { animation-delay: .1s; } #mobileMenu.open li:nth-child(4) { animation-delay: .15s; } #mobileMenu.open li:nth-child(5) { animation-delay: .2s; } #mobileMenu.open li:nth-child(6) { animation-delay: .25s; }
+  @keyframes wd-itemIn { from { opacity: 0; transform: translateX(-14px); } to { opacity: 1; transform: none; } }
+
+  /* form */
+  .wd-field { min-height: 52px; border-radius: var(--r-md); border: 1.5px solid #B9B29C; background: #FFFFFF; padding: 0 1rem; width: 100%; font-size: 1rem; color: var(--ink); transition: border-color .25s, box-shadow .25s; }
+  textarea.wd-field { padding-top: .85rem; padding-bottom: .85rem; min-height: 112px; resize: vertical; }
+  .wd-field::placeholder { color: #6B7472; }
+  .wd-field:focus { border-color: var(--saddle); box-shadow: 0 0 0 4px rgba(255,95,3,.2); outline: none; }
+  .wd-field[aria-invalid="true"] { border-color: #B91C1C; }
+  .wd-shake { animation: wd-shake .45s var(--ease); }
+  @keyframes wd-shake { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-8px); } 40% { transform: translateX(7px); } 60% { transform: translateX(-5px); } 80% { transform: translateX(3px); } }
+  #formOk.show { animation: wd-okIn .6s var(--spring); }
+  @keyframes wd-okIn { from { opacity: 0; transform: translateY(10px) scale(.96); } to { opacity: 1; transform: none; } }
+  #formOk .wd-check path { stroke-dasharray: 30; stroke-dashoffset: 30; }
+  #formOk.show .wd-check path { stroke-dashoffset: 0; transition: stroke-dashoffset .6s var(--ease) .25s; }
+  .wd-grid-bg { background-image: radial-gradient(rgba(7,44,44,.12) 1.2px, transparent 1.2px); background-size: 26px 26px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+    .js .wd-mask > span, .js .wd-intro, .js [data-reveal], .js #nav, .js .wd-logo-mark, .js .wd-dock-cell { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+    .js .wd-stitchline { clip-path: none !important; }
+  }
+</style>
+</head>
+<body class="antialiased">
+<a href="#lessons" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded focus:bg-saddle focus:px-4 focus:py-3 focus:text-pine focus:font-bold">Skip to content</a>
+<div id="progress" aria-hidden="true"></div>
+
+<!-- fixed hero stage -->
+<div class="wd-stage" aria-hidden="true">
+  <img id="heroImg" src="https://images.unsplash.com/photo-1630431627244-493adc819107?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTV8fGhvcnNlYmFjayUyMHJpZGluZyUyMGdvbGRlbiUyMGhvdXJ8ZW58MHwwfHx8MTc5MTA1MjM3MHww&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80" alt="" fetchpriority="high" decoding="async">
+  <div class="wd-shade"></div>
+  <div class="wd-dust wd-dust-a"></div>
+  <div class="wd-dust wd-dust-b"></div>
+  <span class="wd-mote" style="left:18%;top:62%"></span>
+  <span class="wd-mote" style="left:34%;top:74%;animation-delay:-3s"></span>
+  <span class="wd-mote" style="left:63%;top:68%;animation-delay:-5s"></span>
+  <span class="wd-mote" style="left:79%;top:58%;animation-delay:-1.5s"></span>
+  <svg class="wd-stitchline" data-hpar="-0.32" viewBox="0 0 1440 120" preserveAspectRatio="none" fill="none">
+    <path d="M-20 90 C 260 20, 520 120, 760 62 S 1180 10, 1460 70" stroke="rgba(247,245,238,.42)" stroke-width="2" stroke-linecap="round"/>
+    <path d="M-20 98 C 260 28, 520 128, 760 70 S 1180 18, 1460 78" stroke="rgba(255,95,3,.55)" stroke-width="1.5" stroke-linecap="round"/>
+  </svg>
+  <svg class="wd-shoe hidden sm:block" data-hpar="-0.55" viewBox="0 0 120 130" fill="none">
+    <path d="M24 118V56a36 36 0 0 1 72 0v62" stroke="rgba(247,245,238,.55)" stroke-width="16" stroke-linecap="round"/>
+    <path d="M24 118V56a36 36 0 0 1 72 0v62" stroke="rgba(255,95,3,.95)" stroke-width="2" stroke-dasharray="8 7" stroke-linecap="round"/>
+    <g fill="rgba(7,44,44,.85)"><circle cx="24" cy="98" r="3"/><circle cx="25" cy="78" r="3"/><circle cx="31" cy="58" r="3"/><circle cx="96" cy="98" r="3"/><circle cx="95" cy="78" r="3"/><circle cx="89" cy="58" r="3"/></g>
+  </svg>
+</div>
+
+<header id="nav">
+  <div class="wd-bar mx-auto max-w-7xl px-4 sm:px-6 py-4">
+    <nav class="wd-navpill flex items-center justify-between rounded-lg pl-3 pr-2 py-2" aria-label="Main">
+      <a href="#top" class="flex min-h-[44px] items-center gap-2.5" aria-label="Ashcanter Riding School, back to top">
+        <svg class="wd-logo-mark h-9 w-9 flex-none" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#072C2C"/><path d="M10 25V15a6 6 0 0 1 12 0v10" fill="none" stroke="#FF5F03" stroke-width="3.4" stroke-linecap="round"/><path d="M5 5.5h22" stroke="#F7F5EE" stroke-opacity=".55" stroke-width="1.2" stroke-dasharray="2.4 2"/></svg>
+        <span class="leading-none"><span class="wd-display block text-[1.35rem] font-semibold text-pine">Ashcanter</span><span class="wd-mono block !text-[.62rem] !tracking-[.2em] text-soft">Riding school</span></span>
+      </a>
+      <ul class="hidden md:flex items-center gap-1 text-[15px] font-medium text-pine">
+        <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#lessons">Lessons</a></li>
+        <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#hacks">Hacks</a></li>
+        <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#herd">The herd</a></li>
+        <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#timetable">Timetable</a></li>
+        <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#book">Visit</a></li>
+      </ul>
+      <div class="flex items-center gap-2">
+        <a href="#book" class="wd-btn wd-btn-primary wd-magnetic hidden sm:inline-flex !min-h-[44px] !px-4 text-[15px]">Book a taster <span class="wd-arr" aria-hidden="true">→</span></a>
+        <button id="burger" class="wd-burger relative md:hidden h-[46px] w-[46px] rounded-md border border-pine/20" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+    <div id="mobileMenu" class="md:hidden mt-2 rounded-lg border border-pine/15 bg-paper p-3 shadow-2xl" hidden>
+      <ul class="flex flex-col text-lg font-medium text-pine">
+        <li><a class="flex min-h-[48px] items-center justify-between rounded-md px-3 hover:bg-oat" href="#lessons">Lessons <span class="wd-mono text-saddleDeep">01</span></a></li>
+        <li><a class="flex min-h-[48px] items-center justify-between rounded-md px-3 hover:bg-oat" href="#hacks">Sunrise hacks <span class="wd-mono text-saddleDeep">02</span></a></li>
+        <li><a class="flex min-h-[48px] items-center justify-between rounded-md px-3 hover:bg-oat" href="#herd">The herd <span class="wd-mono text-saddleDeep">03</span></a></li>
+        <li><a class="flex min-h-[48px] items-center justify-between rounded-md px-3 hover:bg-oat" href="#timetable">Timetable <span class="wd-mono text-saddleDeep">04</span></a></li>
+        <li><a class="flex min-h-[48px] items-center justify-between rounded-md px-3 hover:bg-oat" href="#book">Visit &amp; book <span class="wd-mono text-saddleDeep">05</span></a></li>
+        <li class="pt-2"><a class="wd-btn wd-btn-primary w-full" href="#book">Book a taster ride <span class="wd-arr" aria-hidden="true">→</span></a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main class="relative z-10">
+  <!-- HERO: centred headline with a docked data bar along the bottom -->
+  <section id="top" class="relative min-h-[100svh] flex flex-col justify-end" aria-labelledby="heroTitle">
+    <div id="heroCopy" class="mx-auto w-full max-w-5xl px-4 sm:px-6 pt-36 text-center text-paper">
+      <p class="wd-intro wd-mono text-hay" style="--d:.2s">Riding school &amp; stables · Ashcanter Wood</p>
+      <h1 id="heroTitle" class="mt-5 font-semibold leading-[.95] text-[clamp(3.1rem,9.6vw,8.4rem)] tracking-[-0.015em]">
+        <span class="wd-mask"><span>Ride with</span></span>
+        <span class="wd-mask"><span class="text-saddle">quiet confidence.</span></span>
+      </h1>
+      <p class="wd-intro mx-auto mt-6 max-w-xl text-lg sm:text-xl leading-relaxed text-paper/90" style="--d:.55s">Patient horses, kind instructors and miles of woodland trails. Total beginners are always welcome.</p>
+      <div class="wd-intro mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row" style="--d:.7s">
+        <a href="#book" class="wd-btn wd-btn-primary wd-magnetic w-full sm:w-auto">Book a taster ride <span class="wd-arr" aria-hidden="true">→</span></a>
+        <a href="#timetable" class="wd-btn wd-btn-ghost w-full sm:w-auto">See the timetable</a>
+      </div>
+    </div>
+    <div id="heroDock" class="mx-auto mt-12 w-full max-w-6xl px-4 sm:px-6 pb-8 sm:pb-10">
+      <dl class="grid grid-cols-2 lg:grid-cols-4 overflow-hidden rounded-lg border border-paper/20 bg-pine/80 text-paper shadow-2xl md:backdrop-blur-md">
+        <div class="wd-dock-cell border-b border-r border-paper/15 lg:border-b-0 p-4 sm:p-5" style="--d:.95s">
+          <dt class="wd-mono flex items-center gap-2 !text-[.7rem] text-hay"><span class="relative inline-flex h-2 w-2"><span class="wd-pulse absolute inset-0 rounded-full bg-saddle"></span><span class="relative h-2 w-2 rounded-full bg-saddle"></span></span>Next lesson</dt>
+          <dd class="wd-display mt-1.5 text-xl sm:text-2xl font-medium">09:30 · Pony Club</dd>
+        </div>
+        <div class="wd-dock-cell border-b border-paper/15 lg:border-b-0 lg:border-r p-4 sm:p-5" style="--d:1.05s">
+          <dt class="wd-mono !text-[.7rem] text-hay">Sand school</dt>
+          <dd class="wd-display mt-1.5 text-xl sm:text-2xl font-medium">Dry &amp; raked</dd>
+        </div>
+        <div class="wd-dock-cell border-r border-paper/15 p-4 sm:p-5" style="--d:1.15s">
+          <dt class="wd-mono !text-[.7rem] text-hay">Horses ready today</dt>
+          <dd class="wd-display mt-1.5 text-xl sm:text-2xl font-medium"><span data-count="18">18</span> of 24</dd>
+        </div>
+        <div class="wd-dock-cell p-4 sm:p-5" style="--d:1.25s">
+          <dt class="wd-mono !text-[.7rem] text-hay">Taster ride</dt>
+          <dd class="wd-display mt-1.5 text-xl sm:text-2xl font-medium">£35 · 30 min</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="relative bg-oat">
+  <!-- marquee -->
+  <div class="overflow-hidden border-y border-pine bg-pine py-4 text-paper" aria-hidden="true">
+    <div class="wd-marquee wd-display text-2xl sm:text-3xl font-medium">
+      <span class="flex items-center gap-8 pr-8">Pony Club <i class="not-italic text-saddle">✕</i> Private lessons <i class="not-italic text-saddle">✕</i> Adult beginners <i class="not-italic text-saddle">✕</i> Sunrise hacks <i class="not-italic text-saddle">✕</i> Jumping clinics <i class="not-italic text-saddle">✕</i> Pony days <i class="not-italic text-saddle">✕</i></span>
+      <span class="flex items-center gap-8 pr-8">Pony Club <i class="not-italic text-saddle">✕</i> Private lessons <i class="not-italic text-saddle">✕</i> Adult beginners <i class="not-italic text-saddle">✕</i> Sunrise hacks <i class="not-italic text-saddle">✕</i> Jumping clinics <i class="not-italic text-saddle">✕</i> Pony days <i class="not-italic text-saddle">✕</i></span>
+    </div>
+  </div>
+
+  <!-- LESSONS: left-aligned intro + four-up card grid -->
+  <section id="lessons" class="relative scroll-mt-24 py-20 sm:py-28" aria-labelledby="lessonsTitle">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="grid gap-6 lg:grid-cols-12 lg:items-end">
+        <div class="lg:col-span-7" data-reveal="left">
+          <p class="wd-mono text-saddleDeep">01 — Lessons</p>
+          <h2 id="lessonsTitle" class="mt-3 text-5xl sm:text-6xl font-semibold leading-[1] text-pine">Lessons for every kind of rider.</h2>
+        </div>
+        <p class="lg:col-span-5 text-lg leading-relaxed text-soft" data-reveal="right">Small groups, steady horses and an instructor who remembers your name. Pick a starting point — you can always switch.</p>
+      </div>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="wd-card flex flex-col" data-reveal="tilt">
+          <div class="wd-ph aspect-[4/3]"><img src="https://images.unsplash.com/photo-1611436920234-94ea2cad6e98?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTN8fHBvbnl8ZW58MHwwfHx8MTc5MTA1MjM3MHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A young child meeting a shaggy pony over a white fence" class="h-full w-full object-cover" loading="lazy" decoding="async" width="1080" height="720"></div>
+          <div class="flex flex-1 flex-col p-5">
+            <span class="wd-chip wd-mono self-start !text-[.68rem]">Ages 5–11</span>
+            <h3 class="mt-3 text-2xl font-semibold text-pine">Pony Club</h3>
+            <p class="mt-2 flex-1 leading-relaxed text-soft">Grooming, games and gentle riding on our smallest ponies. Muddy boots encouraged.</p>
+            <div class="wd-seam mt-5"></div>
+            <p class="mt-4 flex items-baseline justify-between"><span class="wd-mono !text-[.7rem] text-soft">Per session</span><span class="wd-price wd-display text-2xl font-semibold text-saddleDeep">£28</span></p>
+          </div>
+        </article>
+        <article class="wd-card flex flex-col" data-reveal="tilt">
+          <div class="wd-ph aspect-[4/3]"><img src="https://images.unsplash.com/photo-1763130063689-06fbdb789db8?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OHx8aG9yc2UlMjByaWRpbmclMjBhcmVuYXxlbnwwfDB8fHwxNzkxMDUyMzQ4fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A rider on a white horse in an outdoor arena" class="h-full w-full object-cover" loading="lazy" decoding="async" width="1080" height="720"></div>
+          <div class="flex flex-1 flex-col p-5">
+            <span class="wd-chip wd-mono self-start !text-[.68rem]">All levels</span>
+            <h3 class="mt-3 text-2xl font-semibold text-pine">Private lessons</h3>
+            <p class="mt-2 flex-1 leading-relaxed text-soft">One rider, one instructor and a horse matched to you. Go at exactly your own pace.</p>
+            <div class="wd-seam mt-5"></div>
+            <p class="mt-4 flex items-baseline justify-between"><span class="wd-mono !text-[.7rem] text-soft">45 minutes</span><span class="wd-price wd-display text-2xl font-semibold text-saddleDeep">£55</span></p>
+          </div>
+        </article>
+        <article class="wd-card flex flex-col" data-reveal="tilt">
+          <div class="wd-ph aspect-[4/3]"><img src="https://images.unsplash.com/photo-1763130063588-5608738a6f61?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTJ8fGhvcnNlJTIwcmlkaW5nJTIwYXJlbmF8ZW58MHwwfHx8MTc5MTA1MjM0OHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A rider adjusting the saddle on a white horse" class="h-full w-full object-cover" loading="lazy" decoding="async" width="1080" height="720"></div>
+          <div class="flex flex-1 flex-col p-5">
+            <span class="wd-chip wd-mono self-start !text-[.68rem]">Adults</span>
+            <h3 class="mt-3 text-2xl font-semibold text-pine">Adult beginners</h3>
+            <p class="mt-2 flex-1 leading-relaxed text-soft">Never sat on a horse? Perfect. Six calm weeks from tacking up to your first canter.</p>
+            <div class="wd-seam mt-5"></div>
+            <p class="mt-4 flex items-baseline justify-between"><span class="wd-mono !text-[.7rem] text-soft">Six weeks</span><span class="wd-price wd-display text-2xl font-semibold text-saddleDeep">£180</span></p>
+          </div>
+        </article>
+        <article class="wd-card flex flex-col" data-reveal="tilt">
+          <div class="wd-ph aspect-[4/3]"><img src="https://images.unsplash.com/photo-1789985478605-9485876472e4?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTF8fGhvcnNlJTIwcmlkaW5nJTIwYXJlbmF8ZW58MHwwfHx8MTc5MTA1MjM0OHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A rider jumping a bay horse over a small fence" class="h-full w-full object-cover" loading="lazy" decoding="async" width="1080" height="702"></div>
+          <div class="flex flex-1 flex-col p-5">
+            <span class="wd-chip wd-mono self-start !text-[.68rem]">Confident riders</span>
+            <h3 class="mt-3 text-2xl font-semibold text-pine">Jumping clinics</h3>
+            <p class="mt-2 flex-1 leading-relaxed text-soft">Poles, grids and small courses on Saturday mornings, built around your confidence.</p>
+            <div class="wd-seam mt-5"></div>
+            <p class="mt-4 flex items-baseline justify-between"><span class="wd-mono !text-[.7rem] text-soft">Per clinic</span><span class="wd-price wd-display text-2xl font-semibold text-saddleDeep">£40</span></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPOTLIGHT: sunrise hacks -->
+  <section id="hacks" class="relative scroll-mt-24 overflow-hidden bg-pine py-20 sm:py-28 text-paper" aria-labelledby="hacksTitle">
+    <div class="wd-dust" data-par="0.18" style="width:44vw;height:44vw;right:-14vw;top:-12%;background:radial-gradient(circle,rgba(255,95,3,.22),transparent 65%)" aria-hidden="true"></div>
+    <div id="spot" class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-12">
+      <div class="lg:col-span-7" data-reveal="wipe">
+        <div class="wd-spot-frame aspect-[4/3] border border-paper/15 shadow-2xl">
+          <img class="wd-spot-img absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1758380424915-2363fd5046d8?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Nnx8aG9yc2UlMjBmb3Jlc3QlMjB0cmFpbHxlbnwwfDB8fHwxNzkxMDUyMzQ5fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Two riders on a sunlit woodland path framed by trees" loading="lazy" decoding="async" width="1080" height="720">
+          <div class="wd-sweep" aria-hidden="true"></div>
+          <div class="absolute left-4 top-4 flex items-center gap-2 rounded bg-pine/85 px-3 py-2 text-paper"><span class="relative inline-flex h-2 w-2"><span class="wd-pulse absolute inset-0 rounded-full bg-saddle"></span><span class="relative h-2 w-2 rounded-full bg-saddle"></span></span><span class="wd-mono !text-[.7rem]">Weekends · 7am</span></div>
+          <button id="spotToggle" type="button" class="absolute bottom-4 right-4 inline-flex min-h-[44px] items-center gap-2 rounded-md bg-paper px-4 font-bold text-pine shadow-lg" aria-pressed="false">
+            <svg id="pauseIco" class="h-4 w-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg>
+            <svg id="playIco" class="hidden h-4 w-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 2.5v11a1 1 0 0 0 1.5.86l9-5.5a1 1 0 0 0 0-1.72l-9-5.5A1 1 0 0 0 4 2.5z"/></svg>
+            <span id="spotLabel">Pause motion</span>
+          </button>
+        </div>
+      </div>
+      <div class="lg:col-span-5" data-reveal="right">
+        <p class="wd-mono text-hay">02 — Spotlight</p>
+        <h2 id="hacksTitle" class="mt-3 text-5xl sm:text-6xl font-semibold leading-[1]">Sunrise hacks through the ash wood.</h2>
+        <p class="mt-5 text-lg leading-relaxed text-paper/85">Small groups head out on quiet woodland trails while the mist is still lifting. Walk and trot only — no rush, just birdsong and hoofbeats.</p>
+        <ul class="mt-7 grid grid-cols-3 gap-3 text-center">
+          <li class="rounded-md border border-paper/15 bg-pine2 p-3"><span class="wd-display block text-3xl font-semibold text-saddle"><span data-count="90">90</span></span><span class="wd-mono !text-[.66rem] text-paper/75">Minutes</span></li>
+          <li class="rounded-md border border-paper/15 bg-pine2 p-3"><span class="wd-display block text-3xl font-semibold text-saddle"><span data-count="6">6</span></span><span class="wd-mono !text-[.66rem] text-paper/75">Riders max</span></li>
+          <li class="rounded-md border border-paper/15 bg-pine2 p-3"><span class="wd-display block text-3xl font-semibold text-saddle">£<span data-count="45">45</span></span><span class="wd-mono !text-[.66rem] text-paper/75">Per rider</span></li>
+        </ul>
+        <a href="#book" class="wd-btn wd-btn-primary wd-magnetic mt-8">Save a place <span class="wd-arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERD: four-column grid with badge, detail and action -->
+  <section id="herd" class="relative scroll-mt-24 bg-paper py-20 sm:py-28" aria-labelledby="herdTitle">
+    <div class="wd-grid-bg absolute inset-0 opacity-60" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center" data-reveal="up">
+        <p class="wd-mono text-saddleDeep">03 — The herd</p>
+        <h2 id="herdTitle" class="mt-3 text-5xl sm:text-6xl font-semibold leading-[1] text-pine">Meet the horses you'll ride.</h2>
+        <p class="mt-5 text-lg leading-relaxed text-soft">Every horse here is chosen for a calm, kind nature — and every one of them has opinions about carrots.</p>
+      </div>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="wd-card" data-reveal="pop">
+          <div class="wd-ph aspect-square"><img src="https://images.unsplash.com/photo-1504020853563-338d87e28a89?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8NXx8aG9yc2UlMjBwb3J0cmFpdHxlbnwwfDB8fHwxNzkxMDUyMzUwfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Close-up of a bay horse wearing a bridle" class="h-full w-full object-cover" loading="lazy" decoding="async" width="1080" height="1080"></div>
+          <div class="p-5">
+            <div class="flex flex-wrap items-center justify-between gap-x-2 gap-y-1"><h3 class="text-2xl font-semibold text-pine">Juniper</h3><span class="wd-mono whitespace-nowrap rounded bg-oat px-2 py-1 !text-[.66rem] text-pine">Bay mare · 16.1hh</span></div>
+            <p class="mt-2 leading-relaxed text-soft">Unflappable and wise. Our go-to horse for a very first canter.</p>
+            <p class="mt-4 wd-mono !text-[.7rem] text-saddleDeep">Best for · nervous adults</p>
+          </div>
+        </article>
+        <article class="wd-card" data-reveal="pop">
+          <div class="wd-ph aspect-square"><img src="https://images.unsplash.com/photo-1561361649-c86e8a408c95?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8aG9yc2UlMjBwb3J0cmFpdHxlbnwwfDB8fHwxNzkxMDUyMzUwfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A palomino horse with a long blond mane" class="h-full w-full object-cover" loading="lazy" decoding="async" width="1080" height="1080"></div>
+          <div class="p-5">
+            <div class="flex flex-wrap items-center justify-between gap-x-2 gap-y-1"><h3 class="text-2xl font-semibold text-pine">Biscuit</h3><span class="wd-mono whitespace-nowrap rounded bg-oat px-2 py-1 !text-[.66rem] text-pine">Haflinger · 14.2hh</span></div>
+            <p class="mt-2 leading-relaxed text-soft">Sunny, sure-footed and very fond of the woodland trails.</p>
+            <p class="mt-4 wd-mono !text-[.7rem] text-saddleDeep">Best for · hacking</p>
+          </div>
+        </article>
+        <article class="wd-card" data-reveal="pop">
+          <div class="wd-ph aspect-square"><img src="https://images.unsplash.com/photo-1497781495506-ce58b286d8f5?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Nnx8cG9ueXxlbnwwfDB8fHwxNzkxMDUyMzcwfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A grey pony with a shaggy mane in a mountain meadow" class="h-full w-full object-cover" loading="lazy" decoding="async" width="1080" height="1080"></div>
+          <div class="p-5">
+            <div class="flex flex-wrap items-center justify-between gap-x-2 gap-y-1"><h3 class="text-2xl font-semibold text-pine">Pebble</h3><span class="wd-mono whitespace-nowrap rounded bg-oat px-2 py-1 !text-[.66rem] text-pine">Grey pony · 13.3hh</span></div>
+            <p class="mt-2 leading-relaxed text-soft">Small, sturdy and smooth. Kids adore her fluffy winter coat.</p>
+            <p class="mt-4 wd-mono !text-[.7rem] text-saddleDeep">Best for · confident kids</p>
+          </div>
+        </article>
+        <article class="wd-card" data-reveal="pop">
+          <div class="wd-ph aspect-square"><img src="https://images.unsplash.com/photo-1718045330352-7b800f3bba80?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8cG9ueXxlbnwwfDB8fHwxNzkxMDUyMzcwfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Two Shetland ponies grazing in a green field" class="h-full w-full object-cover" loading="lazy" decoding="async" width="1080" height="1080"></div>
+          <div class="p-5">
+            <div class="flex flex-wrap items-center justify-between gap-x-2 gap-y-1"><h3 class="text-2xl font-semibold text-pine">Moss &amp; Fudge</h3><span class="wd-mono whitespace-nowrap rounded bg-oat px-2 py-1 !text-[.66rem] text-pine">Shetlands · 10hh</span></div>
+            <p class="mt-2 leading-relaxed text-soft">The Pony Club stars. Experts at grooming days and treats.</p>
+            <p class="mt-4 wd-mono !text-[.7rem] text-saddleDeep">Best for · ages 5–8</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMETABLE: structured weekly board + inline stat row -->
+  <section id="timetable" class="relative scroll-mt-24 py-20 sm:py-28" aria-labelledby="ttTitle">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div data-reveal="left">
+          <p class="wd-mono text-saddleDeep">04 — Timetable</p>
+          <h2 id="ttTitle" class="mt-3 text-5xl sm:text-6xl font-semibold leading-[1] text-pine">Your week at the yard.</h2>
+          <p class="mt-4 max-w-xl text-lg leading-relaxed text-soft">Pick a session and book a space. We'll match you with the right horse.</p>
+        </div>
+        <div class="flex flex-wrap gap-2" role="group" aria-label="Filter sessions" data-reveal="right">
+          <button type="button" class="wd-tab text-pine" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="wd-tab text-pine" data-filter="kids" aria-pressed="false">Kids</button>
+          <button type="button" class="wd-tab text-pine" data-filter="adults" aria-pressed="false">Adults</button>
+          <button type="button" class="wd-tab text-pine" data-filter="hacks" aria-pressed="false">Hacks</button>
+        </div>
+      </div>
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div class="rounded-lg border border-line bg-oat/60 p-3" data-reveal="swing">
+          <h3 class="flex items-baseline justify-between px-1 pb-3 text-xl font-semibold text-pine">Tuesday <span class="wd-mono !text-[.66rem] text-soft">2 sessions</span></h3>
+          <ul class="space-y-2">
+            <li class="wd-slot p-3" data-cat="kids"><p class="wd-mono !text-[.7rem] text-soft">16:00 · 60 min</p><p class="mt-1 font-bold text-pine">Pony Club</p><p class="mt-1 text-sm text-moss font-medium">3 spaces left</p></li>
+            <li class="wd-slot p-3" data-cat="adults"><p class="wd-mono !text-[.7rem] text-soft">18:30 · 45 min</p><p class="mt-1 font-bold text-pine">Adult beginners</p><p class="mt-1 text-sm text-moss font-medium">2 spaces left</p></li>
+          </ul>
+        </div>
+        <div class="rounded-lg border border-line bg-oat/60 p-3" data-reveal="swing">
+          <h3 class="flex items-baseline justify-between px-1 pb-3 text-xl font-semibold text-pine">Wednesday <span class="wd-mono !text-[.66rem] text-soft">3 sessions</span></h3>
+          <ul class="space-y-2">
+            <li class="wd-slot p-3" data-cat="adults"><p class="wd-mono !text-[.7rem] text-soft">10:00 · 45 min</p><p class="mt-1 font-bold text-pine">Private lesson</p><p class="mt-1 text-sm text-moss font-medium">Open</p></li>
+            <li class="wd-slot p-3" data-cat="kids"><p class="wd-mono !text-[.7rem] text-soft">16:00 · 60 min</p><p class="mt-1 font-bold text-pine">Pony Club</p><p class="mt-1 text-sm text-saddleDeep font-medium">Full · waitlist</p></li>
+            <li class="wd-slot p-3" data-cat="adults"><p class="wd-mono !text-[.7rem] text-soft">19:00 · 60 min</p><p class="mt-1 font-bold text-pine">Flatwork group</p><p class="mt-1 text-sm text-moss font-medium">4 spaces left</p></li>
+          </ul>
+        </div>
+        <div class="rounded-lg border border-line bg-oat/60 p-3" data-reveal="swing">
+          <h3 class="flex items-baseline justify-between px-1 pb-3 text-xl font-semibold text-pine">Thursday <span class="wd-mono !text-[.66rem] text-soft">2 sessions</span></h3>
+          <ul class="space-y-2">
+            <li class="wd-slot p-3" data-cat="kids"><p class="wd-mono !text-[.7rem] text-soft">16:30 · 60 min</p><p class="mt-1 font-bold text-pine">Junior jumping</p><p class="mt-1 text-sm text-moss font-medium">2 spaces left</p></li>
+            <li class="wd-slot p-3" data-cat="adults"><p class="wd-mono !text-[.7rem] text-soft">18:30 · 45 min</p><p class="mt-1 font-bold text-pine">Adult beginners</p><p class="mt-1 text-sm text-moss font-medium">1 space left</p></li>
+          </ul>
+        </div>
+        <div class="rounded-lg border border-line bg-oat/60 p-3" data-reveal="swing">
+          <h3 class="flex items-baseline justify-between px-1 pb-3 text-xl font-semibold text-pine">Friday <span class="wd-mono !text-[.66rem] text-soft">2 sessions</span></h3>
+          <ul class="space-y-2">
+            <li class="wd-slot p-3" data-cat="adults"><p class="wd-mono !text-[.7rem] text-soft">10:00 · 45 min</p><p class="mt-1 font-bold text-pine">Private lesson</p><p class="mt-1 text-sm text-moss font-medium">Open</p></li>
+            <li class="wd-slot p-3" data-cat="hacks"><p class="wd-mono !text-[.7rem] text-soft">17:30 · 75 min</p><p class="mt-1 font-bold text-pine">Golden-hour hack</p><p class="mt-1 text-sm text-moss font-medium">3 spaces left</p></li>
+          </ul>
+        </div>
+        <div class="rounded-lg border border-line bg-oat/60 p-3" data-reveal="swing">
+          <h3 class="flex items-baseline justify-between px-1 pb-3 text-xl font-semibold text-pine">Saturday <span class="wd-mono !text-[.66rem] text-soft">3 sessions</span></h3>
+          <ul class="space-y-2">
+            <li class="wd-slot p-3" data-cat="hacks"><p class="wd-mono !text-[.7rem] text-soft">07:00 · 90 min</p><p class="mt-1 font-bold text-pine">Sunrise hack</p><p class="mt-1 text-sm text-moss font-medium">2 spaces left</p></li>
+            <li class="wd-slot p-3" data-cat="kids"><p class="wd-mono !text-[.7rem] text-soft">09:30 · 60 min</p><p class="mt-1 font-bold text-pine">Pony Club</p><p class="mt-1 text-sm text-moss font-medium">4 spaces left</p></li>
+            <li class="wd-slot p-3" data-cat="adults"><p class="wd-mono !text-[.7rem] text-soft">11:00 · 60 min</p><p class="mt-1 font-bold text-pine">Jumping clinic</p><p class="mt-1 text-sm text-moss font-medium">3 spaces left</p></li>
+          </ul>
+        </div>
+      </div>
+      <p class="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-soft" aria-hidden="true"><span class="inline-flex items-center gap-2"><i class="inline-block h-3 w-1 rounded bg-hay"></i>Kids</span><span class="inline-flex items-center gap-2"><i class="inline-block h-3 w-1 rounded bg-saddle"></i>Adults</span><span class="inline-flex items-center gap-2"><i class="inline-block h-3 w-1 rounded bg-moss"></i>Hacks</span></p>
+
+      <!-- the yard: image band with inline stat row -->
+      <div class="relative mt-16 overflow-hidden rounded-lg bg-pine text-paper" data-reveal="up">
+        <img data-par="0.12" src="https://images.unsplash.com/photo-1576692192914-9abed71b3ef9?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8aG9yc2UlMjBzdGFibGUlMjBiYXJufGVufDB8MHx8fDE3OTEwNTIzNjl8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="" class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" width="1080" height="508">
+        <div class="absolute inset-0 bg-gradient-to-r from-pine/95 via-pine/85 to-pine/60" aria-hidden="true"></div>
+        <dl class="relative grid grid-cols-2 gap-y-8 p-8 sm:p-12 lg:grid-cols-4">
+          <div class="flex flex-col-reverse items-center text-center"><dt class="wd-mono mt-2 !text-[.7rem] text-hay">Horses &amp; ponies</dt><dd class="wd-display text-5xl sm:text-6xl font-semibold"><span data-count="24">24</span></dd></div>
+          <div class="flex flex-col-reverse items-center text-center"><dt class="wd-mono mt-2 !text-[.7rem] text-hay">Arenas</dt><dd class="wd-display text-5xl sm:text-6xl font-semibold"><span data-count="3">3</span></dd></div>
+          <div class="flex flex-col-reverse items-center text-center"><dt class="wd-mono mt-2 !text-[.7rem] text-hay">Km of trails</dt><dd class="wd-display text-5xl sm:text-6xl font-semibold"><span data-count="18">18</span></dd></div>
+          <div class="flex flex-col-reverse items-center text-center"><dt class="wd-mono mt-2 !text-[.7rem] text-hay">Instructors</dt><dd class="wd-display text-5xl sm:text-6xl font-semibold"><span data-count="9">9</span></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK: centred heading + stacked form with dual actions -->
+  <section id="book" class="relative scroll-mt-24 overflow-hidden bg-paper py-20 sm:py-28 border-t border-line" aria-labelledby="bookTitle">
+    <div class="wd-dust" data-par="0.15" style="width:46vw;height:46vw;left:-18vw;top:-12%;background:radial-gradient(circle,rgba(255,95,3,.16),transparent 65%)" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-2xl px-4 sm:px-6 text-center">
+      <div data-reveal="up">
+        <p class="wd-mono text-saddleDeep">05 — Visit</p>
+        <h2 id="bookTitle" class="mt-3 text-5xl sm:text-6xl font-semibold leading-[1] text-pine">Book a taster ride.</h2>
+        <p class="mt-5 text-lg leading-relaxed text-soft">Thirty minutes on a steady horse, a tour of the yard and plenty of time for questions. We'll reply within a day.</p>
+      </div>
+      <form id="bookForm" class="mt-10 space-y-5 rounded-lg border border-line bg-oat p-5 sm:p-8 text-left shadow-xl" novalidate data-reveal="pop">
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label for="name" class="mb-2 block text-sm font-bold text-pine">Rider's name</label>
+            <input id="name" name="name" class="wd-field" type="text" autocomplete="name" placeholder="Robin Hale" aria-describedby="nameErr">
+            <p id="nameErr" class="mt-2 min-h-[1.25rem] text-sm font-medium text-red-700" aria-live="polite"></p>
+          </div>
+          <div>
+            <label for="email" class="mb-2 block text-sm font-bold text-pine">Email</label>
+            <input id="email" name="email" class="wd-field" type="email" autocomplete="email" placeholder="you@example.com" aria-describedby="emailErr">
+            <p id="emailErr" class="mt-2 min-h-[1.25rem] text-sm font-medium text-red-700" aria-live="polite"></p>
+          </div>
+        </div>
+        <div>
+          <label for="riderLevel" class="mb-2 block text-sm font-bold text-pine">How much have you ridden?</label>
+          <select id="riderLevel" name="riderLevel" class="wd-field">
+            <option>Never — total beginner</option><option>A little, a while ago</option><option>I ride confidently</option><option>Booking for my child</option>
+          </select>
+        </div>
+        <div>
+          <label for="note" class="mb-2 block text-sm font-bold text-pine">Anything we should know? <span class="font-normal text-soft">(optional)</span></label>
+          <textarea id="note" name="note" class="wd-field" placeholder="Weekends suit us best, and my daughter is a little nervous…"></textarea>
+        </div>
+        <div class="flex flex-col gap-3 sm:flex-row">
+          <button type="submit" class="wd-btn wd-btn-primary wd-magnetic flex-1">Request my taster <span class="wd-arr" aria-hidden="true">→</span></button>
+          <a href="#timetable" class="wd-btn wd-btn-line flex-1">See the timetable</a>
+        </div>
+        <div id="formOk" class="hidden items-center gap-3 rounded-lg border border-moss/40 bg-white p-4" role="status">
+          <svg class="wd-check h-8 w-8 flex-none" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#15803D"/><path d="M9.5 16.5l4.5 4.5 8.5-9" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p class="text-ink"><strong>Lovely — you're on the list.</strong> We'll be in touch within a day. (This is a demo — nothing was sent.)</p>
+        </div>
+      </form>
+    </div>
+  </section>
+  </div>
+</main>
+
+<footer class="relative z-10 bg-pine py-16 text-paper">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 text-center" data-reveal="up">
+    <a href="#top" class="inline-flex min-h-[44px] items-center gap-3">
+      <svg class="h-10 w-10" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#F7F5EE"/><path d="M10 25V15a6 6 0 0 1 12 0v10" fill="none" stroke="#FF5F03" stroke-width="3.4" stroke-linecap="round"/><path d="M5 5.5h22" stroke="#072C2C" stroke-opacity=".45" stroke-width="1.2" stroke-dasharray="2.4 2"/></svg>
+      <span class="wd-display text-3xl font-semibold">Ashcanter <span class="font-normal text-paper/70">Riding School</span></span>
+    </a>
+    <ul class="mt-6 flex flex-wrap justify-center gap-x-2 text-[15px] text-paper/85">
+      <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#lessons">Lessons</a></li>
+      <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#hacks">Sunrise hacks</a></li>
+      <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#herd">The herd</a></li>
+      <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#timetable">Timetable</a></li>
+      <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#book">Visit</a></li>
+    </ul>
+    <p class="mt-6 text-sm text-paper/75">Open Tuesday–Sunday · 7am–8pm · Hats and boots to borrow</p>
+    <p class="mt-8 text-xs leading-relaxed text-paper/70">Photos: <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/photos/man-riding-horse-on-beach-during-sunset-T-yKINzZ6S0?utm_source=webdrip_concept&amp;utm_medium=referral">Photo</a> by <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/@ohall?utm_source=webdrip_concept&amp;utm_medium=referral">Olga Hall</a> on <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/?utm_source=webdrip_concept&amp;utm_medium=referral">Unsplash</a> · <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/photos/two-people-riding-horses-on-a-forest-path-uNssca4IsiE?utm_source=webdrip_concept&amp;utm_medium=referral">Photo</a> by <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/@vzickner?utm_source=webdrip_concept&amp;utm_medium=referral">Valentin Zickner</a> on <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/?utm_source=webdrip_concept&amp;utm_medium=referral">Unsplash</a> · <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/photos/woman-in-white-shirt-standing-beside-brown-horse-during-daytime-fTFbASgzS-I?utm_source=webdrip_concept&amp;utm_medium=referral">Photo</a> by <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/@radwanskeiky?utm_source=webdrip_concept&amp;utm_medium=referral">radwan skeiky</a> on <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/?utm_source=webdrip_concept&amp;utm_medium=referral">Unsplash</a> · <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/photos/woman-riding-a-white-horse-in-an-outdoor-arena-zdQN2m425EM?utm_source=webdrip_concept&amp;utm_medium=referral">Photo</a> by <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/@shoham_avisrur?utm_source=webdrip_concept&amp;utm_medium=referral">Shoham Avisrur</a> on <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/?utm_source=webdrip_concept&amp;utm_medium=referral">Unsplash</a> · <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/photos/a-person-adjusts-the-saddle-on-a-white-horse-NjFiPEEawgw?utm_source=webdrip_concept&amp;utm_medium=referral">Photo</a> by <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/@shoham_avisrur?utm_source=webdrip_concept&amp;utm_medium=referral">Shoham Avisrur</a> on <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/?utm_source=webdrip_concept&amp;utm_medium=referral">Unsplash</a> · <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/photos/rider-jumping-horse-over-hurdle-DrbjXDvR0kk?utm_source=webdrip_concept&amp;utm_medium=referral">Photo</a> by <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/@ufolera?utm_source=webdrip_concept&amp;utm_medium=referral">Valerie Semenova</a> on <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/?utm_source=webdrip_concept&amp;utm_medium=referral">Unsplash</a> · <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/photos/close-up-photo-of-brown-horse-hVVp5qa75bo?utm_source=webdrip_concept&amp;utm_medium=referral">Photo</a> by <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/@dannysgallegos?utm_source=webdrip_concept&amp;utm_medium=referral">Danny Gallegos</a> on <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/?utm_source=webdrip_concept&amp;utm_medium=referral">Unsplash</a> · <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/photos/house-standing-in-front-of-fence-XWs2KWUmx6U?utm_source=webdrip_concept&amp;utm_medium=referral">Photo</a> by <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/@xianggao?utm_source=webdrip_concept&amp;utm_medium=referral">Xiang Gao</a> on <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/?utm_source=webdrip_concept&amp;utm_medium=referral">Unsplash</a> · <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/photos/close-up-photography-of-white-and-gray-horse-standing-on-green-grass-field--Ylz_tc8NOk?utm_source=webdrip_concept&amp;utm_medium=referral">Photo</a> by <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/@oscrse?utm_source=webdrip_concept&amp;utm_medium=referral">Oscar Nilsson</a> on <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/?utm_source=webdrip_concept&amp;utm_medium=referral">Unsplash</a> · <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/photos/two-ponies-standing-in-a-grassy-field-with-trees-in-the-background-Xi7Ytj2cMGE?utm_source=webdrip_concept&amp;utm_medium=referral">Photo</a> by <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/@dariuswiles?utm_source=webdrip_concept&amp;utm_medium=referral">Darius Wiles</a> on <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/?utm_source=webdrip_concept&amp;utm_medium=referral">Unsplash</a> · <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/photos/horse-standing-between-stables-TZAS30v-NTg?utm_source=webdrip_concept&amp;utm_medium=referral">Photo</a> by <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/@jolibois?utm_source=webdrip_concept&amp;utm_medium=referral">Jacob Jolibois</a> on <a class="underline decoration-paper/30 underline-offset-2 hover:text-paper" href="https://unsplash.com/?utm_source=webdrip_concept&amp;utm_medium=referral">Unsplash</a>.</p>
+    <p class="mt-4 text-sm text-paper/80"><a class="underline decoration-saddle underline-offset-4 hover:text-paper" href="https://getwebdrip.com">Concept design by WebDrip — fictional brand</a> · © 2026 Ashcanter Riding School</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.classList.add('js');
+  requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.add('loaded'); }); });
+  // recording hook: lets a frame-by-frame recorder slow JS timing to match slowed CSS animations
+  function timeScale() { return window.__wdTimeScale || 1; }
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(function () {}); });
+  }
+
+  /* mobile menu */
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  function setMenu(open) {
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (open) { menu.hidden = false; menu.classList.add('open'); } else { menu.classList.remove('open'); menu.hidden = true; }
+  }
+  burger.addEventListener('click', function () { setMenu(burger.getAttribute('aria-expanded') !== 'true'); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') { setMenu(false); burger.focus(); } });
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  window.addEventListener('resize', function () { if (window.innerWidth >= 768) setMenu(false); });
+
+  /* reveals */
+  var groups = new Map();
+  document.querySelectorAll('[data-reveal]').forEach(function (el) {
+    var p = el.parentElement; var i = groups.get(p) || 0; groups.set(p, i + 1);
+    el.style.setProperty('--stagger', (i * 110) + 'ms');
+  });
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  function markIn(el) { el.classList.add('in'); setTimeout(function () { el.style.setProperty('--stagger', '0ms'); }, 1600 / timeScale()); }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { markIn(en.target); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else { revealEls.forEach(markIn); }
+  function sweepReveals() {
+    var vh = window.innerHeight;
+    revealEls.forEach(function (el) { if (!el.classList.contains('in') && el.getBoundingClientRect().top < vh * 0.98) markIn(el); });
+  }
+
+  /* count-up */
+  var counters = document.querySelectorAll('[data-count]');
+  function runCount(el) {
+    var target = +el.getAttribute('data-count'); if (reduce || target < 2) { el.textContent = target; return; }
+    var t0 = null;
+    function step(t) { if (!t0) t0 = t; var k = Math.min(1, (t - t0) * timeScale() / 1500); var e = 1 - Math.pow(1 - k, 3); el.textContent = Math.round(target * e); if (k < 1) requestAnimationFrame(step); }
+    el.textContent = '0'; requestAnimationFrame(step);
+  }
+  if ('IntersectionObserver' in window) {
+    var co = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { runCount(en.target); co.unobserve(en.target); } }); }, { threshold: .6 });
+    counters.forEach(function (c) { co.observe(c); });
+  }
+
+  /* one shared rAF loop: progress, nav, hero camera, parallax */
+  var nav = document.getElementById('nav');
+  var bar = document.getElementById('progress');
+  var heroImg = document.getElementById('heroImg');
+  var stage = document.querySelector('.wd-stage');
+  var heroCopy = document.getElementById('heroCopy');
+  var heroDock = document.getElementById('heroDock');
+  var hpars = Array.prototype.slice.call(document.querySelectorAll('[data-hpar]'));
+  var pars = Array.prototype.slice.call(document.querySelectorAll('[data-par]'));
+  var cur = window.scrollY, target = window.scrollY, ticking = false;
+
+  function frame() {
+    target = window.scrollY;
+    cur += (target - cur) * Math.min(1, 0.12 / timeScale());
+    if (Math.abs(target - cur) < 0.3) cur = target;
+    var vh = window.innerHeight, docH = document.documentElement.scrollHeight - vh;
+    bar.style.transform = 'scaleX(' + (docH > 0 ? Math.min(1, target / docH) : 0) + ')';
+    nav.classList.toggle('wd-scrolled', target > 40);
+
+    if (!reduce) {
+      var p = Math.min(1.4, cur / vh);
+      var k = Math.min(1, p);
+      var ease = k * k * (3 - 2 * k);
+      // camera: push in, tilt back and drift as you scroll; reverses on the way up
+      heroImg.style.transform = 'translate3d(' + (ease * 2.5) + '%,' + (ease * 7) + '%,0) scale(' + (1.04 + ease * 0.32) + ') rotateX(' + (ease * 8) + 'deg) rotateY(' + (ease * 5) + 'deg)';
+      hpars.forEach(function (el) { el.style.transform = 'translate3d(0,' + (cur * parseFloat(el.getAttribute('data-hpar'))) + 'px,0)'; });
+      if (heroCopy) { heroCopy.style.transform = 'translate3d(0,' + (-cur * 0.25) + 'px,0)'; heroCopy.style.opacity = String(Math.max(0, 1 - p * 1.15)); }
+      if (heroDock) { heroDock.style.transform = 'translate3d(0,' + (-cur * 0.08) + 'px,0)'; }
+      pars.forEach(function (el) {
+        var r = el.getBoundingClientRect(); if (r.bottom < -200 || r.top > vh + 200) return;
+        var c = (r.top + r.height / 2 - vh / 2);
+        var f = parseFloat(el.getAttribute('data-par'));
+        el.style.transform = 'translate3d(0,' + (c * f) + 'px,0)' + (el.tagName === 'IMG' ? ' scale(1.18)' : '');
+      });
+    }
+    stage.style.opacity = String(Math.max(0, 1 - Math.max(0, target - vh * 0.85) / (vh * 0.5)));
+    sweepReveals();
+    if (Math.abs(target - cur) > 0.3 || target !== window.scrollY) requestAnimationFrame(frame); else ticking = false;
+  }
+  function kick() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+  window.addEventListener('scroll', kick, { passive: true });
+  window.addEventListener('resize', kick);
+  kick();
+
+  /* magnetic buttons (fine pointer only) */
+  if (!reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('.wd-magnetic').forEach(function (b) {
+      b.addEventListener('mousemove', function (e) {
+        var r = b.getBoundingClientRect(); var x = e.clientX - r.left - r.width / 2, y = e.clientY - r.top - r.height / 2;
+        b.style.transform = 'translate3d(' + x * 0.14 + 'px,' + y * 0.2 + 'px,0)';
+      });
+      b.addEventListener('mouseleave', function () { b.style.transform = ''; });
+    });
+  }
+
+  /* spotlight toggle */
+  var spot = document.getElementById('spot');
+  var tgl = document.getElementById('spotToggle');
+  function setSpot(paused) {
+    spot.classList.toggle('paused', paused);
+    tgl.setAttribute('aria-pressed', String(paused));
+    document.getElementById('spotLabel').textContent = paused ? 'Play motion' : 'Pause motion';
+    document.getElementById('pauseIco').classList.toggle('hidden', paused);
+    document.getElementById('playIco').classList.toggle('hidden', !paused);
+  }
+  tgl.addEventListener('click', function () { setSpot(!spot.classList.contains('paused')); });
+  if (reduce) setSpot(true);
+
+  /* timetable filter */
+  var tabs = document.querySelectorAll('[data-filter]');
+  var slots = document.querySelectorAll('.wd-slot');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var f = tab.getAttribute('data-filter');
+      tabs.forEach(function (t) { t.setAttribute('aria-pressed', String(t === tab)); });
+      slots.forEach(function (s) {
+        var show = f === 'all' || s.getAttribute('data-cat') === f;
+        s.hidden = !show;
+        if (show) { s.classList.remove('wd-flash'); void s.offsetWidth; s.classList.add('wd-flash'); }
+      });
+    });
+  });
+
+  /* form */
+  var form = document.getElementById('bookForm');
+  var ok = document.getElementById('formOk');
+  var nameI = document.getElementById('name'), emailI = document.getElementById('email');
+  var nameE = document.getElementById('nameErr'), emailE = document.getElementById('emailErr');
+  function fail(input, errEl, msg) {
+    input.setAttribute('aria-invalid', 'true'); errEl.textContent = msg;
+    input.classList.remove('wd-shake'); void input.offsetWidth; input.classList.add('wd-shake');
+  }
+  function clear(input, errEl) { input.removeAttribute('aria-invalid'); errEl.textContent = ''; }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    ok.classList.add('hidden'); ok.classList.remove('show', 'flex');
+    var good = true;
+    if (!nameI.value.trim()) { fail(nameI, nameE, "Please add the rider's name."); good = false; } else clear(nameI, nameE);
+    var v = emailI.value.trim();
+    if (!v) { fail(emailI, emailE, 'Please enter your email.'); good = false; }
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { fail(emailI, emailE, 'That email looks incomplete — check it?'); good = false; }
+    else clear(emailI, emailE);
+    if (!good) { (form.querySelector('[aria-invalid="true"]') || nameI).focus(); return; }
+    ok.classList.remove('hidden'); ok.classList.add('flex'); void ok.offsetWidth; ok.classList.add('show');
+    form.reset();
+  });
+})();
+</script>
+</body>
+</html>

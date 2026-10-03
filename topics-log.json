@@ -516,5 +516,24 @@
     "videos_deleted": true,
     "fb_post_url": "https://www.facebook.com/reel/1414878903333625/",
     "tiktok_post_url": "https://tiktok.com/@getwebdrip/video/7692508645816356110"
+  },
+  {
+    "date": "2026-10-03",
+    "slug": "ashcanter-demo",
+    "business_type": "riding school & stables",
+    "brand_name": "Ashcanter Riding School",
+    "design_style": "TypeUI 'stitch' — clean, high-contrast, structured style (Oswald display + Ubuntu body + Ubuntu Mono labels, 4–8px radii, soft pine-tinted card shadows, dashed saddle-stitch insets and seams) using its pine #072C2C / oat #EDEADE tokens with its #FF5F03 orange as the saddle action colour (pine text on orange, AA) plus hay and moss accents; layouts = centred-headline hero over the fixed golden-hour arena photo with a docked four-cell 'today at the yard' data bar, a self-drawing stitch line and horseshoe as parallax layers, pine marquee, 'left-aligned intro + four-up card grid' lessons with prices, split Ken Burns sunrise-hack spotlight with stat tiles and pause toggle, 'four-column grid with badge, role and contact action' turned into meet-the-herd horse cards, a structured five-day timetable board with category filter tabs plus a 'centered inline stat row' over a parallax stable photo, 'centered heading + stacked form with dual actions' taster booking, centred-stack footer; chosen because a calm, structured leather-and-pine look suits a riding school's schedules and tack room, and it breaks from the recent dark dramatic, pastel friendly and frosted glass runs",
+    "palette": {
+      "pine": "#072C2C",
+      "pine_2": "#0D3D3B",
+      "oat": "#EDEADE",
+      "paper": "#F7F5EE",
+      "ink": "#111827",
+      "soft": "#44514F",
+      "saddle": "#FF5F03",
+      "saddle_deep": "#B33F00",
+      "hay": "#F2C14E",
+      "moss": "#15803D"
+    }
   }
 ]
