@@ -350,6 +350,26 @@
       "pink": "#FF3D8B",
       "lamp": "#FFC24A"
     },
-    "live_url": "https://webdripsamples.netlify.app/lockmoth-demo/"
+    "live_url": "https://webdripsamples.netlify.app/lockmoth-demo/",
+    "music_brief": "dark, restless hybrid trap with hard-hitting drums, a ticking tension build and a big drop — thriller-game energy to match a loud, exhibit-style escape room site on deep green with hot pink and cobalt",
+    "music_track": {
+      "id": "f264fe19-5118-4e5d-99b8-444328f3840a",
+      "title": "NDA",
+      "artist": "BLUE STEEL",
+      "why": "strongest drum punch (highest onset strength) of a 12-track instrumental trap shortlist, dark and restless like a ticking escape-room clock, with a clear build into a big drop; cut to 25s with Epidemic Sound EditRecording so the drop lands at 2.8s, right as the walkthrough starts"
+    },
+    "sound_effects": "synthesized in code (whooshes, impact, tick) — DownloadSoundEffect returned FORBIDDEN (no permission to download this asset)",
+    "voice": "am_fenrir",
+    "voiceover": "Kokoro-82M via kokoro-onnx (model files from the kokoro-onnx GitHub release; huggingface.co is blocked by the network policy), speed 1.1",
+    "vo_hook": "Most websites feel like a locked door.",
+    "vo_hook_type": "bold truth",
+    "caption_hook": "POV: you finally land on a website that feels like a game.",
+    "hook_type": "POV",
+    "video_hosting": "temporary Netlify fallback (lockmoth-demo/reel/, removed after posting) — GitHub release creation returned 403 for this session type",
+    "buffer_post_id": "6ac0859e713b7277a0aa6643",
+    "fb_post_url": "https://facebook.com/1277092185496389_122101943583495093",
+    "buffer_tiktok_post_id": "6ac085a74619427d30df7397",
+    "tiktok_post_url": "https://tiktok.com/@getwebdrip/video/7692295103628446989",
+    "videos_deleted": true
   }
 ]
