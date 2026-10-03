@@ -15,3 +15,4 @@ Notes that saved time:
 - Remotion renders need `--browser-executable=/opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell` and local `.woff2` fonts in `public/`.
 - `node --experimental-strip-types check.mjs` runs the checker directly on the TypeScript layout module.
 - A form field named `style` shadows `form.style` — never use it as a field name.
+- Buffer `createPost`: `assets` is a list of one-key objects — `[{ video: { url, metadata: { title } } }]` (not `{ videos: [...] }`). Facebook also needs `metadata: { facebook: { type: post | reel | story } }`; TikTok takes `metadata: { tiktok: { title, isAiGenerated } }`. Poll with `post(input: { id }) { status externalLink error { message } }`.
