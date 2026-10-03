@@ -389,6 +389,26 @@
       "mist": "#E6EEF5",
       "line": "#E5E1DA"
     },
-    "live_url": "https://webdripsamples.netlify.app/emberlift-demo/"
+    "live_url": "https://webdripsamples.netlify.app/emberlift-demo/",
+    "music_brief": "bright, euphoric future bass with soaring supersaw chords, crisp punchy drums and a big lift-off drop — sunrise energy to match an airy, spacious balloon-flight site in ember orange, amber and dawn-sky violet",
+    "music_track": {
+      "id": "eee8fa85-53d3-46e0-b215-f5745da2358b",
+      "title": "All of You (Instrumental Version)",
+      "artist": "Swif7 & Vicki Vox",
+      "why": "euphoric, restless future bass at 129 BPM from a 10-track instrumental shortlist: strong drum punch (2nd-highest onset strength), a memorable supersaw motif and a clear breakdown into a big drop that suits a sunrise lift-off; cut to 23.5s with Epidemic Sound EditRecording so the drop lands at 8.3s as the walkthrough speeds up and it ends cleanly on the end card"
+    },
+    "sound_effects": "synthesized in code (whooshes, impact, tick) — DownloadSoundEffect returned FORBIDDEN (no permission to download this asset)",
+    "voice": "af_heart",
+    "voiceover": "Kokoro-82M via kokoro-onnx (model files from the kokoro-onnx GitHub release; huggingface.co is blocked by the network policy), speed 1.1; subtitles timed per line from the generated audio with word timing estimated within each line",
+    "vo_hook": "What if your website felt like taking off?",
+    "vo_hook_type": "question",
+    "caption_hook": "Nobody books a dream trip from a dull website.",
+    "hook_type": "relatable truth",
+    "video_hosting": "temporary Netlify fallback (emberlift-demo/reel/, removed after posting) — GitHub release creation returned 403 for this session type",
+    "buffer_post_id": "6ac092c3e22a2e5172b34c9f",
+    "fb_post_url": "https://facebook.com/1277092185496389_122101983819495093",
+    "buffer_tiktok_post_id": "6ac092c9e22a2e5172b34d5c",
+    "tiktok_post_url": "https://tiktok.com/@getwebdrip/video/7692309407748721933",
+    "videos_deleted": true
   }
 ]
