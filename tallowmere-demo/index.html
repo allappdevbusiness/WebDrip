@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tallowmere Law — Plain-English law for small businesses</title>
+<meta name="description" content="Tallowmere Law is a small-business law firm. Fixed fees, plain English and contracts you actually understand. A WebDrip concept design for a fictional brand.">
+<meta name="theme-color" content="#0B0B0C">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tallowmere Law — Plain-English law for small businesses">
+<meta property="og:description" content="Fixed fees, plain English and contracts you actually understand. Concept design by WebDrip.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1660496247667-3fb697c396af?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8bW9kZXJuJTIwb2ZmaWNlJTIwYnVpbGRpbmclMjBkdXNrfGVufDB8MHx8fDE3OTEwNjUzNjF8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tallowmere Law — Plain-English law for small businesses">
+<meta name="twitter:description" content="Fixed fees, plain English and contracts you actually understand. Concept design by WebDrip.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1660496247667-3fb697c396af?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8bW9kZXJuJTIwb2ZmaWNlJTIwYnVpbGRpbmclMjBkdXNrfGVufDB8MHx8fDE3OTEwNjUzNjF8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1660496247667-3fb697c396af?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8bW9kZXJuJTIwb2ZmaWNlJTIwYnVpbGRpbmclMjBkdXNrfGVufDB8MHx8fDE3OTEwNjUzNjF8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { ink: '#0B0B0C', ink2: '#17171A', ink3: '#232329', sun: '#FECE14', sunDeep: '#7A5C00', paper: '#FFFFFF', mist: '#F5F4EF', text: '#111827', soft: '#4B5563', line: '#E6E4DC', ok: '#16A34A', bad: '#B91C1C' },
+    fontFamily: { sans: ['Poppins', 'system-ui', 'sans-serif'], mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'] }
+  } } };
+</script>
+<style>
+  :root {
+    --ink: #0B0B0C; --ink-2: #17171A; --ink-3: #232329;
+    --sun: #FECE14; --sun-deep: #7A5C00;
+    --paper: #FFFFFF; --mist: #F5F4EF; --line: #E6E4DC;
+    --text: #111827; --soft: #4B5563;
+    --r-sm: 4px; --r-md: 8px;
+    --shadow: 0 1px 2px rgba(17,24,39,.06), 0 18px 40px -24px rgba(17,24,39,.35);
+    --shadow-hi: 0 2px 4px rgba(17,24,39,.06), 0 34px 64px -28px rgba(17,24,39,.5), 0 0 0 1px rgba(254,206,20,.6);
+    --ease: cubic-bezier(.2, .8, .2, 1);
+    --spring: cubic-bezier(.34, 1.3, .5, 1);
+  }
+  html { scroll-behavior: smooth; background: var(--mist); overflow-x: clip; }
+  body { background: var(--mist); color: var(--text); font-family: Poppins, system-ui, sans-serif; font-size: 16px; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+  main, footer { overflow-x: clip; }
+  ::selection { background: var(--sun); color: var(--ink); }
+  h1, h2, h3 { letter-spacing: -0.025em; }
+  h2, h3, p { text-wrap: pretty; }
+  h2 { text-wrap: balance; }
+  .wd-mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; letter-spacing: .1em; text-transform: uppercase; font-size: .75rem; font-weight: 600; }
+  .wd-hl { position: relative; white-space: nowrap; z-index: 0; }
+  .wd-hl::before { content: ''; position: absolute; left: -.08em; right: -.1em; top: .1em; bottom: .02em; background: var(--sun); z-index: -1; border-radius: 2px; transform-origin: 0 50%; }
+  .js .wd-hl::before { transform: scaleX(0); }
+  .js.loaded .wd-hl::before { transform: scaleX(1); transition: transform .9s var(--ease) 1s; }
+  .wd-hl-dark { color: var(--ink); }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible {
+    outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 6px; box-shadow: 0 0 0 6px rgba(11,11,12,.85);
+  }
+
+  #progress { position: fixed; left: 0; top: 0; height: 3px; width: 100%; transform-origin: 0 50%; transform: scaleX(0); background: var(--sun); z-index: 70; }
+
+  /* nav */
+  #nav { position: fixed; inset: 0 0 auto 0; z-index: 60; }
+  #nav .wd-bar { transition: padding .4s var(--ease); }
+  #nav .wd-navpill { background: rgba(11,11,12,.96); border: 1px solid rgba(255,255,255,.1); box-shadow: 0 16px 36px -24px rgba(0,0,0,.8); transition: box-shadow .4s, background-color .4s, border-color .4s; }
+  @media (min-width: 768px) { #nav .wd-navpill { background: rgba(11,11,12,.6); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); } }
+  #nav.wd-scrolled .wd-bar { padding-top: .45rem; padding-bottom: .45rem; }
+  #nav.wd-scrolled .wd-navpill { border-color: rgba(254,206,20,.35); background: rgba(11,11,12,.92); }
+  .wd-ulink { position: relative; }
+  .wd-ulink::after { content: ''; position: absolute; left: 12px; right: 12px; bottom: 9px; height: 2px; background: var(--sun); transform: scaleX(0); transform-origin: right; transition: transform .35s var(--ease); }
+  .wd-ulink:hover::after, .wd-ulink:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+
+  /* buttons */
+  .wd-btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 52px; padding: 0 1.5rem; border-radius: var(--r-md); font-weight: 600; font-size: 1rem; overflow: hidden; transition: transform .3s var(--spring), box-shadow .3s, background-color .3s; will-change: transform; -webkit-tap-highlight-color: transparent; }
+  .wd-btn-sun { background: var(--sun); color: var(--ink); box-shadow: 0 14px 30px -14px rgba(254,206,20,.8); }
+  .wd-btn-sun:hover { box-shadow: 0 20px 40px -14px rgba(254,206,20,1); }
+  .wd-btn-ink { background: var(--ink); color: #fff; box-shadow: 0 14px 30px -16px rgba(0,0,0,.8); }
+  .wd-btn-ghost { background: rgba(255,255,255,.06); color: #fff; border: 1.5px solid rgba(255,255,255,.45); }
+  .wd-btn-ghost:hover { background: rgba(255,255,255,.14); }
+  .wd-btn-line { background: transparent; color: var(--ink); border: 1.5px solid rgba(11,11,12,.3); }
+  .wd-btn-line:hover { background: rgba(11,11,12,.05); }
+  .wd-btn::before { content: ''; position: absolute; top: 0; bottom: 0; left: -60%; width: 45%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.6), transparent); transform: translateX(0) skewX(-18deg); opacity: 0; }
+  .wd-btn:hover::before { animation: wd-sheen .85s var(--ease); }
+  @keyframes wd-sheen { 0% { opacity: 1; transform: translateX(0) skewX(-18deg); } 100% { opacity: 0; transform: translateX(380%) skewX(-18deg); } }
+  .wd-btn:hover { transform: translateY(-2px); }
+  .wd-btn:active { transform: scale(.96); }
+  .wd-btn .wd-arr { transition: transform .3s var(--spring); }
+  .wd-btn:hover .wd-arr { transform: translateX(4px); }
+
+  /* hero camera */
+  .wd-stage { position: fixed; inset: 0; z-index: 0; perspective: 1000px; overflow: hidden; pointer-events: none; background: #070708; }
+  #heroImg { position: absolute; inset: -6%; width: 112%; height: 112%; max-width: none; object-fit: cover; object-position: 50% 45%; transform-origin: 60% 50%; will-change: transform; }
+  .wd-shade { position: absolute; inset: 0; background:
+      linear-gradient(90deg, rgba(7,7,8,.92) 0%, rgba(7,7,8,.72) 38%, rgba(7,7,8,.28) 70%, rgba(7,7,8,.5) 100%),
+      linear-gradient(180deg, rgba(7,7,8,.55) 0%, rgba(7,7,8,0) 26%, rgba(7,7,8,.2) 70%, rgba(7,7,8,.95) 100%); }
+  @media (max-width: 1023px) { .wd-shade { background: linear-gradient(180deg, rgba(7,7,8,.62) 0%, rgba(7,7,8,.74) 40%, rgba(7,7,8,.92) 100%); } }
+  .wd-glow { position: absolute; border-radius: 50%; filter: blur(48px); will-change: transform; pointer-events: none; }
+  .wd-glow-a { width: 44vw; height: 44vw; left: -14vw; bottom: -18vw; background: radial-gradient(circle, rgba(254,206,20,.30), transparent 65%); animation: wd-drift 16s ease-in-out infinite; }
+  .wd-glow-b { width: 28vw; height: 28vw; right: 6vw; top: 8vh; background: radial-gradient(circle, rgba(254,206,20,.18), transparent 65%); animation: wd-drift 21s ease-in-out -7s infinite; }
+  @keyframes wd-drift { 0%,100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(3vw,-3vh,0) scale(1.12); } }
+  .wd-rules { position: absolute; inset: 0; will-change: transform; }
+  .wd-rules span { position: absolute; top: 0; bottom: 0; width: 1px; background: linear-gradient(180deg, transparent, rgba(254,206,20,.28) 40%, transparent); }
+  .js .wd-rules span { transform: scaleY(0); transform-origin: 50% 0; }
+  .js.loaded .wd-rules span { transform: scaleY(1); transition: transform 2.2s var(--ease) var(--d, .4s); }
+  .wd-seal { position: absolute; right: 6vw; bottom: 16vh; width: min(12vw, 150px); will-change: transform; opacity: .9; }
+  .wd-seal-ring { animation: wd-spin 40s linear infinite; transform-origin: 50% 50%; }
+  @keyframes wd-spin { to { transform: rotate(360deg); } }
+
+  /* masked headline + intro */
+  .wd-mask { display: block; overflow: hidden; padding-bottom: .1em; margin-bottom: -.1em; }
+  .wd-mask > span { display: inline-block; }
+  .js .wd-mask > span { transform: translateY(110%); }
+  .js.loaded .wd-mask > span { transform: none; transition: transform 1.1s var(--ease); }
+  .js.loaded .wd-mask:nth-child(2) > span { transition-delay: .12s; }
+  .js.loaded .wd-mask:nth-child(3) > span { transition-delay: .24s; }
+  .js .wd-intro { opacity: 0; transform: translateY(18px); }
+  .js.loaded .wd-intro { opacity: 1; transform: none; transition: opacity .8s var(--ease), transform .9s var(--spring); transition-delay: var(--d, .4s); }
+  .js #nav { opacity: 0; transform: translateY(-16px); }
+  .js.loaded #nav { opacity: 1; transform: none; transition: opacity .6s ease, transform .8s var(--spring); }
+  .js .wd-logo-mark { transform: scale(.3) rotate(-30deg); opacity: 0; }
+  .js.loaded .wd-logo-mark { transform: none; opacity: 1; transition: transform 1s var(--spring) .2s, opacity .4s ease .2s; }
+  .js .wd-feecard { opacity: 0; transform: perspective(900px) rotateY(-18deg) translateX(40px); }
+  .js.loaded .wd-feecard { opacity: 1; transform: none; transition: opacity .9s var(--ease) .9s, transform 1.2s var(--spring) .9s; }
+
+  /* reveals (content visible without JS) */
+  .js [data-reveal] { opacity: 0; transition: opacity .8s var(--ease), transform 1s var(--ease); transition-delay: var(--stagger, 0ms); }
+  .js [data-reveal="up"] { transform: translateY(42px); }
+  .js [data-reveal="pop"] { transform: scale(.9); transition: opacity .6s var(--ease), transform .85s var(--spring); transition-delay: var(--stagger, 0ms); }
+  .js [data-reveal="left"] { transform: translateX(-48px); }
+  .js [data-reveal="right"] { transform: translateX(48px); }
+  .js [data-reveal="tilt"] { transform: perspective(900px) rotateX(14deg) translateY(36px); transform-origin: 50% 100%; }
+  .js [data-reveal="flip"] { transform: perspective(1000px) rotateY(-14deg) translateY(20px); transform-origin: 0 50%; }
+  .js [data-reveal="wipe"] { opacity: 1; clip-path: inset(0 100% 0 0 round 8px); transition: clip-path 1.2s var(--ease); }
+  .js [data-reveal].in { opacity: 1; transform: none; }
+  .js [data-reveal="wipe"].in { clip-path: inset(0 0 0 0 round 8px); }
+
+  /* cards */
+  .wd-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; box-shadow: var(--shadow); transition: transform .45s var(--spring), box-shadow .45s var(--ease), border-color .45s; position: relative; }
+  .js .wd-card.in { transition: transform .5s var(--spring), box-shadow .45s var(--ease), border-color .45s, opacity .8s var(--ease); transition-delay: var(--stagger, 0ms); }
+  .wd-card:hover, .js .wd-card.in:hover { transform: translateY(-8px); box-shadow: var(--shadow-hi); border-color: rgba(254,206,20,.9); }
+  .wd-card:active { transform: translateY(-2px) scale(.99); }
+  .wd-card::after { content: ''; position: absolute; left: 0; top: 0; height: 4px; width: 100%; background: var(--sun); transform: scaleX(0); transform-origin: 0 50%; transition: transform .5s var(--ease); z-index: 3; }
+  .wd-card:hover::after { transform: scaleX(1); }
+  .wd-ph { overflow: hidden; position: relative; }
+  .wd-ph img { transition: transform 1.1s var(--ease); }
+  .wd-card:hover .wd-ph img { transform: scale(1.07); }
+  .wd-ph::after { content: ''; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.32) 50%, transparent 70%); transform: translateX(-120%); }
+  .wd-card:hover .wd-ph::after { transform: translateX(120%); transition: transform 1s var(--ease); }
+  .wd-tag { display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .55rem; border-radius: var(--r-sm); background: var(--ink); color: #fff; }
+  .wd-price { font-variant-numeric: tabular-nums; }
+
+  /* ticker */
+  .wd-marquee { display: flex; width: max-content; animation: wd-marq 46s linear infinite; }
+  @keyframes wd-marq { to { transform: translateX(-50%); } }
+
+  /* spotlight */
+  .wd-spot-frame { border-radius: var(--r-md); overflow: hidden; position: relative; isolation: isolate; }
+  .wd-spot-img { animation: wd-kenburns 18s ease-in-out infinite alternate; transform-origin: 40% 60%; will-change: transform; }
+  @keyframes wd-kenburns { from { transform: scale(1.05) translate3d(0,0,0); } to { transform: scale(1.2) translate3d(-3%, -2%, 0); } }
+  .wd-sweep { position: absolute; inset: -20% auto -20% 0; width: 40%; background: linear-gradient(100deg, transparent, rgba(254,230,140,.22), transparent); animation: wd-sweep 7s var(--ease) infinite; pointer-events: none; }
+  @keyframes wd-sweep { 0% { transform: translateX(-120%) skewX(-14deg); } 60%,100% { transform: translateX(320%) skewX(-14deg); } }
+  .wd-pulse { animation: wd-pulse 2.4s ease-in-out infinite; }
+  @keyframes wd-pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.8); opacity: .3; } }
+  .wd-line-draw { transform-origin: 0 50%; animation: wd-linedraw 5s var(--ease) infinite; }
+  @keyframes wd-linedraw { 0% { transform: scaleX(0); } 45%, 80% { transform: scaleX(1); } 100% { transform: scaleX(1); opacity: 0; } }
+  #spot.paused .wd-spot-img, #spot.paused .wd-sweep, #spot.paused .wd-pulse, #spot.paused .wd-line-draw { animation-play-state: paused; }
+
+  /* pricing */
+  .wd-plan { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-md); box-shadow: var(--shadow); transition: transform .45s var(--spring), box-shadow .45s var(--ease), border-color .45s; position: relative; }
+  .js .wd-plan.in { transition: transform .5s var(--spring), box-shadow .45s var(--ease), border-color .45s, opacity .8s var(--ease); transition-delay: var(--stagger, 0ms); }
+  .wd-plan:hover, .js .wd-plan.in:hover { transform: translateY(-8px); box-shadow: var(--shadow-hi); }
+  .wd-plan-hot { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .wd-tick { flex: none; width: 22px; height: 22px; border-radius: 50%; display: inline-grid; place-items: center; background: rgba(254,206,20,.25); }
+  .wd-plan-hot .wd-tick { background: var(--sun); }
+
+  /* team */
+  .wd-badge { position: absolute; left: 12px; top: 12px; z-index: 2; background: var(--sun); color: var(--ink); border-radius: var(--r-sm); padding: .25rem .5rem; }
+  .wd-contact { min-height: 44px; }
+
+  /* faq */
+  .wd-faq summary { list-style: none; cursor: pointer; min-height: 56px; }
+  .wd-faq summary::-webkit-details-marker { display: none; }
+  .wd-plus { position: relative; width: 28px; height: 28px; flex: none; border-radius: 50%; background: var(--ink); }
+  .wd-plus::before, .wd-plus::after { content: ''; position: absolute; left: 8px; right: 8px; top: 13px; height: 2px; background: var(--sun); transition: transform .35s var(--spring); }
+  .wd-plus::after { transform: rotate(90deg); }
+  .wd-faq[open] .wd-plus::after { transform: rotate(0deg); }
+  .wd-faq[open] .wd-ans { animation: wd-ansIn .45s var(--ease); }
+  @keyframes wd-ansIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+  /* burger */
+  .wd-burger span { display: block; position: absolute; left: 12px; right: 12px; height: 2px; border-radius: 2px; background: #fff; transition: transform .4s var(--spring), opacity .25s; }
+  .wd-burger span:nth-child(1) { top: 16px; } .wd-burger span:nth-child(2) { top: 23px; } .wd-burger span:nth-child(3) { top: 30px; }
+  .wd-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .wd-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(.2); }
+  .wd-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  #mobileMenu { transform-origin: top center; }
+  #mobileMenu.open { animation: wd-menuIn .45s var(--spring); }
+  @keyframes wd-menuIn { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: none; } }
+  #mobileMenu.open li { animation: wd-itemIn .5s var(--ease) both; }
+  #mobileMenu.open li:nth-child(2) { animation-delay: .05s; } #mobileMenu.open li:nth-child(3) { animation-delay: .1s; } #mobileMenu.open li:nth-child(4) { animation-delay: .15s; } #mobileMenu.open li:nth-child(5) { animation-delay: .2s; } #mobileMenu.open li:nth-child(6) { animation-delay: .25s; }
+  @keyframes wd-itemIn { from { opacity: 0; transform: translateX(-14px); } to { opacity: 1; transform: none; } }
+
+  /* form */
+  .wd-field { min-height: 52px; border-radius: var(--r-md); border: 1.5px solid #B8B5AA; background: #FFFFFF; padding: 0 1rem; width: 100%; font-size: 1rem; color: var(--text); transition: border-color .25s, box-shadow .25s; }
+  textarea.wd-field { padding-top: .85rem; padding-bottom: .85rem; min-height: 112px; resize: vertical; }
+  select.wd-field { appearance: none; background-image: linear-gradient(45deg, transparent 50%, #111827 50%), linear-gradient(135deg, #111827 50%, transparent 50%); background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50%; background-size: 6px 6px; background-repeat: no-repeat; }
+  .wd-field::placeholder { color: #6B7280; }
+  .wd-field:focus { border-color: var(--ink); box-shadow: 0 0 0 4px rgba(254,206,20,.55); outline: none; }
+  .wd-field[aria-invalid="true"] { border-color: #B91C1C; }
+  .wd-shake { animation: wd-shake .45s var(--ease); }
+  @keyframes wd-shake { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-8px); } 40% { transform: translateX(7px); } 60% { transform: translateX(-5px); } 80% { transform: translateX(3px); } }
+  #formOk.show { animation: wd-okIn .6s var(--spring); }
+  @keyframes wd-okIn { from { opacity: 0; transform: translateY(10px) scale(.96); } to { opacity: 1; transform: none; } }
+  #formOk .wd-check path { stroke-dasharray: 30; stroke-dashoffset: 30; }
+  #formOk.show .wd-check path { stroke-dashoffset: 0; transition: stroke-dashoffset .6s var(--ease) .25s; }
+  .wd-dots { background-image: radial-gradient(rgba(17,24,39,.12) 1.2px, transparent 1.2px); background-size: 24px 24px; }
+  .wd-dots-dark { background-image: radial-gradient(rgba(255,255,255,.08) 1.2px, transparent 1.2px); background-size: 24px 24px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+    .js .wd-mask > span, .js .wd-intro, .js [data-reveal], .js #nav, .js .wd-logo-mark, .js .wd-feecard { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+    .js .wd-rules span, .js .wd-hl::before { transform: none !important; }
+  }
+</style>
+</head>
+<body class="antialiased">
+<a href="#practice" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded focus:bg-sun focus:px-4 focus:py-3 focus:text-ink focus:font-semibold">Skip to content</a>
+<div id="progress" aria-hidden="true"></div>
+
+<!-- fixed hero stage -->
+<div class="wd-stage" aria-hidden="true">
+  <img id="heroImg" src="https://images.unsplash.com/photo-1660496247667-3fb697c396af?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8bW9kZXJuJTIwb2ZmaWNlJTIwYnVpbGRpbmclMjBkdXNrfGVufDB8MHx8fDE3OTEwNjUzNjF8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80" alt="" fetchpriority="high" decoding="async">
+  <div class="wd-shade"></div>
+  <div class="wd-glow wd-glow-a"></div>
+  <div class="wd-glow wd-glow-b"></div>
+  <div class="wd-rules" data-hpar="-0.18">
+    <span style="left:8%;--d:.3s"></span><span style="left:31%;--d:.5s"></span><span style="left:54%;--d:.7s"></span><span style="left:77%;--d:.9s"></span>
+  </div>
+  <svg class="wd-seal hidden lg:block" data-hpar="-0.5" viewBox="0 0 120 120" fill="none">
+    <g class="wd-seal-ring">
+      <circle cx="60" cy="60" r="54" stroke="rgba(254,206,20,.6)" stroke-width="1.5" stroke-dasharray="3 5"/>
+      <circle cx="60" cy="60" r="44" stroke="rgba(255,255,255,.35)" stroke-width="1"/>
+    </g>
+    <path d="M60 34v52M42 46h36M42 46l-10 22h20zM78 46l-10 22h20z" stroke="#FECE14" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M48 86h24" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<header id="nav">
+  <div class="wd-bar mx-auto max-w-7xl px-4 sm:px-6 py-4">
+    <nav class="wd-navpill flex items-center justify-between rounded-lg pl-3 pr-2 py-2" aria-label="Main">
+      <a href="#top" class="flex min-h-[44px] items-center gap-2.5" aria-label="Tallowmere Law, back to top">
+        <svg class="wd-logo-mark h-9 w-9 flex-none" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#FECE14"/><path d="M9 9h14M16 9v15M12 24h8" stroke="#0B0B0C" stroke-width="3" stroke-linecap="round"/></svg>
+        <span class="leading-none"><span class="block text-[1.15rem] font-semibold tracking-[-0.02em] text-white">Tallowmere</span><span class="wd-mono block !text-[.6rem] !tracking-[.22em] text-sun">Law · small business</span></span>
+      </a>
+      <ul class="hidden md:flex items-center gap-1 text-[15px] font-medium text-white/90">
+        <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#practice">What we do</a></li>
+        <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#pricing">Fixed fees</a></li>
+        <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#team">Lawyers</a></li>
+        <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#faq">FAQ</a></li>
+      </ul>
+      <div class="flex items-center gap-2">
+        <a href="#book" class="wd-btn wd-btn-sun wd-magnetic hidden sm:inline-flex !min-h-[44px] !px-4 text-[15px]">Free 20-min call <span class="wd-arr" aria-hidden="true">→</span></a>
+        <button id="burger" class="wd-burger relative md:hidden h-[46px] w-[46px] rounded-md border border-white/25" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+    <div id="mobileMenu" class="md:hidden mt-2 rounded-lg border border-white/10 bg-ink p-3 shadow-2xl" hidden>
+      <ul class="flex flex-col text-lg font-medium text-white">
+        <li><a class="flex min-h-[48px] items-center justify-between rounded-md px-3 hover:bg-ink3" href="#practice">What we do <span class="wd-mono text-sun">01</span></a></li>
+        <li><a class="flex min-h-[48px] items-center justify-between rounded-md px-3 hover:bg-ink3" href="#pricing">Fixed fees <span class="wd-mono text-sun">02</span></a></li>
+        <li><a class="flex min-h-[48px] items-center justify-between rounded-md px-3 hover:bg-ink3" href="#team">Our lawyers <span class="wd-mono text-sun">03</span></a></li>
+        <li><a class="flex min-h-[48px] items-center justify-between rounded-md px-3 hover:bg-ink3" href="#faq">Questions <span class="wd-mono text-sun">04</span></a></li>
+        <li><a class="flex min-h-[48px] items-center justify-between rounded-md px-3 hover:bg-ink3" href="#book">Book a call <span class="wd-mono text-sun">05</span></a></li>
+        <li class="pt-2"><a class="wd-btn wd-btn-sun w-full" href="#book">Book a free 20-min call <span class="wd-arr" aria-hidden="true">→</span></a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main class="relative z-10">
+  <!-- HERO: left-aligned split — headline column + floating fixed-fee card -->
+  <section id="top" class="relative min-h-[100svh] flex items-center" aria-labelledby="heroTitle">
+    <div class="mx-auto grid w-full max-w-7xl items-center gap-10 px-4 sm:px-6 pt-32 pb-16 lg:grid-cols-[1.25fr_.75fr]">
+      <div id="heroCopy" class="text-white">
+        <p class="wd-intro wd-mono inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1.5 text-sun" style="--d:.2s"><span class="relative inline-flex h-2 w-2"><span class="wd-pulse absolute inset-0 rounded-full bg-sun"></span><span class="relative h-2 w-2 rounded-full bg-sun"></span></span>Taking new clients this month</p>
+        <h1 id="heroTitle" class="mt-6 font-bold leading-[1.02] text-[clamp(2.4rem,7.4vw,6rem)]">
+          <span class="wd-mask"><span>Business law,</span></span>
+          <span class="wd-mask"><span>in <br class="sm:hidden"><span class="wd-hl wd-hl-dark"><span class="relative text-ink">plain English.</span></span></span></span>
+        </h1>
+        <p class="wd-intro mt-6 max-w-xl text-lg sm:text-xl leading-relaxed text-white/85" style="--d:.55s">Contracts, leases, hiring and the scary letters. We explain every step, quote a fixed fee up front, and answer the phone.</p>
+        <div class="wd-intro mt-8 flex flex-col gap-3 sm:flex-row" style="--d:.7s">
+          <a href="#book" class="wd-btn wd-btn-sun wd-magnetic w-full sm:w-auto">Book a free 20-min call <span class="wd-arr" aria-hidden="true">→</span></a>
+          <a href="#pricing" class="wd-btn wd-btn-ghost w-full sm:w-auto">See fixed fees</a>
+        </div>
+        <ul class="wd-intro mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/75" style="--d:.85s">
+          <li class="flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#FECE14" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Fixed fees, no hourly meter</li>
+          <li class="flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#FECE14" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Replies within one working day</li>
+        </ul>
+      </div>
+      <aside id="heroCard" class="wd-feecard hidden lg:block" aria-label="Example fixed-fee quote">
+        <div class="rounded-lg border border-white/15 bg-ink/80 p-6 text-white shadow-2xl md:backdrop-blur-md">
+          <div class="flex items-center justify-between"><p class="wd-mono text-sun">Sample quote</p><span class="wd-mono rounded bg-white/10 px-2 py-1 !text-[.65rem] text-white/80">No. 0412</span></div>
+          <p class="mt-4 text-2xl font-semibold leading-snug">Commercial lease review</p>
+          <p class="mt-1 text-sm text-white/70">Ground-floor shop, five-year term</p>
+          <dl class="mt-5 space-y-3 border-t border-white/10 pt-4 text-sm">
+            <div class="flex justify-between"><dt class="text-white/70">Read &amp; mark up</dt><dd>Included</dd></div>
+            <div class="flex justify-between"><dt class="text-white/70">Call to walk you through it</dt><dd>Included</dd></div>
+            <div class="flex justify-between"><dt class="text-white/70">Negotiate with landlord</dt><dd>Included</dd></div>
+          </dl>
+          <div class="mt-5 flex items-end justify-between rounded-md bg-sun p-4 text-ink">
+            <span class="wd-mono">Fixed fee</span>
+            <span class="wd-price text-3xl font-bold">$<span data-count="890">890</span></span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ticker -->
+  <div class="relative overflow-hidden border-y border-white/10 bg-ink py-4 text-white" aria-hidden="true">
+    <div class="wd-marquee wd-mono gap-10 whitespace-nowrap !text-[.8rem]">
+      <span>Contracts</span><span class="text-sun">◆</span><span>Leases</span><span class="text-sun">◆</span><span>Hiring</span><span class="text-sun">◆</span><span>Company setup</span><span class="text-sun">◆</span><span>Trademarks</span><span class="text-sun">◆</span><span>Disputes</span><span class="text-sun">◆</span><span>Terms &amp; privacy</span><span class="text-sun">◆</span><span>Selling up</span><span class="text-sun">◆</span>
+      <span>Contracts</span><span class="text-sun">◆</span><span>Leases</span><span class="text-sun">◆</span><span>Hiring</span><span class="text-sun">◆</span><span>Company setup</span><span class="text-sun">◆</span><span>Trademarks</span><span class="text-sun">◆</span><span>Disputes</span><span class="text-sun">◆</span><span>Terms &amp; privacy</span><span class="text-sun">◆</span><span>Selling up</span><span class="text-sun">◆</span>
+    </div>
+  </div>
+
+  <!-- PRACTICE: left-aligned intro + four-up cards -->
+  <section id="practice" class="relative bg-mist py-20 sm:py-28 wd-dots">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-end">
+        <div data-reveal="left">
+          <p class="wd-mono text-sunDeep">01 · What we do</p>
+          <h2 class="mt-3 text-4xl sm:text-5xl font-bold leading-[1.05] text-ink">Four things most small businesses need. Done properly.</h2>
+        </div>
+        <p data-reveal="right" class="max-w-lg text-lg leading-relaxed text-soft lg:justify-self-end">Pick what you need, see the price, and talk to a real lawyer this week. No jargon, no surprise invoices.</p>
+      </div>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="wd-card flex flex-col" data-reveal="up">
+          <div class="wd-ph aspect-[4/3]"><img src="https://images.unsplash.com/photo-1622675363311-3e1904dc1885?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Nnx8c3RhcnR1cCUyMHRlYW0lMjBtZWV0aW5nfGVufDB8MHx8fDE3OTEwNjUzNjN8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A small team around a table with laptops" loading="lazy" class="h-full w-full object-cover"></div>
+          <div class="flex flex-1 flex-col p-5">
+            <p class="wd-mono text-sunDeep">Starting up</p>
+            <h3 class="mt-2 text-xl font-semibold text-ink">Company setup</h3>
+            <p class="mt-2 flex-1 text-[15px] leading-relaxed text-soft">The right structure, a founders' agreement you both understand, and the filings done for you.</p>
+            <p class="mt-4 flex items-baseline justify-between border-t border-line pt-4"><span class="text-sm text-soft">Fixed fee</span><span class="wd-price text-xl font-bold text-ink">$650</span></p>
+          </div>
+        </article>
+        <article class="wd-card flex flex-col" data-reveal="up">
+          <div class="wd-ph aspect-[4/3]"><img src="https://images.unsplash.com/photo-1664463760781-f159dfe3af30?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8NXx8c2lnbmluZyUyMGNvbnRyYWN0JTIwZGVza3xlbnwwfDB8fHwxNzkxMDY1MzYyfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Two people reviewing and signing a contract" loading="lazy" class="h-full w-full object-cover"></div>
+          <div class="flex flex-1 flex-col p-5">
+            <p class="wd-mono text-sunDeep">Everyday deals</p>
+            <h3 class="mt-2 text-xl font-semibold text-ink">Contracts</h3>
+            <p class="mt-2 flex-1 text-[15px] leading-relaxed text-soft">Supplier, client and freelancer agreements, written so you can actually read them.</p>
+            <p class="mt-4 flex items-baseline justify-between border-t border-line pt-4"><span class="text-sm text-soft">From</span><span class="wd-price text-xl font-bold text-ink">$420</span></p>
+          </div>
+        </article>
+        <article class="wd-card flex flex-col" data-reveal="up">
+          <div class="wd-ph aspect-[4/3]"><img src="https://images.unsplash.com/photo-1687422808191-93810cd07ab0?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8NXx8c21hbGwlMjBidXNpbmVzcyUyMG93bmVyJTIwc2hvcHxlbnwwfDB8fHwxNzkxMDY1MzYyfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A shop owner standing in the doorway of his store" loading="lazy" class="h-full w-full object-cover"></div>
+          <div class="flex flex-1 flex-col p-5">
+            <p class="wd-mono text-sunDeep">Your premises</p>
+            <h3 class="mt-2 text-xl font-semibold text-ink">Leases</h3>
+            <p class="mt-2 flex-1 text-[15px] leading-relaxed text-soft">We read the small print, flag the traps and push back on the landlord for you.</p>
+            <p class="mt-4 flex items-baseline justify-between border-t border-line pt-4"><span class="text-sm text-soft">Fixed fee</span><span class="wd-price text-xl font-bold text-ink">$890</span></p>
+          </div>
+        </article>
+        <article class="wd-card flex flex-col" data-reveal="up">
+          <div class="wd-ph aspect-[4/3]"><img src="https://images.unsplash.com/photo-1753351052617-62818ffc9173?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Mnx8c21hbGwlMjBidXNpbmVzcyUyMG93bmVyJTIwc2hvcHxlbnwwfDB8fHwxNzkxMDY1MzYyfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Two business owners in aprons smiling in their shop" loading="lazy" class="h-full w-full object-cover"></div>
+          <div class="flex flex-1 flex-col p-5">
+            <p class="wd-mono text-sunDeep">Growing</p>
+            <h3 class="mt-2 text-xl font-semibold text-ink">Hiring your team</h3>
+            <p class="mt-2 flex-1 text-[15px] leading-relaxed text-soft">Offer letters, contracts and a staff handbook that's fair to everyone.</p>
+            <p class="mt-4 flex items-baseline justify-between border-t border-line pt-4"><span class="text-sm text-soft">From</span><span class="wd-price text-xl font-bold text-ink">$380</span></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPOTLIGHT -->
+  <section id="spot" class="relative overflow-hidden bg-ink py-20 sm:py-28 text-white wd-dots-dark" aria-labelledby="spotTitle">
+    <div class="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.1fr_.9fr]">
+      <div class="wd-spot-frame aspect-[4/3] lg:aspect-[5/4] shadow-2xl" data-reveal="wipe">
+        <img class="wd-spot-img absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8c2lnbmluZyUyMGNvbnRyYWN0JTIwZGVza3xlbnwwfDB8fHwxNzkxMDY1MzYyfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A hand signing a document with a fountain pen" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent"></div>
+        <div class="wd-sweep"></div>
+        <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3">
+          <span class="wd-tag wd-mono !text-[.7rem]"><span class="relative inline-flex h-2 w-2"><span class="wd-pulse absolute inset-0 rounded-full bg-sun"></span><span class="relative h-2 w-2 rounded-full bg-sun"></span></span>Read-through call</span>
+          <button id="spotToggle" type="button" class="inline-flex min-h-[44px] items-center gap-2 rounded-md bg-white/90 px-3 text-sm font-semibold text-ink shadow transition hover:bg-white" aria-pressed="false">
+            <svg id="pauseIco" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" rx="1" fill="currentColor"/></svg>
+            <svg id="playIco" class="hidden" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z" fill="currentColor"/></svg>
+            <span id="spotLabel">Pause motion</span>
+          </button>
+        </div>
+      </div>
+      <div>
+        <p class="wd-mono text-sun" data-reveal="up">Spotlight · The read-through</p>
+        <h2 id="spotTitle" class="mt-3 text-4xl sm:text-5xl font-bold leading-[1.05]" data-reveal="up">We read it with you, line by line.</h2>
+        <div class="mt-5 h-[3px] w-40 overflow-hidden rounded bg-white/10" aria-hidden="true"><div class="wd-line-draw h-full w-full bg-sun"></div></div>
+        <p class="mt-6 text-lg leading-relaxed text-white/80" data-reveal="up">Before you sign anything, we book a 30-minute call and go through it together. You'll know exactly what you're agreeing to, and why.</p>
+        <dl class="mt-10 grid grid-cols-3 gap-3">
+          <div class="rounded-lg border border-white/10 bg-ink2 p-4" data-reveal="pop"><dt class="text-xs text-white/70">Minutes per call</dt><dd class="mt-1 text-3xl font-bold text-sun wd-price" data-count="30">30</dd></div>
+          <div class="rounded-lg border border-white/10 bg-ink2 p-4" data-reveal="pop"><dt class="text-xs text-white/70">Hidden extras</dt><dd class="mt-1 text-3xl font-bold text-sun wd-price">0</dd></div>
+          <div class="rounded-lg border border-white/10 bg-ink2 p-4" data-reveal="pop"><dt class="text-xs text-white/70">Day reply</dt><dd class="mt-1 text-3xl font-bold text-sun wd-price" data-count="1">1</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING: three cards in a row -->
+  <section id="pricing" class="relative bg-paper py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center" data-reveal="up">
+        <p class="wd-mono text-sunDeep">02 · Fixed fees</p>
+        <h2 class="mt-3 text-4xl sm:text-5xl font-bold leading-[1.05] text-ink">Know the price before we start.</h2>
+        <p class="mt-4 text-lg text-soft">Three simple ways to work with us. Switch or stop any month.</p>
+      </div>
+      <div class="mt-14 grid items-stretch gap-6 lg:grid-cols-3">
+        <article class="wd-plan flex flex-col p-7" data-reveal="tilt">
+          <p class="wd-mono text-sunDeep">One-off</p>
+          <h3 class="mt-2 text-2xl font-semibold text-ink">Single task</h3>
+          <p class="mt-6 flex items-baseline gap-1"><span class="wd-price text-5xl font-bold text-ink">$380</span><span class="text-soft">+</span></p>
+          <p class="mt-2 text-sm text-soft">One document or question, quoted up front.</p>
+          <ul class="mt-6 flex-1 space-y-3 text-[15px] text-text">
+            <li class="flex gap-3"><span class="wd-tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#0B0B0C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fixed quote in 24 hours</li>
+            <li class="flex gap-3"><span class="wd-tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#0B0B0C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>One read-through call</li>
+            <li class="flex gap-3"><span class="wd-tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#0B0B0C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Two rounds of changes</li>
+          </ul>
+          <a href="#book" class="wd-btn wd-btn-line mt-8 w-full">Get a quote</a>
+        </article>
+        <article class="wd-plan wd-plan-hot flex flex-col p-7 lg:-translate-y-4" data-reveal="tilt">
+          <div class="flex items-center justify-between"><p class="wd-mono text-sun">Most popular</p><span class="wd-mono rounded bg-sun px-2 py-1 !text-[.65rem] text-ink">Monthly</span></div>
+          <h3 class="mt-2 text-2xl font-semibold">Small-business plan</h3>
+          <p class="mt-6 flex items-baseline gap-1"><span class="wd-price text-5xl font-bold">$<span data-count="290">290</span></span><span class="text-white/70">/ month</span></p>
+          <p class="mt-2 text-sm text-white/75">Your own lawyer on call, for everyday stuff.</p>
+          <ul class="mt-6 flex-1 space-y-3 text-[15px]">
+            <li class="flex gap-3"><span class="wd-tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#0B0B0C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Unlimited quick questions</li>
+            <li class="flex gap-3"><span class="wd-tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#0B0B0C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Two contract reviews a month</li>
+            <li class="flex gap-3"><span class="wd-tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#0B0B0C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Same-day replies</li>
+            <li class="flex gap-3"><span class="wd-tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#0B0B0C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Templates for your team</li>
+          </ul>
+          <a href="#book" class="wd-btn wd-btn-sun mt-8 w-full">Start the plan <span class="wd-arr" aria-hidden="true">→</span></a>
+        </article>
+        <article class="wd-plan flex flex-col p-7" data-reveal="tilt">
+          <p class="wd-mono text-sunDeep">Bigger moments</p>
+          <h3 class="mt-2 text-2xl font-semibold text-ink">Project</h3>
+          <p class="mt-6 flex items-baseline gap-1"><span class="wd-price text-5xl font-bold text-ink">$2,400</span><span class="text-soft">+</span></p>
+          <p class="mt-2 text-sm text-soft">Raising money, buying a business or selling up.</p>
+          <ul class="mt-6 flex-1 space-y-3 text-[15px] text-text">
+            <li class="flex gap-3"><span class="wd-tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#0B0B0C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>A plan with clear stages</li>
+            <li class="flex gap-3"><span class="wd-tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#0B0B0C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>A fixed price for each stage</li>
+            <li class="flex gap-3"><span class="wd-tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#0B0B0C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Weekly progress notes</li>
+          </ul>
+          <a href="#book" class="wd-btn wd-btn-line mt-8 w-full">Talk it through</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM: four-column grid with badge, role and contact action -->
+  <section id="team" class="relative bg-mist py-20 sm:py-28 wd-dots">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div data-reveal="left">
+          <p class="wd-mono text-sunDeep">03 · Our lawyers</p>
+          <h2 class="mt-3 text-4xl sm:text-5xl font-bold leading-[1.05] text-ink">Real people. Direct lines.</h2>
+        </div>
+        <p data-reveal="right" class="max-w-md text-lg text-soft">You get one lawyer who knows your business, not a different voice every time.</p>
+      </div>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="wd-card" data-reveal="flip">
+          <div class="wd-ph aspect-[4/5] relative"><span class="wd-badge wd-mono !text-[.65rem]">Founder</span><img src="https://images.unsplash.com/photo-1676989880361-091e12efc056?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Mnx8cHJvZmVzc2lvbmFsJTIwcG9ydHJhaXQlMjBvZmZpY2V8ZW58MHwwfHx8MTc5MTA2NTM2NHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Portrait of Daniel Okafor" loading="lazy" class="h-full w-full object-cover" data-par="-0.04"></div>
+          <div class="p-5"><h3 class="text-lg font-semibold text-ink">Daniel Okafor</h3><p class="text-sm text-soft">Contracts &amp; company setup</p>
+            <a href="#book" class="wd-contact mt-3 inline-flex items-center gap-2 text-[15px] font-semibold text-ink wd-ulink !px-0">Book Daniel <span aria-hidden="true">→</span></a></div>
+        </article>
+        <article class="wd-card" data-reveal="flip">
+          <div class="wd-ph aspect-[4/5] relative"><span class="wd-badge wd-mono !text-[.65rem]">Partner</span><img src="https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8M3x8cHJvZmVzc2lvbmFsJTIwcG9ydHJhaXQlMjBvZmZpY2V8ZW58MHwwfHx8MTc5MTA2NTM2NHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Portrait of Marisol Vega" loading="lazy" class="h-full w-full object-cover" data-par="-0.04"></div>
+          <div class="p-5"><h3 class="text-lg font-semibold text-ink">Marisol Vega</h3><p class="text-sm text-soft">Leases &amp; property</p>
+            <a href="#book" class="wd-contact mt-3 inline-flex items-center gap-2 text-[15px] font-semibold text-ink wd-ulink !px-0">Book Marisol <span aria-hidden="true">→</span></a></div>
+        </article>
+        <article class="wd-card" data-reveal="flip">
+          <div class="wd-ph aspect-[4/5] relative"><span class="wd-badge wd-mono !text-[.65rem]">Lawyer</span><img src="https://images.unsplash.com/photo-1758691737605-69a0e78bd193?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8NXx8cHJvZmVzc2lvbmFsJTIwcG9ydHJhaXQlMjBvZmZpY2V8ZW58MHwwfHx8MTc5MTA2NTM2NHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Portrait of Grace Lin" loading="lazy" class="h-full w-full object-cover" data-par="-0.04"></div>
+          <div class="p-5"><h3 class="text-lg font-semibold text-ink">Grace Lin</h3><p class="text-sm text-soft">Hiring &amp; your team</p>
+            <a href="#book" class="wd-contact mt-3 inline-flex items-center gap-2 text-[15px] font-semibold text-ink wd-ulink !px-0">Book Grace <span aria-hidden="true">→</span></a></div>
+        </article>
+        <article class="wd-card" data-reveal="flip">
+          <div class="wd-ph aspect-[4/5] relative"><span class="wd-badge wd-mono !text-[.65rem]">Lawyer</span><img src="https://images.unsplash.com/photo-1758518727592-706e80ebc354?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTF8fHByb2Zlc3Npb25hbCUyMHBvcnRyYWl0JTIwb2ZmaWNlfGVufDB8MHx8fDE3OTEwNjUzNjR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Portrait of Hanna Berg" loading="lazy" class="h-full w-full object-cover" data-par="-0.04"></div>
+          <div class="p-5"><h3 class="text-lg font-semibold text-ink">Hanna Berg</h3><p class="text-sm text-soft">Disputes &amp; tricky letters</p>
+            <a href="#book" class="wd-contact mt-3 inline-flex items-center gap-2 text-[15px] font-semibold text-ink wd-ulink !px-0">Book Hanna <span aria-hidden="true">→</span></a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ: centred heading + single-column accordion -->
+  <section id="faq" class="relative bg-paper py-20 sm:py-28">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6">
+      <div class="text-center" data-reveal="up">
+        <p class="wd-mono text-sunDeep">04 · Questions</p>
+        <h2 class="mt-3 text-4xl sm:text-5xl font-bold leading-[1.05] text-ink">Fair questions, straight answers.</h2>
+      </div>
+      <div class="mt-12 space-y-3">
+        <details class="wd-faq rounded-lg border border-line bg-mist px-5" data-reveal="up" open>
+          <summary class="flex items-center justify-between gap-4 py-4 text-lg font-semibold text-ink">What does "fixed fee" really mean?<span class="wd-plus" aria-hidden="true"></span></summary>
+          <p class="wd-ans pb-5 text-soft leading-relaxed">We agree the price in writing before we start. If the job takes us longer, that's on us, not you.</p>
+        </details>
+        <details class="wd-faq rounded-lg border border-line bg-mist px-5" data-reveal="up">
+          <summary class="flex items-center justify-between gap-4 py-4 text-lg font-semibold text-ink">Is the first call really free?<span class="wd-plus" aria-hidden="true"></span></summary>
+          <p class="wd-ans pb-5 text-soft leading-relaxed">Yes. Twenty minutes to hear what's going on and tell you honestly whether you need a lawyer at all.</p>
+        </details>
+        <details class="wd-faq rounded-lg border border-line bg-mist px-5" data-reveal="up">
+          <summary class="flex items-center justify-between gap-4 py-4 text-lg font-semibold text-ink">Can you help if I've already signed?<span class="wd-plus" aria-hidden="true"></span></summary>
+          <p class="wd-ans pb-5 text-soft leading-relaxed">Often, yes. Send it over and we'll tell you what your options are, in plain words.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="book" class="relative overflow-hidden bg-ink py-20 sm:py-28 text-white wd-dots-dark">
+    <div class="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sun/20 blur-3xl" data-par="0.12" aria-hidden="true"></div>
+    <div class="relative mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[.9fr_1.1fr]">
+      <div data-reveal="left">
+        <p class="wd-mono text-sun">05 · Book a call</p>
+        <h2 class="mt-3 text-4xl sm:text-5xl font-bold leading-[1.05]">Tell us what's going on.</h2>
+        <p class="mt-5 max-w-md text-lg leading-relaxed text-white/80">A free 20-minute call with a lawyer. We'll tell you what you need, what it costs, and what you can skip.</p>
+        <ul class="mt-8 space-y-4 text-white/85">
+          <li class="flex items-center gap-3"><span class="grid h-10 w-10 place-items-center rounded-md bg-ink3 text-sun" aria-hidden="true">☎</span>Mon–Fri, 8am–6pm</li>
+          <li class="flex items-center gap-3"><span class="grid h-10 w-10 place-items-center rounded-md bg-ink3 text-sun" aria-hidden="true">✉</span>Replies within one working day</li>
+        </ul>
+      </div>
+      <form id="bookForm" class="rounded-lg bg-paper p-6 sm:p-8 text-text shadow-2xl" novalidate data-reveal="right">
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label for="name" class="mb-1.5 block text-sm font-semibold text-ink">Your name</label>
+            <input id="name" name="name" class="wd-field" autocomplete="name" placeholder="Robin Hale" aria-describedby="nameErr">
+            <p id="nameErr" class="mt-1.5 min-h-[1.25rem] text-sm font-medium text-bad" aria-live="polite"></p>
+          </div>
+          <div>
+            <label for="email" class="mb-1.5 block text-sm font-semibold text-ink">Email</label>
+            <input id="email" name="email" type="email" class="wd-field" autocomplete="email" placeholder="you@yourbusiness.com" aria-describedby="emailErr">
+            <p id="emailErr" class="mt-1.5 min-h-[1.25rem] text-sm font-medium text-bad" aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="mt-2">
+          <label for="topic" class="mb-1.5 block text-sm font-semibold text-ink">What's it about?</label>
+          <select id="topic" name="topic" class="wd-field">
+            <option>A contract</option><option>A lease</option><option>Hiring someone</option><option>Setting up a company</option><option>Something else</option>
+          </select>
+        </div>
+        <div class="mt-5">
+          <label for="msg" class="mb-1.5 block text-sm font-semibold text-ink">A few lines (optional)</label>
+          <textarea id="msg" name="msg" class="wd-field" placeholder="We're opening a second shop and the landlord sent a 40-page lease…"></textarea>
+        </div>
+        <button type="submit" class="wd-btn wd-btn-ink mt-6 w-full">Book my free call <span class="wd-arr" aria-hidden="true">→</span></button>
+        <div id="formOk" class="mt-5 hidden items-center gap-3 rounded-md border border-ok/40 bg-ok/10 p-4 text-ink" role="status">
+          <svg class="wd-check flex-none" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="#16A34A"/><path d="M8 14.5l4 4 8-9" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p class="font-medium">Thanks! A lawyer will email you within one working day to pick a time.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="relative z-10 bg-ink2 text-white/80">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 py-14">
+    <div class="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr]">
+      <div data-reveal="up">
+        <a href="#top" class="inline-flex min-h-[44px] items-center gap-2.5" aria-label="Tallowmere Law, back to top">
+          <svg class="h-9 w-9" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#FECE14"/><path d="M9 9h14M16 9v15M12 24h8" stroke="#0B0B0C" stroke-width="3" stroke-linecap="round"/></svg>
+          <span class="text-lg font-semibold text-white">Tallowmere Law</span>
+        </a>
+        <p class="mt-3 max-w-sm text-sm leading-relaxed">Plain-English business law with fixed fees. A concept brand — not a real firm and not legal advice.</p>
+      </div>
+      <nav aria-label="Footer" data-reveal="up">
+        <p class="wd-mono text-sun">Explore</p>
+        <ul class="mt-3 space-y-1 text-sm">
+          <li><a class="wd-ulink inline-flex min-h-[44px] items-center !px-0" href="#practice">What we do</a></li>
+          <li><a class="wd-ulink inline-flex min-h-[44px] items-center !px-0" href="#pricing">Fixed fees</a></li>
+          <li><a class="wd-ulink inline-flex min-h-[44px] items-center !px-0" href="#team">Our lawyers</a></li>
+        </ul>
+      </nav>
+      <div data-reveal="up">
+        <p class="wd-mono text-sun">Photo credits</p>
+        <ul class="mt-3 space-y-1.5 text-xs leading-relaxed text-white/70">
+          <li>Photo by <a class="underline decoration-sun/60 underline-offset-2 hover:text-white" href="https://unsplash.com/@egorkomarov?utm_source=webdrip_concept&utm_medium=referral">Egor Komarov</a> on <a class="underline decoration-sun/60 underline-offset-2 hover:text-white" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a></li>
+          <li>Photo by <a class="underline decoration-sun/60 underline-offset-2 hover:text-white" href="https://unsplash.com/@amstram?utm_source=webdrip_concept&utm_medium=referral">Scott Graham</a> on <a class="underline decoration-sun/60 underline-offset-2 hover:text-white" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a></li>
+          <li>Photo by <a class="underline decoration-sun/60 underline-offset-2 hover:text-white" href="https://unsplash.com/@mapbox?utm_source=webdrip_concept&utm_medium=referral">Mapbox</a> on <a class="underline decoration-sun/60 underline-offset-2 hover:text-white" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a></li>
+          <li>Photo by <a class="underline decoration-sun/60 underline-offset-2 hover:text-white" href="https://unsplash.com/@wischn?utm_source=webdrip_concept&utm_medium=referral">Annika Wischnewsky</a> on <a class="underline decoration-sun/60 underline-offset-2 hover:text-white" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a></li>
+          <li>Photo by <a class="underline decoration-sun/60 underline-offset-2 hover:text-white" href="https://unsplash.com/@mkumbwajr?utm_source=webdrip_concept&utm_medium=referral">Ali Mkumbwa</a> on <a class="underline decoration-sun/60 underline-offset-2 hover:text-white" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a></li>
+          <li>Photo by <a class="underline decoration-sun/60 underline-offset-2 hover:text-white" href="https://unsplash.com/@silverkblack?utm_source=webdrip_concept&utm_medium=referral">Vitaly Gariev</a> on <a class="underline decoration-sun/60 underline-offset-2 hover:text-white" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a></li>
+          <li>Photo by <a class="underline decoration-sun/60 underline-offset-2 hover:text-white" href="https://unsplash.com/@we_are_rising?utm_source=webdrip_concept&utm_medium=referral">lucas Favre</a> on <a class="underline decoration-sun/60 underline-offset-2 hover:text-white" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a></li>
+          <li>Photo by <a class="underline decoration-sun/60 underline-offset-2 hover:text-white" href="https://unsplash.com/@sigmund?utm_source=webdrip_concept&utm_medium=referral">Compagnons</a> on <a class="underline decoration-sun/60 underline-offset-2 hover:text-white" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm sm:flex-row sm:items-center sm:justify-between">
+      <p>© 2026 Tallowmere Law (fictional)</p>
+      <p><a class="wd-ulink inline-flex min-h-[44px] items-center !px-0 text-white" href="https://getwebdrip.com">Concept design by WebDrip — fictional brand</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.classList.add('js');
+  requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.add('loaded'); }); });
+  // recording hook: lets a frame-by-frame recorder slow JS timing to match slowed CSS animations
+  function timeScale() { return window.__wdTimeScale || 1; }
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(function () {}); });
+  }
+
+  /* mobile menu */
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  function setMenu(open) {
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (open) { menu.hidden = false; menu.classList.add('open'); } else { menu.classList.remove('open'); menu.hidden = true; }
+  }
+  burger.addEventListener('click', function () { setMenu(burger.getAttribute('aria-expanded') !== 'true'); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') { setMenu(false); burger.focus(); } });
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  window.addEventListener('resize', function () { if (window.innerWidth >= 768) setMenu(false); });
+
+  /* reveals */
+  var groups = new Map();
+  document.querySelectorAll('[data-reveal]').forEach(function (el) {
+    var p = el.parentElement; var i = groups.get(p) || 0; groups.set(p, i + 1);
+    el.style.setProperty('--stagger', (i * 110) + 'ms');
+  });
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  function markIn(el) { el.classList.add('in'); setTimeout(function () { el.style.setProperty('--stagger', '0ms'); }, 1600 / timeScale()); }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { markIn(en.target); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else { revealEls.forEach(markIn); }
+  function sweepReveals() {
+    var vh = window.innerHeight;
+    revealEls.forEach(function (el) { if (!el.classList.contains('in') && el.getBoundingClientRect().top < vh * 0.98) markIn(el); });
+  }
+
+  /* count-up */
+  var counters = document.querySelectorAll('[data-count]');
+  function runCount(el) {
+    var target = +el.getAttribute('data-count'); if (reduce || target < 2) { el.textContent = target; return; }
+    var t0 = null;
+    function step(t) { if (!t0) t0 = t; var k = Math.min(1, (t - t0) * timeScale() / 1500); var e = 1 - Math.pow(1 - k, 3); el.textContent = Math.round(target * e); if (k < 1) requestAnimationFrame(step); }
+    el.textContent = '0'; requestAnimationFrame(step);
+  }
+  if ('IntersectionObserver' in window) {
+    var co = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { runCount(en.target); co.unobserve(en.target); } }); }, { threshold: .6 });
+    counters.forEach(function (c) { co.observe(c); });
+  }
+
+  /* one shared rAF loop: progress, nav, hero camera, parallax */
+  var nav = document.getElementById('nav');
+  var bar = document.getElementById('progress');
+  var heroImg = document.getElementById('heroImg');
+  var stage = document.querySelector('.wd-stage');
+  var heroCopy = document.getElementById('heroCopy');
+  var heroCard = document.getElementById('heroCard');
+  var hpars = Array.prototype.slice.call(document.querySelectorAll('[data-hpar]'));
+  var pars = Array.prototype.slice.call(document.querySelectorAll('[data-par]'));
+  var cur = window.scrollY, target = window.scrollY, ticking = false;
+
+  function frame() {
+    target = window.scrollY;
+    cur += (target - cur) * Math.min(1, 0.12 / timeScale());
+    if (Math.abs(target - cur) < 0.3) cur = target;
+    var vh = window.innerHeight, docH = document.documentElement.scrollHeight - vh;
+    bar.style.transform = 'scaleX(' + (docH > 0 ? Math.min(1, target / docH) : 0) + ')';
+    nav.classList.toggle('wd-scrolled', target > 40);
+
+    if (!reduce) {
+      var p = Math.min(1.4, cur / vh);
+      var k = Math.min(1, p);
+      var ease = k * k * (3 - 2 * k);
+      // camera: dolly in, swing toward the lit offices and tilt as you scroll; reverses on the way up
+      heroImg.style.transform = 'translate3d(' + (-ease * 4) + '%,' + (ease * 5) + '%,0) scale(' + (1.04 + ease * 0.34) + ') rotateY(' + (-ease * 9) + 'deg) rotateX(' + (ease * 5) + 'deg)';
+      hpars.forEach(function (el) { el.style.transform = 'translate3d(0,' + (cur * parseFloat(el.getAttribute('data-hpar'))) + 'px,0)'; });
+      if (heroCopy) { heroCopy.style.transform = 'translate3d(0,' + (-cur * 0.22) + 'px,0)'; heroCopy.style.opacity = String(Math.max(0, 1 - p * 1.15)); }
+      if (heroCard && root.classList.contains('loaded') && cur > 1) { heroCard.style.transform = 'translate3d(0,' + (-cur * 0.42) + 'px,0) rotateZ(' + (ease * -3) + 'deg)'; }
+      else if (heroCard && cur <= 1) { heroCard.style.transform = ''; }
+      pars.forEach(function (el) {
+        var r = el.getBoundingClientRect(); if (r.bottom < -200 || r.top > vh + 200) return;
+        var c = (r.top + r.height / 2 - vh / 2);
+        var f = parseFloat(el.getAttribute('data-par'));
+        el.style.transform = 'translate3d(0,' + (c * f) + 'px,0)' + (el.tagName === 'IMG' ? ' scale(1.12)' : '');
+      });
+    }
+    stage.style.opacity = String(Math.max(0, 1 - Math.max(0, target - vh * 0.85) / (vh * 0.5)));
+    sweepReveals();
+    if (Math.abs(target - cur) > 0.3 || target !== window.scrollY) requestAnimationFrame(frame); else ticking = false;
+  }
+  function kick() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+  window.addEventListener('scroll', kick, { passive: true });
+  window.addEventListener('resize', kick);
+  kick();
+
+  /* magnetic buttons (fine pointer only) */
+  if (!reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('.wd-magnetic').forEach(function (b) {
+      b.addEventListener('mousemove', function (e) {
+        var r = b.getBoundingClientRect(); var x = e.clientX - r.left - r.width / 2, y = e.clientY - r.top - r.height / 2;
+        b.style.transform = 'translate3d(' + x * 0.14 + 'px,' + y * 0.2 + 'px,0)';
+      });
+      b.addEventListener('mouseleave', function () { b.style.transform = ''; });
+    });
+  }
+
+  /* spotlight toggle */
+  var spot = document.getElementById('spot');
+  var tgl = document.getElementById('spotToggle');
+  function setSpot(paused) {
+    spot.classList.toggle('paused', paused);
+    tgl.setAttribute('aria-pressed', String(paused));
+    document.getElementById('spotLabel').textContent = paused ? 'Play motion' : 'Pause motion';
+    document.getElementById('pauseIco').classList.toggle('hidden', paused);
+    document.getElementById('playIco').classList.toggle('hidden', !paused);
+  }
+  tgl.addEventListener('click', function () { setSpot(!spot.classList.contains('paused')); });
+  if (reduce) setSpot(true);
+
+  /* faq: one open at a time */
+  var faqs = document.querySelectorAll('.wd-faq');
+  faqs.forEach(function (d) { d.addEventListener('toggle', function () { if (d.open) faqs.forEach(function (o) { if (o !== d) o.open = false; }); }); });
+
+  /* form */
+  var form = document.getElementById('bookForm');
+  var ok = document.getElementById('formOk');
+  var nameI = document.getElementById('name'), emailI = document.getElementById('email');
+  var nameE = document.getElementById('nameErr'), emailE = document.getElementById('emailErr');
+  function fail(input, errEl, msg) {
+    input.setAttribute('aria-invalid', 'true'); errEl.textContent = msg;
+    input.classList.remove('wd-shake'); void input.offsetWidth; input.classList.add('wd-shake');
+  }
+  function clear(input, errEl) { input.removeAttribute('aria-invalid'); errEl.textContent = ''; }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    ok.classList.add('hidden'); ok.classList.remove('show', 'flex');
+    var good = true;
+    if (!nameI.value.trim()) { fail(nameI, nameE, 'Please add your name.'); good = false; } else clear(nameI, nameE);
+    var v = emailI.value.trim();
+    if (!v) { fail(emailI, emailE, 'Please enter your email.'); good = false; }
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { fail(emailI, emailE, 'That email looks incomplete — check it?'); good = false; }
+    else clear(emailI, emailE);
+    if (!good) { (form.querySelector('[aria-invalid="true"]') || nameI).focus(); return; }
+    ok.classList.remove('hidden'); ok.classList.add('flex'); void ok.offsetWidth; ok.classList.add('show');
+    form.reset();
+  });
+})();
+</script>
+</body>
+</html>
