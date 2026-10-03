@@ -319,6 +319,19 @@
       "navy": "#18202C",
       "navy_2": "#222C3B"
     },
-    "live_url": "https://webdripsamples.netlify.app/sablethorn-demo/"
+    "live_url": "https://webdripsamples.netlify.app/sablethorn-demo/",
+    "music_brief": "slick, confident nu-disco / funky house with a strutting bassline, crisp drums and a big glossy drop — fashion-runway energy to match a menswear-magazine tailor site",
+    "music_track": {
+      "id": "57ef0d29-ac9a-4837-9395-60d080597f1a",
+      "title": "Look into My Eyes (Instrumental Version)",
+      "artist": "Greylyn",
+      "why": "nu-disco/house with the punchiest drums of a 9-track instrumental shortlist (highest onset strength), an early build into a drop and a stylish strut that fits the navy/brass editorial look; cut to 25s with Epidemic Sound EditRecording so the drop lands at 1.3s and it ends cleanly"
+    },
+    "sound_effects": "none — DownloadSoundEffect returned FORBIDDEN (no permission to download), so the mix is music only",
+    "caption_hook": "Picture this: a website cut as sharp as your suits.",
+    "hook_type": "picture this",
+    "video": "https://webdripsamples.netlify.app/sablethorn-demo/reel/video.mp4",
+    "buffer_post_id": "6ac06b97d58436703227d0af",
+    "fb_post_url": "https://facebook.com/1277092185496389_122101886295495093"
   }
 ]
