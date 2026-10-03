@@ -499,6 +499,21 @@
       "rose": "#F43F5E",
       "roseSoft": "#FB7185",
       "violet": "#A78BFA"
-    }
+    },
+    "music_brief": "moody, cinematic indie-electronic around 80–108 BPM: a soft, dreamy late-night start that builds through restless beats into warm phrase hits and resolves gently — to match a black-and-rose, theatrical fine-line tattoo studio",
+    "music_track": {
+      "id": "c3e04da8-141d-4ff7-9a74-7c5bb05b00d8",
+      "title": "Krotos",
+      "artist": "They Dream By Day",
+      "why": "dreamy, restless instrumental electronic with the cleanest emotional arc of an 11-track instrumental shortlist (quiet intro, steady build, big phrase hits from ~36s) and the lowest mid-range density of the beat-driven options so the voice sits on top; fitted to exactly 60s with Epidemic Sound EditRecording (first 40s kept), hits at 37.9/42.6/47.3/50.9s drive the scroll cuts and the WebDrip logo landing, natural fade by 57.5s"
+    },
+    "voice": "af_heart",
+    "vo_hook": "Your art lasts forever. So why does your website feel… temporary?",
+    "caption_hook": "Is your website as sharp as your linework? 🖋️",
+    "hook_type": "bold question",
+    "buffer_post_id": null,
+    "buffer_tiktok_post_id": null,
+    "not_posted_reason": "Cloudflare R2 upload returned HTTP 403 {\"code\":10000,\"message\":\"Authentication error\"} (PUT objects/hushwrentattoo-demo/video.mp4), so no public video URL existed and nothing was sent to Buffer",
+    "videos_deleted": false
   }
 ]
