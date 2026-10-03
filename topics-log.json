@@ -410,5 +410,24 @@
     "buffer_tiktok_post_id": "6ac092c9e22a2e5172b34d5c",
     "tiktok_post_url": "https://tiktok.com/@getwebdrip/video/7692309407748721933",
     "videos_deleted": true
+  },
+  {
+    "date": "2026-10-03",
+    "slug": "ochrevale-demo",
+    "business_type": "boutique desert hotel",
+    "brand_name": "Ochrevale Desert House",
+    "design_style": "TypeUI 'glassmorphism' — frosted translucent glass panels with luminous 1px borders, backdrop blur and inner highlights (Plus Jakarta Sans 300–800 display + body, JetBrains Mono kicker labels, rounded 16–28px glass cards, soft deep shadows), its blue enterprise tokens re-tuned to a desert dusk: night-indigo base, warm sand text, clay-orange action colour (dark text, AA), dusty rose and sage accents; layouts = split hero (masked two-line headline bottom-left over the fixed plunge-pool-deck photo with a glass 'Tonight at the house' status card right and a slow-spinning sun ring), italic marquee + four glass count-up stat tiles, split-intro three suite cards with prices, centred-intro tall overlay 'days out' cards with tilt reveals, framed Ken Burns dark-sky spotlight with light sweep, twinkles and pause toggle, bento rituals grid (two image cards + three glass tiles incl. a clay gradient offer tile), centred single-column FAQ accordion, centred stacked form with dual actions, centred-stack footer; chosen because a desert hotel is all about warm light through glass at dusk, and dark frosted glass breaks from the recent airy 'spacious', loud 'immersive' and print 'editorial' runs",
+    "palette": {
+      "night": "#120E1A",
+      "dusk": "#221A30",
+      "plum": "#2E2240",
+      "sand": "#F5EADB",
+      "sand_soft": "#CDBFAE",
+      "clay": "#E8875A",
+      "clay_light": "#F2A47C",
+      "rose": "#D88BA0",
+      "sage": "#A9C6A2"
+    },
+    "live_url": "https://webdripsamples.netlify.app/ochrevale-demo/"
   }
 ]
