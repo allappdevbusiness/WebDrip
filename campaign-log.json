@@ -11,7 +11,7 @@
     "hook": "What if LEGO started with your hobby?",
     "music_direction": "Bright instrumental broken-beat electronic with mallet/plucked-synth motif, 120 BPM preferred, full groove at 4s, music-only mobile interaction at 22–26s, resolve at 30s.",
     "research_focus": "Useful interaction as the story; original interface footage, interest-based audience relevance, a genuine choice question, and sparse voiceover as a testable format.",
-    "status": "awaiting_approval",
+    "status": "posted",
     "preview_sent_at": "2026-10-04T18:50:33Z",
     "preview_url_facebook": "https://pub-027038837b0f4c1bb96993e264c3509a.r2.dev/lego-redesign/video.mp4",
     "preview_url_tiktok": "https://pub-027038837b0f4c1bb96993e264c3509a.r2.dev/lego-redesign/video-tiktok.mp4",
@@ -58,7 +58,15 @@
       "end_card": 9,
       "sells_webdrip": 7
     },
-    "videos_deleted": false,
-    "remake": "2026-10-04: soundtrack rebuilt on Sourav's request after the Epidemic Pro upgrade (full track + stems, 13 Epidemic SFX, Kokoro af_heart); picture unchanged apart from subtitle timing"
+    "videos_deleted": true,
+    "remake": "2026-10-04: soundtrack rebuilt on Sourav's request after the Epidemic Pro upgrade (full track + stems, 13 Epidemic SFX, Kokoro af_heart); picture unchanged apart from subtitle timing",
+    "approved_by_sourav_at": "2026-10-04T19:02:31Z",
+    "approval_note": "Sourav approved both platforms in the session ('approve those videos and tiktok'); timestamp is the Facebook post's creation, made right after the approval message",
+    "buffer_post_id": "6ac2a2c78f73649f4617655d",
+    "buffer_tiktok_post_id": "6ac2a2ee63761da98b59218b",
+    "fb_post_url": "https://www.facebook.com/reel/1615690343613725/",
+    "tiktok_post_url": "https://tiktok.com/@getwebdrip/video/7692890207183457549",
+    "fb_sent_at": "2026-10-04T19:02:36Z",
+    "tiktok_sent_at": "2026-10-04T19:04:52Z"
   }
 ]
