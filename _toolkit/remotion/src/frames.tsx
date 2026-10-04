@@ -11,8 +11,9 @@ export const useFonts = (fonts: FontSpec[]) => {
   const [handle] = useState(() => delayRender('fonts'));
   useEffect(() => {
     const faces = fonts.map((f) => new FontFace(f.family, `url(${staticFile(f.file)}) format('woff2')`, { weight: f.weight ?? '400' }));
-    Promise.all(faces.map((f) => f.load())).then((loaded) => { loaded.forEach((f) => document.fonts.add(f)); continueRender(handle); })
+    const ready = Promise.all(faces.map((f) => f.load())).then((loaded) => { loaded.forEach((f) => document.fonts.add(f)); continueRender(handle); })
       .catch((e) => { console.error(e); continueRender(handle); });
+    (window as any).__wdFontsReady = ready; // the box logger waits for this before measuring text
   }, [handle]);
 };
 
@@ -100,7 +101,8 @@ export const useBoxLogger = (enabled?: boolean) => {
   useEffect(() => {
     if (!enabled) return;
     const h = delayRender('boxes');
-    setTimeout(() => {
+    // measure only after web fonts are in, or text boxes come out at fallback-font widths under load
+    Promise.resolve((window as any).__wdFontsReady).then(() => document.fonts.ready).then(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)))).then(() => {
       const out = Array.from(document.querySelectorAll<HTMLElement>('[data-box]')).map((e) => {
         const r = e.getBoundingClientRect();
         const sc = e.closest('[data-scene]') as HTMLElement | null;
@@ -109,7 +111,7 @@ export const useBoxLogger = (enabled?: boolean) => {
       });
       console.log('BOXES' + JSON.stringify(out));
       continueRender(h);
-    }, 50);
+    });
   }, [t, enabled]);
 };
 

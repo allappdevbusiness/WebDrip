@@ -41,3 +41,5 @@ Notes that saved time:
 - `mix.py` takes `music_segments` (bar-aligned cuts with equal-power crossfades), timed `eq` moves (a low-shelf dip, a band dip in place of missing stems) and sample `sfx` (`file`). `vo.py` takes `whisper_model` (base.en hears "your shelf" and "getwebdrip" correctly where tiny.en did not).
 - `check.mjs` also fails a footage window (`tile`) that its own `<id>-video` doesn't fill, and checks `data-scene="global"` overlays (notice, titles) against every scene's devices.
 - Epidemic (2026-10-04): `DownloadRecording` and `DownloadSoundEffect` are still FORBIDDEN, and two `requiredRegionsAtOffsets` FAILED again. One region (`maxResults: 1`, no `forceDuration`) worked, and the 3-bar cut was then made in `mix.py` on the beat grid.
+- `mix.py` ducks with a 150 ms look-ahead (`duck_lookahead`), so a line's first consonant isn't masked, and takes `ceiling_db`. Master at −4 dB: the AAC encode overshoots by up to 2 dB, and the delivered file must stay ≤ −1 dBTP.
+- `frames.tsx` `useFonts` publishes `window.__wdFontsReady`, and `useBoxLogger` waits for it. Without that, the checker measured titles at fallback-font width while a render ran in parallel.

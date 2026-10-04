@@ -5,7 +5,7 @@ mix.json: {
   "music": "/tmp/music/track.wav", "out": "/tmp/video/public/mix.wav", "duration": 60.0,
   "voice": [{"file": "/tmp/vo/line00.wav", "start": 0.25}, ...],
   "sfx": [{"t": 5.0, "type": "whoosh"|"impact"|"tick"|"pop"|"rise", "gain_db": -18}, ...],
-  "duck_db": -9, "fade_out": 2.0, "lufs": -14.0, "voice_gain_db": 0,
+  "duck_db": -9, "fade_out": 2.0, "lufs": -14.0, "voice_gain_db": 0, "ceiling_db": -1.2, "duck_lookahead": 0.15,
   optional:
   "music_segments": [{"from": 0, "to": 14, "at": 0}, {"from": 20, "to": 42, "at": 14}], "xfade": 0.03,
       -> build the bed from cuts of the (licensed) music file, equal-power crossfades centred on each "at"
@@ -14,7 +14,7 @@ mix.json: {
       -> timed EQ moves on the music (zero-phase split, 80 ms ramps) when stems aren't available
   sfx entries may use "file": "/tmp/sfx/x.wav" instead of "type" (sample placed with its onset at "t")
 }
-Music is ducked smoothly under speech (attack 120 ms, release 450 ms) and swells back between lines.
+Music is ducked smoothly under speech (150 ms look-ahead, attack 120 ms, release 450 ms) and swells back between lines.
 Sound effects are synthesised here, or placed from a sample file (e.g. a hit lifted from the licensed track). The master is loudness-normalised to the
 target LUFS with a soft-knee peak limiter keeping true peaks under -1 dBFS.
 """
@@ -180,6 +180,10 @@ def main(cfg):
     # ducking: speech activity at 1 kHz control rate
     hop = SR // 1000
     act = np.abs(voice[:, 0])[: (N // hop) * hop].reshape(-1, hop).max(1) > 0.02
+    # look-ahead: start ducking before each line so its first consonant isn't masked
+    la = int(cfg.get('duck_lookahead', 0.15) * 1000)
+    if la > 0:
+        act = np.array([act[i:i + la + 1].any() for i in range(len(act))])
     g = smooth(act.astype(float), 0.12, 0.45)
     g = np.repeat(g, hop); g = np.pad(g, (0, N - len(g)), constant_values=g[-1] if len(g) else 0)
     duck = db(cfg.get('duck_db', -9))
@@ -209,7 +213,7 @@ def main(cfg):
     l = meter.integrated_loudness(mix)
     mix *= db(cfg.get('lufs', -14.0) - l)
     # soft limiter: keep peaks under -1 dBFS (4x oversampled peak estimate)
-    ceiling = db(-1.2)
+    ceiling = db(cfg.get('ceiling_db', -1.2))  # leave extra headroom when the AAC encode overshoots
     for _ in range(3):
         up = resample_poly(mix, 4, 1, axis=0)
         peak = np.abs(up).max()
