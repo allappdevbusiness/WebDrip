@@ -225,64 +225,91 @@ When available after posting, compare early retention, average watch time, compl
 
 ## Self-review (Claude, after the final render)
 
+**Remake, 2026-10-04 (Sourav's request):** the first cut couldn't follow the brief's music, SFX and voice instructions, because the Epidemic plan then refused full-track, stem and sound-effect downloads. Sourav upgraded to Epidemic Pro and asked for the soundtrack to be rebuilt exactly as briefed, with Kokoro `af_heart` instead of `af_nicole`. The picture is unchanged. Only the soundtrack, the voice and the subtitle timings (which follow the new voice) were redone, and both cuts were re-rendered and re-checked.
+
 Reviewed both cuts at phone size: exact frames every 2 s and at every shot boundary, ffprobe, `freezedetect`/`blackdetect`, EBU R128 loudness, and a faster-whisper (base.en) transcript of the final mix. No analytics exist yet, so no audience performance is scored. What held attention and where viewers dropped can only be answered after posting.
 
-**Delivered:** `video.mp4` 1080×1350 and `video-tiktok.mp4` 1080×1920, 36.000 s, 1,080 frames, 30 fps, H.264 + AAC, faststart. Loudness is −14.3 LUFS integrated with a −2.1 dBFS true peak. No black frames. The only still stretches are the end-card holds the brief asks for. The alignment check covered 52 frames per cut: safe area, centring, footage filling every window, text and subtitle collisions, a mock TikTok UI layer and flat holds. It passed on round 3. Round 2's failures came from a checker race (text measured before the web fonts loaded), now fixed in the toolkit.
+**Delivered:** `video.mp4` 1080×1350 and `video-tiktok.mp4` 1080×1920, 36.000 s, 1,080 frames, 30 fps, H.264 + AAC, faststart. Loudness is −14.3 LUFS integrated with a −3.0 dBFS true peak. No black frames. The only still stretches are the end-card holds the brief asks for. The alignment check covered 52 frames per cut: safe area, centring, footage filling every window, text and subtitle collisions, a mock TikTok UI layer and flat holds, plus the midpoint of every subtitle phrase. (Rerun on the remade cuts in progress; result recorded here when it completes.)
 
 | Criterion | Score | Notes |
 |---|---|---|
-| Hook strength | 7 | Frame 0 is our real selector with the Game Boy card, the LEGO wordmark and the spoken question; the fragments lock at 0.4 s. It is calm UI rather than a striking image. |
-| Matches the brief | 8 | Shot timings, titles, VO windows, click/tap timings, layouts and the edit map follow the brief; deviations below. |
+| Hook strength | 7 | Frame 0 is our real selector with the Game Boy card, the LEGO wordmark and the spoken question; the fragments lock at 0.4 s on a plastic-brick snap. It is calm UI rather than a striking image. |
+| Matches the brief | 9 | Shot timings, titles, VO windows and lines, click/tap timings, layouts, the music edit map and all 13 SFX cues follow the brief; remaining deviations below. |
 | Story clarity | 8 | Choice → matching sets (8 → 2 → 4 with real counts) → quick view with name and price → same flow on the phone → owner-facing CTA. |
-| Readability on a phone | 7 | Desktop shots sit at 1.08–1.6×, and the dialog and mobile sheet are pushed in. The 14.0–15.2 s four-card overview at 0.71× is small. |
+| Readability on a phone | 7 | Desktop shots sit at 1.08–1.6×, and the dialog and mobile sheet are pushed in. The 14.0–15.2 s four-card overview at 0.71× is small. af_heart is quicker, so some subtitle phrases are on screen for only about half a second. |
 | Smoothness | 8 | Frame-by-frame recordings (0–4 slightly late frames per take, none visible), eased camera moves, no stutter or blank frames. |
-| Music fit and beat sync | 8 | Bass and full groove land exactly on the 4.0 s hero reveal, a new phrase starts at 14.0 s, and the breakdown arrives at 30.05 s. It's instrumental with mallets, so speech never fights lyrics. |
-| Sound effect placement | 6 | Library SFX downloads were forbidden. The taps use quiet hits lifted from the track's own percussion, which work but are less tactile than the planned plastic snaps. |
-| Voiceover naturalness | 7 | af_nicole is calm and unhurried. The final-mix transcript matches the script. Kokoro still sounds slightly synthetic. |
+| Music fit and beat sync | 9 | Built from the full track and its stems to the brief's map: drums and mallet only until 4.0 s, bass on the hero reveal, a new mallet phrase at 14.0 s, bass down 2.5 dB at 18–22 s, drums up at 22–26 s, melody out at 26–30 s, and the E♭ minor breakdown chord on the WebDrip card at 30.0 s. |
+| Sound effect placement | 8 | 13 Epidemic sound effects on the 13 cues, set relative to the bed: crisp on the clicks, quieter for ticks and taps, and the satisfying centre at 22–26 s. Clicks under a spoken word sit under the voice. |
+| Voiceover naturalness | 8 | af_heart at speed 1.0 is warm and clear, and every line, including the brief's main CTA, fits its window with room to breathe. The final-mix transcript matches the script word for word. |
 | End card clarity | 9 | WebDrip, the headline, "Book a meeting" and getwebdrip.com are held for six seconds, with the notice visible throughout. |
 | Sells WebDrip | 7 | The owner-facing line and CTA are clear, but most of the runtime is about the LEGO interface itself. |
 
-**Music:** "Outliers" by Gridded (Epidemic Sound ID `6b678218-e4cd-3a2e-a1e2-439b55d020a5`), 120 BPM, instrumental, mallet-featured, tagged hopeful.
-- **Delivery:** an Epidemic `EditRecording` edit (`02cd3842-88ba-4baf-bfe8-a34ad6ff2e58`) with one required region (original 28.27–70.27 s at 0 s), downloaded as WAV with `DownloadRecordingEdit`. Full-track and stem `DownloadRecording` returned FORBIDDEN, and a two-region edit FAILED.
-- **Own cut:** edit 0–14 s plus edit 20–42 s, removing 3 bars at 14.0 s with a 30 ms equal-power crossfade on the beat.
-- **Map:**
-  - 4.0 s: the bass enters (original 32.3 s).
-  - 14.0 s: a new phrase begins (original 48.3 s).
-  - 22.0 s: a phrase start.
-  - 30.05 s: the breakdown and resolve (original 64.3 s).
-  - 35.3–36 s: fade out.
-- **No stems, so timed EQ instead:**
-  - bass −2.5 dB at 18–22 s
-  - 700 Hz–5 kHz −4 dB at 26–30 s
-  - 1.5–6 kHz −6 dB under the CTA line, which made "get web drip dot com" transcribe cleanly
-- **Ducking:** music drops 9 dB under speech with a 150 ms look-ahead.
+**Music:** "Outliers" by Gridded (Epidemic Sound ID `6b678218-e4cd-3a2e-a1e2-439b55d020a5`), 120 BPM, B♭ minor, instrumental, mallet-featured, tagged hopeful.
+- **Delivery:** `DownloadRecording` WAV of the full track plus the DRUMS, BASS and INSTRUMENTS stems (48 kHz). The connector lists a MELODY stem but offers no download for it.
+- **Cut:** original 28.25–42.25 s at 0 s, then 48.25–70.25 s at 14.0 s, with a 30 ms equal-power crossfade on the downbeat. All parts are cut together.
+- **Parts:**
+  - The drum stem sums sample-exactly into the full mix.
+  - The bass stem's low end is about 12 ms off the master's, so a plain stem sum would leave a −17 dB low residual.
+  - So the full mix is split into parts that sum back exactly: drums, low (non-drum content under 150 Hz: bass and sub), melody (full minus the three stems, above 150 Hz) and the rest (instruments).
+- **Map, against the brief:**
+  - 0–4 s: drums, mallet and pads only, with an immediate pulse.
+  - 4.0 s: the bass enters (original 32.25 s).
+  - 14.0 s: a new mallet phrase (original 48.25 s).
+  - 18–22 s: low part −2.5 dB.
+  - 22–26 s: full instrumental, drums +1.5 dB, no VO.
+  - 26–30 s: melody part removed (−30 dB, 60 ms ramps).
+  - 30.0 s: breakdown on an E♭ minor chord, with soft drums sustaining the movement.
+  - 35.3–36 s: 0.7 s fade.
+- **Ducking:** music drops 9 dB under speech with a 150 ms look-ahead. No EQ dips were needed: whisper hears "get web drip dot com" in the final mix.
 
-**Voice:** Kokoro (kokoro-onnx v1.0) `af_nicole`, en-us, speed 1.0; the gaming line is at 1.03×. The Epidemic connector offers no voice tool. Each line starts its first audible word on its window start. The final-mix transcript matches the script. Whisper reads the near-homophone "its price" as "it's priced"; the captions show the script.
+**Voice:** Kokoro (kokoro-onnx v1.0) `af_heart`, en-us, speed 1.0, each line synthesized separately. The Epidemic connector has no voice tool.
 
-**Sound effects:** `SearchSoundEffects` found suitable effects, for example "Mechanical, Click, LED Light, Plastic, Button Press, Single", but `DownloadSoundEffect` returned FORBIDDEN. Following the brief's fallback (the music's own percussion):
-- A 90 ms bright tick and a 160 ms snap were lifted from the licensed Outliers edit's percussive layer and placed quietly on 11 visible actions.
-- The 4.0 s and 30.0 s cues are carried by the music's bass entry and breakdown.
-- The "short air movement" at 23.6 s was omitted.
-- No effects were synthesized.
+| Line | Window (s) | Speech (s) |
+|---|---|---|
+| What if LEGO started with your hobby? | 0.15–3.75 | 0.15–1.82 |
+| Pick gaming. See matching sets, right here. | 6.15–9.60 | 6.15–8.38 |
+| Keep the set and its price together. | 10.15–13.50 | 10.15–11.92 |
+| Or find something for your shelf. | 14.15–17.50 | 14.15–15.71 |
+| Same idea, ready for your phone. | 18.15–21.45 | 18.15–19.97 |
+| Your customers deserve a clear next step. | 26.15–29.55 | 26.15–28.26 |
+| Want that for your business? Book a meeting at get web drip dot com. | 30.15–35.65 | 30.15–33.82 |
+
+The brief's main CTA line is used; the backup line wasn't needed. No VO runs at 4–6 or 22–26 s. The final-mix transcript matches the script.
+
+**Sound effects:** 13 cues, all Epidemic `DownloadSoundEffect` WAVs. Each is trimmed so its transient lands on the cue frame and set by 10 ms RMS against the bed.
+
+| Time | Cue | Epidemic sound effect (ID) |
+|---|---|---|
+| 0.4 | Plastic snap | Toys, Misc, Lego, Two Pieces, Stuck Together Or Broken Apart (`e10a74e1`) — a foley recording of two plastic bricks, not branded audio |
+| 4.0 / 4.1 / 4.2 | Three-part assembly clack, 0.25 s | Rummy O, Brick, Single, Down On Plastic Rack 02 (`6679cb55`), the brick snap above, Rummy O, Brick, Single, Down On Plastic Rack (`e7ff87b3`) |
+| 5.2 | Dry UI click | User Interface, Click, UI Buttons, Simple, Select (`d637e4e8`) |
+| 7.0 + 7.24 | Light click + settling tap | Mechanical, Click, LED Light, Plastic, Button Press, Single (`ab33e364`, press only) + Rummy O … Rack 02 |
+| 11.0 | Soft click | User Interface, Click, UI Buttons, Confirm, Dull (`46216b97`) |
+| 13.5 | Muted tick | User Interface, Click, UI Buttons, Dull, Menu (`8c530605`) |
+| 14.4 | Same selection click | as 7.0 |
+| 18.7, 19.5 | Tiny taps | Communications, Cellphone, Touchscreen, Tap Hard (`31365f66`), quiet |
+| 22.5 | Tactile tap | Touchscreen Tap Hard + User Interface, Click, UI Buttons, Bubbly, Select (`7cce069c`) |
+| 23.6 | Tactile tap + short air | as 22.5 + Swooshes, Whoosh, Designed, Generic, Air (`c406a00b`), peaking as the sheet settles |
+| 26.2 | Muted tick | as 13.5 |
+| 30.0 | Soft low pluck / resolve | Mallet, Synth, Warm, Soft, Positive 02 (`6b0a5cd7`), varispeed −2 semitones (F → E♭) to sit on the breakdown chord |
 
 **Deviations from the brief, with reasons:**
-1. Hero image uses `object-position: 97% 50%` on a 680×416 panel (brief: 78%, ~680×430). At 78% the photo's baked PlayStation badge was cut off, and the brief also asks to keep baked artwork intact and avoid cutting recognizable parts.
-2. The gaming VO line is generated at 1.03× (brief: 1.0, cap 1.03×). At 1.0 it had 3.51 s of speech for a 3.45 s window.
-3. The CTA VO uses the brief's pre-approved backup line, "For your business, book a meeting at get web drip dot com." The main line ran 5.95 s for a 5.5 s window.
-4. Sound effects come from the music's own percussion (library downloads forbidden), and the air movement is omitted.
-5. Music is a one-region Epidemic edit plus my own 3-bar cut at 14.0 s, because the two-region edit failed.
-6. The Facebook phone footage is 330 px wide (brief: 340). With the brief's x=370, y=340, w=340, the phone frame plus the 2–3% drift and dolly would run into the subtitle lane.
-7. Each spoken line is captioned as one or two complete short phrases on a single line (for example "Keep the set" / "and its price together."). This keeps the panel above the Facebook phone and above TikTok's bottom caption zone. The panel's bottom edge sits at y 1160 (Facebook) and 1508 (TikTok); the brief's TikTok lane ran to 1560.
-8. The 26–30 s title fades at 28.6 s, when the phone rises 60 px. The brief lets a title step aside when the subtitle repeats its wording.
-9. At 6–10 s the "48 px toward Game Boy" move happens after the filter settles, as a pan to the centred gaming cards with the 3% push. The edge of the recorded viewport limited a straight downward move.
-10. In TikTok's 4 s match cut, the selector's yellow rectangle lands on the yellow hero panel, because the vertical layout has no browser header.
-11. The WebDrip panel and underline use WebDrip blue (#0075DE).
+1. The voice is `af_heart`, not `af_nicole`, on Sourav's instruction in this run (Sourav found af_nicole too whispery).
+2. The melody "stem" is derived (full minus the downloadable stems, above 150 Hz), and the bass move acts on all non-drum content under 150 Hz. The MELODY stem has no download option, and the bass stem doesn't phase-match the mastered low end.
+3. The 30.0 s pluck is pitched down two semitones to match the breakdown chord, and the 4.0 s three-part clack is assembled from three single brick hits, 0.1 s apart.
+4. Hero image uses `object-position: 97% 50%` on a 680×416 panel (brief: 78%, ~680×430). At 78% the photo's baked PlayStation badge was cut off, and the brief also asks to keep baked artwork intact and avoid cutting recognizable parts.
+5. The Facebook phone footage is 330 px wide (brief: 340). With the brief's x=370, y=340, w=340, the phone frame plus the 2–3% drift and dolly would run into the subtitle lane.
+6. Each spoken line is captioned as one or two complete short phrases on a single line (for example "Keep the set" / "and its price together."). This keeps the panel above the Facebook phone and above TikTok's bottom caption zone. The panel's bottom edge sits at y 1160 (Facebook) and 1508 (TikTok); the brief's TikTok lane ran to 1560.
+7. The 26–30 s title fades at 28.6 s, when the phone rises 60 px. The brief lets a title step aside when the subtitle repeats its wording.
+8. At 6–10 s the "48 px toward Game Boy" move happens after the filter settles, as a pan to the centred gaming cards with the 3% push. The edge of the recorded viewport limited a straight downward move.
+9. In TikTok's 4 s match cut, the selector's yellow rectangle lands on the yellow hero panel, because the vertical layout has no browser header.
+10. The WebDrip panel and underline use WebDrip blue (#0075DE).
 
-**What worked:** real interactions carry the story, with honest counts, names and prices. One continuous desktop take and one mobile take, with logged click and tap positions, put the drawn cursor and tap rings exactly on the real controls. The bass entry on the hero reveal and the breakdown on the WebDrip card give the edit clear chapters without a hype drop.
+**What worked:** real interactions carry the story, with honest counts, names and prices. One continuous desktop take and one mobile take, with logged click and tap positions, put the drawn cursor and tap rings exactly on the real controls. With stems, every music instruction in the brief could be followed literally, and real tactile sounds on each click make the interface feel physical.
 
 **Top 3 for the next brief:**
 1. Give device sizes and subtitle lanes that already clear each other and TikTok's bottom caption zone (from y 1520), so production doesn't have to shrink devices or split captions.
-2. Plan sound around the music: library SFX downloads are forbidden on this plan, so put key clicks on the beat grid or name which music hits carry them.
+2. Size VO windows for `af_heart` at 1.0 (about 3–3.8 words/s), Sourav's preferred voice, and say whether a longer line should fill the extra time.
 3. Avoid wide desktop overviews below about 0.9× scale. Ask for one readable framing per beat, or larger card type, if the grid must read on a phone.
 
 **One next experiment:** compare this sparse-VO, interface-led format against a music-only cut of the same footage, once both have real retention data.
