@@ -650,6 +650,22 @@
       "soft": "#4A4E68"
     },
     "story_angle": "The 9pm snapped chain: a rider's chain snaps after closing time; the owner's old one-page site has no prices and no booking, so they book across town — picture a site that takes the booking at 9pm instead, and the owner wakes up to it",
-    "edit_style": "Clock-driven night-to-morning timeline with real 3D camera moves (crane rise, orbit + dolly, card lift-out); iris wipe and shared-element handoff transitions; type-led with riso misregistration"
+    "edit_style": "Clock-driven night-to-morning timeline with real 3D camera moves (crane rise, orbit + dolly, card lift-out); iris wipe and shared-element handoff transitions; type-led with riso misregistration",
+    "buffer_post_id": "6ac1dabc814d657011e2d8c9",
+    "fb_post_url": "https://www.facebook.com/reel/4317382718396910/",
+    "buffer_tiktok_post_id": "6ac1dac2ad7fd83bc5106a9a",
+    "tiktok_post_url": "https://tiktok.com/@getwebdrip/video/7692670046237248781",
+    "music_brief": "warm, hopeful soul with a male lead vocal (~95 BPM): soft intro and verse under the after-hours problem, the pre-chorus line 'turn things around' on the story's turn, and the chorus under the booking payoff and the WebDrip logo",
+    "music_track": {
+      "id": "77218492-0770-3cd1-9dfd-5edcc5ac3617",
+      "title": "Links in a Chain",
+      "artist": "Chase Hughes feat. Michael Jaffe",
+      "why": "clean, hopeful male soul vocal whose own lyric ('we can make it happen, turn things around') lands on the story's turn and whose chorus carries the booking; first vocal song in the log; fitted with EditRecording (one required region, natural tempo) — DownloadRecording returned FORBIDDEN on this plan"
+    },
+    "sound_effects": "synthesized in code (whooshes, ticks, pops, impact)",
+    "text_hook": "If you fix bikes for a living, read this.",
+    "caption_hook": "What happens when a customer needs you after closing time?",
+    "hook_type": "bold question",
+    "videos_deleted": true
   }
 ]
