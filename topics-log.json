@@ -629,5 +629,27 @@
     "caption_hook": "Bet you'd book this swim school in ten seconds flat 👀",
     "hook_type": "challenge",
     "videos_deleted": true
+  },
+  {
+    "date": "2026-10-04",
+    "slug": "chainwrencycles-demo",
+    "business_type": "neighbourhood bike repair workshop",
+    "brand_name": "Chainwren Cycles",
+    "design_style": "TypeUI 'riso' — two-colour risograph print look on warm paper (Space Grotesk 700 display with a pink misregistration offset + Overpass Mono labels, 8–10px radii, 2px federal-blue borders and solid offset print shadows, halftone dots and paper grain); hero = full-bleed 3D camera photo with bottom-left headline and a 'repair ticket' card on the right, then a price-card grid, a numbered 2×2 how-it-works grid with count-ups, a split spotlight, three care-plan cards and a split booking form — chosen because a print-shop zine feel suits a hands-on neighbourhood workshop and riso hasn't been used in the last 10 runs",
+    "palette": {
+      "paper": "#FFF7EC",
+      "paper2": "#FDEEDB",
+      "pink": "#D61F7F",
+      "pink_soft": "#FFD1E8",
+      "blue": "#2C40A7",
+      "blue_deep": "#1E2C7A",
+      "sky": "#DCE3FF",
+      "sun": "#FFD23F",
+      "mint": "#BFEBD8",
+      "ink": "#16182B",
+      "soft": "#4A4E68"
+    },
+    "story_angle": "The 9pm snapped chain: a rider's chain snaps after closing time; the owner's old one-page site has no prices and no booking, so they book across town — picture a site that takes the booking at 9pm instead, and the owner wakes up to it",
+    "edit_style": "Clock-driven night-to-morning timeline with real 3D camera moves (crane rise, orbit + dolly, card lift-out); iris wipe and shared-element handoff transitions; type-led with riso misregistration"
   }
 ]

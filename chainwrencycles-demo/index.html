@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chainwren Cycles — honest repairs you can book tonight</title>
+<meta name="description" content="Chainwren is a neighbourhood bike repair workshop. Clear prices, a quote by text before any work, and repairs you can book online in about a minute. A concept design by WebDrip.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chainwren Cycles — book a repair tonight, ride tomorrow">
+<meta property="og:description" content="Clear prices, a quote by text before any work, and online booking in about a minute. Concept design by WebDrip.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1673870861521-626b40f9657e?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8NXx8YmlrZSUyMHJlcGFpciUyMGhhbmRzfGVufDB8MHx8fDE3OTEwODYzNjh8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chainwren Cycles — book a repair tonight, ride tomorrow">
+<meta name="twitter:description" content="Clear prices, a quote by text before any work, and online booking in about a minute.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1673870861521-626b40f9657e?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8NXx8YmlrZSUyMHJlcGFpciUyMGhhbmRzfGVufDB8MHx8fDE3OTEwODYzNjh8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<meta name="theme-color" content="#FFF7EC">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23D61F7F'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23FFF7EC'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Overpass+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1673870861521-626b40f9657e?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8NXx8YmlrZSUyMHJlcGFpciUyMGhhbmRzfGVufDB8MHx8fDE3OTEwODYzNjh8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { paper: '#FFF7EC', paper2: '#FDEEDB', pink: '#D61F7F', pinkSoft: '#FFD1E8', blue: '#2C40A7', blueDeep: '#1E2C7A', sky: '#DCE3FF', sun: '#FFD23F', mint: '#BFEBD8', ink: '#16182B', soft: '#4A4E68' },
+    fontFamily: { sans: ['"Space Grotesk"', 'system-ui', 'sans-serif'], mono: ['"Overpass Mono"', 'ui-monospace', 'monospace'] }
+  } } };
+</script>
+<style>
+  :root {
+    --paper: #FFF7EC; --paper2: #FDEEDB; --pink: #D61F7F; --pink-soft: #FFD1E8; --blue: #2C40A7; --blue-deep: #1E2C7A;
+    --sky: #DCE3FF; --sun: #FFD23F; --mint: #BFEBD8; --ink: #16182B; --soft: #4A4E68;
+    --ease: cubic-bezier(.2, .8, .2, 1);
+    --spring: cubic-bezier(.34, 1.36, .5, 1);
+    --print: 6px 6px 0 var(--blue);
+  }
+  html { scroll-behavior: smooth; background: var(--paper); overflow-x: clip; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+  main, footer { overflow-x: clip; }
+  ::selection { background: var(--sun); color: var(--ink); }
+  h1, h2, h3 { letter-spacing: -0.035em; line-height: 1.02; font-weight: 700; }
+  h2 { text-wrap: balance; color: var(--blue); }
+  p { text-wrap: pretty; }
+  .wd-mono { font-family: 'Overpass Mono', ui-monospace, monospace; letter-spacing: .1em; text-transform: uppercase; font-size: .74rem; font-weight: 700; }
+  /* paper grain + halftone */
+  .wd-grain { position: fixed; inset: 0; pointer-events: none; z-index: 60; opacity: .16; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .45 0 0 0 0 .35 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .wd-dots { background-image: radial-gradient(currentColor 1.3px, transparent 1.6px); background-size: 12px 12px; }
+  /* misregistered print headline */
+  .wd-mis { text-shadow: 4px 3px 0 rgba(214, 31, 127, .9); }
+  .wd-mis-b { text-shadow: 3px 3px 0 rgba(255, 210, 63, .95); }
+  /* nav */
+  #nav { transition: background-color .35s var(--ease), box-shadow .35s var(--ease); }
+  #nav .wd-navin { transition: height .35s var(--ease); }
+  #nav.wd-scrolled { background: rgba(255, 247, 236, .92); box-shadow: 0 2px 0 var(--blue); }
+  @media (min-width: 768px) { #nav.wd-scrolled { background: rgba(255, 247, 236, .78); backdrop-filter: blur(14px) saturate(1.3); -webkit-backdrop-filter: blur(14px) saturate(1.3); } }
+  #nav.wd-scrolled .wd-navin { height: 64px; }
+  .wd-navlink { position: relative; }
+  .wd-navlink::after { content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 3px; background: var(--pink); transform: scaleX(0); transform-origin: right; transition: transform .35s var(--ease); }
+  .wd-navlink:hover::after, .wd-navlink:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+  #nav:not(.wd-scrolled) .wd-navlink { color: #fff; }
+  #nav:not(.wd-scrolled) .wd-brand { color: #fff; }
+  #progress { transform: scaleX(0); transform-origin: left; }
+  /* buttons */
+  .wd-btn { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 48px; padding: 0 1.4rem; border-radius: 8px; font-weight: 700; letter-spacing: -0.01em;
+    border: 2px solid var(--blue); position: relative; overflow: hidden; isolation: isolate; transition: transform .25s var(--ease), box-shadow .25s var(--ease); }
+  .wd-btn-pink { background: var(--pink); color: #fff; box-shadow: 4px 4px 0 var(--blue); }
+  .wd-btn-paper { background: var(--paper); color: var(--blue); box-shadow: 4px 4px 0 var(--blue); }
+  .wd-btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--blue); }
+  .wd-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--blue); }
+  .wd-btn::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,.45) 50%, transparent 70%); transform: translateX(-120%); transition: transform .7s var(--ease); }
+  .wd-btn:hover::before { transform: translateX(120%); }
+  :focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; box-shadow: 0 0 0 6px var(--blue) !important; border-radius: 6px; }
+  /* hero stage */
+  .wd-stage { position: fixed; inset: 0; z-index: 0; overflow: hidden; perspective: 1100px; background: var(--blue-deep); }
+  #heroImg { position: absolute; left: -6%; top: -6%; width: 112%; height: 112%; max-width: none; object-fit: cover; transform-origin: 60% 45%; will-change: transform; transform: scale(1.06); }
+  .wd-stage::after { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(22,24,43,.78) 0%, rgba(22,24,43,.45) 45%, rgba(22,24,43,.05) 75%), linear-gradient(0deg, rgba(30,44,122,.55), transparent 45%); }
+  .wd-stage .wd-tint { position: absolute; inset: 0; background: var(--pink); mix-blend-mode: multiply; opacity: .16; z-index: 1; }
+  .wd-hero-shape { position: absolute; pointer-events: none; will-change: transform; }
+  /* intro reveal */
+  .js .wd-intro { opacity: 0; transform: translate3d(0, 26px, 0); }
+  .js.loaded .wd-intro { opacity: 1; transform: none; transition: opacity .9s var(--ease) var(--d, 0ms), transform 1s var(--spring) var(--d, 0ms); }
+  .js .wd-intro-mask { clip-path: inset(0 0 100% 0); }
+  .js.loaded .wd-intro-mask { clip-path: inset(0 0 0 0); transition: clip-path 1s var(--ease) var(--d, 0ms); }
+  /* ticket card */
+  .wd-ticket { background: var(--paper); border: 2px solid var(--blue); border-radius: 10px; box-shadow: 8px 8px 0 var(--pink); position: relative; }
+  .wd-ticket::before, .wd-ticket::after { content: ''; position: absolute; top: 58%; width: 22px; height: 22px; border-radius: 99px; background: transparent; border: 2px solid var(--blue); }
+  .wd-ticket::before { left: -12px; clip-path: inset(0 0 0 50%); background: rgba(22,24,43,.55); }
+  .wd-ticket::after { right: -12px; clip-path: inset(0 50% 0 0); background: rgba(22,24,43,.25); }
+  .wd-bar-fill { transform-origin: left; transform: scaleX(.18); animation: wdFill 3.6s var(--ease) 1.2s infinite alternate; }
+  @keyframes wdFill { to { transform: scaleX(.86); } }
+  /* reveals (content visible when JS fails: only .js hides) */
+  .js [data-reveal] { opacity: 0; transition: opacity .8s var(--ease) var(--stagger, 0ms), transform .9s var(--spring) var(--stagger, 0ms), clip-path .9s var(--ease) var(--stagger, 0ms); }
+  .js [data-reveal="up"] { transform: translate3d(0, 40px, 0); }
+  .js [data-reveal="print"] { transform: translate3d(-14px, 14px, 0) rotate(-1.5deg); }
+  .js [data-reveal="mask"] { clip-path: inset(0 100% 0 0); opacity: 1; }
+  .js [data-reveal="pop"] { transform: scale(.88); }
+  .js [data-reveal="side"] { transform: translate3d(60px, 0, 0); }
+  .js [data-reveal].in { opacity: 1; transform: none; clip-path: inset(0 0 0 0); }
+  /* cards */
+  .wd-card { background: #fff; border: 2px solid var(--blue); border-radius: 10px; box-shadow: var(--print); transition: transform .35s var(--ease), box-shadow .35s var(--ease); }
+  .wd-card:hover { transform: translate(-4px, -6px); box-shadow: 10px 12px 0 var(--pink); }
+  .wd-card .wd-photo { overflow: hidden; border-bottom: 2px solid var(--blue); position: relative; }
+  .wd-card .wd-photo img { transition: transform .8s var(--ease); }
+  .wd-card:hover .wd-photo img { transform: scale(1.07); }
+  .wd-photo::after { content: ''; position: absolute; inset: 0; color: rgba(214,31,127,.28); background-image: radial-gradient(currentColor 1.2px, transparent 1.5px); background-size: 9px 9px; mix-blend-mode: multiply; opacity: .55; }
+  .wd-price { background: var(--sun); border: 2px solid var(--blue); border-radius: 6px; }
+  .wd-link { background-image: linear-gradient(var(--pink), var(--pink)); background-size: 0% 3px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size .35s var(--ease); }
+  .wd-link:hover, .wd-link:focus-visible { background-size: 100% 3px; }
+  /* steps */
+  .wd-step { background: var(--paper); border: 2px solid var(--blue); border-radius: 10px; }
+  .wd-step-num { font-family: 'Overpass Mono', monospace; font-weight: 700; color: var(--pink); }
+  /* spotlight */
+  .wd-spot-img { animation: wdPan 18s ease-in-out infinite alternate; transform-origin: 50% 50%; }
+  @keyframes wdPan { 0% { transform: scale(1.12) translate3d(-3%, 1%, 0); } 100% { transform: scale(1.2) translate3d(3%, -2%, 0); } }
+  .wd-cog { animation: wdSpin 14s linear infinite; transform-origin: 50% 50%; }
+  @keyframes wdSpin { to { transform: rotate(360deg); } }
+  #spot.paused .wd-spot-img, #spot.paused .wd-cog, #spot.paused .wd-float { animation-play-state: paused; }
+  .wd-float { animation: wdFloat 7s ease-in-out infinite alternate; }
+  @keyframes wdFloat { to { transform: translate3d(0, -18px, 0) rotate(4deg); } }
+  /* plans */
+  .wd-plan { background: #fff; border: 2px solid var(--blue); border-radius: 10px; box-shadow: var(--print); transition: transform .35s var(--ease), box-shadow .35s var(--ease); }
+  .wd-plan:hover { transform: translate(-4px, -6px); box-shadow: 10px 12px 0 var(--pink); }
+  .wd-plan-hot { background: var(--sky); }
+  /* blobs */
+  .wd-blob { position: absolute; border-radius: 999px; filter: blur(50px); opacity: .55; pointer-events: none; animation: wdBlob 16s ease-in-out infinite alternate; }
+  @keyframes wdBlob { to { transform: translate3d(40px, -30px, 0) scale(1.12); } }
+  /* form */
+  .wd-input { width: 100%; min-height: 50px; border: 2px solid var(--blue); border-radius: 8px; background: #fff; padding: .7rem .95rem; font-size: 1rem; color: var(--ink); transition: box-shadow .2s var(--ease); }
+  .wd-input:focus { outline: none; box-shadow: 4px 4px 0 var(--pink); }
+  .wd-input[aria-invalid="true"] { border-color: #B4123F; background: #FFF1F5; }
+  .wd-shake { animation: wdShake .42s var(--ease); }
+  @keyframes wdShake { 20%, 60% { transform: translateX(-7px); } 40%, 80% { transform: translateX(7px); } }
+  .wd-ok { opacity: 0; transform: translateY(10px) scale(.96); }
+  .wd-ok.show { opacity: 1; transform: none; transition: opacity .45s var(--ease), transform .55s var(--spring); }
+  .wd-check path { stroke-dasharray: 30; stroke-dashoffset: 30; }
+  .wd-ok.show .wd-check path { stroke-dashoffset: 0; transition: stroke-dashoffset .6s var(--ease) .2s; }
+  /* burger */
+  .wd-burger span { display: block; position: absolute; left: 12px; right: 12px; height: 2.5px; border-radius: 2px; background: currentColor; transition: transform .35s var(--ease), opacity .2s; }
+  .wd-burger span:nth-child(1) { top: 16px; } .wd-burger span:nth-child(2) { top: 22px; } .wd-burger span:nth-child(3) { top: 28px; }
+  .wd-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .wd-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(.3); }
+  .wd-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+  #mobileMenu { transform-origin: top; }
+  #mobileMenu[hidden] { display: none !important; }
+  #mobileMenu.open { animation: wdDrop .38s var(--ease); }
+  @keyframes wdDrop { from { opacity: 0; transform: translateY(-14px) scaleY(.94); } to { opacity: 1; transform: none; } }
+  #mobileMenu.open a { animation: wdItem .45s var(--ease) both; }
+  #mobileMenu.open a:nth-child(2) { animation-delay: .05s; } #mobileMenu.open a:nth-child(3) { animation-delay: .1s; } #mobileMenu.open a:nth-child(4) { animation-delay: .15s; } #mobileMenu.open a:nth-child(5) { animation-delay: .2s; }
+  @keyframes wdItem { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: none; } }
+  .wd-marquee { animation: wdMarq 26s linear infinite; }
+  @keyframes wdMarq { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+    .js [data-reveal], .js .wd-intro, .js .wd-intro-mask { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="wd-grain" aria-hidden="true"></div>
+<div id="progress" class="fixed top-0 left-0 right-0 h-1 bg-pink z-[70]" aria-hidden="true"></div>
+<a href="#repairs" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[80] wd-btn wd-btn-paper">Skip to content</a>
+
+<!-- fixed hero camera stage -->
+<div class="wd-stage" aria-hidden="true">
+  <img id="heroImg" src="https://images.unsplash.com/photo-1673870861521-626b40f9657e?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8NXx8YmlrZSUyMHJlcGFpciUyMGhhbmRzfGVufDB8MHx8fDE3OTEwODYzNjh8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80" alt="" fetchpriority="high">
+  <div class="wd-tint"></div>
+  <svg class="wd-hero-shape hidden md:block" data-hpar="0.55" style="right:7%;top:14%;width:150px;height:150px;opacity:.9;z-index:2" viewBox="0 0 100 100"><g class="wd-cog" fill="none" stroke="#FFD23F" stroke-width="5"><circle cx="50" cy="50" r="22"/><circle cx="50" cy="50" r="8"/><path d="M50 14v12M50 74v12M14 50h12M74 50h12M24.5 24.5l8.5 8.5M67 67l8.5 8.5M24.5 75.5l8.5-8.5M67 33l8.5-8.5"/></g></svg>
+  <div class="wd-hero-shape wd-dots" data-hpar="0.3" style="left:4%;bottom:10%;width:220px;height:140px;color:rgba(255,209,232,.55);z-index:2"></div>
+</div>
+
+<header id="nav" class="fixed top-0 inset-x-0 z-50">
+  <div class="wd-navin max-w-7xl mx-auto px-5 md:px-8 h-20 flex items-center justify-between">
+    <a href="#top" class="wd-brand wd-intro flex items-center gap-2.5 text-blue font-bold text-xl tracking-tight" style="--d:80ms" aria-label="Chainwren Cycles, home">
+      <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#D61F7F"/><circle cx="20" cy="20" r="18" fill="none" stroke="#2C40A7" stroke-width="2" stroke-dasharray="4 3.2"/><path d="M11 23c4-7 11-9 18-6-3 1-5 3-6 6-2 4-7 5-12 0z" fill="#FFF7EC"/><circle cx="25" cy="16.5" r="1.4" fill="#2C40A7"/><path d="M28.5 17.5l4-1-3.3 2.6z" fill="#FFD23F"/></svg>
+      <span>Chainwren</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 font-semibold" aria-label="Main">
+      <a class="wd-navlink wd-intro text-ink" style="--d:160ms" href="#repairs">Prices</a>
+      <a class="wd-navlink wd-intro text-ink" style="--d:220ms" href="#how">How it works</a>
+      <a class="wd-navlink wd-intro text-ink" style="--d:280ms" href="#workshop">Workshop</a>
+      <a class="wd-navlink wd-intro text-ink" style="--d:340ms" href="#plans">Care plans</a>
+      <a class="wd-btn wd-btn-pink wd-intro" style="--d:400ms" href="#book">Book a repair</a>
+    </nav>
+    <button id="burger" class="wd-burger md:hidden relative w-12 h-12 rounded-lg border-2 border-blue bg-paper text-blue" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+  <div id="mobileMenu" class="md:hidden mx-4 mb-3 rounded-xl border-2 border-blue bg-paper p-3 flex flex-col gap-1 font-semibold text-lg" style="box-shadow:6px 6px 0 #D61F7F" hidden>
+    <a class="px-4 py-3 rounded-lg hover:bg-pinkSoft" href="#repairs">Prices</a>
+    <a class="px-4 py-3 rounded-lg hover:bg-pinkSoft" href="#how">How it works</a>
+    <a class="px-4 py-3 rounded-lg hover:bg-pinkSoft" href="#workshop">Workshop</a>
+    <a class="px-4 py-3 rounded-lg hover:bg-pinkSoft" href="#plans">Care plans</a>
+    <a class="wd-btn wd-btn-pink mt-2" href="#book">Book a repair</a>
+  </div>
+</header>
+
+<section id="top" class="relative z-10 min-h-[100svh] flex items-end">
+  <div id="heroCopy" class="w-full max-w-7xl mx-auto px-5 md:px-8 pb-14 md:pb-20 pt-28 grid md:grid-cols-12 gap-10 items-end">
+    <div class="md:col-span-7 text-white">
+      <p class="wd-mono wd-intro inline-flex items-center gap-2 bg-sun text-ink px-3 py-1.5 rounded border-2 border-blue" style="--d:300ms">
+        <span class="w-2 h-2 rounded-full bg-pink"></span> Neighbourhood bike workshop</p>
+      <h1 class="mt-5 text-[2.75rem] leading-[.98] sm:text-6xl lg:text-[5.4rem] wd-mis">
+        <span class="block wd-intro-mask" style="--d:420ms">Bike repairs</span>
+        <span class="block wd-intro-mask" style="--d:540ms">you can book</span>
+        <span class="block wd-intro-mask text-sun" style="--d:660ms">tonight.</span>
+      </h1>
+      <p class="wd-intro mt-6 max-w-xl text-lg md:text-xl text-white/90" style="--d:820ms">Clear prices on every job, a quote by text before we touch a bolt, and most bikes back on the road within two days.</p>
+      <div class="wd-intro mt-8 flex flex-wrap gap-4" style="--d:960ms">
+        <a href="#book" class="wd-btn wd-btn-pink text-lg">Book a repair
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#repairs" class="wd-btn wd-btn-paper text-lg">See prices</a>
+      </div>
+    </div>
+    <div class="md:col-span-5 md:justify-self-end w-full max-w-sm" data-hpar-fg="0.18">
+      <div class="wd-ticket wd-intro p-5" style="--d:1100ms">
+        <div class="flex items-center justify-between">
+          <span class="wd-mono text-pink">Repair ticket</span>
+          <span class="wd-mono text-soft">No. 0412</span>
+        </div>
+        <p class="mt-3 text-2xl font-bold text-blue tracking-tight">Full tune-up</p>
+        <p class="text-soft text-sm">Gears, brakes, chain and a safety check</p>
+        <div class="mt-4 h-3 rounded-full border-2 border-blue bg-white overflow-hidden"><div class="wd-bar-fill h-full bg-pink"></div></div>
+        <div class="mt-4 pt-4 border-t-2 border-dashed border-blue/40 flex items-center justify-between">
+          <div><p class="wd-mono text-soft">Ready</p><p class="font-bold text-ink">Thursday, 5pm</p></div>
+          <span class="wd-price px-3 py-1 font-bold text-ink">$79</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="relative z-10 bg-paper">
+  <!-- marquee strip -->
+  <div class="relative bg-blue text-paper border-y-2 border-blue overflow-hidden" aria-hidden="true">
+    <div class="wd-marquee flex whitespace-nowrap py-3 wd-mono text-sm w-max">
+      <span class="px-6">Flat fixed while you wait</span><span class="px-6 text-sun">●</span><span class="px-6">Quote by text before any work</span><span class="px-6 text-sun">●</span><span class="px-6">Most bikes ready in two days</span><span class="px-6 text-sun">●</span><span class="px-6">E-bikes welcome</span><span class="px-6 text-sun">●</span>
+      <span class="px-6">Flat fixed while you wait</span><span class="px-6 text-sun">●</span><span class="px-6">Quote by text before any work</span><span class="px-6 text-sun">●</span><span class="px-6">Most bikes ready in two days</span><span class="px-6 text-sun">●</span><span class="px-6">E-bikes welcome</span><span class="px-6 text-sun">●</span>
+    </div>
+  </div>
+
+  <!-- repairs / prices -->
+  <section id="repairs" class="relative py-24 md:py-32 overflow-hidden">
+    <div class="wd-blob" style="width:380px;height:380px;background:#FFD1E8;left:-120px;top:60px"></div>
+    <div class="wd-blob" style="width:320px;height:320px;background:#DCE3FF;right:-100px;bottom:40px;animation-delay:-6s"></div>
+    <div class="relative max-w-7xl mx-auto px-5 md:px-8">
+      <div class="grid md:grid-cols-12 gap-6 items-end">
+        <div class="md:col-span-7">
+          <p class="wd-mono text-pink" data-reveal="up">Repairs and prices</p>
+          <h2 class="mt-3 text-4xl md:text-6xl" data-reveal="mask">Every price is on the page. <span class="wd-mis-b">No guessing.</span></h2>
+        </div>
+        <p class="md:col-span-5 text-lg text-soft" data-reveal="up">Pick the job, see the price, book a slot. If we find anything else, we text you a photo and a price first. Nothing extra happens without your yes.</p>
+      </div>
+      <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
+        <article class="wd-card" data-reveal="print">
+          <div class="wd-photo aspect-[4/3]"><img data-par="0.05" src="https://images.unsplash.com/photo-1671790639553-43973054c51e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Nnx8YmlrZSUyMHJlcGFpciUyMGhhbmRzfGVufDB8MHx8fDE3OTEwODYzNjh8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A mechanic adjusting a road bike held in a repair stand" class="w-full h-full object-cover" loading="lazy"></div>
+          <div class="p-5">
+            <h3 class="text-xl text-blue">Safety check</h3>
+            <p class="mt-2 text-soft text-[15px]">Brakes, tyres, bolts and lights checked in twenty minutes, while you grab a coffee.</p>
+            <div class="mt-4 flex items-center justify-between"><span class="wd-price px-3 py-0.5 font-bold">$25</span><a href="#book" class="wd-link font-semibold text-blue">Book it</a></div>
+          </div>
+        </article>
+        <article class="wd-card" data-reveal="print">
+          <div class="wd-photo aspect-[4/3]"><img data-par="0.05" src="https://images.unsplash.com/photo-1779043750168-ef291893cd9c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8NHx8YmljeWNsZSUyMGNoYWluJTIwY2Fzc2V0dGV8ZW58MHwwfHx8MTc5MTA4NjM2OXww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Close-up of a clean bike cassette, chain and rear derailleur" class="w-full h-full object-cover" loading="lazy"></div>
+          <div class="p-5">
+            <h3 class="text-xl text-blue">Full tune-up</h3>
+            <p class="mt-2 text-soft text-[15px]">Gears indexed, brakes bled or adjusted, chain cleaned, and everything torqued right.</p>
+            <div class="mt-4 flex items-center justify-between"><span class="wd-price px-3 py-0.5 font-bold">$79</span><a href="#book" class="wd-link font-semibold text-blue">Book it</a></div>
+          </div>
+        </article>
+        <article class="wd-card" data-reveal="print">
+          <div class="wd-photo aspect-[4/3]"><img data-par="0.05" src="https://images.unsplash.com/photo-1592222166121-93437e78d8d0?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8NHx8YmlrZSUyMHJlcGFpciUyMGhhbmRzfGVufDB8MHx8fDE3OTEwODYzNjh8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A mechanic truing a bicycle wheel by hand" class="w-full h-full object-cover" loading="lazy"></div>
+          <div class="p-5">
+            <h3 class="text-xl text-blue">Wheel truing</h3>
+            <p class="mt-2 text-soft text-[15px]">Wobbles and rubbing brakes sorted, with spoke tension checked all the way round.</p>
+            <div class="mt-4 flex items-center justify-between"><span class="wd-price px-3 py-0.5 font-bold">$30</span><a href="#book" class="wd-link font-semibold text-blue">Book it</a></div>
+          </div>
+        </article>
+        <article class="wd-card" data-reveal="print">
+          <div class="wd-photo aspect-[4/3]"><img data-par="0.05" src="https://images.unsplash.com/photo-1675798227643-da319f8ee8f7?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8YmlrZSUyMHJlcGFpciUyMGhhbmRzfGVufDB8MHx8fDE3OTEwODYzNjh8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Hands fitting a bottom bracket into a bike frame" class="w-full h-full object-cover" loading="lazy"></div>
+          <div class="p-5">
+            <h3 class="text-xl text-blue">Bearings and creaks</h3>
+            <p class="mt-2 text-soft text-[15px]">That click when you pedal? We find it, replace what is worn and send you off quiet.</p>
+            <div class="mt-4 flex items-center justify-between"><span class="wd-price px-3 py-0.5 font-bold">from $45</span><a href="#book" class="wd-link font-semibold text-blue">Book it</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- how it works -->
+  <section id="how" class="relative py-24 md:py-32 bg-sky border-y-2 border-blue overflow-hidden">
+    <div class="absolute inset-0 wd-dots" style="color:rgba(44,64,167,.12)" aria-hidden="true"></div>
+    <div class="relative max-w-7xl mx-auto px-5 md:px-8">
+      <div class="grid lg:grid-cols-12 gap-10">
+        <div class="lg:col-span-4">
+          <p class="wd-mono text-pink" data-reveal="up">How it works</p>
+          <h2 class="mt-3 text-4xl md:text-6xl" data-reveal="mask">Book at midnight. Ride by Friday.</h2>
+          <p class="mt-5 text-lg text-soft" data-reveal="up">Booking works any hour, so a snapped chain at 9pm is sorted before you go to bed.</p>
+          <div class="mt-8 grid grid-cols-3 gap-3" data-reveal="pop">
+            <div class="wd-step p-3 text-center"><p class="text-3xl font-bold text-blue"><span data-count="2">2</span></p><p class="wd-mono text-soft text-[10px] mt-1">min to book</p></div>
+            <div class="wd-step p-3 text-center"><p class="text-3xl font-bold text-blue"><span data-count="48">48</span>h</p><p class="wd-mono text-soft text-[10px] mt-1">usual fix</p></div>
+            <div class="wd-step p-3 text-center"><p class="text-3xl font-bold text-blue">$<span data-count="0">0</span></p><p class="wd-mono text-soft text-[10px] mt-1">surprise fees</p></div>
+          </div>
+        </div>
+        <ol class="lg:col-span-8 grid sm:grid-cols-2 gap-6">
+          <li class="wd-step p-6 bg-white" style="box-shadow:6px 6px 0 #2C40A7" data-reveal="side">
+            <span class="wd-step-num text-4xl">01</span>
+            <h3 class="mt-3 text-2xl text-blue">Pick a job and a time</h3>
+            <p class="mt-2 text-soft">Choose the repair, see the price and pick a drop-off slot that suits you.</p>
+          </li>
+          <li class="wd-step p-6 bg-white" style="box-shadow:6px 6px 0 #2C40A7" data-reveal="side">
+            <span class="wd-step-num text-4xl">02</span>
+            <h3 class="mt-3 text-2xl text-blue">Drop it off</h3>
+            <p class="mt-2 text-soft">Bring the bike in on your way to work. It takes two minutes at the counter.</p>
+          </li>
+          <li class="wd-step p-6 bg-white" style="box-shadow:6px 6px 0 #D61F7F" data-reveal="side">
+            <span class="wd-step-num text-4xl">03</span>
+            <h3 class="mt-3 text-2xl text-blue">Get a text, not a surprise</h3>
+            <p class="mt-2 text-soft">We send a photo and a price before any extra work. You reply yes or no.</p>
+          </li>
+          <li class="wd-step p-6 bg-white" style="box-shadow:6px 6px 0 #D61F7F" data-reveal="side">
+            <span class="wd-step-num text-4xl">04</span>
+            <h3 class="mt-3 text-2xl text-blue">Ride away</h3>
+            <p class="mt-2 text-soft">Pay at pickup and test-ride it outside. If anything feels off, we fix it free.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- spotlight -->
+  <section id="workshop" class="relative py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+      <div id="spot" class="relative grid lg:grid-cols-12 gap-0 rounded-xl border-2 border-blue overflow-hidden bg-pinkSoft" style="box-shadow:10px 10px 0 #2C40A7" data-reveal="pop">
+        <div class="lg:col-span-7 relative min-h-[340px] md:min-h-[520px] overflow-hidden border-b-2 lg:border-b-0 lg:border-r-2 border-blue">
+          <img src="https://images.unsplash.com/photo-1760310936486-4dd450aab2a8?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8YmljeWNsZSUyMG1lY2hhbmljJTIwd29ya3Nob3B8ZW58MHwwfHx8MTc5MTA4NjM2OHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A tidy bike workshop wall lined with tools above a wooden workbench" class="wd-spot-img absolute inset-0 w-full h-full object-cover" loading="lazy">
+          <div class="absolute inset-0" style="background:linear-gradient(0deg,rgba(30,44,122,.45),transparent 50%)"></div>
+          <svg class="absolute right-6 top-6 w-20 h-20" viewBox="0 0 100 100" aria-hidden="true"><g class="wd-cog" fill="none" stroke="#FFD23F" stroke-width="6"><circle cx="50" cy="50" r="22"/><circle cx="50" cy="50" r="8"/><path d="M50 14v12M50 74v12M14 50h12M74 50h12M24.5 24.5l8.5 8.5M67 67l8.5 8.5M24.5 75.5l8.5-8.5M67 33l8.5-8.5"/></g></svg>
+          <button id="spotToggle" class="absolute left-5 bottom-5 wd-btn wd-btn-paper text-base" aria-pressed="false">
+            <svg id="pauseIco" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            <svg id="playIco" class="hidden" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5l12 7-12 7z"/></svg>
+            <span id="spotLabel">Pause motion</span></button>
+        </div>
+        <div class="lg:col-span-5 p-7 md:p-12 flex flex-col justify-center relative">
+          <div class="wd-float absolute right-8 top-8 w-16 h-16 rounded-full bg-sun border-2 border-blue" aria-hidden="true"></div>
+          <p class="wd-mono text-pink">The workshop</p>
+          <h2 class="mt-3 text-4xl md:text-5xl">A workshop you can walk into and watch.</h2>
+          <p class="mt-5 text-lg text-ink/80">The bench sits right behind the counter. Ask a question and the mechanic fixing your bike will show you what they found, part by part.</p>
+          <ul class="mt-6 space-y-2 font-semibold text-blue">
+            <li class="flex gap-3"><span class="text-pink">✓</span> Open late on Thursdays</li>
+            <li class="flex gap-3"><span class="text-pink">✓</span> Free tyre pump by the door</li>
+            <li class="flex gap-3"><span class="text-pink">✓</span> E-bikes and cargo bikes welcome</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- plans -->
+  <section id="plans" class="relative py-24 md:py-32 bg-paper2 border-y-2 border-blue overflow-hidden">
+    <div class="wd-blob" style="width:360px;height:360px;background:#BFEBD8;right:-90px;top:-60px"></div>
+    <div class="relative max-w-7xl mx-auto px-5 md:px-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <p class="wd-mono text-pink" data-reveal="up">Care plans</p>
+        <h2 class="mt-3 text-4xl md:text-6xl" data-reveal="mask">Ride all year. Pay a little each month.</h2>
+      </div>
+      <div class="mt-14 grid md:grid-cols-3 gap-7 items-stretch">
+        <div class="wd-plan p-7 flex flex-col" data-reveal="up">
+          <p class="wd-mono text-soft">Weekend rider</p>
+          <p class="mt-3 text-5xl font-bold text-blue tracking-tight">$9<span class="text-lg text-soft font-semibold">/month</span></p>
+          <ul class="mt-6 space-y-2 text-soft flex-1"><li>Two safety checks a year</li><li>Free flat fixes</li><li>10% off parts</li></ul>
+          <a href="#book" class="wd-btn wd-btn-paper mt-7">Choose weekend</a>
+        </div>
+        <div class="wd-plan wd-plan-hot p-7 flex flex-col relative" data-reveal="up">
+          <span class="absolute -top-4 left-7 wd-mono bg-pink text-white px-3 py-1 rounded border-2 border-blue">Most picked</span>
+          <p class="wd-mono text-soft">Daily commuter</p>
+          <p class="mt-3 text-5xl font-bold text-blue tracking-tight">$15<span class="text-lg text-soft font-semibold">/month</span></p>
+          <ul class="mt-6 space-y-2 text-ink/80 flex-1"><li>A full tune-up every year</li><li>Free flat fixes, any time</li><li>Jump the queue on busy days</li><li>15% off parts</li></ul>
+          <a href="#book" class="wd-btn wd-btn-pink mt-7">Choose commuter</a>
+        </div>
+        <div class="wd-plan p-7 flex flex-col" data-reveal="up">
+          <p class="wd-mono text-soft">Family fleet</p>
+          <p class="mt-3 text-5xl font-bold text-blue tracking-tight">$29<span class="text-lg text-soft font-semibold">/month</span></p>
+          <ul class="mt-6 space-y-2 text-soft flex-1"><li>Up to four bikes</li><li>Kids' bikes resized as they grow</li><li>Two tune-ups a year</li></ul>
+          <a href="#book" class="wd-btn wd-btn-paper mt-7">Choose family</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- booking -->
+  <section id="book" class="relative py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-12 gap-12 items-start">
+      <div class="lg:col-span-5">
+        <p class="wd-mono text-pink" data-reveal="up">Book a repair</p>
+        <h2 class="mt-3 text-4xl md:text-6xl" data-reveal="mask">Tell us what is wrong. We will take it from there.</h2>
+        <div class="mt-8 rounded-xl overflow-hidden border-2 border-blue" style="box-shadow:6px 6px 0 #D61F7F" data-reveal="print">
+          <img data-par="0.06" src="https://images.unsplash.com/photo-1696153658764-80e6bf4e87de?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8Y3ljbGlzdCUyMGNpdHklMjBzdHJlZXR8ZW58MHwwfHx8MTc5MTA4NjM3MHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A rider in a red dress cycling down a leafy city street" class="w-full h-64 object-cover" loading="lazy">
+        </div>
+      </div>
+      <form id="bookForm" class="lg:col-span-7 wd-card p-6 md:p-9 grid gap-5" novalidate data-reveal="up">
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="name" class="font-semibold text-blue">Your name</label>
+            <input id="name" name="name" class="wd-input mt-2" autocomplete="name" aria-describedby="nameErr">
+            <p id="nameErr" class="mt-1.5 text-sm font-semibold text-[#B4123F] min-h-[1.25rem]" aria-live="polite"></p>
+          </div>
+          <div>
+            <label for="email" class="font-semibold text-blue">Email</label>
+            <input id="email" name="email" type="email" class="wd-input mt-2" autocomplete="email" inputmode="email" aria-describedby="emailErr">
+            <p id="emailErr" class="mt-1.5 text-sm font-semibold text-[#B4123F] min-h-[1.25rem]" aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="job" class="font-semibold text-blue">What does it need?</label>
+            <select id="job" name="job" class="wd-input mt-2"><option>Safety check ($25)</option><option selected>Full tune-up ($79)</option><option>Wheel truing ($30)</option><option>Bearings and creaks (from $45)</option><option>Not sure, please look</option></select>
+          </div>
+          <div>
+            <label for="day" class="font-semibold text-blue">Drop-off day</label>
+            <select id="day" name="day" class="wd-input mt-2"><option>Tomorrow morning</option><option>Tomorrow afternoon</option><option>Later this week</option></select>
+          </div>
+        </div>
+        <div>
+          <label for="note" class="font-semibold text-blue">Anything we should know? <span class="text-soft font-normal">(optional)</span></label>
+          <textarea id="note" name="note" rows="3" class="wd-input mt-2" placeholder="The chain slipped on the way home and now it clicks."></textarea>
+        </div>
+        <div class="flex flex-wrap items-center gap-4">
+          <button type="submit" class="wd-btn wd-btn-pink text-lg">Book my repair</button>
+          <p class="text-sm text-soft">We reply with a confirmed time within the hour while we're open.</p>
+        </div>
+        <div id="formOk" class="wd-ok hidden items-center gap-3 rounded-lg border-2 border-blue bg-mint p-4 font-semibold text-ink" role="status">
+          <svg class="wd-check shrink-0" width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="14" fill="#2C40A7"/><path d="M8.5 15.5l4.2 4.2 8.8-9" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Booked. Check your inbox for your drop-off time.</span>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="relative z-10 bg-blue text-paper">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 py-14 grid md:grid-cols-3 gap-10">
+    <div>
+      <p class="text-2xl font-bold tracking-tight">Chainwren Cycles</p>
+      <p class="mt-2 text-paper/80">Honest repairs, clear prices, booked in a minute.</p>
+    </div>
+    <div class="text-paper/85">
+      <p class="wd-mono text-sun">Workshop hours</p>
+      <p class="mt-2">Mon to Sat, 8am to 6pm<br>Late until 8pm on Thursdays</p>
+    </div>
+    <div class="text-sm text-paper/80 space-y-1">
+      <p class="wd-mono text-sun">Photos</p>
+      <p>Photo by <a class="wd-link" href="https://unsplash.com/@tonchik?utm_source=webdrip_concept&amp;utm_medium=referral">Anton Savinov</a> on <a class="wd-link" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a></p>
+      <p>Photo by <a class="wd-link" href="https://unsplash.com/@cameraobscura2000?utm_source=webdrip_concept&amp;utm_medium=referral">camera obscura</a> on <a class="wd-link" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a></p>
+      <p>Photo by <a class="wd-link" href="https://unsplash.com/@vzickner?utm_source=webdrip_concept&amp;utm_medium=referral">Valentin Zickner</a> on <a class="wd-link" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a></p>
+      <p>Photo by <a class="wd-link" href="https://unsplash.com/@vonshnauzer?utm_source=webdrip_concept&amp;utm_medium=referral">Egor Myznik</a> on <a class="wd-link" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a></p>
+      <p>Photo by <a class="wd-link" href="https://unsplash.com/@lunawangjl?utm_source=webdrip_concept&amp;utm_medium=referral">Luna Wang</a> on <a class="wd-link" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a></p>
+      <p>Photo by <a class="wd-link" href="https://unsplash.com/@kadunchick?utm_source=webdrip_concept&amp;utm_medium=referral">Bohdan Kadun</a> on <a class="wd-link" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a></p>
+    </div>
+  </div>
+  <div class="border-t-2 border-paper/20">
+    <p class="max-w-7xl mx-auto px-5 md:px-8 py-5 text-sm text-paper/80"><a class="wd-link" href="https://getwebdrip.com">Concept design by WebDrip — fictional brand</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.classList.add('js');
+  requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.add('loaded'); }); });
+  // recording hook: lets a frame-by-frame recorder slow JS timing to match slowed CSS animations
+  function timeScale() { return window.__wdTimeScale || 1; }
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(function () {}); });
+  }
+
+  /* mobile menu */
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  function setMenu(open) {
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (open) { menu.hidden = false; menu.classList.add('open'); } else { menu.classList.remove('open'); menu.hidden = true; }
+  }
+  burger.addEventListener('click', function () { setMenu(burger.getAttribute('aria-expanded') !== 'true'); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') { setMenu(false); burger.focus(); } });
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  window.addEventListener('resize', function () { if (window.innerWidth >= 768) setMenu(false); });
+
+  /* staggered reveals */
+  var groups = new Map();
+  document.querySelectorAll('[data-reveal]').forEach(function (el) {
+    var p = el.parentElement; var i = groups.get(p) || 0; groups.set(p, i + 1);
+    el.style.setProperty('--stagger', (i * 120) + 'ms');
+  });
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  function markIn(el) { el.classList.add('in'); setTimeout(function () { el.style.setProperty('--stagger', '0ms'); }, 1600 / timeScale()); }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { markIn(en.target); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else { revealEls.forEach(markIn); }
+  function sweepReveals() {
+    var vh = window.innerHeight;
+    revealEls.forEach(function (el) { if (!el.classList.contains('in') && el.getBoundingClientRect().top < vh * 0.98) markIn(el); });
+  }
+
+  /* count-ups */
+  var counters = document.querySelectorAll('[data-count]');
+  function runCount(el) {
+    var target = +el.getAttribute('data-count'); if (reduce || target < 2) { el.textContent = target; return; }
+    var t0 = null;
+    function step(t) { if (!t0) t0 = t; var k = Math.min(1, (t - t0) * timeScale() / 1300); var e = 1 - Math.pow(1 - k, 3); el.textContent = Math.round(target * e); if (k < 1) requestAnimationFrame(step); }
+    el.textContent = '0'; requestAnimationFrame(step);
+  }
+  if ('IntersectionObserver' in window) {
+    var co = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { runCount(en.target); co.unobserve(en.target); } }); }, { threshold: .6 });
+    counters.forEach(function (c) { co.observe(c); });
+  }
+
+  /* one shared rAF loop: progress bar, shrinking nav, hero 3D camera, parallax */
+  var nav = document.getElementById('nav');
+  var bar = document.getElementById('progress');
+  var heroImg = document.getElementById('heroImg');
+  var stage = document.querySelector('.wd-stage');
+  var heroCopy = document.getElementById('heroCopy');
+  var hpars = Array.prototype.slice.call(document.querySelectorAll('[data-hpar]'));
+  var fg = Array.prototype.slice.call(document.querySelectorAll('[data-hpar-fg]'));
+  var pars = Array.prototype.slice.call(document.querySelectorAll('[data-par]'));
+  var cur = window.scrollY, target = window.scrollY, ticking = false;
+
+  function frame() {
+    target = window.scrollY;
+    cur += (target - cur) * Math.min(1, 0.12 / timeScale());
+    if (Math.abs(target - cur) < 0.3) cur = target;
+    var vh = window.innerHeight, docH = document.documentElement.scrollHeight - vh;
+    bar.style.transform = 'scaleX(' + (docH > 0 ? Math.min(1, target / docH) : 0) + ')';
+    nav.classList.toggle('wd-scrolled', target > 40);
+    if (!reduce) {
+      var p = Math.min(1.4, cur / vh);
+      var k = Math.min(1, p);
+      var e = k * k * (3 - 2 * k);
+      // camera: dolly in toward the mechanic's hands, swing right and tilt forward; reverses on the way up
+      heroImg.style.transform = 'translate3d(' + (-e * 4) + '%,' + (-e * 3) + '%,0) scale(' + (1.06 + e * 0.34) + ') rotateY(' + (-e * 9) + 'deg) rotateX(' + (e * 7) + 'deg)';
+      hpars.forEach(function (el) { el.style.transform = 'translate3d(0,' + (-cur * parseFloat(el.getAttribute('data-hpar'))) + 'px,0)'; });
+      fg.forEach(function (el) { el.style.transform = 'translate3d(0,' + (-cur * parseFloat(el.getAttribute('data-hpar-fg'))) + 'px,0)'; });
+      if (heroCopy) heroCopy.style.opacity = String(Math.max(0, 1 - p * 1.15));
+      pars.forEach(function (el) {
+        var r = el.getBoundingClientRect(); if (r.bottom < -200 || r.top > vh + 200) return;
+        var c = (r.top + r.height / 2 - vh / 2);
+        el.style.transform = 'translate3d(0,' + (c * parseFloat(el.getAttribute('data-par'))) + 'px,0) scale(1.14)';
+      });
+    }
+    stage.style.opacity = String(Math.max(0, 1 - Math.max(0, target - vh * 0.85) / (vh * 0.5)));
+    sweepReveals();
+    if (Math.abs(target - cur) > 0.3 || target !== window.scrollY) requestAnimationFrame(frame); else ticking = false;
+  }
+  function kick() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+  window.addEventListener('scroll', kick, { passive: true });
+  window.addEventListener('resize', kick);
+  kick();
+
+  /* spotlight pause / play */
+  var spot = document.getElementById('spot');
+  var tgl = document.getElementById('spotToggle');
+  function setSpot(paused) {
+    spot.classList.toggle('paused', paused);
+    tgl.setAttribute('aria-pressed', String(paused));
+    document.getElementById('spotLabel').textContent = paused ? 'Play motion' : 'Pause motion';
+    document.getElementById('pauseIco').classList.toggle('hidden', paused);
+    document.getElementById('playIco').classList.toggle('hidden', !paused);
+  }
+  tgl.addEventListener('click', function () { setSpot(!spot.classList.contains('paused')); });
+  if (reduce) setSpot(true);
+
+  /* booking form */
+  var form = document.getElementById('bookForm');
+  var ok = document.getElementById('formOk');
+  var nameI = document.getElementById('name'), emailI = document.getElementById('email');
+  var nameE = document.getElementById('nameErr'), emailE = document.getElementById('emailErr');
+  function fail(input, errEl, msg) {
+    input.setAttribute('aria-invalid', 'true'); errEl.textContent = msg;
+    input.classList.remove('wd-shake'); void input.offsetWidth; input.classList.add('wd-shake');
+  }
+  function clear(input, errEl) { input.removeAttribute('aria-invalid'); errEl.textContent = ''; }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    ok.classList.add('hidden'); ok.classList.remove('show', 'flex');
+    var good = true;
+    if (!nameI.value.trim()) { fail(nameI, nameE, 'Please add your name.'); good = false; } else clear(nameI, nameE);
+    var v = emailI.value.trim();
+    if (!v) { fail(emailI, emailE, 'Please enter your email.'); good = false; }
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { fail(emailI, emailE, 'That email looks incomplete. Could you check it?'); good = false; }
+    else clear(emailI, emailE);
+    if (!good) { (form.querySelector('[aria-invalid="true"]') || nameI).focus(); return; }
+    ok.classList.remove('hidden'); ok.classList.add('flex'); void ok.offsetWidth; ok.classList.add('show');
+    form.reset();
+  });
+})();
+</script>
+</body>
+</html>
