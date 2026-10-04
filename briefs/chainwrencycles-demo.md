@@ -92,3 +92,51 @@ It's more cinematic because of the depth moves and the night-to-morning grade. I
 | Music | Soul with a male lead vocal (first vocal song) | Instrumentals: acoustic indie-pop, cinematic pop, afro-house, future bass |
 
 Not the same story angle or edit style as any of the last 5 runs, and not the same transition family or music genre as the last 3. **Passed.**
+
+## 9. Final story text and cold-read test
+
+Timings are snapped to the edit's bars (2.37 s + 2.507 s·n). The edit is a natural-tempo EditRecording version of "Links in a Chain": the verse from about 3.4 s, "we can make it happen" from 13.6 s, "turn things around" at about 17.8 s, and the chorus "we are links in the chain" from about 28.1 s.
+
+| # | On screen | Time (s) | Story step |
+|---|---|---|---|
+| 1 | If you fix bikes for a living, read this. | 0.0–4.9 | Who it's for (plus the clock card: "9:04 PM · Your shop closed at 6pm.") |
+| 2 | It's 9pm. A rider's chain just snapped. | 4.9–8.6 | Problem |
+| 3 | They find your shop. No prices, no booking. | 8.6–12.4 | Problem (dated site, "call for a quote" circled) |
+| 4 | So they book the shop across town. | 12.4–17.4 | Stakes |
+| 5 | Now picture this instead. | 17.4–21.2 | Turn (on "turn things around") |
+| 6 | Every repair and its price, right on the page. | 21.2–24.9 | Proof: desktop prices + card lift-out |
+| 7 | Just as clear on their phone. | 24.9–28.1 | Proof: mobile |
+| 8 | They book a tune-up and a time in a minute. | 28.1–32.5 | Proof: real booking form (the chorus starts) |
+| 9 | Booked at 9pm, while your shop was closed. | 32.5–36.2 | Payoff (clock flips to 7:58 AM, "New booking" card) |
+| 10 | A good website keeps working after you close. | 36.2–39.4 | The lesson |
+| End | Your bike shop / could take bookings / tonight. · Book your meeting → getwebdrip.com · Follow for more content like this | 39.4–45.0 | CTA |
+
+**Cold read (as a stranger who has never heard of WebDrip or this shop):** every line is one complete, plain thought a person would say out loud. There is no slang, no pun and no fragment that needs explaining. The only short fragment, "It's 9pm.", sets the scene and is followed straight away by the event. Beat 4 originally ended with "instead", which repeated beat 5's word, so it now reads "So they book the shop across town." The text hook ("If you fix bikes for a living, read this.") differs from the caption hook ("What happens when a customer needs you after closing time?"). **Passed.**
+
+**Music brief (logged):** warm, hopeful soul with a male lead vocal, about 95 BPM: a soft intro and verse under the after-hours problem, the pre-chorus line "turn things around" on the story's turn, and the chorus under the booking payoff and the WebDrip logo.
+
+## Self-review (after the final render)
+
+Watched as a tough creative director: final-render stills every 2.5 s on both cuts, plus `freezedetect`/`blackdetect`, loudness (−14.0 LUFS integrated, peak −3.5 dBFS on both cuts) and the cut timing against the edit's bar grid. The alignment check passed for every rest, transition, start, middle and end still on both cuts.
+
+| Criterion | Score | Notes |
+|---|---|---|
+| Hook (0–2 s) | 8 | "If you fix bikes for a living, read this." is on screen by 0.1 s over a big "9:04 PM" clock card with a snapped chain. Clear callout plus visual tension, no logo intro. |
+| Re-hooks (~5 s) | 8 | Phone crane 4.9 s, page scroll + circled "call for a quote" 8.6–10 s, grey-out + "Booking confirmed" elsewhere 12.4–13.5 s, clock tick 14.9 s, iris + orbit 17.4 s, card lift-out 22.3 s, phone 24.9 s, booking on the chorus 28–31 s, clock flip + notification 32.5 s, bento 36.2 s, end card 39.4 s. |
+| Story clarity | 9 | One night, one rider, one shop. Every beat reads cold as a plain sentence. |
+| Sounds like a real person | 9 | No slang, jokes or fragments that need explaining. |
+| Text readability | 8 | 64 px feed / 62 px TikTok, ≤ 2 lines, ≥ 3.1 s per beat, dark blue on a light canvas. |
+| Cinematic quality | 8 | A real crane, orbit + dolly, lift-out and iris, all settling flat. Still mostly frontal: no long orbit around a device. |
+| Pacing | 7 | Tight from 17 s on. The "booked elsewhere" hold (15–17 s) is the calmest stretch, with only a slow drift and the clock tick. |
+| Song fit | 8 | The soft verse sits under the problem, "turn things around" lands on "Now picture this instead", the chorus carries the booking and the logo lands on the 40 s bar. |
+| Readability on a phone | 8 | The TikTok cut leads with big devices (phone ≈ 77% of the usable height, a tall desktop crop at 1.16×). Text inside the dated site is decorative. |
+| Sells WebDrip | 8 | The payoff ("Booked at 9pm, while your shop was closed.") is a concrete win, followed by a held end card for 5 s. |
+
+Nothing scored under 7, so the post gate passes (story clarity 9 and text readability 8, both ≥ 7). Fixed before the final render: the phone crane starting off-canvas, the dolly not settled at the first hold, a 3-line TikTok text beat, the TikTok clock card touching the button column, and three near-static holds (added a slow dolly drift, a page auto-scroll and a floating notification).
+
+**What worked:** a clock chip as the story device; using the song's own lyric for the turn; a code-built dated site; the shared iris from the chip into the "after" world; a real booking recording with the success check landing on a beat.
+
+**Top 3 for the next run:**
+1. One long, slow orbit (2–3 s) around a device that settles flat, instead of only short tilts, for more true depth.
+2. Keep every hold under 2.5 s, or give it a visible change (a new element, a scroll), especially in the "stakes" act.
+3. Make the "before" moment more visual on TikTok (a bigger push into the problem, or a side-by-side with the after) so it reads even at a glance.

@@ -28,3 +28,9 @@ Notes that saved time:
 - Poppins is much wider than Oswald: keep video label titles ≤ ~24 characters (56 px feed / 54 px TikTok) so they stay on one line.
 - Epidemic `EditRecording` with `forceDuration: true` *time-stretches* the track to fit (a 63 s edit came back ~1.4× faster). Request without it, take the natural-tempo edit (required regions land where asked) and trim/fade it to 45 s yourself.
 - Long display titles: break them into balanced phrases per cut ("Same town. | Same lessons.") instead of letting the last word wrap alone.
+- Epidemic `DownloadRecording` returns FORBIDDEN ("You don't have permission to download this asset") on this plan, like the sound-effect downloads. Music must come from `EditRecording` → `DownloadRecordingEdit`. Two required regions came back `FAILED` once; **one** required region (the pre-chorus → chorus span at the offset you need) with `maxResults: 1` and no `forceDuration` gave a clean 45.5 s edit with a natural fade.
+- Map an edit back to the original song with chroma + MFCC cross-correlation (not raw waveforms; the preview MP3 and the WAV don't line up sample for sample). It gives a constant offset, so the original's whisper word times carry over to the edit.
+- Tailwind's preflight sets `img { max-width: 100% }`: an oversized hero image (`width: 112%`) needs `max-width: none`, or the image stops short on the right.
+- Tailwind `flex` on a `[hidden]` element wins over the attribute, so the mobile menu stays visible. Add `#mobileMenu[hidden] { display: none !important }`.
+- Before naming a brand, also grep `topics-log.json` and `sites/` for the name, not just the web: older runs live under `sites/<date>-<name>/`.
+- `cmd1 && cd dir && curl … &` sends the whole chain to the background, so later lines run in the old cwd. Put downloads in a subshell `( cd dir && … )` or use absolute `-o` paths, and never let audio land in the repo.
