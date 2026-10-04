@@ -13,6 +13,12 @@ mix.json: {
          {"start": 26, "end": 30, "type": "band", "lo": 700, "hi": 5000, "gain_db": -4}, ...]
       -> timed EQ moves on the music (zero-phase split, 80 ms ramps) when stems aren't available
   sfx entries may use "file": "/tmp/sfx/x.wav" instead of "type" (sample placed with its onset at "t")
+  "stems": {"drums": "/tmp/m/drums.wav", "bass": "/tmp/m/bass.wav", "instruments": "/tmp/m/instruments.wav"},
+  "stem_moves": [{"part": "low", "start": 18, "end": 22, "gain_db": -2.5}, {"part": "melody", "start": 26, "end": 30, "gain_db": -30}]
+      -> with Epidemic stems next to the full mix ("music"), split the full mix into four parts that sum back exactly:
+         drums (the drum stem), low (non-drum content under 150 Hz: bass + sub), melody (what the stems leave out, above
+         150 Hz) and rest (instruments). Moves are in video time with 60 ms ramps (or "ramp"). Epidemic's MELODY stem
+         isn't downloadable and its bass stem doesn't phase-match the mastered low end, hence the split.
 }
 Music is ducked smoothly under speech (150 ms look-ahead, attack 120 ms, release 450 ms) and swells back between lines.
 Sound effects are synthesised here, or placed from a sample file (e.g. a hit lifted from the licensed track). The master is loudness-normalised to the
@@ -128,8 +134,37 @@ def smooth(x, attack, release):
     return y
 
 
+def stem_parts(cfg):
+    from scipy.signal import sosfiltfilt
+    full = load(cfg['music'])
+    st = {k: load(v)[:len(full)] for k, v in cfg['stems'].items()}
+    lp = butter(4, 150, btype='low', fs=SR, output='sos')
+    drums = st['drums']
+    low = sosfiltfilt(lp, full - drums, axis=0)
+    resid = full - drums - st['bass'] - st['instruments']
+    melody = resid - sosfiltfilt(lp, resid, axis=0)
+    return {'drums': drums, 'low': low, 'melody': melody, 'rest': full - drums - low - melody}
+
+
 def build_music(cfg, N):
-    src = load(cfg['music'])
+    if cfg.get('stems'):
+        parts = stem_parts(cfg)
+        t = np.arange(N) / SR
+        out = np.zeros((N, 2))
+        for name, src in parts.items():
+            g = np.ones(N)
+            for mv in cfg.get('stem_moves', []):
+                if mv['part'] != name:
+                    continue
+                ramp = mv.get('ramp', 0.06)
+                w = np.clip(np.minimum((t - mv['start']) / ramp + 1, (mv['end'] - t) / ramp + 1), 0, 1)
+                g *= 1 + (db(mv['gain_db']) - 1) * w
+            out += cut_segments(cfg, src, N) * g[:, None]
+        return out
+    return cut_segments(cfg, load(cfg['music']), N)
+
+
+def cut_segments(cfg, src, N):
     segs = cfg.get('music_segments')
     if not segs:
         m = src[:N]
