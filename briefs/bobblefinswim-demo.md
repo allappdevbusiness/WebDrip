@@ -85,3 +85,28 @@ It's more gripping because the viewer is cast as the parent in frame 1 with a ti
 | Voice | af_heart (last three: bf_emma, af_heart, af_heart → not three in a row) | — |
 
 Not the same story angle or edit style as any of the last 5, nor the same transition family or music genre as the last 3. **Passed.**
+
+## Self-review (after render)
+
+Watched as a tough creative director: stills every 2.5 s on both cuts, the audio levels (−14.1 LUFS integrated, LRA 2.8 LU, true peak ≤ −1.2 dBFS) and the cut timing against the beat map.
+
+| Criterion | Score | Notes |
+|---|---|---|
+| Hook (0–2 s) | 8 | Mid-action split screen plus "Two swim schools." type and the matching VO line in the first second. The TikTok phones are a little small in the opening duel. |
+| Re-hooks (~5 s) | 8 | Zoom into the old site 2.5 s, "yeah, no" flick 5.9 s, twist type 6.6 s, silent-break reveal 10.2 s, callouts 12.6/15.1 s, laptop 17.7 s, explode 21.4 s, spotlight 25.1 s, booking 29.4 s, callback 33.1 s, end card 38.1 s. |
+| Story clarity | 9 | Two tabs, one booking: the whole plot reads with the sound off. |
+| Cinematic quality | 7 | Clean, premium and on-grid, but motion is mostly 2D slides and springs; the card explode is the only real 3D moment. |
+| Pacing | 8 | Fast first 10 s and a satisfying breath on the silent break. The spotlight act is the calmest stretch. |
+| Sound design and music fit | 8 | The track's own near-silent break lands under "Nobody will ever know", and the full band hits on "Now, this one." SFX are kept to real moments. |
+| Voice naturalness | 7 | af_heart sounds warm. The first three lines run at 1.05–1.08 to fit before the break, which makes the opening slightly hurried. |
+| Readability on a phone | 8 | Big hand-drawn type with balanced line breaks and bold word-highlight subtitles. Site text in the small duel phones is decorative only. |
+| Sells WebDrip | 8 | The callback ("Only one got the booking.") makes the cost concrete right before the CTA, then the end card holds for 6 s. |
+
+Nothing scored under 7, so no extra re-render pass. Fixed before the final render: split-screen devices drifting 4–7 px outside the safe area during the push-in (feed), orphan words in multi-line titles, and stray stubs on the hand-drawn underline.
+
+**What worked:** casting the viewer as the parent in frame 1; designing the timeline around the music's own silent break; a code-built "dated site" for the before shot (no real business); a shared-element phone morph from the booking act into the callback duel.
+
+**Top 3 for the next run:**
+1. Real camera depth: at least one slow 3D dolly or orbit around a device (rotateY sweep that settles flat), not only 2D slides.
+2. Bigger devices in the TikTok opening shot (stack or overlap the phones) so frame 1 reads instantly on a phone.
+3. Write the VO around the music's quiet moments first and keep Kokoro at ≤ 1.03 speed with ≥ 0.35 s gaps, so the opening never feels rushed.

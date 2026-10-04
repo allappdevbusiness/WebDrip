@@ -1,7 +1,8 @@
 import React from 'react';
 import { Composition } from 'remotion';
 import { Promo } from './Promo';
-import { CANVAS, DURATION, FPS } from './layout';
+import { CANVAS, FPS } from './kit';
+import { DURATION } from './story';
 
 export const RemotionRoot: React.FC = () => (
   <>
