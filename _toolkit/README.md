@@ -34,3 +34,10 @@ Notes that saved time:
 - Tailwind `flex` on a `[hidden]` element wins over the attribute, so the mobile menu stays visible. Add `#mobileMenu[hidden] { display: none !important }`.
 - Before naming a brand, also grep `topics-log.json` and `sites/` for the name, not just the web: older runs live under `sites/<date>-<name>/`.
 - `cmd1 && cd dir && curl … &` sends the whole chain to the background, so later lines run in the old cwd. Put downloads in a subshell `( cd dir && … )` or use absolute `-o` paths, and never let audio land in the repo.
+
+- `rec.js` only drives the scroll when a shot's `from` and `to` differ; otherwise the page scrolls itself, so smooth anchor links work in the recording. Each shot writes `<profile>-<shot>.json` with every click/tap/hover target's rect and any `probe` rects. Use them to place the Remotion cursor, tap rings and underlines on the real positions. It also logs late frames.
+- `Animation.setPlaybackRate` slows `requestAnimationFrame` timestamps too, while `performance.now()` keeps real time. Page JS that mixes the two stalls during recording, as an anchor scroll did. Drive JS animations from rAF timestamps only.
+- Integer scroll rounding makes 1-frame "holds" at the slow ends of an eased scripted scroll. That's expected and not visible.
+- `mix.py` takes `music_segments` (bar-aligned cuts with equal-power crossfades), timed `eq` moves (a low-shelf dip, a band dip in place of missing stems) and sample `sfx` (`file`). `vo.py` takes `whisper_model` (base.en hears "your shelf" and "getwebdrip" correctly where tiny.en did not).
+- `check.mjs` also fails a footage window (`tile`) that its own `<id>-video` doesn't fill, and checks `data-scene="global"` overlays (notice, titles) against every scene's devices.
+- Epidemic (2026-10-04): `DownloadRecording` and `DownloadSoundEffect` are still FORBIDDEN, and two `requiredRegionsAtOffsets` FAILED again. One region (`maxResults: 1`, no `forceDuration`) worked, and the 3-bar cut was then made in `mix.py` on the beat grid.

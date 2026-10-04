@@ -3,7 +3,7 @@
 // Colours and copy come in as props so every run can style them from its own brief.
 import React, { useEffect, useState } from 'react';
 import { AbsoluteFill, OffthreadVideo, continueRender, delayRender, staticFile, useCurrentFrame } from 'remotion';
-import { CANVAS, CX, DESK, Fmt, LANE, MOB, Rect, browser, clamp, easeInOut, easeOut, phone, ramp } from './kit';
+import { CANVAS, CX, DESK, Fmt, LANE, MOB, Rect, SAFE, browser, clamp, easeInOut, easeOut, phone, ramp } from './kit';
 
 // ---------- fonts (local woff2, the render browser can't reach Google Fonts) ----------
 export type FontSpec = { family: string; file: string; weight?: string };
@@ -166,7 +166,7 @@ export const WebDripMark: React.FC<{ size: number }> = ({ size }) => (
 
 // ---------- debug overlay for the alignment-check stills ----------
 export const Guides: React.FC<{ f: Fmt }> = ({ f }) => {
-  const S = f === 'feed' ? { x: 60, y: 80, w: 960, h: 1150 } : { x: 120, y: 150, w: 840, h: 1370 };
+  const S = SAFE[f];
   const L = LANE[f];
   return <AbsoluteFill style={{ pointerEvents: 'none' }}>
     <div style={{ position: 'absolute', left: S.x, top: S.y, width: S.w, height: S.h, outline: '2px dashed rgba(0,180,120,.9)' }} />

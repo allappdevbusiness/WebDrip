@@ -7,7 +7,7 @@ Usage:
 vo.json: {
   "voice": "af_heart", "out": "/tmp/vo", "captions": "/tmp/video/src/captions.json",
   "model": "/tmp/kokoro/kokoro-v1.0.onnx", "voices": "/tmp/kokoro/voices-v1.0.bin",
-  "aliases": {"writing": "riding"},
+  "aliases": {"writing": "riding"}, "whisper_model": "base.en" (optional, default tiny.en),
   "lines": [{"id": "hook", "start": 0.25, "speed": 0.95, "say": "spoken text", "show": "subtitle text"}, ...]
 }
 Model files: github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/{kokoro-v1.0.onnx,voices-v1.0.bin}.
@@ -39,7 +39,7 @@ def gen(cfg, only):
 
 def align(cfg):
     from faster_whisper import WhisperModel
-    m = WhisperModel('tiny.en', device='cpu', compute_type='int8')
+    m = WhisperModel(cfg.get('whisper_model', 'tiny.en'), device='cpu', compute_type='int8')
     out = {}
     for l in cfg['lines']:
         f = f"{cfg['out']}/{l['id']}.wav"

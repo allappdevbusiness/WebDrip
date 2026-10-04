@@ -74,9 +74,14 @@ for (const fmt of fmts) {
           const v = vis.filter((x) => x.kind === 'video' && x.scene === sc.scene && inter(x, sc));
           if (!v.some((x) => x.x <= sc.x + 1 && x.y <= sc.y + 1 && x.x + x.w >= sc.x + sc.w - 1 && x.y + x.h >= sc.y + sc.h - 1)) errs.push(`${sc.id} not filled by its clip`);
         }
-        // text never overlaps device frames; subtitles never collide with anything important
+        // footage windows (tiles) are filled edge to edge by their own clip (<id>-video)
+        for (const tl of vis.filter((x) => x.kind === 'tile')) {
+          const v = vis.find((x) => x.kind === 'video' && x.id === tl.id + '-video');
+          if (v && !(v.x <= tl.x + 1 && v.y <= tl.y + 1 && v.x + v.w >= tl.x + tl.w - 1 && v.y + v.h >= tl.y + tl.h - 1)) errs.push(`${tl.id} not filled by its clip`);
+        }
+        // text never overlaps device frames (global overlays are checked against every scene)
         const texts = vis.filter((x) => x.kind === 'text'), devs = vis.filter((x) => DEVICES.includes(x.kind));
-        for (const tx of texts) for (const d of devs) if (tx.scene === d.scene && inter(tx, d)) errs.push(`${tx.id} overlaps ${d.id}`);
+        for (const tx of texts) for (const d of devs) if ((tx.scene === d.scene || tx.scene === 'global') && inter(tx, d)) errs.push(`${tx.id} overlaps ${d.id}`);
         for (const sb of vis.filter((x) => x.kind === 'subs')) for (const o of vis.filter((x) => IMPORTANT.includes(x.kind) && x.kind !== 'subs')) if (inter(sb, o)) errs.push(`subs collide with ${o.id}`);
         // flat & square during holds
         const tilt = S.tiltAt(fmt, fr.f);

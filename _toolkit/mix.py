@@ -5,10 +5,17 @@ mix.json: {
   "music": "/tmp/music/track.wav", "out": "/tmp/video/public/mix.wav", "duration": 60.0,
   "voice": [{"file": "/tmp/vo/line00.wav", "start": 0.25}, ...],
   "sfx": [{"t": 5.0, "type": "whoosh"|"impact"|"tick"|"pop"|"rise", "gain_db": -18}, ...],
-  "duck_db": -9, "fade_out": 2.0, "lufs": -14.0, "voice_gain_db": 0
+  "duck_db": -9, "fade_out": 2.0, "lufs": -14.0, "voice_gain_db": 0,
+  optional:
+  "music_segments": [{"from": 0, "to": 14, "at": 0}, {"from": 20, "to": 42, "at": 14}], "xfade": 0.03,
+      -> build the bed from cuts of the (licensed) music file, equal-power crossfades centred on each "at"
+  "eq": [{"start": 18, "end": 22, "type": "lowshelf", "freq": 150, "gain_db": -2.5},
+         {"start": 26, "end": 30, "type": "band", "lo": 700, "hi": 5000, "gain_db": -4}, ...]
+      -> timed EQ moves on the music (zero-phase split, 80 ms ramps) when stems aren't available
+  sfx entries may use "file": "/tmp/sfx/x.wav" instead of "type" (sample placed with its onset at "t")
 }
 Music is ducked smoothly under speech (attack 120 ms, release 450 ms) and swells back between lines.
-All sound effects are synthesised here (no sample library). The master is loudness-normalised to the
+Sound effects are synthesised here, or placed from a sample file (e.g. a hit lifted from the licensed track). The master is loudness-normalised to the
 target LUFS with a soft-knee peak limiter keeping true peaks under -1 dBFS.
 """
 import json
@@ -121,10 +128,47 @@ def smooth(x, attack, release):
     return y
 
 
+def build_music(cfg, N):
+    src = load(cfg['music'])
+    segs = cfg.get('music_segments')
+    if not segs:
+        m = src[:N]
+        return np.pad(m, ((0, N - len(m)), (0, 0)))
+    xf = int(cfg.get('xfade', 0.03) * SR)
+    out = np.zeros((N, 2))
+    for k, sg in enumerate(segs):
+        a = int(sg['from'] * SR) - (xf // 2 if k > 0 else 0)
+        b = int(sg['to'] * SR) + (xf // 2 if k < len(segs) - 1 else 0)
+        piece = src[max(0, a):b].copy()
+        n = len(piece)
+        w = np.ones(n)
+        if k > 0:
+            w[:xf] = np.sin(np.linspace(0, np.pi / 2, xf)) ** 2
+        if k < len(segs) - 1:
+            w[-xf:] = np.cos(np.linspace(0, np.pi / 2, xf)) ** 2
+        place(out, piece * np.sqrt(w)[:, None], sg['at'] - (xf / 2 / SR if k > 0 else 0))
+    return out
+
+
+def apply_eq(music, moves):
+    from scipy.signal import sosfiltfilt
+    N = len(music); t = np.arange(N) / SR
+    for mv in moves:
+        if mv['type'] == 'lowshelf':
+            part = sosfiltfilt(butter(2, mv['freq'], btype='low', fs=SR, output='sos'), music, axis=0)
+        else:
+            part = sosfiltfilt(butter(2, [mv['lo'], mv['hi']], btype='band', fs=SR, output='sos'), music, axis=0)
+        ramp = mv.get('ramp', 0.08)
+        w = np.clip(np.minimum((t - mv['start']) / ramp + 1, (mv['end'] - t) / ramp + 1), 0, 1)
+        music = music + (db(mv['gain_db']) - 1) * part * w[:, None]
+    return music
+
+
 def main(cfg):
     N = int(cfg['duration'] * SR)
-    music = load(cfg['music'])[:N]
-    music = np.pad(music, ((0, N - len(music)), (0, 0)))
+    music = build_music(cfg, N)
+    if cfg.get('eq'):
+        music = apply_eq(music, cfg['eq'])
     voice = np.zeros((N, 2))
     for v in cfg.get('voice', []):
         place(voice, load(v['file']), v['start'], db(cfg.get('voice_gain_db', 0) + v.get('gain_db', 0)))
@@ -144,7 +188,10 @@ def main(cfg):
 
     sfx = np.zeros((N, 2))
     for s in cfg.get('sfx', []):
-        place(sfx, SFX[s['type']](), s['t'] - (0.35 if s['type'] == 'whoosh' else 1.45 if s['type'] == 'rise' else 0), db(s.get('gain_db', -18)))
+        if s.get('file'):
+            place(sfx, load(s['file']), s['t'], db(s.get('gain_db', -18)))
+        else:
+            place(sfx, SFX[s['type']](), s['t'] - (0.35 if s['type'] == 'whoosh' else 1.45 if s['type'] == 'rise' else 0), db(s.get('gain_db', -18)))
 
     # level the stems before summing: voice ~ -16 LUFS, music bed ~ -20 LUFS (pre-duck), sfx as authored
     meter = pyln.Meter(SR)
