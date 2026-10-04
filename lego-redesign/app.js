@@ -47,8 +47,10 @@
       }
     };
     if (reduced()) { window.scrollTo(0, to); done(); return; }
-    var from = window.scrollY, dur = ms(500), t0 = performance.now();
+    // One clock for the whole animation: requestAnimationFrame timestamps.
+    var from = window.scrollY, dur = 500, t0 = null;
     var step = function (now) {
+      if (t0 === null) t0 = now;
       var t = Math.min(1, (now - t0) / dur);
       var e = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
       window.scrollTo(0, from + (to - from) * e);
