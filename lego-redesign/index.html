@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LEGO homepage concept: choose your next build | WebDrip</title>
+  <meta name="description" content="Unofficial concept redesign of the LEGO homepage by WebDrip. Not affiliated with LEGO.">
+  <link rel="icon" href="data:,">
+  <link rel="preload" href="fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('wd-js');setTimeout(function(){if(!window.__wdReady)document.documentElement.classList.add('wd-reveal-all');},3000);</script>
+</head>
+<body>
+  <a class="wd-skip" href="#main">Skip to content</a>
+
+  <div class="wd-top" id="top">
+    <p class="wd-notice">Unofficial concept redesign. Not affiliated with LEGO.</p>
+    <header class="wd-header">
+      <div class="wd-wrap wd-header__row">
+        <a class="wd-wordmark" href="#top" data-scroll="top" aria-label="LEGO concept home, back to top">
+          <span class="wd-wordmark__name">LEGO</span>
+          <span class="wd-wordmark__tag">WebDrip concept</span>
+        </a>
+        <nav class="wd-nav" aria-label="Main">
+          <a class="wd-nav__link" href="#sets" data-scroll="sets">Sets</a>
+          <a class="wd-nav__link" href="#gifts" data-scroll="gifts">Gifts</a>
+          <a class="wd-nav__link" href="#discover" data-scroll="discover">Discover</a>
+          <a class="wd-nav__link" href="#about-concept" data-scroll="about-concept">About this concept</a>
+        </nav>
+        <button class="wd-menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menuSheet">Menu</button>
+      </div>
+    </header>
+  </div>
+
+  <div class="wd-sheet" id="menuSheet" hidden>
+    <div class="wd-sheet__backdrop" data-menu-close></div>
+    <div class="wd-sheet__panel" role="dialog" aria-modal="true" aria-label="Menu">
+      <div class="wd-sheet__head">
+        <p class="wd-sheet__title">Menu</p>
+        <button class="wd-close" type="button" data-menu-close>Close <span aria-hidden="true">×</span></button>
+      </div>
+      <ul class="wd-sheet__list">
+        <li><a class="wd-sheet__link" href="#sets" data-scroll="sets">Sets</a></li>
+        <li><a class="wd-sheet__link" href="#gifts" data-scroll="gifts">Gifts</a></li>
+        <li><a class="wd-sheet__link" href="#discover" data-scroll="discover">Discover</a></li>
+        <li><a class="wd-sheet__link" href="#about-concept" data-scroll="about-concept">About this concept</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="wd-hero" aria-labelledby="heroTitle">
+      <div class="wd-wrap wd-hero__grid">
+        <div class="wd-hero__panel">
+          <h1 class="wd-h1 wd-reveal" id="heroTitle">What will you build next?</h1>
+          <p class="wd-hero__sub wd-reveal">Discover new arrivals and find a set for your interests.</p>
+          <div class="wd-hero__actions wd-reveal">
+            <a class="wd-btn wd-btn--primary" id="heroFind" href="#sets" data-scroll="sets">Find my next build</a>
+            <a class="wd-btn wd-btn--secondary" href="#gifts" data-scroll="gifts">Explore gifts</a>
+          </div>
+        </div>
+        <div class="wd-hero__media wd-reveal">
+          <picture>
+            <source media="(max-width: 767px)" srcset="assets/hero-playstation-mobile.webp" width="750" height="750">
+            <img class="wd-hero__img" src="assets/hero-playstation-desktop.webp" width="1920" height="600" alt="The LEGO PlayStation set and its controller displayed on an orange table.">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <section class="wd-section wd-sets" id="sets" aria-labelledby="setsTitle">
+      <div class="wd-wrap">
+        <div class="wd-sets__head">
+          <h2 class="wd-h2" id="setsTitle" tabindex="-1">Find the perfect set</h2>
+          <p class="wd-lead">Choose an interest to explore this concept selection.</p>
+        </div>
+        <div class="wd-filters" role="group" aria-label="Choose an interest">
+          <button class="wd-filter" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="wd-filter" type="button" data-filter="gaming" aria-pressed="false">Gaming</button>
+          <button class="wd-filter" type="button" data-filter="display" aria-pressed="false">Display</button>
+          <button class="wd-filter" type="button" data-filter="seasonal" aria-pressed="false">Seasonal</button>
+        </div>
+        <p class="wd-count" id="setCount" aria-live="polite">8 sets in this concept</p>
+        <ul class="wd-grid" id="setGrid" data-count="8">
+          <li class="wd-card" data-interest="gaming" data-id="game-boy">
+            <div class="wd-card__inner">
+              <div class="wd-card__media wd-card__media--product"><img src="assets/product-game-boy.webp" width="750" height="577" alt="LEGO Game Boy set"></div>
+              <div class="wd-card__body">
+                <h3 class="wd-card__name">Game Boy™</h3>
+                <p class="wd-card__price">$59.99</p>
+                <button class="wd-btn wd-btn--quick" type="button" data-quick="game-boy">Quick view<span class="wd-sr"> of Game Boy™</span></button>
+              </div>
+            </div>
+          </li>
+          <li class="wd-card" data-interest="gaming" data-id="mario-kart">
+            <div class="wd-card__inner">
+              <div class="wd-card__media wd-card__media--product"><img src="assets/product-mario-kart.webp" width="750" height="655" alt="LEGO Mario Kart Mario and Standard Kart set"></div>
+              <div class="wd-card__body">
+                <h3 class="wd-card__name">Mario Kart™ – Mario &amp; Standard Kart</h3>
+                <p class="wd-card__price">$169.99</p>
+                <button class="wd-btn wd-btn--quick" type="button" data-quick="mario-kart">Quick view<span class="wd-sr"> of Mario Kart™ – Mario &amp; Standard Kart</span></button>
+              </div>
+            </div>
+          </li>
+          <li class="wd-card" data-interest="display" data-id="book-nook">
+            <div class="wd-card__inner">
+              <div class="wd-card__media wd-card__media--product"><img src="assets/product-book-nook.webp" width="750" height="482" alt="LEGO Bookstore Book Nook set"></div>
+              <div class="wd-card__body">
+                <h3 class="wd-card__name">Bookstore: Book Nook</h3>
+                <p class="wd-card__price">$149.99</p>
+                <button class="wd-btn wd-btn--quick" type="button" data-quick="book-nook">Quick view<span class="wd-sr"> of Bookstore: Book Nook</span></button>
+              </div>
+            </div>
+          </li>
+          <li class="wd-card" data-interest="display" data-id="golden-pothos">
+            <div class="wd-card__inner">
+              <div class="wd-card__media wd-card__media--photo"><img src="assets/lifestyle-golden-pothos.webp" width="2250" height="2250" alt="LEGO Hanging Golden Pothos set"></div>
+              <div class="wd-card__body">
+                <h3 class="wd-card__name">Hanging Golden Pothos</h3>
+                <p class="wd-card__price">$59.99</p>
+                <button class="wd-btn wd-btn--quick" type="button" data-quick="golden-pothos">Quick view<span class="wd-sr"> of Hanging Golden Pothos</span></button>
+              </div>
+            </div>
+          </li>
+          <li class="wd-card" data-interest="display" data-id="downton-abbey">
+            <div class="wd-card__inner">
+              <div class="wd-card__media wd-card__media--photo"><img src="assets/lifestyle-downton-abbey.webp" width="2250" height="2250" alt="LEGO Downton Abbey set"></div>
+              <div class="wd-card__body">
+                <h3 class="wd-card__name">Downton Abbey</h3>
+                <p class="wd-card__price">$349.99</p>
+                <button class="wd-btn wd-btn--quick" type="button" data-quick="downton-abbey">Quick view<span class="wd-sr"> of Downton Abbey</span></button>
+              </div>
+            </div>
+          </li>
+          <li class="wd-card" data-interest="display" data-id="bikini-bottom">
+            <div class="wd-card__inner">
+              <div class="wd-card__media wd-card__media--photo"><img src="assets/lifestyle-bikini-bottom.webp" width="2250" height="2250" alt="LEGO SpongeBob SquarePants Bikini Bottom set"></div>
+              <div class="wd-card__body">
+                <h3 class="wd-card__name">SpongeBob SquarePants: Bikini Bottom</h3>
+                <p class="wd-card__price">$219.99</p>
+                <button class="wd-btn wd-btn--quick" type="button" data-quick="bikini-bottom">Quick view<span class="wd-sr"> of SpongeBob SquarePants: Bikini Bottom</span></button>
+              </div>
+            </div>
+          </li>
+          <li class="wd-card" data-interest="seasonal" data-id="holiday-house">
+            <div class="wd-card__inner">
+              <div class="wd-card__media wd-card__media--product"><img src="assets/product-holiday-house.webp" width="750" height="521" alt="LEGO Holiday House set"></div>
+              <div class="wd-card__body">
+                <h3 class="wd-card__name">Holiday House</h3>
+                <p class="wd-card__price">$119.99</p>
+                <button class="wd-btn wd-btn--quick" type="button" data-quick="holiday-house">Quick view<span class="wd-sr"> of Holiday House</span></button>
+              </div>
+            </div>
+          </li>
+          <li class="wd-card" data-interest="seasonal" data-id="home-alone">
+            <div class="wd-card__inner">
+              <div class="wd-card__media wd-card__media--photo"><img src="assets/lifestyle-home-alone.webp" width="2250" height="2250" alt="LEGO Ideas Home Alone set"></div>
+              <div class="wd-card__body">
+                <h3 class="wd-card__name">LEGO® Ideas Home Alone</h3>
+                <p class="wd-card__price">$299.99</p>
+                <button class="wd-btn wd-btn--quick" type="button" data-quick="home-alone">Quick view<span class="wd-sr"> of LEGO® Ideas Home Alone</span></button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="wd-section wd-inspo" id="inspiration" aria-labelledby="inspoTitle">
+      <div class="wd-wrap">
+        <h2 class="wd-h2 wd-reveal" id="inspoTitle" tabindex="-1">See what everyone's building</h2>
+        <p class="wd-lead wd-reveal">Take on a new building adventure with these inspirational LEGO® sets.</p>
+        <div class="wd-inspo__grid">
+          <figure class="wd-tile wd-reveal">
+            <img src="assets/lifestyle-downton-abbey.webp" width="2250" height="2250" alt="The LEGO Downton Abbey set displayed in a room." loading="lazy">
+            <figcaption>Downton Abbey</figcaption>
+          </figure>
+          <figure class="wd-tile wd-reveal">
+            <img src="assets/lifestyle-bikini-bottom.webp" width="2250" height="2250" alt="The LEGO SpongeBob SquarePants Bikini Bottom set displayed in a room." loading="lazy">
+            <figcaption>SpongeBob SquarePants: Bikini Bottom</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="wd-section wd-gifts" id="gifts" aria-labelledby="giftsTitle">
+      <div class="wd-wrap wd-gifts__grid">
+        <div class="wd-gifts__copy">
+          <h2 class="wd-h2 wd-reveal" id="giftsTitle" tabindex="-1">Gifts that awaken their joy</h2>
+          <p class="wd-lead wd-reveal">Show how well you know them with LEGO® sets that turn their passions into display-worthy creations.</p>
+          <div class="wd-reveal"><button class="wd-btn wd-btn--primary" type="button" data-show-all>Explore the selection</button></div>
+        </div>
+        <div class="wd-gifts__frame wd-reveal">
+          <picture>
+            <source media="(max-width: 767px)" srcset="assets/lifestyle-adult-gifting-mobile.webp" width="750" height="750">
+            <img class="wd-gifts__img" src="assets/lifestyle-adult-gifting-desktop.webp" width="1920" height="840" alt="Three adults building LEGO sets: a sunflower bouquet, a McLaren Formula 1 car and the PlayStation console." loading="lazy">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <section class="wd-section wd-discover" id="discover" aria-labelledby="discoverTitle">
+      <div class="wd-wrap">
+        <h2 class="wd-h2 wd-reveal" id="discoverTitle" tabindex="-1">Discover more</h2>
+        <div class="wd-discover__grid">
+          <article class="wd-dcard wd-reveal">
+            <div class="wd-dcard__media"><img src="assets/campaign-gifting.webp" width="1200" height="830" alt="A LEGO wizard minifigure holding a gift box." loading="lazy"></div>
+            <div class="wd-dcard__body">
+              <h3 class="wd-h3">Get gifting</h3>
+              <p>Explore the sets in this concept.</p>
+              <button class="wd-btn wd-btn--secondary" type="button" data-show-all>Browse gift ideas</button>
+            </div>
+          </article>
+          <article class="wd-dcard wd-reveal">
+            <div class="wd-dcard__media"><img src="assets/campaign-articles.webp" width="1200" height="830" alt="LEGO inspiration articles artwork." loading="lazy"></div>
+            <div class="wd-dcard__body">
+              <h3 class="wd-h3">Read all about it!</h3>
+              <p>See sets displayed in real spaces.</p>
+              <a class="wd-btn wd-btn--secondary" href="#inspiration" data-scroll="inspiration">See the inspiration</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="wd-section wd-about" id="about-concept" aria-labelledby="aboutTitle">
+      <div class="wd-wrap">
+        <div class="wd-about__box wd-reveal">
+          <h2 class="wd-h2" id="aboutTitle" tabindex="-1">About this concept</h2>
+          <p class="wd-lead">A homepage design exploration by WebDrip. Unofficial concept redesign. Not affiliated with LEGO. Product names, images and prices are a snapshot from LEGO’s US homepage on October 4, 2026. This demo does not sell products.</p>
+          <h3 class="wd-h3">Want a website for your business?</h3>
+          <a class="wd-btn wd-btn--blue" href="https://getwebdrip.com" target="_blank" rel="noopener noreferrer">Book a meeting at getwebdrip.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wd-footer">
+    <div class="wd-wrap wd-footer__row">
+      <p>Unofficial concept redesign. Not affiliated with LEGO. Product names and images belong to their respective owners.</p>
+      <p><a href="https://getwebdrip.com" target="_blank" rel="noopener noreferrer">Concept design by WebDrip</a></p>
+    </div>
+  </footer>
+
+  <div class="wd-qv" id="quickView" hidden>
+    <div class="wd-qv__backdrop" data-qv-close></div>
+    <div class="wd-qv__panel" role="dialog" aria-modal="true" aria-labelledby="qvName" aria-describedby="qvNote">
+      <div class="wd-qv__head">
+        <span class="wd-chip" id="qvInterest">Gaming</span>
+        <button class="wd-close" type="button" data-qv-close>Close <span aria-hidden="true">×</span></button>
+      </div>
+      <div class="wd-qv__content">
+        <div class="wd-qv__media" id="qvMedia"><img id="qvImg" src="assets/product-game-boy.webp" alt=""></div>
+        <div class="wd-qv__info">
+          <h2 class="wd-qv__name" id="qvName">Game Boy™</h2>
+          <p class="wd-qv__price" id="qvPrice">$59.99</p>
+          <p class="wd-qv__note" id="qvNote">Concept preview only. No purchase is made here.</p>
+          <button class="wd-btn wd-btn--primary wd-qv__back" type="button" data-qv-close>Back to sets</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
