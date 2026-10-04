@@ -12,7 +12,7 @@
     "music_direction": "Bright instrumental broken-beat electronic with mallet/plucked-synth motif, 120 BPM preferred, full groove at 4s, music-only mobile interaction at 22–26s, resolve at 30s.",
     "research_focus": "Useful interaction as the story; original interface footage, interest-based audience relevance, a genuine choice question, and sparse voiceover as a testable format.",
     "status": "awaiting_approval",
-    "preview_sent_at": "2026-10-04T17:38:38Z",
+    "preview_sent_at": "2026-10-04T18:50:33Z",
     "preview_url_facebook": "https://pub-027038837b0f4c1bb96993e264c3509a.r2.dev/lego-redesign/video.mp4",
     "preview_url_tiktok": "https://pub-027038837b0f4c1bb96993e264c3509a.r2.dev/lego-redesign/video-tiktok.mp4",
     "caption_facebook": "What would you choose first: gaming, a display piece, or a seasonal build? 🧱\n\nFor Redesign Day, we imagined a LEGO homepage that starts with your interests, then puts matching sets and prices within easy reach. A playful design with a clear next step, on desktop and mobile.\n\nUnofficial concept redesign. Not affiliated with LEGO.\n\n#RedesignDay #WebDesign #SmallBusiness #WebDrip\n\nWant a website designed around your customers? Book a meeting at www.getwebdrip.com",
@@ -22,17 +22,16 @@
       "title": "Outliers",
       "artist": "Gridded",
       "bpm": 120,
-      "delivery": "Epidemic EditRecording 02cd3842-88ba-4baf-bfe8-a34ad6ff2e58 (one region, original 28.27-70.27 s) + own 3-bar cut at 14.0 s"
+      "delivery": "Epidemic DownloadRecording WAV: FULL + DRUMS, BASS, INSTRUMENTS stems; cut original 28.25-42.25 s at 0 s and 48.25-70.25 s at 14.0 s; stem moves: low -2.5 dB 18-22 s, drums +1.5 dB 22-26 s, melody out 26-30 s"
     },
     "voice_engine": "Kokoro (kokoro-onnx v1.0)",
-    "voice": "af_nicole",
-    "sfx": "Epidemic DownloadSoundEffect FORBIDDEN; brief fallback: short percussion hits lifted from the licensed Outliers edit on 11 visible actions; 4.0 s and 30.0 s cues carried by the music",
+    "voice": "af_heart",
+    "sfx": "13 Epidemic DownloadSoundEffect WAVs on the 13 brief cues (brick snap, three-part brick clack, UI clicks, muted ticks, touchscreen taps, bubbly tap, air whoosh, mallet resolve pitched to E-flat)",
     "deviations": [
+      "voice af_heart instead of af_nicole (Sourav's instruction)",
+      "melody part derived (full minus downloadable stems, above 150 Hz); bass move on all non-drum content under 150 Hz",
+      "30.0 s pluck pitched down 2 semitones; 4.0 s clack built from three single brick hits",
       "hero image object-position 97% 50% (brief 78%) to keep the baked PlayStation badge",
-      "gaming VO line at 1.03x to fit its 3.45 s window",
-      "CTA VO uses the brief's pre-approved backup line",
-      "SFX from the music's own percussion (library downloads forbidden); air movement omitted",
-      "music: one-region Epidemic edit + own 3-bar cut (two-region edit failed)",
       "Facebook phone footage 330 px wide (brief 340) to clear the subtitle lane",
       "captions as one-line complete phrases; TikTok panel bottom at y 1508",
       "26-30 s title fades at 28.6 s when the phone rises",
@@ -41,23 +40,25 @@
       "WebDrip blue #0075DE for the end panel/underline"
     ],
     "checks": {
-      "playwright": "24/24 passed",
-      "alignment": "104/104 stills passed (round 3)",
-      "loudness": "-14.3 LUFS, true peak -2.1 dBFS",
-      "duration_s": 36.0
+      "playwright": "24/24 passed (site unchanged)",
+      "alignment": "104/104 story frames passed; 30 subtitle-midpoint frames clean (orbit tilt flags only)",
+      "loudness": "-14.3 LUFS, true peak -3.0 dBFS",
+      "duration_s": 36.0,
+      "transcript": "final-mix whisper base.en matches the script"
     },
     "self_review_scores": {
       "hook": 7,
-      "matches_brief": 8,
+      "matches_brief": 9,
       "story_clarity": 8,
       "readability": 7,
       "smoothness": 8,
-      "music_fit": 8,
-      "sfx": 6,
-      "voiceover": 7,
+      "music_fit": 9,
+      "sfx": 8,
+      "voiceover": 8,
       "end_card": 9,
       "sells_webdrip": 7
     },
-    "videos_deleted": false
+    "videos_deleted": false,
+    "remake": "2026-10-04: soundtrack rebuilt on Sourav's request after the Epidemic Pro upgrade (full track + stems, 13 Epidemic SFX, Kokoro af_heart); picture unchanged apart from subtitle timing"
   }
 ]
