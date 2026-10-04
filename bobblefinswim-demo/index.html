@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bobblefin Swim School — swim lessons that feel like playtime</title>
+<meta name="description" content="Bobblefin is a warm-water swim school for little ones aged 6 months to 11 years. Tiny groups, patient teachers and ducky badges for every big moment. A concept design by WebDrip.">
+<meta name="theme-color" content="#49B6E5">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bobblefin Swim School — swim lessons that feel like playtime">
+<meta property="og:description" content="Warm water, tiny groups and patient teachers for kids aged 6 months to 11. Concept design by WebDrip.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1690125408806-bb88519d83c7?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8c3dpbW1pbmclMjBwb29sJTIwbGFuZXMlMjBhZXJpYWx8ZW58MHwwfHx8MTc5MTA4MTYwNHww&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bobblefin Swim School — swim lessons that feel like playtime">
+<meta name="twitter:description" content="Warm water, tiny groups and patient teachers for kids aged 6 months to 11. Concept design by WebDrip.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1690125408806-bb88519d83c7?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8c3dpbW1pbmclMjBwb29sJTIwbGFuZXMlMjBhZXJpYWx8ZW58MHwwfHx8MTc5MTA4MTYwNHww&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Delius&family=Delius+Swash+Caps&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { pool: '#49B6E5', poolDeep: '#1F7FAE', navy: '#263D5B', ink: '#14213A', cream: '#FFF9EC', sky: '#DDF2FB', sun: '#FFD25A', coral: '#FF7B5C', mint: '#CDF1E5', soft: '#46566E' },
+    fontFamily: { sans: ['Delius', 'Comic Neue', 'system-ui', 'sans-serif'], display: ['"Delius Swash Caps"', 'Delius', 'cursive'], mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'] }
+  } } };
+</script>
+<style>
+  :root {
+    --pool: #49B6E5; --pool-deep: #1F7FAE; --navy: #263D5B; --ink: #14213A;
+    --cream: #FFF9EC; --sky: #DDF2FB; --sun: #FFD25A; --coral: #FF7B5C; --mint: #CDF1E5; --soft: #46566E;
+    --wob: 255px 18px 225px 18px / 18px 225px 18px 255px;
+    --wob2: 18px 225px 18px 255px / 255px 18px 225px 18px;
+    --ease: cubic-bezier(.2, .8, .2, 1);
+    --spring: cubic-bezier(.34, 1.4, .5, 1);
+  }
+  html { scroll-behavior: smooth; background: var(--cream); overflow-x: clip; }
+  body { background: var(--cream); color: var(--ink); font-family: Delius, system-ui, sans-serif; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+  main, footer { overflow-x: clip; }
+  ::selection { background: var(--sun); color: var(--ink); }
+  h1, h2, h3 { font-family: 'Delius Swash Caps', Delius, cursive; font-weight: 400; letter-spacing: -0.01em; line-height: 1.1; }
+  h2, h3, p { text-wrap: pretty; }
+  h2 { text-wrap: balance; }
+  .wd-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; font-size: .75rem; font-weight: 700; }
+  .wd-scribble { position: relative; white-space: nowrap; display: inline-block; }
+  .wd-scribble svg { position: absolute; left: -4%; width: 108%; bottom: -.28em; height: .5em; overflow: visible; }
+  .wd-scribble path { stroke-dasharray: 420; stroke-dashoffset: 0; }
+  .js .wd-scribble path { stroke-dashoffset: 420; }
+  .js.loaded .wd-scribble path, .js .in .wd-scribble path, .js .wd-scribble.in path { stroke-dashoffset: 0; transition: stroke-dashoffset 1.2s var(--ease) 1s; }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 3px dashed var(--ink); outline-offset: 4px; border-radius: 10px;
+  }
+
+  #progress { position: fixed; left: 0; top: 0; height: 5px; width: 100%; transform-origin: 0 50%; transform: scaleX(0); background: repeating-linear-gradient(90deg, var(--coral) 0 18px, var(--sun) 18px 36px); z-index: 70; }
+
+  /* sketchy surfaces */
+  .wd-sketch { border: 2.5px solid var(--ink); border-radius: var(--wob); box-shadow: 5px 6px 0 var(--ink); background: #fff; }
+  .wd-sketch-alt { border-radius: var(--wob2); }
+
+  /* nav */
+  #nav { position: fixed; inset: 0 0 auto 0; z-index: 60; }
+  #nav .wd-bar { transition: padding .4s var(--ease); }
+  #nav .wd-navpill { background: rgba(255,249,236,.97); transition: box-shadow .4s, background-color .4s, transform .4s var(--ease); }
+  @media (min-width: 768px) { #nav .wd-navpill { background: rgba(255,249,236,.78); backdrop-filter: blur(14px) saturate(150%); -webkit-backdrop-filter: blur(14px) saturate(150%); } }
+  #nav.wd-scrolled .wd-bar { padding-top: .4rem; padding-bottom: .4rem; }
+  #nav.wd-scrolled .wd-navpill { background: rgba(255,249,236,.95); box-shadow: 3px 4px 0 var(--ink); }
+  .wd-ulink { position: relative; }
+  .wd-ulink svg { position: absolute; left: 10px; right: 10px; bottom: 6px; width: calc(100% - 20px); height: 8px; }
+  .wd-ulink path { stroke-dasharray: 120; stroke-dashoffset: 120; transition: stroke-dashoffset .45s var(--ease); }
+  .wd-ulink:hover path, .wd-ulink:focus-visible path { stroke-dashoffset: 0; }
+
+  /* buttons */
+  .wd-btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 52px; padding: 0 1.5rem; border: 2.5px solid var(--ink); border-radius: var(--wob); font-size: 1.05rem; color: var(--ink); overflow: hidden; transition: transform .3s var(--spring), box-shadow .3s; box-shadow: 4px 5px 0 var(--ink); will-change: transform; -webkit-tap-highlight-color: transparent; }
+  .wd-btn-sun { background: var(--sun); }
+  .wd-btn-coral { background: var(--coral); }
+  .wd-btn-white { background: #fff; }
+  .wd-btn::before { content: ''; position: absolute; top: 0; bottom: 0; left: -60%; width: 45%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.75), transparent); transform: skewX(-18deg); opacity: 0; }
+  .wd-btn:hover::before { animation: wd-sheen .85s var(--ease); }
+  @keyframes wd-sheen { 0% { opacity: 1; transform: translateX(0) skewX(-18deg); } 100% { opacity: 0; transform: translateX(380%) skewX(-18deg); } }
+  .wd-btn:hover { transform: translate(-2px, -3px) rotate(-1deg); box-shadow: 7px 8px 0 var(--ink); }
+  .wd-btn:active { transform: translate(3px, 4px); box-shadow: 1px 1px 0 var(--ink); }
+  .wd-btn .wd-arr { transition: transform .3s var(--spring); }
+  .wd-btn:hover .wd-arr { transform: translateX(4px) rotate(-8deg); }
+
+  /* hero camera */
+  .wd-stage { position: fixed; inset: 0; z-index: 0; perspective: 1100px; overflow: hidden; pointer-events: none; background: var(--pool); }
+  #heroImg { position: absolute; inset: -6%; width: 112%; height: 112%; max-width: none; object-fit: cover; object-position: 50% 50%; transform-origin: 50% 40%; will-change: transform; }
+  .wd-shade { position: absolute; inset: 0; background:
+      radial-gradient(ellipse 70% 55% at 50% 42%, rgba(12,42,70,.62), rgba(12,42,70,.25) 70%, rgba(12,42,70,.15)),
+      linear-gradient(180deg, rgba(12,42,70,.35) 0%, rgba(12,42,70,0) 30%, rgba(73,182,229,.15) 75%, rgba(255,249,236,.0) 100%); }
+  .wd-caustic { position: absolute; inset: -10%; background: radial-gradient(circle at 20% 30%, rgba(255,255,255,.18), transparent 22%), radial-gradient(circle at 70% 60%, rgba(255,255,255,.14), transparent 20%), radial-gradient(circle at 45% 85%, rgba(255,255,255,.12), transparent 18%); animation: wd-shimmer 9s ease-in-out infinite alternate; will-change: transform; }
+  @keyframes wd-shimmer { from { transform: translate3d(-2%, 0, 0) scale(1); } to { transform: translate3d(2%, -2%, 0) scale(1.08); } }
+  .wd-bubble { position: absolute; border: 2px solid rgba(255,255,255,.75); border-radius: 50%; will-change: transform; }
+  .wd-bubble i { position: absolute; width: 28%; height: 28%; left: 22%; top: 18%; background: rgba(255,255,255,.8); border-radius: 50%; }
+  .wd-floaty { animation: wd-bob 6s ease-in-out infinite; }
+  @keyframes wd-bob { 0%,100% { transform: translate3d(0,0,0) rotate(0deg); } 50% { transform: translate3d(0,-14px,0) rotate(4deg); } }
+  .wd-rise { animation: wd-rise 11s linear infinite; }
+  @keyframes wd-rise { from { transform: translate3d(0, 20vh, 0); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } to { transform: translate3d(2vw, -90vh, 0); opacity: 0; } }
+
+  /* masked headline + intro */
+  .wd-mask { display: block; overflow: hidden; padding: .06em .1em .14em; margin: -.06em -.1em -.14em; }
+  .wd-mask > span { display: inline-block; }
+  .js .wd-mask > span { transform: translateY(115%) rotate(4deg); }
+  .js.loaded .wd-mask > span { transform: none; transition: transform 1.1s var(--spring); }
+  .js.loaded .wd-mask:nth-child(2) > span { transition-delay: .14s; }
+  .js .wd-intro { opacity: 0; transform: translateY(18px); }
+  .js.loaded .wd-intro { opacity: 1; transform: none; transition: opacity .8s var(--ease), transform .9s var(--spring); transition-delay: var(--d, .45s); }
+  .js #nav { opacity: 0; transform: translateY(-18px); }
+  .js.loaded #nav { opacity: 1; transform: none; transition: opacity .6s ease, transform .8s var(--spring); }
+  .js .wd-logo-mark { transform: scale(.2) rotate(-90deg); opacity: 0; }
+  .js.loaded .wd-logo-mark { transform: none; opacity: 1; transition: transform 1.1s var(--spring) .2s, opacity .4s ease .2s; }
+  .wd-polaroid { background: #fff; padding: 10px 10px 14px; border: 2.5px solid var(--ink); border-radius: var(--wob2); box-shadow: 6px 7px 0 var(--ink); will-change: transform; }
+  .wd-polaroid img { border-radius: 10px; border: 2px solid var(--ink); }
+  .js .wd-pol-in { opacity: 0; transform: translateY(60px) rotate(var(--r0, 0deg)) scale(.85); }
+  .js.loaded .wd-pol-in { opacity: 1; transform: rotate(var(--r, 0deg)); transition: opacity .7s var(--ease) var(--d, 1s), transform 1.2s var(--spring) var(--d, 1s); }
+
+  /* reveals (content visible without JS) */
+  .js [data-reveal] { opacity: 0; transition: opacity .8s var(--ease), transform 1s var(--ease); transition-delay: var(--stagger, 0ms); }
+  .js [data-reveal="up"] { transform: translateY(42px); }
+  .js [data-reveal="pop"] { transform: scale(.82) rotate(-3deg); transition: opacity .6s var(--ease), transform .9s var(--spring); transition-delay: var(--stagger, 0ms); }
+  .js [data-reveal="wobble"] { transform: translateY(30px) rotate(5deg); transition: opacity .6s var(--ease), transform 1s var(--spring); transition-delay: var(--stagger, 0ms); }
+  .js [data-reveal="left"] { transform: translateX(-56px) rotate(-2deg); }
+  .js [data-reveal="right"] { transform: translateX(56px) rotate(2deg); }
+  .js [data-reveal="drop"] { transform: translateY(-36px) scale(.96); transition: opacity .6s var(--ease), transform .9s var(--spring); transition-delay: var(--stagger, 0ms); }
+  .js [data-reveal="wipe"] { opacity: 1; clip-path: inset(0 100% 0 0 round 24px); transition: clip-path 1.3s var(--ease); }
+  .js [data-reveal].in { opacity: 1; transform: none; }
+  .js [data-reveal="wipe"].in { clip-path: inset(0 0 0 0 round 24px); }
+
+  /* class cards */
+  .wd-card { background: #fff; border: 2.5px solid var(--ink); border-radius: var(--wob); overflow: hidden; box-shadow: 6px 7px 0 var(--ink); transition: transform .45s var(--spring), box-shadow .45s var(--ease); position: relative; }
+  .wd-card:nth-child(2) { border-radius: var(--wob2); }
+  .js .wd-card.in { transition: transform .5s var(--spring), box-shadow .45s var(--ease), opacity .8s var(--ease); transition-delay: var(--stagger, 0ms); }
+  .wd-card:hover, .js .wd-card.in:hover { transform: translate(-3px, -8px) rotate(-1.2deg); box-shadow: 10px 14px 0 var(--ink); }
+  .wd-card:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+  .wd-ph { overflow: hidden; position: relative; border-bottom: 2.5px solid var(--ink); }
+  .wd-ph img { transition: transform 1.1s var(--ease); }
+  .wd-card:hover .wd-ph img { transform: scale(1.08) rotate(1deg); }
+  .wd-ph::after { content: ''; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.4) 50%, transparent 70%); transform: translateX(-120%); }
+  .wd-card:hover .wd-ph::after { transform: translateX(120%); transition: transform 1s var(--ease); }
+  .wd-chip { display: inline-flex; align-items: center; gap: .35rem; padding: .25rem .7rem; border: 2px solid var(--ink); border-radius: 999px; background: var(--sun); }
+  .wd-price { font-variant-numeric: tabular-nums; }
+
+  /* feature icons */
+  .wd-feat { transition: transform .45s var(--spring); }
+  .wd-feat:hover { transform: translateY(-6px) rotate(-1deg); }
+  .wd-ico { width: 64px; height: 64px; display: grid; place-items: center; border: 2.5px solid var(--ink); border-radius: 46% 54% 50% 50% / 55% 45% 55% 45%; box-shadow: 3px 4px 0 var(--ink); transition: transform .5s var(--spring); }
+  .wd-feat:hover .wd-ico { transform: rotate(-12deg) scale(1.08); }
+
+  /* wave dividers */
+  .wd-wave { display: block; width: 100%; height: 40px; }
+  .wd-wave path { animation: wd-wavex 8s linear infinite; }
+  @keyframes wd-wavex { to { transform: translateX(-200px); } }
+
+  /* spotlight */
+  .wd-spot-frame { border: 3px solid var(--ink); border-radius: var(--wob); overflow: hidden; position: relative; isolation: isolate; box-shadow: 8px 10px 0 var(--ink); }
+  .wd-spot-img { animation: wd-kenburns 16s ease-in-out infinite alternate; transform-origin: 50% 40%; will-change: transform; }
+  @keyframes wd-kenburns { from { transform: scale(1.04) translate3d(0,0,0); } to { transform: scale(1.18) translate3d(-2%, -3%, 0); } }
+  .wd-spot-bub { position: absolute; bottom: -10%; border: 2px solid rgba(255,255,255,.9); border-radius: 50%; animation: wd-spotbub 7s linear infinite; }
+  @keyframes wd-spotbub { from { transform: translate3d(0,0,0); opacity: 0; } 12% { opacity: 1; } to { transform: translate3d(14px,-480px,0); opacity: 0; } }
+  .wd-wiggle { animation: wd-wiggle 3.2s ease-in-out infinite; transform-origin: 50% 80%; }
+  @keyframes wd-wiggle { 0%,100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
+  #spot.paused .wd-spot-img, #spot.paused .wd-spot-bub, #spot.paused .wd-wiggle { animation-play-state: paused; }
+
+  /* timeline */
+  .wd-tl { position: relative; }
+  .wd-tl::before { content: ''; position: absolute; left: 99.5px; top: 8px; bottom: 8px; border-left: 3px dashed var(--ink); opacity: .35; }
+  @media (max-width: 639px) { .wd-tl::before { left: 81.5px; } }
+  .wd-dot { width: 22px; height: 22px; border: 2.5px solid var(--ink); border-radius: 50%; background: var(--sun); flex: none; position: relative; z-index: 1; }
+  .wd-tlrow:nth-child(2) .wd-dot { background: var(--coral); } .wd-tlrow:nth-child(3) .wd-dot { background: var(--pool); } .wd-tlrow:nth-child(4) .wd-dot { background: var(--mint); }
+  .wd-tlrow { transition: transform .4s var(--spring); }
+  .wd-tlrow:hover { transform: translateX(6px); }
+
+  /* team */
+  .wd-teach { background: #fff; border: 2.5px solid var(--ink); border-radius: var(--wob2); box-shadow: 5px 6px 0 var(--ink); transition: transform .45s var(--spring), box-shadow .45s; position: relative; }
+  .js .wd-teach.in { transition: transform .5s var(--spring), box-shadow .45s, opacity .8s var(--ease); transition-delay: var(--stagger, 0ms); }
+  .wd-teach:hover, .js .wd-teach.in:hover { transform: translateY(-8px) rotate(1.2deg); box-shadow: 9px 12px 0 var(--ink); }
+  .wd-badge { position: absolute; right: -10px; top: -14px; transform: rotate(8deg); }
+  .wd-avatar svg { transition: transform .5s var(--spring); }
+  .wd-teach:hover .wd-avatar svg { transform: rotate(-8deg) scale(1.05); }
+  .wd-contact { min-height: 44px; }
+
+  /* burger */
+  .wd-burger span { display: block; position: absolute; left: 12px; right: 12px; height: 3px; border-radius: 3px; background: var(--ink); transition: transform .4s var(--spring), opacity .25s; }
+  .wd-burger span:nth-child(1) { top: 15px; } .wd-burger span:nth-child(2) { top: 22px; } .wd-burger span:nth-child(3) { top: 29px; }
+  .wd-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .wd-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(.2); }
+  .wd-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  #mobileMenu { transform-origin: top center; }
+  #mobileMenu.open { animation: wd-menuIn .45s var(--spring); }
+  @keyframes wd-menuIn { from { opacity: 0; transform: translateY(-16px) rotate(-1deg); } to { opacity: 1; transform: none; } }
+  #mobileMenu.open li { animation: wd-itemIn .5s var(--ease) both; }
+  #mobileMenu.open li:nth-child(2) { animation-delay: .05s; } #mobileMenu.open li:nth-child(3) { animation-delay: .1s; } #mobileMenu.open li:nth-child(4) { animation-delay: .15s; } #mobileMenu.open li:nth-child(5) { animation-delay: .2s; } #mobileMenu.open li:nth-child(6) { animation-delay: .25s; }
+  @keyframes wd-itemIn { from { opacity: 0; transform: translateX(-14px); } to { opacity: 1; transform: none; } }
+
+  /* form */
+  .wd-field { min-height: 52px; border-radius: 14px; border: 2.5px solid var(--ink); background: #fff; padding: 0 1rem; width: 100%; font-size: 1rem; color: var(--ink); transition: box-shadow .25s, transform .25s; font-family: inherit; }
+  textarea.wd-field { padding-top: .85rem; padding-bottom: .85rem; min-height: 104px; resize: vertical; }
+  select.wd-field { appearance: none; background-image: linear-gradient(45deg, transparent 50%, #14213A 50%), linear-gradient(135deg, #14213A 50%, transparent 50%); background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50%; background-size: 6px 6px; background-repeat: no-repeat; }
+  .wd-field::placeholder { color: #5B6475; }
+  .wd-field:focus { box-shadow: 4px 5px 0 var(--pool); outline: none; }
+  .wd-field[aria-invalid="true"] { border-color: #B42318; box-shadow: 4px 5px 0 #F7B4AA; }
+  .wd-shake { animation: wd-shake .45s var(--ease); }
+  @keyframes wd-shake { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-8px) rotate(-1deg); } 40% { transform: translateX(7px) rotate(1deg); } 60% { transform: translateX(-5px); } 80% { transform: translateX(3px); } }
+  #formOk.show { animation: wd-okIn .6s var(--spring); }
+  @keyframes wd-okIn { from { opacity: 0; transform: translateY(10px) scale(.94) rotate(-2deg); } to { opacity: 1; transform: none; } }
+  #formOk .wd-check path { stroke-dasharray: 30; stroke-dashoffset: 30; }
+  #formOk.show .wd-check path { stroke-dashoffset: 0; transition: stroke-dashoffset .6s var(--ease) .25s; }
+  .wd-dots { background-image: radial-gradient(rgba(20,33,58,.13) 1.4px, transparent 1.4px); background-size: 26px 26px; }
+  .wd-blob { position: absolute; border-radius: 50%; filter: blur(40px); pointer-events: none; animation: wd-drift 18s ease-in-out infinite; will-change: transform; }
+  @keyframes wd-drift { 0%,100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(3vw,-3vh,0) scale(1.15); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+    .js .wd-mask > span, .js .wd-intro, .js [data-reveal], .js #nav, .js .wd-logo-mark, .js .wd-pol-in { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+    .js .wd-scribble path { stroke-dashoffset: 0 !important; }
+    .wd-rise { opacity: 0 !important; }
+  }
+</style>
+</head>
+<body>
+<a href="#classes" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-xl focus:bg-sun focus:px-4 focus:py-3 focus:text-ink">Skip to content</a>
+<div id="progress" aria-hidden="true"></div>
+
+<!-- fixed hero stage -->
+<div class="wd-stage" aria-hidden="true">
+  <img id="heroImg" src="https://images.unsplash.com/photo-1690125408806-bb88519d83c7?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8c3dpbW1pbmclMjBwb29sJTIwbGFuZXMlMjBhZXJpYWx8ZW58MHwwfHx8MTc5MTA4MTYwNHww&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80" alt="" fetchpriority="high" decoding="async">
+  <div class="wd-caustic"></div>
+  <div class="wd-shade"></div>
+  <div data-hpar="-0.35" style="position:absolute;inset:0">
+    <span class="wd-bubble wd-rise" style="left:12%;bottom:0;width:34px;height:34px;animation-delay:-2s"><i></i></span>
+    <span class="wd-bubble wd-rise" style="left:24%;bottom:0;width:16px;height:16px;animation-delay:-6s"><i></i></span>
+    <span class="wd-bubble wd-rise" style="left:78%;bottom:0;width:26px;height:26px;animation-delay:-4s"><i></i></span>
+    <span class="wd-bubble wd-rise" style="left:88%;bottom:0;width:14px;height:14px;animation-delay:-9s"><i></i></span>
+    <span class="wd-bubble wd-rise" style="left:62%;bottom:0;width:20px;height:20px;animation-delay:-1s"><i></i></span>
+  </div>
+  <svg data-hpar="-0.6" class="absolute hidden md:block" style="left:7%;top:24%;width:110px" viewBox="0 0 110 60" fill="none"><path class="wd-floaty" d="M4 40c10-14 20-14 30 0s20 14 30 0 20-14 30 0" stroke="#FFD25A" stroke-width="5" stroke-linecap="round"/></svg>
+  <svg data-hpar="-0.8" class="absolute hidden md:block" style="right:8%;top:30%;width:70px" viewBox="0 0 70 70" fill="none"><path class="wd-floaty" style="animation-delay:-2s" d="M35 6l7 19 20 1-16 12 6 20-17-11-17 11 6-20L8 26l20-1z" stroke="#fff" stroke-width="4" stroke-linejoin="round"/></svg>
+</div>
+
+<header id="nav">
+  <div class="wd-bar mx-auto max-w-6xl px-4 sm:px-6 py-4">
+    <nav class="wd-navpill wd-sketch !shadow-none flex items-center justify-between pl-3 pr-2 py-2" aria-label="Main">
+      <a href="#top" class="flex min-h-[44px] items-center gap-2.5" aria-label="Bobblefin Swim School, back to top">
+        <svg class="wd-logo-mark h-10 w-10 flex-none" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="21" r="17" fill="#49B6E5" stroke="#14213A" stroke-width="2.5"/><path d="M9 25c4-3 7-3 11 0s7 3 11 0" stroke="#fff" stroke-width="2.6" stroke-linecap="round" fill="none"/><path d="M15 17c2-7 8-10 12-9-1 4-3 7-6 9" fill="#FFD25A" stroke="#14213A" stroke-width="2.2" stroke-linejoin="round"/><circle cx="14" cy="15" r="1.8" fill="#14213A"/></svg>
+        <span class="leading-none"><span class="block font-display text-[1.35rem] text-ink">Bobblefin</span><span class="wd-mono block !text-[.6rem] !tracking-[.2em] text-poolDeep">swim school · ages 0–11</span></span>
+      </a>
+      <ul class="hidden md:flex items-center gap-1 text-[16px] text-ink">
+        <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#classes">Classes<svg viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><path d="M2 5c16-4 32 3 48-1s32-3 48 1" stroke="#FF7B5C" stroke-width="3" fill="none" stroke-linecap="round"/></svg></a></li>
+        <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#why">Why us<svg viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><path d="M2 5c16-4 32 3 48-1s32-3 48 1" stroke="#FF7B5C" stroke-width="3" fill="none" stroke-linecap="round"/></svg></a></li>
+        <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#saturday">Saturdays<svg viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><path d="M2 5c16-4 32 3 48-1s32-3 48 1" stroke="#FF7B5C" stroke-width="3" fill="none" stroke-linecap="round"/></svg></a></li>
+        <li><a class="wd-ulink inline-flex min-h-[44px] items-center px-3" href="#team">Teachers<svg viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><path d="M2 5c16-4 32 3 48-1s32-3 48 1" stroke="#FF7B5C" stroke-width="3" fill="none" stroke-linecap="round"/></svg></a></li>
+      </ul>
+      <div class="flex items-center gap-2">
+        <a href="#book" class="wd-btn wd-btn-sun wd-magnetic hidden sm:inline-flex !min-h-[44px] !px-4 text-[15px]">Book a trial splash <span class="wd-arr" aria-hidden="true">→</span></a>
+        <button id="burger" class="wd-burger relative md:hidden h-[46px] w-[46px] rounded-xl border-[2.5px] border-ink bg-white" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+    <div id="mobileMenu" class="md:hidden mt-2 wd-sketch bg-cream p-3" hidden>
+      <ul class="flex flex-col text-lg text-ink">
+        <li><a class="flex min-h-[48px] items-center justify-between rounded-xl px-3 hover:bg-sky" href="#classes">Classes <span class="wd-mono text-poolDeep">01</span></a></li>
+        <li><a class="flex min-h-[48px] items-center justify-between rounded-xl px-3 hover:bg-sky" href="#why">Why Bobblefin <span class="wd-mono text-poolDeep">02</span></a></li>
+        <li><a class="flex min-h-[48px] items-center justify-between rounded-xl px-3 hover:bg-sky" href="#saturday">A Saturday here <span class="wd-mono text-poolDeep">03</span></a></li>
+        <li><a class="flex min-h-[48px] items-center justify-between rounded-xl px-3 hover:bg-sky" href="#team">Teachers <span class="wd-mono text-poolDeep">04</span></a></li>
+        <li><a class="flex min-h-[48px] items-center justify-between rounded-xl px-3 hover:bg-sky" href="#book">Book a trial <span class="wd-mono text-poolDeep">05</span></a></li>
+        <li class="pt-2"><a class="wd-btn wd-btn-sun w-full" href="#book">Book a trial splash <span class="wd-arr" aria-hidden="true">→</span></a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main class="relative z-10">
+  <!-- HERO: centered stack + floating polaroids below -->
+  <section id="top" class="relative min-h-[100svh] flex flex-col items-center justify-center" aria-labelledby="heroTitle">
+    <div id="heroCopy" class="mx-auto w-full max-w-4xl px-4 sm:px-6 pt-32 pb-8 text-center text-white">
+      <p class="wd-intro wd-mono inline-flex items-center gap-2 rounded-full border-2 border-white/80 bg-white/10 px-4 py-1.5 !text-[.72rem] text-white" style="--d:.3s"><span class="inline-block h-2.5 w-2.5 rounded-full bg-sun"></span> Warm-water lessons<span class="hidden sm:inline"> · 6 months to 11 years</span></p>
+      <h1 id="heroTitle" class="mt-6 font-display text-[2.5rem] leading-[1.02] sm:text-6xl lg:text-[5.4rem]" style="text-shadow:0 3px 0 rgba(20,33,58,.55)">
+        <span class="wd-mask"><span>Swim lessons that</span></span>
+        <span class="wd-mask"><span><span class="wd-scribble">feel like playtime.<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14c40-10 80-10 120-4s90 8 172-6" stroke="#FFD25A" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></span></span>
+      </h1>
+      <p class="wd-intro mx-auto mt-7 max-w-xl text-lg sm:text-xl text-white" style="--d:.65s;text-shadow:0 2px 10px rgba(12,42,70,.6)">Tiny groups, 32° water and teachers who get down to splash level. Your kid leaves grinning. You leave dry.</p>
+      <div class="wd-intro mt-8 flex flex-col sm:flex-row items-center justify-center gap-4" style="--d:.85s">
+        <a href="#book" class="wd-btn wd-btn-sun wd-magnetic w-full sm:w-auto">Book a free trial splash <span class="wd-arr" aria-hidden="true">→</span></a>
+        <a href="#classes" class="wd-btn wd-btn-white w-full sm:w-auto">See the classes</a>
+      </div>
+    </div>
+    <div class="relative mx-auto w-full max-w-5xl px-4 sm:px-6 pb-14">
+      <div class="flex items-end justify-center gap-3 sm:gap-6">
+        <div class="w-[30%] max-w-[220px]" data-hpar="0.1"><figure class="wd-polaroid wd-pol-in" style="--r:-6deg;--r0:-14deg;--d:1.05s"><img src="https://images.unsplash.com/photo-1726800820564-2eaecaa66b37?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8c3dpbSUyMGxlc3NvbiUyMGNoaWxkfGVufDB8MHx8fDE3OTEwODE2MDR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A teacher holding a toddler on a yellow float" class="aspect-[4/3] w-full object-cover" width="440" height="330"><figcaption class="mt-2 text-center text-sm text-soft">first splash ✓</figcaption></figure></div>
+        <div class="w-[34%] max-w-[250px] -mb-3" data-hpar="0.22"><figure class="wd-polaroid wd-pol-in" style="--r:2deg;--r0:8deg;--d:1.2s"><img src="https://images.unsplash.com/photo-1648090272983-440e86555e8e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8M3x8dG9kZGxlciUyMHN3aW1taW5nfGVufDB8MHx8fDE3OTEwODE2MDV8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A smiling boy floating on an inflatable duck ring" class="aspect-[4/3] w-full object-cover" width="500" height="375"><figcaption class="mt-2 text-center text-sm text-soft">ducky day</figcaption></figure></div>
+        <div class="w-[30%] max-w-[220px]" data-hpar="0.06"><figure class="wd-polaroid wd-pol-in" style="--r:7deg;--r0:16deg;--d:1.35s"><img src="https://images.unsplash.com/photo-1761839447370-8873d86f5b1b?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8a2lkcyUyMHN3aW1taW5nJTIwcG9vbHxlbnwwfDB8fHwxNzkxMDgxNjAzfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A boy in goggles swimming front crawl" class="aspect-[4/3] w-full object-cover" width="440" height="330"><figcaption class="mt-2 text-center text-sm text-soft">look, no float!</figcaption></figure></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLASSES: three cards in a row -->
+  <section id="classes" class="relative bg-cream pt-6 pb-24 sm:pb-28" aria-labelledby="classesTitle">
+    <svg class="wd-wave absolute -top-[38px] left-0 text-cream" viewBox="0 0 1400 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20c50-20 100-20 150 0s100 20 150 0 100-20 150 0 100 20 150 0 100-20 150 0 100 20 150 0 100-20 150 0 100 20 150 0 100-20 150 0 100 20 150 0V40H0z" fill="#FFF9EC"/></svg>
+    <div class="wd-blob" style="width:340px;height:340px;right:-120px;top:60px;background:rgba(73,182,229,.25)"></div>
+    <div class="relative mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="text-center" data-reveal="up">
+        <p class="wd-mono text-poolDeep">01 · Classes</p>
+        <h2 id="classesTitle" class="mt-3 font-display text-4xl sm:text-5xl text-ink">Pick your <span class="wd-scribble">splash level<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14c40-10 80-10 120-4s90 8 172-6" stroke="#FF7B5C" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2>
+        <p class="mx-auto mt-4 max-w-xl text-soft">Every class is 30 minutes, four kids max, one teacher in the water with them. Move up whenever they're ready, not when a calendar says so.</p>
+      </div>
+      <div class="mt-14 grid gap-8 md:grid-cols-3">
+        <article class="wd-card" data-reveal="wobble">
+          <div class="wd-ph aspect-[4/3]"><img src="https://images.unsplash.com/photo-1726800820564-2eaecaa66b37?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8c3dpbSUyMGxlc3NvbiUyMGNoaWxkfGVufDB8MHx8fDE3OTEwODE2MDR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A teacher holding a toddler on a yellow pool noodle" class="h-full w-full object-cover" loading="lazy" width="1080" height="810"></div>
+          <div class="p-6">
+            <span class="wd-chip wd-mono !text-[.66rem]">6 mo – 3 yrs · with you</span>
+            <h3 class="mt-4 text-2xl text-ink">Splash Tots</h3>
+            <p class="mt-2 text-soft">Songs, bubbles and lots of cuddles in the water. Babies learn to float, kick and love it, with you right there.</p>
+            <p class="mt-5 flex items-baseline justify-between border-t-2 border-dashed border-ink/25 pt-4"><span class="wd-price font-display text-3xl text-ink">$22</span><span class="text-sm text-soft">per class · Sat &amp; Wed</span></p>
+          </div>
+        </article>
+        <article class="wd-card" data-reveal="wobble">
+          <div class="wd-ph aspect-[4/3]"><img src="https://images.unsplash.com/photo-1648090272983-440e86555e8e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8M3x8dG9kZGxlciUyMHN3aW1taW5nfGVufDB8MHx8fDE3OTEwODE2MDV8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A smiling boy floating on an inflatable duck ring" class="h-full w-full object-cover" loading="lazy" width="1080" height="810"></div>
+          <div class="p-6">
+            <span class="wd-chip wd-mono !text-[.66rem]" style="background:#CDF1E5">3 – 5 yrs · on their own</span>
+            <h3 class="mt-4 text-2xl text-ink">Little Fins</h3>
+            <p class="mt-2 text-soft">Faces in, big kicks, first strokes. Games do the teaching, so it never feels like a lesson. Ducky badge every milestone.</p>
+            <p class="mt-5 flex items-baseline justify-between border-t-2 border-dashed border-ink/25 pt-4"><span class="wd-price font-display text-3xl text-ink">$26</span><span class="text-sm text-soft">per class · 5 days a week</span></p>
+          </div>
+        </article>
+        <article class="wd-card" data-reveal="wobble">
+          <div class="wd-ph aspect-[4/3]"><img src="https://images.unsplash.com/photo-1761839447370-8873d86f5b1b?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8a2lkcyUyMHN3aW1taW5nJTIwcG9vbHxlbnwwfDB8fHwxNzkxMDgxNjAzfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A boy in goggles swimming front crawl" class="h-full w-full object-cover" loading="lazy" width="1080" height="810"></div>
+          <div class="p-6">
+            <span class="wd-chip wd-mono !text-[.66rem]" style="background:#DDF2FB">6 – 11 yrs · stroke squad</span>
+            <h3 class="mt-4 text-2xl text-ink">Big Strokes</h3>
+            <p class="mt-2 text-soft">Front crawl, backstroke, safe deep-water skills and their first proper length. Confident swimmers, not just paddlers.</p>
+            <p class="mt-5 flex items-baseline justify-between border-t-2 border-dashed border-ink/25 pt-4"><span class="wd-price font-display text-3xl text-ink">$28</span><span class="text-sm text-soft">per class · after school</span></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY: left intro + six-up icon grid -->
+  <section id="why" class="relative bg-sky py-24 sm:py-28 wd-dots" aria-labelledby="whyTitle">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:items-start">
+        <div data-reveal="left">
+          <p class="wd-mono text-poolDeep">02 · Why Bobblefin</p>
+          <h2 id="whyTitle" class="mt-3 font-display text-4xl sm:text-5xl text-ink">Built for nervous first-timers. <span class="text-poolDeep">And their grown-ups.</span></h2>
+          <p class="mt-5 text-soft">We made the pool we wished existed: warm, calm, never rushed. If a kid needs ten lessons to put their face in, that's ten lessons of winning.</p>
+          <div class="mt-8 grid grid-cols-3 gap-3 text-center">
+            <div class="wd-sketch p-3"><p class="font-display text-3xl text-ink"><span data-count="4">4</span></p><p class="text-xs text-soft">kids max per class</p></div>
+            <div class="wd-sketch wd-sketch-alt p-3"><p class="font-display text-3xl text-ink"><span data-count="32">32</span>°</p><p class="text-xs text-soft">warm pool water</p></div>
+            <div class="wd-sketch p-3"><p class="font-display text-3xl text-ink"><span data-count="30">30</span>m</p><p class="text-xs text-soft">short, happy lessons</p></div>
+          </div>
+        </div>
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="wd-feat" data-reveal="pop"><div class="wd-ico bg-sun"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#14213A" stroke-width="2.5" stroke-linecap="round"><path d="M15 4c4 6 7 9 7 13a7 7 0 01-14 0c0-4 3-7 7-13z"/></svg></div><h3 class="mt-4 text-xl text-ink">Bath-warm water</h3><p class="mt-1 text-[15px] text-soft">No blue lips, no shivers, no tears at the edge.</p></div>
+          <div class="wd-feat" data-reveal="pop"><div class="wd-ico bg-coral"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#14213A" stroke-width="2.5" stroke-linecap="round"><circle cx="10" cy="11" r="3.5"/><circle cx="20" cy="11" r="3.5"/><path d="M4 24c1-4 4-6 6-6s5 2 6 6M14 24c1-4 4-6 6-6s5 2 6 6"/></svg></div><h3 class="mt-4 text-xl text-ink">Tiny groups</h3><p class="mt-1 text-[15px] text-soft">Four kids, one teacher, always in the water.</p></div>
+          <div class="wd-feat" data-reveal="pop"><div class="wd-ico bg-mint"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#14213A" stroke-width="2.5" stroke-linejoin="round"><path d="M15 4l3 7 7 .6-5.4 4.6 1.7 7.3L15 19.6 8.7 23.5l1.7-7.3L5 11.6l7-.6z"/></svg></div><h3 class="mt-4 text-xl text-ink">Ducky badges</h3><p class="mt-1 text-[15px] text-soft">Every first gets a badge to take home and brag about.</p></div>
+          <div class="wd-feat" data-reveal="pop"><div class="wd-ico bg-white"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#14213A" stroke-width="2.5" stroke-linecap="round"><path d="M3 15s4-7 12-7 12 7 12 7-4 7-12 7S3 15 3 15z"/><circle cx="15" cy="15" r="3.5"/></svg></div><h3 class="mt-4 text-xl text-ink">Comfy viewing deck</h3><p class="mt-1 text-[15px] text-soft">Watch every kick from a sofa, coffee in hand.</p></div>
+          <div class="wd-feat" data-reveal="pop"><div class="wd-ico bg-pool"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#14213A" stroke-width="2.5" stroke-linecap="round"><path d="M5 9h20v15H5zM5 14h20M11 5v6M19 5v6"/></svg></div><h3 class="mt-4 text-xl text-ink">Free catch-ups</h3><p class="mt-1 text-[15px] text-soft">Missed one? Swap into another class, no fee.</p></div>
+          <div class="wd-feat" data-reveal="pop"><div class="wd-ico bg-sun"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#14213A" stroke-width="2.5" stroke-linecap="round"><path d="M6 20c3-7 8-10 15-10M17 6l5 4-4 5M6 24h18"/></svg></div><h3 class="mt-4 text-xl text-ink">Dryers on deck</h3><p class="mt-1 text-[15px] text-soft">Warm changing rooms and hair dryers for everyone.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPOTLIGHT -->
+  <section id="spot" class="relative bg-pool py-24 sm:py-28 overflow-hidden" aria-labelledby="spotTitle">
+    <div class="wd-blob" style="width:420px;height:420px;left:-140px;bottom:-140px;background:rgba(255,210,90,.45)"></div>
+    <div class="relative mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2">
+      <div class="relative" data-reveal="wipe">
+        <div class="wd-spot-frame aspect-[4/5] sm:aspect-[5/4] lg:aspect-[4/5]">
+          <img src="https://images.unsplash.com/photo-1521851562770-de70f34424b7?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8NXx8c3dpbSUyMGxlc3NvbiUyMGNoaWxkfGVufDB8MHx8fDE3OTEwODE2MDR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A boy underwater giving a thumbs up" class="wd-spot-img h-full w-full object-cover" loading="lazy" width="1080" height="1350">
+          <span class="wd-spot-bub" style="left:18%;width:22px;height:22px"></span>
+          <span class="wd-spot-bub" style="left:30%;width:12px;height:12px;animation-delay:-2.5s"></span>
+          <span class="wd-spot-bub" style="left:72%;width:18px;height:18px;animation-delay:-4.6s"></span>
+          <span class="wd-spot-bub" style="left:84%;width:10px;height:10px;animation-delay:-1.2s"></span>
+        </div>
+        <div class="absolute right-4 top-4 wd-sketch bg-sun px-4 py-2 rotate-6"><span class="wd-wiggle inline-block font-display text-xl text-ink">face in! ✓</span></div>
+      </div>
+      <div data-reveal="right">
+        <p class="wd-mono text-ink">Spotlight · the big moment</p>
+        <h2 id="spotTitle" class="mt-3 font-display text-4xl sm:text-5xl text-ink">The first time they go under… and come up grinning.</h2>
+        <p class="mt-5 text-lg text-ink">That's the moment we build every lesson around. No pushing, no dunking. Just one brave little blink at a time, until the water feels like theirs.</p>
+        <button id="spotToggle" type="button" class="wd-btn wd-btn-white mt-8" aria-pressed="false" aria-controls="spot">
+          <svg id="pauseIco" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><rect x="3" y="2" width="4" height="14" rx="1.5" fill="#14213A"/><rect x="11" y="2" width="4" height="14" rx="1.5" fill="#14213A"/></svg>
+          <svg id="playIco" class="hidden" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M4 2l12 7-12 7z" fill="#14213A"/></svg>
+          <span id="spotLabel">Pause motion</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SATURDAY: ruled single-day timeline -->
+  <section id="saturday" class="relative bg-cream py-24 sm:py-28" aria-labelledby="satTitle">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+      <div class="text-center" data-reveal="drop">
+        <p class="wd-mono text-poolDeep">03 · A Saturday at Bobblefin</p>
+        <h2 id="satTitle" class="mt-3 font-display text-4xl sm:text-5xl text-ink">Our favourite morning of the week</h2>
+      </div>
+      <div class="mt-10 overflow-hidden wd-sketch wd-sketch-alt" data-reveal="wipe"><img src="https://images.unsplash.com/photo-1651614158095-b98b6c1da74b?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8c3dpbSUyMGxlc3NvbiUyMGNoaWxkfGVufDB8MHx8fDE3OTEwODE2MDR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A group of kids practising kicks with pink kickboards" class="aspect-[16/7] w-full object-cover" loading="lazy" data-par="-0.06" width="1080" height="472"></div>
+      <ol class="wd-tl mt-12 space-y-7">
+        <li class="wd-tlrow flex items-start gap-5" data-reveal="left"><span class="wd-mono w-[52px] sm:w-[70px] flex-none pt-0.5 text-right text-ink">8:30</span><span class="wd-dot mt-1"></span><div><h3 class="text-xl text-ink">Splash Tots warm-up</h3><p class="text-soft">Bubbles, songs and the very first floats, grown-ups in the water too.</p></div></li>
+        <li class="wd-tlrow flex items-start gap-5" data-reveal="left"><span class="wd-mono w-[52px] sm:w-[70px] flex-none pt-0.5 text-right text-ink">9:15</span><span class="wd-dot mt-1"></span><div><h3 class="text-xl text-ink">Little Fins games</h3><p class="text-soft">Treasure dives, starfish floats and kicking races to the ducky line.</p></div></li>
+        <li class="wd-tlrow flex items-start gap-5" data-reveal="left"><span class="wd-mono w-[52px] sm:w-[70px] flex-none pt-0.5 text-right text-ink">10:00</span><span class="wd-dot mt-1"></span><div><h3 class="text-xl text-ink">Big Strokes squad</h3><p class="text-soft">Proper lengths, tumble turns and deep-end confidence.</p></div></li>
+        <li class="wd-tlrow flex items-start gap-5" data-reveal="left"><span class="wd-mono w-[52px] sm:w-[70px] flex-none pt-0.5 text-right text-ink">11:00</span><span class="wd-dot mt-1"></span><div><h3 class="text-xl text-ink">Badge parade</h3><p class="text-soft">Everyone who hit a first this week gets a cheer and a ducky badge.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- TEAM: four-column grid with badge, role and contact -->
+  <section id="team" class="relative bg-mint py-24 sm:py-28" aria-labelledby="teamTitle">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="max-w-2xl" data-reveal="up">
+        <p class="wd-mono text-poolDeep">04 · The teachers</p>
+        <h2 id="teamTitle" class="mt-3 font-display text-4xl sm:text-5xl text-ink">Patient. Silly. Always in the water.</h2>
+      </div>
+      <div class="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="wd-teach p-6 text-center" data-reveal="pop"><span class="wd-badge wd-chip wd-mono !text-[.62rem]">Head coach</span><div class="wd-avatar mx-auto h-24 w-24"><svg viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="44" fill="#FFD25A" stroke="#14213A" stroke-width="3"/><path d="M20 40c4-18 52-18 56 0" fill="#14213A"/><circle cx="36" cy="50" r="3.5" fill="#14213A"/><circle cx="60" cy="50" r="3.5" fill="#14213A"/><path d="M36 64c6 6 18 6 24 0" stroke="#14213A" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div><h3 class="mt-4 text-xl text-ink">Mara</h3><p class="text-sm text-soft">Turns "I can't" into "again!"</p><a href="#book" class="wd-contact mt-4 inline-flex items-center justify-center rounded-full border-2 border-ink px-4 text-sm text-ink hover:bg-sun">Say hi →</a></article>
+        <article class="wd-teach p-6 text-center" data-reveal="pop"><span class="wd-badge wd-chip wd-mono !text-[.62rem]" style="background:#FF7B5C">Baby swim</span><div class="wd-avatar mx-auto h-24 w-24"><svg viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="44" fill="#FF7B5C" stroke="#14213A" stroke-width="3"/><circle cx="48" cy="18" r="10" fill="#14213A"/><circle cx="36" cy="50" r="3.5" fill="#14213A"/><circle cx="60" cy="50" r="3.5" fill="#14213A"/><path d="M38 64c5 4 15 4 20 0" stroke="#14213A" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div><h3 class="mt-4 text-xl text-ink">Jonah</h3><p class="text-sm text-soft">Knows every bath-time song</p><a href="#book" class="wd-contact mt-4 inline-flex items-center justify-center rounded-full border-2 border-ink px-4 text-sm text-ink hover:bg-sun">Say hi →</a></article>
+        <article class="wd-teach p-6 text-center" data-reveal="pop"><span class="wd-badge wd-chip wd-mono !text-[.62rem]" style="background:#DDF2FB">Little Fins</span><div class="wd-avatar mx-auto h-24 w-24"><svg viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="44" fill="#49B6E5" stroke="#14213A" stroke-width="3"/><path d="M18 46c2-22 58-22 60 0-10-8-50-8-60 0z" fill="#14213A"/><circle cx="36" cy="54" r="3.5" fill="#14213A"/><circle cx="60" cy="54" r="3.5" fill="#14213A"/><path d="M38 66c5 5 15 5 20 0" stroke="#14213A" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div><h3 class="mt-4 text-xl text-ink">Priya</h3><p class="text-sm text-soft">Champion of starfish floats</p><a href="#book" class="wd-contact mt-4 inline-flex items-center justify-center rounded-full border-2 border-ink px-4 text-sm text-ink hover:bg-sun">Say hi →</a></article>
+        <article class="wd-teach p-6 text-center" data-reveal="pop"><span class="wd-badge wd-chip wd-mono !text-[.62rem]" style="background:#CDF1E5">Big Strokes</span><div class="wd-avatar mx-auto h-24 w-24"><svg viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="44" fill="#fff" stroke="#14213A" stroke-width="3"/><rect x="24" y="40" width="48" height="14" rx="7" fill="#49B6E5" stroke="#14213A" stroke-width="3"/><path d="M38 66c5 5 15 5 20 0" stroke="#14213A" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M22 34c6-14 46-14 52 0" stroke="#14213A" stroke-width="5" fill="none"/></svg></div><h3 class="mt-4 text-xl text-ink">Theo</h3><p class="text-sm text-soft">Tumble-turn wizard</p><a href="#book" class="wd-contact mt-4 inline-flex items-center justify-center rounded-full border-2 border-ink px-4 text-sm text-ink hover:bg-sun">Say hi →</a></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK: centered heading + stacked form with dual actions -->
+  <section id="book" class="relative bg-sun py-24 sm:py-28 overflow-hidden" aria-labelledby="bookTitle">
+    <div class="wd-blob" style="width:380px;height:380px;right:-120px;top:-120px;background:rgba(255,123,92,.4)"></div>
+    <div class="relative mx-auto max-w-xl px-4 sm:px-6 text-center">
+      <div data-reveal="up">
+        <p class="wd-mono text-ink">05 · Free trial splash</p>
+        <h2 id="bookTitle" class="mt-3 font-display text-4xl sm:text-5xl text-ink">Come try a lesson. It's on us.</h2>
+        <p class="mt-4 text-ink">Tell us who's swimming and we'll find the right class. We reply within a day, promise.</p>
+      </div>
+      <form id="bookForm" class="mt-10 wd-sketch p-6 sm:p-8 text-left" novalidate data-reveal="pop">
+        <div class="grid gap-5">
+          <div>
+            <label for="name" class="block text-ink">Your name</label>
+            <input id="name" name="name" class="wd-field mt-1.5" autocomplete="name" placeholder="e.g. Sam Rivera" aria-describedby="nameErr">
+            <p id="nameErr" class="mt-1 min-h-[1.25rem] text-sm text-[#B42318]" aria-live="polite"></p>
+          </div>
+          <div>
+            <label for="email" class="block text-ink">Email</label>
+            <input id="email" name="email" type="email" class="wd-field mt-1.5" autocomplete="email" placeholder="you@example.com" aria-describedby="emailErr">
+            <p id="emailErr" class="mt-1 min-h-[1.25rem] text-sm text-[#B42318]" aria-live="polite"></p>
+          </div>
+          <div>
+            <label for="age" class="block text-ink">Swimmer's age</label>
+            <select id="age" name="age" class="wd-field mt-1.5"><option>6 months – 3 years</option><option>3 – 5 years</option><option>6 – 11 years</option></select>
+          </div>
+          <div>
+            <label for="note" class="block text-ink">Anything we should know? <span class="text-soft">(optional)</span></label>
+            <textarea id="note" name="note" class="wd-field mt-1.5" placeholder="Nervous about water, loves sharks, etc."></textarea>
+          </div>
+          <div class="flex flex-col gap-3 pt-1">
+            <button type="submit" class="wd-btn wd-btn-coral flex-1">Book my trial splash <span class="wd-arr" aria-hidden="true">→</span></button>
+            <a href="#classes" class="wd-btn wd-btn-white flex-1">Browse classes</a>
+          </div>
+          <div id="formOk" class="hidden items-center gap-3 rounded-2xl border-2 border-ink bg-mint p-4 text-ink" role="status">
+            <svg class="wd-check flex-none" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="12" stroke="#14213A" stroke-width="2.5"/><path d="M8 14.5l4 4 8-9" stroke="#14213A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p>Splash booked in our inbox! We'll email you within a day with a class time.</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="relative z-10 bg-cream py-14 text-center">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <a href="#top" class="inline-flex min-h-[44px] items-center gap-2.5" aria-label="Bobblefin, back to top">
+      <svg class="h-10 w-10" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="21" r="17" fill="#49B6E5" stroke="#14213A" stroke-width="2.5"/><path d="M9 25c4-3 7-3 11 0s7 3 11 0" stroke="#fff" stroke-width="2.6" stroke-linecap="round" fill="none"/><path d="M15 17c2-7 8-10 12-9-1 4-3 7-6 9" fill="#FFD25A" stroke="#14213A" stroke-width="2.2" stroke-linejoin="round"/><circle cx="14" cy="15" r="1.8" fill="#14213A"/></svg>
+      <span class="font-display text-2xl text-ink">Bobblefin Swim School</span>
+    </a>
+    <ul class="mt-6 flex flex-wrap justify-center gap-x-2 text-ink">
+      <li><a class="inline-flex min-h-[44px] items-center px-3 underline decoration-2 decoration-pool underline-offset-4 hover:decoration-coral" href="#classes">Classes</a></li>
+      <li><a class="inline-flex min-h-[44px] items-center px-3 underline decoration-2 decoration-pool underline-offset-4 hover:decoration-coral" href="#saturday">Saturdays</a></li>
+      <li><a class="inline-flex min-h-[44px] items-center px-3 underline decoration-2 decoration-pool underline-offset-4 hover:decoration-coral" href="#team">Teachers</a></li>
+      <li><a class="inline-flex min-h-[44px] items-center px-3 underline decoration-2 decoration-pool underline-offset-4 hover:decoration-coral" href="#book">Free trial</a></li>
+    </ul>
+    <p class="mt-6 text-sm text-soft">Photos on Unsplash by
+      <a class="underline" href="https://unsplash.com/@markusspiske?utm_source=webdrip_demo&amp;utm_medium=referral">Markus Spiske</a>,
+      <a class="underline" href="https://unsplash.com/@delphoxtube?utm_source=webdrip_demo&amp;utm_medium=referral">Jeff Dunham</a>,
+      <a class="underline" href="https://unsplash.com/@faride_araujo?utm_source=webdrip_demo&amp;utm_medium=referral">Faride Araujo</a>,
+      <a class="underline" href="https://unsplash.com/@abstralofficial?utm_source=webdrip_demo&amp;utm_medium=referral">Abstral Official</a>,
+      <a class="underline" href="https://unsplash.com/@borneva?utm_source=webdrip_demo&amp;utm_medium=referral">Leonardo Borneva</a> and
+      <a class="underline" href="https://unsplash.com/@kevinpaes?utm_source=webdrip_demo&amp;utm_medium=referral">Kevin Paes</a>
+      on <a class="underline" href="https://unsplash.com/?utm_source=webdrip_demo&amp;utm_medium=referral">Unsplash</a>.</p>
+    <p class="mt-3 text-sm text-soft"><a class="underline decoration-2 decoration-coral underline-offset-4" href="https://getwebdrip.com">Concept design by WebDrip — fictional brand</a> · © 2026</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.classList.add('js');
+  requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.add('loaded'); }); });
+  // recording hook: lets a frame-by-frame recorder slow JS timing to match slowed CSS animations
+  function timeScale() { return window.__wdTimeScale || 1; }
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(function () {}); });
+  }
+
+  /* mobile menu */
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  function setMenu(open) {
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (open) { menu.hidden = false; menu.classList.add('open'); } else { menu.classList.remove('open'); menu.hidden = true; }
+  }
+  burger.addEventListener('click', function () { setMenu(burger.getAttribute('aria-expanded') !== 'true'); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') { setMenu(false); burger.focus(); } });
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  window.addEventListener('resize', function () { if (window.innerWidth >= 768) setMenu(false); });
+
+  /* reveals */
+  var groups = new Map();
+  document.querySelectorAll('[data-reveal]').forEach(function (el) {
+    var p = el.parentElement; var i = groups.get(p) || 0; groups.set(p, i + 1);
+    el.style.setProperty('--stagger', (i * 110) + 'ms');
+  });
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  function markIn(el) { el.classList.add('in'); setTimeout(function () { el.style.setProperty('--stagger', '0ms'); }, 1600 / timeScale()); }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { markIn(en.target); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else { revealEls.forEach(markIn); }
+  function sweepReveals() {
+    var vh = window.innerHeight;
+    revealEls.forEach(function (el) { if (!el.classList.contains('in') && el.getBoundingClientRect().top < vh * 0.98) markIn(el); });
+  }
+
+  /* count-up */
+  var counters = document.querySelectorAll('[data-count]');
+  function runCount(el) {
+    var target = +el.getAttribute('data-count'); if (reduce || target < 2) { el.textContent = target; return; }
+    var t0 = null;
+    function step(t) { if (!t0) t0 = t; var k = Math.min(1, (t - t0) * timeScale() / 1400); var e = 1 - Math.pow(1 - k, 3); el.textContent = Math.round(target * e); if (k < 1) requestAnimationFrame(step); }
+    el.textContent = '0'; requestAnimationFrame(step);
+  }
+  if ('IntersectionObserver' in window) {
+    var co = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { runCount(en.target); co.unobserve(en.target); } }); }, { threshold: .6 });
+    counters.forEach(function (c) { co.observe(c); });
+  }
+
+  /* one shared rAF loop: progress, nav, hero camera, parallax */
+  var nav = document.getElementById('nav');
+  var bar = document.getElementById('progress');
+  var heroImg = document.getElementById('heroImg');
+  var stage = document.querySelector('.wd-stage');
+  var heroCopy = document.getElementById('heroCopy');
+  var hpars = Array.prototype.slice.call(document.querySelectorAll('[data-hpar]'));
+  var pars = Array.prototype.slice.call(document.querySelectorAll('[data-par]'));
+  var cur = window.scrollY, target = window.scrollY, ticking = false;
+
+  function frame() {
+    target = window.scrollY;
+    cur += (target - cur) * Math.min(1, 0.12 / timeScale());
+    if (Math.abs(target - cur) < 0.3) cur = target;
+    var vh = window.innerHeight, docH = document.documentElement.scrollHeight - vh;
+    bar.style.transform = 'scaleX(' + (docH > 0 ? Math.min(1, target / docH) : 0) + ')';
+    nav.classList.toggle('wd-scrolled', target > 40);
+
+    if (!reduce) {
+      var p = Math.min(1.4, cur / vh);
+      var k = Math.min(1, p);
+      var ease = k * k * (3 - 2 * k);
+      // camera: dive down into the lanes (zoom + forward tilt + drift), reverses on the way up
+      heroImg.style.transform = 'translate3d(' + (ease * 3) + '%,' + (-ease * 4) + '%,0) scale(' + (1.05 + ease * 0.38) + ') rotateX(' + (ease * 12) + 'deg) rotateZ(' + (ease * -4) + 'deg)';
+      hpars.forEach(function (el) { el.style.transform = 'translate3d(0,' + (-cur * parseFloat(el.getAttribute('data-hpar'))) + 'px,0)'; });
+      if (heroCopy) { heroCopy.style.transform = 'translate3d(0,' + (-cur * 0.25) + 'px,0)'; heroCopy.style.opacity = String(Math.max(0, 1 - p * 1.2)); }
+      pars.forEach(function (el) {
+        var r = el.getBoundingClientRect(); if (r.bottom < -200 || r.top > vh + 200) return;
+        var c = (r.top + r.height / 2 - vh / 2);
+        var f = parseFloat(el.getAttribute('data-par'));
+        el.style.transform = 'translate3d(0,' + (c * f) + 'px,0) scale(1.14)';
+      });
+    }
+    stage.style.opacity = String(Math.max(0, 1 - Math.max(0, target - vh * 0.85) / (vh * 0.5)));
+    sweepReveals();
+    if (Math.abs(target - cur) > 0.3 || target !== window.scrollY) requestAnimationFrame(frame); else ticking = false;
+  }
+  function kick() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+  window.addEventListener('scroll', kick, { passive: true });
+  window.addEventListener('resize', kick);
+  kick();
+
+  /* magnetic buttons (fine pointer only) */
+  if (!reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('.wd-magnetic').forEach(function (b) {
+      b.addEventListener('mousemove', function (e) {
+        var r = b.getBoundingClientRect(); var x = e.clientX - r.left - r.width / 2, y = e.clientY - r.top - r.height / 2;
+        b.style.transform = 'translate3d(' + x * 0.14 + 'px,' + y * 0.2 + 'px,0)';
+      });
+      b.addEventListener('mouseleave', function () { b.style.transform = ''; });
+    });
+  }
+
+  /* spotlight toggle */
+  var spot = document.getElementById('spot');
+  var tgl = document.getElementById('spotToggle');
+  function setSpot(paused) {
+    spot.classList.toggle('paused', paused);
+    tgl.setAttribute('aria-pressed', String(paused));
+    document.getElementById('spotLabel').textContent = paused ? 'Play motion' : 'Pause motion';
+    document.getElementById('pauseIco').classList.toggle('hidden', paused);
+    document.getElementById('playIco').classList.toggle('hidden', !paused);
+  }
+  tgl.addEventListener('click', function () { setSpot(!spot.classList.contains('paused')); });
+  if (reduce) setSpot(true);
+
+  /* form */
+  var form = document.getElementById('bookForm');
+  var ok = document.getElementById('formOk');
+  var nameI = document.getElementById('name'), emailI = document.getElementById('email');
+  var nameE = document.getElementById('nameErr'), emailE = document.getElementById('emailErr');
+  function fail(input, errEl, msg) {
+    input.setAttribute('aria-invalid', 'true'); errEl.textContent = msg;
+    input.classList.remove('wd-shake'); void input.offsetWidth; input.classList.add('wd-shake');
+  }
+  function clear(input, errEl) { input.removeAttribute('aria-invalid'); errEl.textContent = ''; }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    ok.classList.add('hidden'); ok.classList.remove('show', 'flex');
+    var good = true;
+    if (!nameI.value.trim()) { fail(nameI, nameE, 'Please add your name.'); good = false; } else clear(nameI, nameE);
+    var v = emailI.value.trim();
+    if (!v) { fail(emailI, emailE, 'Please enter your email.'); good = false; }
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { fail(emailI, emailE, 'That email looks incomplete, mind checking it?'); good = false; }
+    else clear(emailI, emailE);
+    if (!good) { (form.querySelector('[aria-invalid="true"]') || nameI).focus(); return; }
+    ok.classList.remove('hidden'); ok.classList.add('flex'); void ok.offsetWidth; ok.classList.add('show');
+    form.reset();
+  });
+})();
+</script>
+</body>
+</html>
