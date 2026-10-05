@@ -2,13 +2,14 @@
 // Toolkit template: copy to <slug>/tests/demo.spec.js and edit CONFIG only.
 // Run from repo root:  npx http-server -p 8080 -s &  npx playwright test <site_dir>/tests
 const CONFIG = {
-  path: '/automation-v2/websites/SLUG/', // site folder, served from the repo root
-  // text that must already be in the built index.html before JavaScript runs (prerender check)
-  prerendered: ['Headline text'],
-  h1: 'Headline text',               // text inside the hero <h1>
-  menuLink: 'Section link',          // a mobile-menu link name
-  menuHash: 'section',               // the id that link scrolls to
-  submit: /Submit/,                  // form submit button name
+  path: '/automation-v2/websites/marlowick/', // site folder, served from the repo root
+  h1: 'Sharp suits',                 // text inside the hero <h1>
+  menuLink: 'Fittings',              // a mobile-menu link name
+  menuHash: 'fittings',              // the id that link scrolls to
+  submit: /Book my fitting/,         // form submit button name
+  // text that must already be in the built index.html before JavaScript runs
+  prerendered: ['Sharp suits,', 'A suit for every day you need one.', 'Every suit is fitted before it leaves the shop.',
+    'Hire the suit. Skip the scramble.', 'About 45 minutes, start to finish.', 'Book a fitting.', 'Concept design by WebDrip'],
 };
 const { test, expect, devices } = require('@playwright/test');
 

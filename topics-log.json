@@ -667,5 +667,35 @@
     "caption_hook": "What happens when a customer needs you after closing time?",
     "hook_type": "bold question",
     "videos_deleted": true
+  },
+  {
+    "date": "2026-10-05",
+    "slug": "marlowick",
+    "site_path": "automation-v2/websites/marlowick",
+    "business_type": "men's formalwear shop (suits, dinner suits, shirts, ties, suit hire and fittings)",
+    "brand_name": "Marlowick",
+    "tagline": "Sharp suits, fitted properly.",
+    "topic_approved": true,
+    "topic_note": "topic approved by Sourav (he swapped the first proposal, a dog grooming studio, for a men's formalwear shop)",
+    "design_style": "bergside/awesome-design-skills 'premium' (Apple-inspired precise modern style: Inter Variable 600-750 display with tight tracking + JetBrains Mono caps labels, 4/8px radii, 4-8-12-16-24-32 spacing) recoloured to ivory, cobalt and camel; hero = typeui 'centered stack with big image below', where the framed rail photo starts tilted under the headline and the scroll camera pushes in to full-bleed; six-card uniform grid for the suits, split spotlight with Ken Burns loop and pause, three pricing cards with count-ups for hire, ruled single-day timeline + stat row for the fitting, centered stacked form with floating portraits and dual actions — chosen because a calm, precise 'premium' look suits formal menswear, and none of the last 10 runs used premium or this hero",
+    "design_source": {
+      "repo": "https://github.com/bergside/awesome-design-skills",
+      "stars": "unknown (GitHub search API not reachable from this session; used the routine's fallback repo)",
+      "layouts": "https://github.com/bergside/typeui (prompts/marketing)"
+    },
+    "palette": {
+      "ivory": "#FAF7F0",
+      "white": "#FFFFFF",
+      "sky": "#E9F0FF",
+      "sand": "#F4E9DA",
+      "cobalt": "#2747D6",
+      "cobalt_deep": "#1B32A3",
+      "camel": "#C08A4E",
+      "camel_deep": "#85561F",
+      "ink": "#121826",
+      "soft": "#4B5468"
+    },
+    "fonts": "Inter Variable + JetBrains Mono (self-hosted via @fontsource)",
+    "stack": "React 19 + Vite 7 + Tailwind 4 (@tailwindcss/vite), prerendered with renderToString, hydrateRoot"
   }
 ]

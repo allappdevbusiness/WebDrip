@@ -5,6 +5,7 @@ Reusable pieces for each daily concept-site + promo run. Copy, then change only 
 | File | What it does |
 | --- | --- |
 | `demo.spec.js` | Playwright smoke tests (Desktop 1280×720 + iPhone 13). Copy to `<slug>/tests/demo.spec.js` and edit `CONFIG`. |
+| `react-starter/` | React site plumbing only (no components or design): `package.json` (React 19, Vite 7, Tailwind 4 via `@tailwindcss/vite`), `vite.config.js` (`base: './'`, `outDir: '..'`, `emptyOutDir: false`), `scripts/clean.mjs` (deletes `<site_dir>/assets`), `scripts/prerender.mjs` (SSR bundle → `renderToString` → injected into the built `index.html`, then hashed JS/CSS + latin fonts + image URLs written into `sw.js`), `public/sw.js` (cache-first, versioned by slug), `src/entry-server.jsx` (exports `render` and `precacheUrls`) and `src/motion.js` (one shared rAF loop, timed from rAF timestamps). Copy into `<site_dir>/app/`, replace `SLUG`, then `npm install && npm run build`. |
 | `pw.config.js` | Minimal Playwright config: `TEST_DIR=<repo>/<slug>/tests NODE_PATH=<video>/node_modules npx playwright test -c pw.config.js` |
 | `rec.js` | Frame-by-frame recorder. Takes a JSON plan of shots (scroll from/to, holds, clicks/taps/fills), slows CSS animations with `Animation.setPlaybackRate`, sets `window.__wdTimeScale` for JS timing, retries flaky proxy image loads and encodes each shot to `<out>/<profile>-<shot>.mp4`. |
 | `mix.py` | Music + voice mix: places voice lines, ducks music ~9 dB under speech, synthesises whoosh / impact / tick / pop / rise in code, masters to −14 LUFS with peaks under −1 dBFS. |
@@ -45,3 +46,9 @@ Notes that saved time:
 - `mix.py` `stems` + `stem_moves`: the drum stem sums sample-exactly into the full mix, but the bass stem's low end sits about 12 ms off the master's, so a plain stem sum leaves a −17 dB low residual. The mixer therefore splits the full mix into drums / low (non-drum content < 150 Hz) / melody (full − drums − bass − instruments, > 150 Hz) / rest, which sum back exactly, and automates those parts. Music segments (`from`/`to` in track time) apply to every part.
 - `mix.py` ducks with a 150 ms look-ahead (`duck_lookahead`), so a line's first consonant isn't masked, and takes `ceiling_db`. Master at −4 dB: the AAC encode overshoots by up to 2 dB, and the delivered file must stay ≤ −1 dBTP.
 - `frames.tsx` `useFonts` publishes `window.__wdFontsReady`, and `useBoxLogger` waits for it. Without that, the checker measured titles at fallback-font width while a render ran in parallel.
+
+- React runs (2026-10-05): custom CSS outside a layer beats every Tailwind v4 utility (`.wd-btn { display: inline-flex }` beat `hidden md:inline-flex`). Put custom classes in `@layer components { … }` and keep only the `html.js` reveal states and reduced-motion rules unlayered.
+- Chrome's IntersectionObserver never reports a target that is fully hidden by its own `clip-path: inset(0 0 100% 0)`. For mask reveals, clip the children and observe the parent.
+- A CSS animation overrides inline transforms while it applies. For intro animations on elements that JS also moves, use `animation-fill-mode: backwards` so the inline transform wins once the animation ends.
+- Count-ups: keep the prerendered final number until the element is in view, then reset to 0 and count. Zeroing them early leaves 0 in static screenshots.
+- The hero photo's starting transform lives in both `index.css` (no-JS state) and the hero script. Keep the two in sync, or the first frame jumps.
