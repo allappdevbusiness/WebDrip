@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grainhaven Film Lab — Every roll, developed by hand</title>
+<meta name="description" content="Grainhaven Film Lab develops and scans 35mm and 120 film by hand, rents out a red-light darkroom and teaches small film classes. A WebDrip concept site.">
+<meta name="theme-color" content="#F2EADB">
+<link rel="canonical" href="https://webdripsamples.netlify.app/automation-v1/demos/grainhaven-demo/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Grainhaven Film Lab">
+<meta property="og:title" content="Grainhaven Film Lab — Every roll, developed by hand">
+<meta property="og:description" content="Hand-developed film, sharp scans in 48 hours, a darkroom you can rent and friendly film classes. A concept website by WebDrip.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1527606078995-42486f991014?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OHx8MzVtbSUyMGZpbG0lMjBjYW1lcmF8ZW58MHwwfHx8MTc5MDk5MDc1OXww&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1590">
+<meta property="og:url" content="https://webdripsamples.netlify.app/automation-v1/demos/grainhaven-demo/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Grainhaven Film Lab — Every roll, developed by hand">
+<meta name="twitter:description" content="Hand-developed film, sharp scans in 48 hours, a darkroom you can rent and friendly film classes.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1527606078995-42486f991014?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OHx8MzVtbSUyMGZpbG0lMjBjYW1lcmF8ZW58MHwwfHx8MTc5MDk5MDc1OXww&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='7' y='3' width='18' height='5' fill='%231B1A17'/%3E%3Crect x='5' y='7' width='22' height='22' fill='%230B6363'/%3E%3Crect x='5' y='14' width='22' height='7' fill='%23E8641B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Karla:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  // JS opts elements into their hidden "before" state; if the main script never runs, show everything.
+  document.documentElement.classList.add('js');
+  setTimeout(function () { if (!window.__ghReady) document.documentElement.classList.add('reveal-all'); }, 2500);
+</script>
+<style>
+  :root{
+    --paper:#F2EADB; --paper-2:#E9DFCC; --ink:#1B1A17; --ink-soft:#4A463E;
+    --teal:#0B6363; --teal-deep:#084848; --teal-tint:#D5E6E2;
+    --silver:#CFC9BD; --hi:#FFFDF7; --lo:#8C8577; --lo-2:#5E584D;
+    --stamp:#E8641B; --stamp-deep:#B3470C; --safelight:#B3261E;
+    --r-sm:4px; --r-md:8px;
+    --bevel: inset 2px 2px 0 var(--hi), inset -2px -2px 0 var(--lo);
+    --bevel-in: inset 2px 2px 0 var(--lo), inset -2px -2px 0 var(--hi);
+    --drop: 0 18px 40px -22px rgba(27,26,23,.45), 0 4px 10px -6px rgba(27,26,23,.25);
+    --drop-lift: 0 30px 60px -26px rgba(27,26,23,.55), 0 8px 18px -8px rgba(27,26,23,.3);
+    --ease: cubic-bezier(.22,1,.36,1);
+  }
+  [hidden]{display:none!important}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:Karla,system-ui,sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden;overflow-x:clip}
+  .pixel{font-family:Silkscreen,ui-monospace,monospace;letter-spacing:.01em;font-weight:400}
+  .mono{font-family:"JetBrains Mono",ui-monospace,monospace;letter-spacing:.06em}
+  :focus-visible{outline:3px dashed var(--teal);outline-offset:3px;animation:ring .5s var(--ease)}
+  @keyframes ring{from{outline-offset:10px;outline-color:rgba(11,99,99,0)}to{outline-offset:3px}}
+  .skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ink);color:#fff;padding:12px 16px}
+  .skip:focus{top:12px}
+  /* film grain over the whole page (static, no repaint cost) */
+  .grain{position:fixed;inset:0;z-index:80;pointer-events:none;opacity:.10;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  /* progress */
+  #progress{position:fixed;inset:0 0 auto 0;height:4px;z-index:90;transform-origin:0 50%;transform:scaleX(0);background:repeating-linear-gradient(90deg,var(--stamp) 0 14px,var(--stamp-deep) 14px 18px)}
+
+  /* nav: a retro window title bar */
+  #nav{position:fixed;inset:10px 10px auto 10px;z-index:60}
+  #nav .bar{background:rgba(207,201,189,.94);box-shadow:var(--bevel),var(--drop);border-radius:var(--r-sm);transition:padding .4s var(--ease),background .4s}
+  @media (min-width:768px){#nav .bar{background:rgba(207,201,189,.78);-webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3)}}
+  #nav.scrolled .bar{background:rgba(242,234,219,.95);padding-top:2px;padding-bottom:2px}
+  .navlink{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:0 4px;font-weight:700;color:var(--ink)}
+  .navlink::after,.ulink::after{content:"";position:absolute;left:4px;right:4px;bottom:9px;height:3px;background:var(--stamp);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
+  .navlink:hover::after,.navlink:focus-visible::after,.ulink:hover::after,.ulink:focus-visible::after{transform:scaleX(1);transform-origin:left}
+  .ulink{position:relative;display:inline-flex;align-items:center;min-height:44px;font-weight:700;color:var(--teal-deep)}
+  .ulink::after{left:0;right:0;bottom:8px}
+  #burger{width:48px;height:48px;border-radius:var(--r-sm);background:var(--silver);box-shadow:var(--bevel);position:relative}
+  #burger:active{box-shadow:var(--bevel-in)}
+  #burger span{position:absolute;left:13px;right:13px;height:3px;background:var(--ink);transition:transform .35s var(--ease),opacity .2s}
+  #burger span:nth-child(1){top:16px}#burger span:nth-child(2){top:22.5px}#burger span:nth-child(3){top:29px}
+  #burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  #burger[aria-expanded="true"] span:nth-child(2){opacity:0;transform:scaleX(.2)}
+  #burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+  #mobileMenu{transform-origin:top center;max-height:calc(100vh - 96px);overflow-y:auto;overscroll-behavior:contain;background:var(--paper);box-shadow:var(--bevel),var(--drop-lift);border-radius:var(--r-sm)}
+  #mobileMenu:not([hidden]){animation:menuIn .42s var(--ease)}
+  @keyframes menuIn{from{opacity:0;transform:translateY(-14px) scaleY(.94)}to{opacity:1;transform:none}}
+  #mobileMenu:not([hidden]) li{animation:itemIn .45s var(--ease) both}
+  #mobileMenu:not([hidden]) li:nth-child(2){animation-delay:.05s}#mobileMenu:not([hidden]) li:nth-child(3){animation-delay:.1s}#mobileMenu:not([hidden]) li:nth-child(4){animation-delay:.15s}#mobileMenu:not([hidden]) li:nth-child(5){animation-delay:.2s}
+  @keyframes itemIn{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:none}}
+
+  /* window chrome */
+  .win{background:var(--silver);box-shadow:var(--bevel),var(--drop);border-radius:var(--r-sm);padding:4px}
+  .titlebar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 8px;border-radius:2px;background:linear-gradient(90deg,var(--teal-deep),var(--teal) 70%,#2C8580);color:#fff}
+  .titlebar .t{font-family:"JetBrains Mono",monospace;font-size:.72rem;font-weight:700;letter-spacing:.06em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .dots{display:flex;gap:4px}
+  .dots i{display:block;width:14px;height:13px;background:var(--silver);box-shadow:inset 1px 1px 0 var(--hi),inset -1px -1px 0 var(--lo-2)}
+
+  /* buttons: bevelled keys */
+  .btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:52px;padding:0 24px;border-radius:var(--r-sm);font-weight:800;letter-spacing:.01em;overflow:hidden;isolation:isolate;transition:transform .3s var(--ease),box-shadow .2s;will-change:transform;-webkit-tap-highlight-color:transparent}
+  .btn-primary{background:var(--stamp);color:#1B1A17;box-shadow:inset 2px 2px 0 #FFB27D,inset -3px -3px 0 var(--stamp-deep),0 6px 0 -1px #6E2A06,var(--drop)}
+  .btn-teal{background:var(--teal);color:#fff;box-shadow:inset 2px 2px 0 #3E9C96,inset -3px -3px 0 #053535,0 6px 0 -1px #032626,var(--drop)}
+  .btn-ghost{background:var(--silver);color:var(--ink);box-shadow:var(--bevel),0 6px 0 -1px var(--lo-2),var(--drop)}
+  .btn::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.5) 50%,transparent 70%);transform:translateX(-120%);transition:transform .8s var(--ease)}
+  .btn:hover::before{transform:translateX(120%)}
+  .btn:active{transform:translateY(4px)!important;box-shadow:var(--bevel-in)}
+  .btn-sm{min-height:44px;padding:0 16px;font-size:.95rem}
+
+  /* hero */
+  #stage{position:fixed;inset:0;z-index:0;overflow:hidden;background:#1B1A17}
+  @media (pointer:fine){#stage{perspective:1200px}}
+  #heroImg{position:absolute;inset:-6%;width:112%;height:112%;max-width:none;object-fit:cover;transform-origin:50% 55%;will-change:transform}
+  #stage::after{content:"";position:absolute;inset:0;background:radial-gradient(110% 80% at 50% 38%,rgba(27,26,23,.35) 0%,rgba(27,26,23,.72) 100%),linear-gradient(180deg,rgba(27,26,23,.25) 0%,rgba(27,26,23,0) 30%,rgba(242,234,219,0) 75%,rgba(242,234,219,.9) 100%)}
+  #top{position:relative;z-index:1;min-height:100vh;min-height:100svh;overflow:hidden;overflow:clip}
+  .line{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+  .line>span{display:inline-block}
+  .js .line>span{transform:translateY(115%)}
+  .js .intro-fade{opacity:0;transform:translateY(14px)}
+  .loaded .line>span{transform:none;transition:transform 1s var(--ease)}
+  .loaded .line:nth-child(2)>span{transition-delay:.13s}
+  .loaded .line:nth-child(3)>span{transition-delay:.26s}
+  .loaded .intro-fade{opacity:1;transform:none;transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,.35s)}
+  .js #nav{opacity:0;transform:translateY(-16px)}
+  .loaded #nav{opacity:1;transform:none;transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  .stamp{font-family:Silkscreen,monospace;color:var(--stamp);text-shadow:0 0 12px rgba(232,100,27,.55),0 0 2px rgba(232,100,27,.9)}
+  .glowdot{position:absolute;border-radius:50%;pointer-events:none;will-change:transform}
+  .drift-a{animation:driftA 10s ease-in-out infinite}.drift-b{animation:driftB 13s ease-in-out infinite}
+  @keyframes driftA{0%,100%{translate:0 0;opacity:.75}50%{translate:20px -24px;opacity:1}}
+  @keyframes driftB{0%,100%{translate:0 0;opacity:.6}50%{translate:-22px 16px;opacity:.95}}
+  .chip{display:inline-flex;align-items:center;gap:.5rem;padding:7px 12px;border-radius:var(--r-sm);background:rgba(27,26,23,.62);color:#F7F1E4;font-family:"JetBrains Mono",monospace;font-size:.72rem;font-weight:700;letter-spacing:.08em;box-shadow:inset 0 0 0 1px rgba(255,253,247,.25)}
+  .hl{position:relative;white-space:nowrap;z-index:0}
+  .hl::before{content:"";position:absolute;left:-.06em;right:-.06em;bottom:.04em;height:.34em;background:var(--stamp);z-index:-1;opacity:.9}
+  /* filmstrip in the hero window */
+  .strip{position:relative;background:#141310;padding:16px 0;overflow:hidden}
+  .strip::before,.strip::after{content:"";position:absolute;left:0;right:0;height:9px;background:repeating-linear-gradient(90deg,transparent 0 10px,#E9DFCC 10px 20px,transparent 20px 30px);opacity:.75}
+  .strip::before{top:4px}.strip::after{bottom:4px}
+  .strip-track{display:flex;gap:10px;width:max-content;animation:roll 38s linear infinite}
+  .strip-track img{width:200px;height:132px;object-fit:cover;border-radius:2px;filter:saturate(1.05) contrast(1.05)}
+  @media (max-width:640px){.strip-track img{width:140px;height:94px}}
+  @keyframes roll{to{transform:translateX(-50%)}}
+  #top.paused .strip-track{animation-play-state:paused}
+
+  /* sections */
+  main{position:relative;z-index:2;overflow-x:hidden;overflow-x:clip;background:var(--paper)}
+  main::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px;background:repeating-linear-gradient(90deg,var(--paper) 0 14px,transparent 14px 22px)}
+  .section-pad{padding:96px 0}
+  @media (max-width:767px){.section-pad{padding:72px 0}}
+  .kicker{display:inline-flex;align-items:center;gap:.5rem;font-family:"JetBrains Mono",monospace;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-deep)}
+  .kicker::before{content:"";width:10px;height:10px;background:var(--stamp);box-shadow:inset -2px -2px 0 var(--stamp-deep)}
+  .card{position:relative;transition:transform .45s var(--ease),box-shadow .45s var(--ease);-webkit-tap-highlight-color:transparent}
+  .card:hover{transform:translateY(-8px);box-shadow:var(--bevel),var(--drop-lift)}
+  .card:active{transform:translateY(-2px) scale(.985)}
+  .card .ph{overflow:hidden;aspect-ratio:4/3;background:#2B2A26;box-shadow:var(--bevel-in);border:2px solid transparent}
+  .card .ph img{width:100%;height:100%;object-fit:cover;transform:translate3d(0,var(--py,0px),0) scale(var(--zoom,1.12));transition:transform .8s var(--ease);will-change:transform}
+  .card:hover .ph img{--zoom:1.2}
+  .body{background:var(--paper);box-shadow:var(--bevel-in);border-radius:2px}
+  .price{font-family:Silkscreen,monospace;font-size:1.6rem;line-height:1;color:var(--ink)}
+  .tag{display:inline-flex;align-items:center;padding:4px 8px;font-family:"JetBrains Mono",monospace;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:2px}
+  .stat{background:var(--silver);box-shadow:var(--bevel),var(--drop);border-radius:var(--r-sm);padding:6px}
+  .stat .lcd{background:#1E2620;color:#B8F5A0;box-shadow:var(--bevel-in);padding:14px 10px;text-align:center;border-radius:2px}
+  .stat .lcd b{font-family:Silkscreen,monospace;font-weight:400;font-size:2.4rem;line-height:1;text-shadow:0 0 10px rgba(184,245,160,.45)}
+  [data-speed]{transform:translate3d(0,var(--py,0px),0)}
+  .tl{position:relative}
+  .tl::before{content:"";position:absolute;left:27px;top:8px;bottom:8px;width:4px;background:repeating-linear-gradient(180deg,var(--ink) 0 10px,transparent 10px 16px)}
+  .tl-num{display:grid;place-items:center;width:58px;height:58px;flex:none;background:var(--stamp);color:var(--ink);font-family:Silkscreen,monospace;font-size:1.25rem;box-shadow:inset 2px 2px 0 #FFB27D,inset -3px -3px 0 var(--stamp-deep),var(--drop);border-radius:var(--r-sm);position:relative;z-index:1}
+
+  /* reveals (only when JS opted in) */
+  .js [data-reveal]{opacity:0;transition:opacity .8s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0ms)}
+  .js [data-reveal="up"]{transform:translateY(42px)}
+  .js [data-reveal="scale"]{transform:scale(.9) translateY(18px)}
+  .js [data-reveal="drop"]{transform:translateY(-34px) rotate(-2deg)}
+  .js [data-reveal="left"]{transform:translateX(-50px)}
+  .js [data-reveal="right"]{transform:translateX(50px)}
+  .js [data-reveal="develop"]{transform:scale(.96)}
+  .js [data-reveal="develop"] .frame{clip-path:inset(0 0 100% 0);transition:clip-path 1.2s var(--ease) .1s}
+  .js [data-reveal="develop"].in .frame,.reveal-all [data-reveal="develop"] .frame{clip-path:inset(0 0 0 0)}
+  .js [data-reveal].in,.reveal-all [data-reveal]{opacity:1;transform:none}
+  .reveal-all .line>span,.reveal-all .intro-fade,.reveal-all #nav{opacity:1!important;transform:none!important}
+
+  /* spotlight */
+  #spotlight{background:#140D0B;color:#F7EDE4;position:relative;overflow:hidden}
+  #spotlight .frame{position:relative;overflow:hidden;border-radius:var(--r-sm);isolation:isolate;box-shadow:0 0 0 4px #2A1A16,0 40px 80px -30px rgba(179,38,30,.6)}
+  #spotImg{width:100%;height:100%;object-fit:cover;transform:scale(1.12);animation:kenburns 22s ease-in-out infinite alternate}
+  @keyframes kenburns{from{transform:scale(1.12) translate(-2%,1%)}to{transform:scale(1.24) translate(2%,-2%)}}
+  .sweep{position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,190,160,.22) 50%,transparent 65%);transform:translateX(-100%);animation:sweep 8s ease-in-out infinite}
+  @keyframes sweep{0%,25%{transform:translateX(-100%)}65%,100%{transform:translateX(100%)}}
+  .safeglow{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(220,52,38,.55),rgba(220,52,38,0) 68%);animation:safe 6s ease-in-out infinite;pointer-events:none}
+  @keyframes safe{0%,100%{opacity:.45;transform:scale(.92)}50%{opacity:.95;transform:scale(1.08)}}
+  #spotlight.paused #spotImg,#spotlight.paused .sweep,#spotlight.paused .safeglow{animation-play-state:paused}
+  .btn-dark{background:#2A1A16;color:#F7EDE4;box-shadow:inset 2px 2px 0 #4A2E27,inset -2px -2px 0 #0B0605}
+
+  /* faq */
+  details.q{background:var(--silver);box-shadow:var(--bevel);border-radius:var(--r-sm);padding:4px}
+  details.q summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px;padding:10px 14px;font-weight:800;font-size:1.05rem;background:var(--paper);box-shadow:var(--bevel-in);border-radius:2px}
+  details.q summary::-webkit-details-marker{display:none}
+  details.q summary .pm{flex:none;width:28px;height:28px;display:grid;place-items:center;background:var(--silver);box-shadow:var(--bevel);font-family:Silkscreen,monospace;transition:transform .35s var(--ease)}
+  details.q[open] summary .pm{transform:rotate(45deg)}
+  details.q .a{padding:14px 16px 10px;color:var(--ink-soft);line-height:1.6}
+  details.q[open] .a{animation:menuIn .4s var(--ease)}
+
+  /* join */
+  .polaroid{position:absolute;background:#FFFDF7;padding:8px 8px 26px;box-shadow:var(--drop-lift);will-change:transform}
+  .polaroid img{display:block;width:100%;height:100%;object-fit:cover}
+  .bob-a{animation:bobA 9s ease-in-out infinite}.bob-b{animation:bobB 11s ease-in-out infinite}
+  @keyframes bobA{0%,100%{translate:0 0}50%{translate:0 -14px}}
+  @keyframes bobB{0%,100%{translate:0 0}50%{translate:0 12px}}
+  .field{width:100%;min-height:52px;padding:12px 14px;border-radius:2px;background:#FFFDF7;color:var(--ink);font-weight:500;border:2px solid transparent;box-shadow:var(--bevel-in);transition:border-color .25s,box-shadow .25s}
+  .field:focus{outline:none;border-color:var(--teal);box-shadow:var(--bevel-in),0 0 0 4px rgba(11,99,99,.22)}
+  .field[aria-invalid="true"]{border-color:var(--safelight);background:#FFF1EE}
+  .err{min-height:1.25rem;color:#A3211A;font-size:.88rem;font-weight:700;margin-top:6px}
+  .shake{animation:shake .45s cubic-bezier(.36,.07,.19,.97)}
+  @keyframes shake{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(4px)}30%,50%,70%{transform:translateX(-7px)}40%,60%{transform:translateX(7px)}}
+  #formOk .check path{stroke-dasharray:40;stroke-dashoffset:40}
+  #formOk:not([hidden]) .check path{animation:draw .6s .15s var(--ease) forwards}
+  #formOk:not([hidden]){animation:menuIn .5s var(--ease)}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
+    .js [data-reveal]{transform:none!important}
+    .js [data-reveal] .frame{clip-path:none!important}
+    .js .line>span,.js .intro-fade{transform:none!important}
+  }
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+<div id="progress" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header id="nav">
+  <div class="bar mx-auto flex max-w-6xl items-center justify-between gap-3 py-1.5 pl-3 pr-1.5 sm:pl-4">
+    <a href="#top" class="flex min-h-[44px] items-center gap-2.5" aria-label="Grainhaven Film Lab, back to top">
+      <svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><rect x="9" y="2" width="14" height="4" fill="#1B1A17"/><rect x="6" y="6" width="20" height="2" fill="#5E584D"/><rect x="6" y="8" width="20" height="21" fill="#0B6363"/><rect x="6" y="14" width="20" height="7" fill="#E8641B"/><rect x="8" y="10" width="3" height="2" fill="#FFFDF7" opacity=".6"/><rect x="6" y="29" width="20" height="2" fill="#5E584D"/><rect x="26" y="16" width="5" height="3" fill="#1B1A17"/></svg>
+      <span class="pixel text-[1.15rem] leading-none">Grainhaven</span>
+    </a>
+    <nav aria-label="Main" class="hidden md:block">
+      <ul class="flex items-center gap-6 text-[.95rem]">
+        <li><a class="navlink" href="#develop">Develop &amp; scan</a></li>
+        <li><a class="navlink" href="#process">How it works</a></li>
+        <li><a class="navlink" href="#darkroom">Darkroom</a></li>
+        <li><a class="navlink" href="#classes">Classes</a></li>
+      </ul>
+    </nav>
+    <div class="flex items-center gap-2">
+      <span class="hidden sm:block"><a href="#join" class="btn btn-primary btn-sm magnetic">Send a roll</a></span>
+      <button id="burger" class="md:hidden" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="md:hidden mx-auto mt-2 max-w-6xl p-2" hidden>
+    <ul class="flex flex-col text-lg font-bold">
+      <li><a class="flex min-h-[52px] items-center px-4 hover:bg-[#E9DFCC]" href="#develop">Develop &amp; scan</a></li>
+      <li><a class="flex min-h-[52px] items-center px-4 hover:bg-[#E9DFCC]" href="#process">How it works</a></li>
+      <li><a class="flex min-h-[52px] items-center px-4 hover:bg-[#E9DFCC]" href="#darkroom">Darkroom</a></li>
+      <li><a class="flex min-h-[52px] items-center px-4 hover:bg-[#E9DFCC]" href="#classes">Classes</a></li>
+      <li class="p-2"><a class="btn btn-primary w-full" href="#join">Send a roll</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- HERO: fixed photo stage, centered stack, film-strip window below -->
+<div id="stage" aria-hidden="true">
+  <img id="heroImg" src="https://images.unsplash.com/photo-1527606078995-42486f991014?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OHx8MzVtbSUyMGZpbG0lMjBjYW1lcmF8ZW58MHwwfHx8MTc5MDk5MDc1OXww&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80" alt="" fetchpriority="high">
+</div>
+
+<section id="top" class="flex flex-col items-center justify-center px-4 pb-10 pt-28 sm:pt-32">
+  <div class="glowdot drift-a" data-depth="0.6" aria-hidden="true" style="width:340px;height:340px;left:-90px;top:12%;background:radial-gradient(circle,rgba(232,100,27,.45),rgba(232,100,27,0) 70%)"></div>
+  <div class="glowdot drift-b" data-depth="1.1" aria-hidden="true" style="width:300px;height:300px;right:-80px;top:38%;background:radial-gradient(circle,rgba(43,160,150,.42),rgba(43,160,150,0) 70%)"></div>
+
+  <div id="heroCopy" class="relative w-full max-w-4xl text-center text-[#FFFDF7]" style="will-change:transform">
+    <p class="intro-fade" style="--d:.1s"><span class="chip"><span class="h-2 w-2 bg-[var(--stamp)]" aria-hidden="true"></span>FILM LAB · DARKROOM · CLASSES</span></p>
+    <h1 class="pixel mt-6 text-[2.35rem] leading-[1.08] sm:text-6xl lg:text-[4.6rem]" style="text-shadow:0 4px 30px rgba(0,0,0,.55)">
+      <span class="line"><span>Every roll,</span></span>
+      <span class="line"><span>developed</span></span>
+      <span class="line"><span><span class="hl">by hand.</span></span></span>
+    </h1>
+    <p class="intro-fade mx-auto mt-6 max-w-xl text-lg leading-relaxed text-[#F2EADB] sm:text-xl" style="--d:.5s;text-shadow:0 2px 14px rgba(0,0,0,.6)">Drop off or post your film. We develop it in small batches, scan every frame with care and send your photos back in 48 hours.</p>
+    <div class="intro-fade mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row" style="--d:.65s">
+      <a href="#develop" class="btn btn-primary magnetic">See prices per roll</a>
+      <a href="#darkroom" class="btn btn-ghost magnetic">Rent the darkroom</a>
+    </div>
+  </div>
+
+  <div id="heroWin" class="intro-fade win relative mt-12 w-full max-w-5xl" style="--d:.8s" data-depth="-0.35">
+    <div class="titlebar"><span class="t">ROLL_036 — SCANS.EXE</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+    <div class="strip mt-1" aria-hidden="true">
+      <div class="strip-track">
+        <img src="https://images.unsplash.com/photo-1635868797256-e4817c6ecb73?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8ZmlsbSUyMHJvbGxzfGVufDB8MHx8fDE3OTA5OTA3NjB8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt=""><img src="https://images.unsplash.com/photo-1561950492-527f225be206?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Nnx8bWVkaXVtJTIwZm9ybWF0JTIwY2FtZXJhfGVufDB8MHx8fDE3OTA5OTA3NjF8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt=""><img src="https://images.unsplash.com/photo-1736710744593-9995ac2ba227?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8c2xpZGUlMjBmaWxtJTIwbGlnaHRib3h8ZW58MHwwfHx8MTc5MDk5MDc2Mnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt=""><img src="https://images.unsplash.com/photo-1479064118661-04dd16543243?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8NXx8MzVtbSUyMGZpbG0lMjBjYW1lcmF8ZW58MHwwfHx8MTc5MDk5MDc1OXww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt=""><img src="https://images.unsplash.com/photo-1570385404967-fe4e1b48454b?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Nnx8ZmlsbSUyMG5lZ2F0aXZlc3xlbnwwfDB8fHwxNzkwOTkwNzYwfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt=""><img src="https://images.unsplash.com/photo-1452875015199-95154554d9ff?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OXx8bWVkaXVtJTIwZm9ybWF0JTIwY2FtZXJhfGVufDB8MHx8fDE3OTA5OTA3NjF8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="">
+        <img src="https://images.unsplash.com/photo-1635868797256-e4817c6ecb73?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8ZmlsbSUyMHJvbGxzfGVufDB8MHx8fDE3OTA5OTA3NjB8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt=""><img src="https://images.unsplash.com/photo-1561950492-527f225be206?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Nnx8bWVkaXVtJTIwZm9ybWF0JTIwY2FtZXJhfGVufDB8MHx8fDE3OTA5OTA3NjF8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt=""><img src="https://images.unsplash.com/photo-1736710744593-9995ac2ba227?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8c2xpZGUlMjBmaWxtJTIwbGlnaHRib3h8ZW58MHwwfHx8MTc5MDk5MDc2Mnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt=""><img src="https://images.unsplash.com/photo-1479064118661-04dd16543243?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8NXx8MzVtbSUyMGZpbG0lMjBjYW1lcmF8ZW58MHwwfHx8MTc5MDk5MDc1OXww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt=""><img src="https://images.unsplash.com/photo-1570385404967-fe4e1b48454b?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Nnx8ZmlsbSUyMG5lZ2F0aXZlc3xlbnwwfDB8fHwxNzkwOTkwNzYwfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt=""><img src="https://images.unsplash.com/photo-1452875015199-95154554d9ff?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OXx8bWVkaXVtJTIwZm9ybWF0JTIwY2FtZXJhfGVufDB8MHx8fDE3OTA5OTA3NjF8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="">
+      </div>
+    </div>
+    <div class="flex items-center justify-between px-2 pt-1.5 text-[.72rem] mono font-bold text-[var(--ink)]"><span>36 frames · 16-bit TIFF + JPEG</span><span class="stamp text-sm">'26 10 03</span></div>
+  </div>
+</section>
+
+<main id="main">
+  <!-- STATS -->
+  <section aria-label="The lab at a glance" class="mx-auto max-w-6xl px-4 pt-16 sm:px-6">
+    <ul class="grid grid-cols-2 gap-4 md:grid-cols-4" data-stagger>
+      <li class="stat" data-reveal="drop"><div class="lcd"><b data-count="48">48</b><p class="mono mt-2 text-[.7rem] font-bold text-[#DDF7D2]">HOUR TURNAROUND</p></div></li>
+      <li class="stat" data-reveal="drop"><div class="lcd"><b data-count="4">4</b><p class="mono mt-2 text-[.7rem] font-bold text-[#DDF7D2]">FILM PROCESSES</p></div></li>
+      <li class="stat" data-reveal="drop"><div class="lcd"><b data-count="6">6</b><p class="mono mt-2 text-[.7rem] font-bold text-[#DDF7D2]">DARKROOM BENCHES</p></div></li>
+      <li class="stat" data-reveal="drop"><div class="lcd"><b data-count="8">8</b><p class="mono mt-2 text-[.7rem] font-bold text-[#DDF7D2]">PEOPLE PER CLASS</p></div></li>
+    </ul>
+  </section>
+
+  <!-- DEVELOP & SCAN -->
+  <section id="develop" class="section-pad scroll-mt-24">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="grid items-end gap-6 md:grid-cols-[1.2fr_1fr]">
+        <div>
+          <p class="kicker" data-reveal="left">Develop &amp; scan</p>
+          <h2 class="pixel mt-4 text-[2rem] leading-[1.1] sm:text-5xl" data-reveal="left" style="--d:80ms">Pick your film. We handle the rest.</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-[var(--ink-soft)]" data-reveal="right" style="--d:160ms">Every price includes developing, a full scan of each frame and your negatives sleeved and sent back. No hidden extras.</p>
+      </div>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" data-stagger>
+        <article class="card win flex flex-col" data-reveal="up">
+          <div class="titlebar"><span class="t">COLOUR_C41.JPG</span><span class="dots" aria-hidden="true"><i></i><i></i></span></div>
+          <div class="ph mt-1"><img loading="lazy" data-speed="-0.04" src="https://images.unsplash.com/photo-1635868797256-e4817c6ecb73?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8ZmlsbSUyMHJvbGxzfGVufDB8MHx8fDE3OTA5OTA3NjB8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A strip of colour negative film held up to the light"></div>
+          <div class="body mt-1 flex flex-1 flex-col p-5">
+            <span class="tag self-start bg-[var(--teal-tint)] text-[var(--teal-deep)]">35mm · colour</span>
+            <h3 class="mt-3 text-xl font-extrabold">Colour film</h3>
+            <p class="mt-2 flex-1 text-[var(--ink-soft)]">Everyday colour rolls, warm skin tones and true blues. Scanned at full size.</p>
+            <p class="mt-5 flex items-end justify-between"><span class="price">$14</span><span class="text-sm font-bold text-[var(--ink-soft)]">per roll</span></p>
+          </div>
+        </article>
+        <article class="card win flex flex-col" data-reveal="up">
+          <div class="titlebar"><span class="t">MONO_BW.JPG</span><span class="dots" aria-hidden="true"><i></i><i></i></span></div>
+          <div class="ph mt-1"><img loading="lazy" data-speed="-0.04" src="https://images.unsplash.com/photo-1570385404967-fe4e1b48454b?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Nnx8ZmlsbSUyMG5lZ2F0aXZlc3xlbnwwfDB8fHwxNzkwOTkwNzYwfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A coil of black and white negative film"></div>
+          <div class="body mt-1 flex flex-1 flex-col p-5">
+            <span class="tag self-start bg-[#E4E0D8] text-[var(--ink)]">35mm · black &amp; white</span>
+            <h3 class="mt-3 text-xl font-extrabold">Black &amp; white</h3>
+            <p class="mt-2 flex-1 text-[var(--ink-soft)]">Hand-developed in tanks, timed for your film and the speed you shot it at.</p>
+            <p class="mt-5 flex items-end justify-between"><span class="price">$16</span><span class="text-sm font-bold text-[var(--ink-soft)]">per roll</span></p>
+          </div>
+        </article>
+        <article class="card win flex flex-col" data-reveal="up">
+          <div class="titlebar"><span class="t">SLIDE_E6.JPG</span><span class="dots" aria-hidden="true"><i></i><i></i></span></div>
+          <div class="ph mt-1"><img loading="lazy" data-speed="-0.04" src="https://images.unsplash.com/photo-1736710744593-9995ac2ba227?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8c2xpZGUlMjBmaWxtJTIwbGlnaHRib3h8ZW58MHwwfHx8MTc5MDk5MDc2Mnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A pile of film strips with small pictures on them"></div>
+          <div class="body mt-1 flex flex-1 flex-col p-5">
+            <span class="tag self-start bg-[#FBE0CF] text-[var(--stamp-deep)]">35mm · slide</span>
+            <h3 class="mt-3 text-xl font-extrabold">Slide film</h3>
+            <p class="mt-2 flex-1 text-[var(--ink-soft)]">Bold, glowing colour you can hold up to a window. Mounted or left as strips.</p>
+            <p class="mt-5 flex items-end justify-between"><span class="price">$22</span><span class="text-sm font-bold text-[var(--ink-soft)]">per roll</span></p>
+          </div>
+        </article>
+        <article class="card win flex flex-col" data-reveal="up">
+          <div class="titlebar"><span class="t">MEDIUM_120.JPG</span><span class="dots" aria-hidden="true"><i></i><i></i></span></div>
+          <div class="ph mt-1"><img loading="lazy" data-speed="-0.04" src="https://images.unsplash.com/photo-1561950492-527f225be206?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Nnx8bWVkaXVtJTIwZm9ybWF0JTIwY2FtZXJhfGVufDB8MHx8fDE3OTA5OTA3NjF8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Close-up of a classic medium format camera"></div>
+          <div class="body mt-1 flex flex-1 flex-col p-5">
+            <span class="tag self-start bg-[var(--teal-tint)] text-[var(--teal-deep)]">120 · any type</span>
+            <h3 class="mt-3 text-xl font-extrabold">Medium format</h3>
+            <p class="mt-2 flex-1 text-[var(--ink-soft)]">Bigger negatives, more detail. Colour, black &amp; white or slide, same care.</p>
+            <p class="mt-5 flex items-end justify-between"><span class="price">$18</span><span class="text-sm font-bold text-[var(--ink-soft)]">per roll</span></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS: ruled timeline -->
+  <section id="process" class="section-pad relative scroll-mt-24 bg-[var(--paper-2)]">
+    <div class="glowdot drift-a" data-speed="0.12" aria-hidden="true" style="width:300px;height:300px;right:-90px;top:30px;background:radial-gradient(circle,rgba(11,99,99,.22),rgba(11,99,99,0) 70%)"></div>
+    <div class="relative mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="kicker" data-reveal="scale">How it works</p>
+        <h2 class="pixel mt-4 text-[2rem] leading-[1.1] sm:text-5xl" data-reveal="scale" style="--d:80ms">From your pocket to your inbox.</h2>
+      </div>
+      <ol class="tl mx-auto mt-14 max-w-3xl space-y-8">
+        <li class="flex items-start gap-5" data-reveal="left">
+          <span class="tl-num">01</span>
+          <div class="win flex-1"><div class="body p-5"><h3 class="text-xl font-extrabold">Drop off or post it</h3><p class="mt-2 text-[var(--ink-soft)]">Bring your rolls to the counter, or print a free label and mail them in a padded envelope.</p></div></div>
+        </li>
+        <li class="flex items-start gap-5" data-reveal="right">
+          <span class="tl-num">02</span>
+          <div class="win flex-1"><div class="body p-5"><h3 class="text-xl font-extrabold">Developed in small batches</h3><p class="mt-2 text-[var(--ink-soft)]">Fresh chemistry every morning and a real person watching the clock for each tank.</p></div></div>
+        </li>
+        <li class="flex items-start gap-5" data-reveal="left">
+          <span class="tl-num">03</span>
+          <div class="win flex-1"><div class="body p-5"><h3 class="text-xl font-extrabold">Scanned frame by frame</h3><p class="mt-2 text-[var(--ink-soft)]">Dust cleaned, colours balanced by eye, and every frame cropped straight.</p></div></div>
+        </li>
+        <li class="flex items-start gap-5" data-reveal="right">
+          <span class="tl-num">04</span>
+          <div class="win flex-1"><div class="body p-5"><h3 class="text-xl font-extrabold">Photos in 48 hours</h3><p class="mt-2 text-[var(--ink-soft)]">A download link lands in your inbox, and your negatives come home in archive sleeves.</p></div></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- SPOTLIGHT: the darkroom -->
+  <section id="darkroom" class="scroll-mt-16 pb-24" aria-labelledby="darkTitle">
+    <div id="spotlight">
+      <div class="safeglow" aria-hidden="true" style="left:-160px;top:-120px"></div>
+      <div class="safeglow" aria-hidden="true" style="right:-200px;bottom:-200px;animation-delay:-3s"></div>
+      <div class="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-20 sm:px-6 md:grid-cols-[1.25fr_1fr]">
+        <div id="spotWrap" data-reveal="develop">
+          <div class="frame aspect-[4/3] md:aspect-[5/4]">
+            <img id="spotImg" src="https://images.unsplash.com/photo-1698899114691-3e4a5d9be3dc?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8ZGFya3Jvb20lMjByZWQlMjBsaWdodHxlbnwwfDB8fHwxNzkwOTkwNzYwfDA&amp;ixlib=rb-4.1.0&amp;w=1800&amp;q=80" alt="A darkroom glowing under red safelight, with a person working at the bench" loading="lazy">
+            <div class="sweep" aria-hidden="true"></div>
+            <span class="stamp absolute bottom-4 right-5 text-lg" aria-hidden="true">'26 10 03</span>
+          </div>
+        </div>
+        <div>
+          <p class="kicker !text-[#F4B79A]" data-reveal="up">The darkroom</p>
+          <h2 id="darkTitle" class="pixel mt-4 text-[2rem] leading-[1.1] sm:text-5xl" data-reveal="up" style="--d:80ms">Print your own, under the red light.</h2>
+          <p class="mt-5 text-lg leading-relaxed text-[#E9D8CC]" data-reveal="up" style="--d:160ms">Six enlargers, trays, paper and chemistry all ready to go. Book a bench by the hour and make real prints with your own hands.</p>
+          <ul class="mt-6 space-y-2 text-[#F7EDE4]" data-reveal="up" style="--d:240ms">
+            <li class="flex gap-3"><span class="mt-2 h-2.5 w-2.5 flex-none bg-[#E23A2E]" aria-hidden="true"></span>$18 an hour, paper sold at the counter</li>
+            <li class="flex gap-3"><span class="mt-2 h-2.5 w-2.5 flex-none bg-[#E23A2E]" aria-hidden="true"></span>Open late Thursday to Sunday</li>
+            <li class="flex gap-3"><span class="mt-2 h-2.5 w-2.5 flex-none bg-[#E23A2E]" aria-hidden="true"></span>Free first-timer walk-through</li>
+          </ul>
+          <div class="mt-8 flex flex-wrap items-center gap-4" data-reveal="up" style="--d:320ms">
+            <a href="#join" class="btn btn-primary magnetic">Book a bench</a>
+            <button id="motionToggle" type="button" class="btn btn-dark btn-sm" aria-pressed="false"><svg id="mtIcon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><span id="mtLabel">Pause motion</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLASSES -->
+  <section id="classes" class="pb-24 scroll-mt-24">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="kicker" data-reveal="drop">Small classes</p>
+        <h2 class="pixel mt-4 text-[2rem] leading-[1.1] sm:text-5xl" data-reveal="drop" style="--d:80ms">Learn film with friends.</h2>
+        <p class="mt-4 text-lg text-[var(--ink-soft)]" data-reveal="drop" style="--d:160ms">Eight people at most, coffee on the bench, and you leave with something you made.</p>
+      </div>
+      <div class="mt-12 grid gap-6 md:grid-cols-3" data-stagger>
+        <article class="card win flex flex-col" data-reveal="scale">
+          <div class="ph"><img loading="lazy" data-speed="-0.04" src="https://images.unsplash.com/photo-1698899114689-1d150e8cfa7e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8NXx8ZGFya3Jvb20lMjByZWQlMjBsaWdodHxlbnwwfDB8fHwxNzkwOTkwNzYwfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Two people working side by side in a darkroom lit red"></div>
+          <div class="body mt-1 flex flex-1 flex-col p-6">
+            <span class="tag self-start bg-[#FBE0CF] text-[var(--stamp-deep)]">Saturday · 3 hours</span>
+            <h3 class="mt-3 text-2xl font-extrabold">Darkroom basics</h3>
+            <p class="mt-2 flex-1 text-[var(--ink-soft)]">Develop a roll of black and white, then make your first real print to take home.</p>
+            <p class="mt-5 flex items-end justify-between"><span class="price">$65</span><span class="text-sm font-bold text-[var(--ink-soft)]">paper included</span></p>
+          </div>
+        </article>
+        <article class="card win flex flex-col" data-reveal="scale">
+          <div class="ph"><img loading="lazy" data-speed="-0.04" src="https://images.unsplash.com/photo-1479064118661-04dd16543243?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8NXx8MzVtbSUyMGZpbG0lMjBjYW1lcmF8ZW58MHwwfHx8MTc5MDk5MDc1OXww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Hands holding a strip of film beside a classic film camera"></div>
+          <div class="body mt-1 flex flex-1 flex-col p-6">
+            <span class="tag self-start bg-[var(--teal-tint)] text-[var(--teal-deep)]">Weeknights · 90 min</span>
+            <h3 class="mt-3 text-2xl font-extrabold">Your first roll</h3>
+            <p class="mt-2 flex-1 text-[var(--ink-soft)]">Load a camera, set the light, shoot a roll around the block. We develop it for you.</p>
+            <p class="mt-5 flex items-end justify-between"><span class="price">$35</span><span class="text-sm font-bold text-[var(--ink-soft)]">film included</span></p>
+          </div>
+        </article>
+        <article class="card win flex flex-col" data-reveal="scale">
+          <div class="ph"><img loading="lazy" data-speed="-0.04" src="https://images.unsplash.com/photo-1452875015199-95154554d9ff?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OXx8bWVkaXVtJTIwZm9ybWF0JTIwY2FtZXJhfGVufDB8MHx8fDE3OTA5OTA3NjF8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A vintage box camera on a dark background"></div>
+          <div class="body mt-1 flex flex-1 flex-col p-6">
+            <span class="tag self-start bg-[#E4E0D8] text-[var(--ink)]">Sundays · drop in</span>
+            <h3 class="mt-3 text-2xl font-extrabold">Old camera clinic</h3>
+            <p class="mt-2 flex-1 text-[var(--ink-soft)]">Found a camera in the attic? Bring it in and we'll check if it still takes photos.</p>
+            <p class="mt-5 flex items-end justify-between"><span class="price">$25</span><span class="text-sm font-bold text-[var(--ink-soft)]">with a test roll</span></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="pb-24 scroll-mt-24" aria-labelledby="faqTitle">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6">
+      <div class="text-center">
+        <p class="kicker" data-reveal="up">Good questions</p>
+        <h2 id="faqTitle" class="pixel mt-4 text-[2rem] leading-[1.1] sm:text-4xl" data-reveal="up" style="--d:80ms">Before you send a roll</h2>
+      </div>
+      <div class="mt-10 space-y-3" data-stagger>
+        <details class="q" data-reveal="up"><summary>Can I post my film from anywhere?<span class="pm" aria-hidden="true">+</span></summary><p class="a">Yes. Order a free prepaid label online, pop your rolls in a padded envelope and send them our way. We email you the moment they arrive.</p></details>
+        <details class="q" data-reveal="up"><summary>What if my camera had a problem?<span class="pm" aria-hidden="true">+</span></summary><p class="a">If a roll comes out blank or strange, we'll tell you what likely happened and won't charge for the scans.</p></details>
+        <details class="q" data-reveal="up"><summary>Do you make prints too?<span class="pm" aria-hidden="true">+</span></summary><p class="a">We do. Pick your favourite frames from the download page and we'll print them on matte or gloss paper.</p></details>
+        <details class="q" data-reveal="up"><summary>Is the darkroom good for beginners?<span class="pm" aria-hidden="true">+</span></summary><p class="a">Totally. Your first visit starts with a free walk-through, and someone from the lab is always nearby.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN: centered stack with floating photos -->
+  <section id="join" class="relative overflow-hidden bg-[var(--teal-deep)] py-24 text-[#FFFDF7] scroll-mt-16">
+    <div class="polaroid bob-a hidden lg:block" data-speed="0.10" aria-hidden="true" style="width:190px;height:220px;left:5%;top:70px;rotate:-8deg"><img src="https://images.unsplash.com/photo-1644997331922-6f8bc0f7618e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OXx8ZmlsbSUyMHJvbGxzfGVufDB8MHx8fDE3OTA5OTA3NjB8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="" loading="lazy"></div>
+    <div class="polaroid bob-b hidden lg:block" data-speed="-0.08" aria-hidden="true" style="width:170px;height:200px;right:6%;top:110px;rotate:7deg"><img src="https://images.unsplash.com/photo-1646323585896-6feedc2526af?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8bWVkaXVtJTIwZm9ybWF0JTIwY2FtZXJhfGVufDB8MHx8fDE3OTA5OTA3NjF8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="" loading="lazy"></div>
+    <div class="polaroid bob-b hidden lg:block" data-speed="0.14" aria-hidden="true" style="width:140px;height:165px;left:11%;bottom:60px;rotate:6deg"><img src="https://images.unsplash.com/photo-1635868797256-e4817c6ecb73?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8ZmlsbSUyMHJvbGxzfGVufDB8MHx8fDE3OTA5OTA3NjB8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="" loading="lazy"></div>
+    <div class="polaroid bob-a hidden lg:block" data-speed="-0.12" aria-hidden="true" style="width:150px;height:175px;right:12%;bottom:50px;rotate:-5deg"><img src="https://images.unsplash.com/photo-1570385404967-fe4e1b48454b?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Nnx8ZmlsbSUyMG5lZ2F0aXZlc3xlbnwwfDB8fHwxNzkwOTkwNzYwfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="" loading="lazy"></div>
+    <div class="relative mx-auto max-w-xl px-4 text-center sm:px-6">
+      <p class="kicker !text-[#BFE3DD]" data-reveal="scale">Lab letter</p>
+      <h2 class="pixel mt-4 text-[2rem] leading-[1.1] sm:text-5xl" data-reveal="scale" style="--d:80ms">Get a free postage label.</h2>
+      <p class="mt-4 text-lg text-[#D7ECE8]" data-reveal="scale" style="--d:160ms">Leave your email and we'll send a prepaid label, plus darkroom dates once a month. No spam, ever.</p>
+      <form id="labForm" class="win mt-10 text-left text-[var(--ink)]" novalidate data-reveal="up" style="--d:220ms">
+        <div class="titlebar"><span class="t">NEW_ORDER.TXT</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="body mt-1 grid gap-4 p-5 sm:p-6">
+          <div>
+            <label for="name" class="mb-1.5 block font-bold">Your name</label>
+            <input id="name" name="name" class="field" autocomplete="name" required aria-describedby="nameErr">
+            <p id="nameErr" class="err" aria-live="polite"></p>
+          </div>
+          <div>
+            <label for="email" class="mb-1.5 block font-bold">Email</label>
+            <input id="email" name="email" type="email" class="field" autocomplete="email" required aria-describedby="emailErr" placeholder="you@example.com">
+            <p id="emailErr" class="err" aria-live="polite"></p>
+          </div>
+          <button type="submit" class="btn btn-primary w-full magnetic">Send me a label</button>
+          <div id="formOk" class="flex items-center gap-3 bg-[var(--teal-tint)] p-4 font-bold text-[var(--teal-deep)]" role="status" hidden>
+            <svg class="check flex-none" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="1" y="1" width="26" height="26" fill="#0B6363"/><path d="M8 14.5l4 4 8-9" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="square"/></svg>
+            <span>Done! Your label is on its way to your inbox.</span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="border-t-4 border-[var(--ink)] bg-[var(--paper)] py-12">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="flex flex-col items-center gap-4 text-center">
+        <a href="#top" class="flex min-h-[44px] items-center gap-2.5" aria-label="Grainhaven Film Lab, back to top">
+          <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect x="9" y="2" width="14" height="4" fill="#1B1A17"/><rect x="6" y="6" width="20" height="2" fill="#5E584D"/><rect x="6" y="8" width="20" height="21" fill="#0B6363"/><rect x="6" y="14" width="20" height="7" fill="#E8641B"/><rect x="6" y="29" width="20" height="2" fill="#5E584D"/><rect x="26" y="16" width="5" height="3" fill="#1B1A17"/></svg>
+          <span class="pixel text-lg">Grainhaven Film Lab</span>
+        </a>
+        <ul class="flex flex-wrap justify-center gap-x-6 text-sm">
+          <li><a class="ulink" href="#develop">Develop &amp; scan</a></li><li><a class="ulink" href="#process">How it works</a></li><li><a class="ulink" href="#darkroom">Darkroom</a></li><li><a class="ulink" href="#classes">Classes</a></li><li><a class="ulink" href="#join">Mail-in label</a></li>
+        </ul>
+        <p class="max-w-3xl text-xs leading-relaxed text-[var(--ink-soft)]">Photos on Unsplash: <a class="underline" href="https://unsplash.com/photos/film-camera-tube-lot-Jk8tUzZ0O6E?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@konstandy?utm_source=webdrip&amp;utm_medium=referral">Andrew Konstantinov</a>, <a class="underline" href="https://unsplash.com/photos/a-person-standing-in-a-room-with-a-red-light--jmYFZ9CQ80?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@franciscoegonzalez?utm_source=webdrip&amp;utm_medium=referral">Francisco Gonzalez</a>, <a class="underline" href="https://unsplash.com/photos/a-film-strip-with-a-picture-of-a-man-on-it-4DHGX9l4lPY?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@markusspiske?utm_source=webdrip&amp;utm_medium=referral">Markus Spiske</a>, <a class="underline" href="https://unsplash.com/photos/coil-of-black-photo-negative-film-hCDI6sPTjRY?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@eterrade?utm_source=webdrip&amp;utm_medium=referral">Eric TERRADE</a>, <a class="underline" href="https://unsplash.com/photos/photo-of-black-land-camera-pTn_6I5hteE?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@wizwow?utm_source=webdrip&amp;utm_medium=referral">Donald Giannatti</a>, <a class="underline" href="https://unsplash.com/photos/a-pile-of-film-strips-with-pictures-on-them-QyFDgLRjaiU?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@etiennegirardet?utm_source=webdrip&amp;utm_medium=referral">Etienne Girardet</a>, <a class="underline" href="https://unsplash.com/photos/a-couple-of-people-standing-in-a-dark-room-uQ7Kxf60F1o?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@franciscoegonzalez?utm_source=webdrip&amp;utm_medium=referral">Francisco Gonzalez</a>, <a class="underline" href="https://unsplash.com/photos/flat-lay-photography-of-person-showing-photo-film-beside-zenit-dslr-camera-5GzU5_4CNW4?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@nordwood?utm_source=webdrip&amp;utm_medium=referral">NordWood Themes</a>, <a class="underline" href="https://unsplash.com/photos/gray-and-black-spartus-camera-jVTttLXijfM?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@retgef?utm_source=webdrip&amp;utm_medium=referral">Brian Fegter</a>, <a class="underline" href="https://unsplash.com/photos/a-roll-of-film-sitting-on-top-of-a-table-_WcdV7-1V44?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@markusspiske?utm_source=webdrip&amp;utm_medium=referral">Markus Spiske</a>, <a class="underline" href="https://unsplash.com/photos/a-camera-sitting-on-top-of-a-tripod-1tIoGNLTKCE?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@anniespratt?utm_source=webdrip&amp;utm_medium=referral">Annie Spratt</a> on <a class="underline" href="https://unsplash.com/?utm_source=webdrip&amp;utm_medium=referral">Unsplash</a>.</p>
+        <p class="text-sm text-[var(--ink-soft)]"><a class="ulink" href="https://getwebdrip.com">Concept design by WebDrip — fictional brand</a></p>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finePointer = window.matchMedia('(pointer: fine)').matches;
+
+  // Intro: nav, then headline lines, subheading, CTAs and the film-strip window
+  requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.add('loaded'); }); });
+
+  // Mobile menu
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  function setMenu(open) {
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    menu.hidden = !open;
+  }
+  burger.addEventListener('click', function () { setMenu(burger.getAttribute('aria-expanded') !== 'true'); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') { setMenu(false); burger.focus(); } });
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+
+  // Reveal on scroll with grid stagger
+  document.querySelectorAll('[data-stagger]').forEach(function (grid) {
+    Array.prototype.forEach.call(grid.children, function (el, i) { el.style.setProperty('--d', (i * 90) + 'ms'); });
+  });
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if (reduce || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  }
+
+  // Count-up stats
+  var counters = document.querySelectorAll('[data-count]');
+  function countUp(el) {
+    var end = +el.getAttribute('data-count'), t0 = null;
+    if (reduce) { el.textContent = end; return; }
+    function step(t) { if (!t0) t0 = t; var p = Math.min(1, (t - t0) / 1300); el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(step); }
+    el.textContent = '0'; requestAnimationFrame(step);
+  }
+  if ('IntersectionObserver' in window) {
+    var cio = new IntersectionObserver(function (entries) { entries.forEach(function (en) { if (en.isIntersecting) { countUp(en.target); cio.unobserve(en.target); } }); }, { threshold: 0.6 });
+    counters.forEach(function (c) { cio.observe(c); });
+  }
+
+  // Shared scroll loop: progress bar, nav state, hero camera, parallax
+  var nav = document.getElementById('nav');
+  var bar = document.getElementById('progress');
+  var heroImg = document.getElementById('heroImg');
+  var heroCopy = document.getElementById('heroCopy');
+  var stage = document.getElementById('stage');
+  var depthEls = Array.prototype.slice.call(document.querySelectorAll('#top [data-depth]'));
+  var speedEls = Array.prototype.slice.call(document.querySelectorAll('[data-speed]'));
+  var spotWrap = document.getElementById('spotWrap');
+  var cur = 0, target = 0, ticking = false;
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function easeInOut(t) { return t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+
+  function frame() {
+    var y = window.scrollY, vh = window.innerHeight;
+    var max = document.documentElement.scrollHeight - vh;
+    bar.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
+    nav.classList.toggle('scrolled', y > 40);
+    target = Math.min(1, Math.max(0, y / vh));
+    cur = reduce ? target : lerp(cur, target, 0.09);
+    if (Math.abs(cur - target) < 0.0005) cur = target;
+    var e = easeInOut(cur);
+    if (!reduce) {
+      heroImg.style.transform = 'translate3d(' + (e * 2.5).toFixed(3) + '%,' + (e * -5).toFixed(3) + '%,0) scale(' + (1.05 + e * 0.24).toFixed(4) + ')' + (finePointer ? ' rotateX(' + (e * 6).toFixed(3) + 'deg) rotateY(' + (e * -4).toFixed(3) + 'deg)' : '') + ' rotate(' + (e * 1.2).toFixed(3) + 'deg)';
+      heroCopy.style.transform = 'translate3d(0,' + (e * -170).toFixed(1) + 'px,0) scale(' + (1 - e * 0.08).toFixed(4) + ')';
+      heroCopy.style.opacity = String(Math.max(0, 1 - e * 1.15));
+      depthEls.forEach(function (el) { var d = +el.getAttribute('data-depth'); el.style.transform = 'translate3d(0,' + (e * -240 * d).toFixed(1) + 'px,0)'; });
+      speedEls.forEach(function (el) {
+        var r = el.getBoundingClientRect(); if (r.bottom < -200 || r.top > vh + 200) return;
+        var c = (r.top + r.height / 2 - vh / 2); el.style.setProperty('--py', (c * +el.getAttribute('data-speed')).toFixed(1) + 'px');
+      });
+      if (spotWrap && spotWrap.classList.contains('in')) {
+        var sr = spotWrap.getBoundingClientRect();
+        if (sr.bottom > 0 && sr.top < vh) { var sp = (sr.top + sr.height / 2 - vh / 2) / vh; spotWrap.style.transform = 'translate3d(0,' + (sp * 34).toFixed(1) + 'px,0) rotate(' + (sp * -1.2).toFixed(3) + 'deg)'; }
+      }
+    }
+    stage.style.visibility = y > vh * 1.6 ? 'hidden' : 'visible';
+    if (cur !== target) requestAnimationFrame(frame); else ticking = false;
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+
+  // Spotlight motion toggle
+  var spot = document.getElementById('spotlight');
+  var mt = document.getElementById('motionToggle');
+  function setPaused(paused) {
+    spot.classList.toggle('paused', paused);
+    mt.setAttribute('aria-pressed', String(paused));
+    document.getElementById('mtLabel').textContent = paused ? 'Play motion' : 'Pause motion';
+    document.getElementById('mtIcon').innerHTML = paused ? '<path d="M4 2.5v11l9-5.5z" fill="currentColor"/>' : '<rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/>';
+  }
+  mt.addEventListener('click', function () { setPaused(!spot.classList.contains('paused')); });
+  if (reduce) setPaused(true);
+
+  // Magnetic buttons (desktop only)
+  if (finePointer && !reduce) {
+    document.querySelectorAll('.magnetic').forEach(function (b) {
+      b.addEventListener('pointermove', function (e) {
+        var r = b.getBoundingClientRect();
+        b.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * 0.18).toFixed(1) + 'px,' + ((e.clientY - r.top - r.height / 2) * 0.28).toFixed(1) + 'px)';
+      });
+      b.addEventListener('pointerleave', function () { b.style.transform = ''; });
+    });
+  }
+
+  // Form validation
+  var form = document.getElementById('labForm');
+  var ok = document.getElementById('formOk');
+  var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function setErr(input, msg) {
+    var p = document.getElementById(input.id + 'Err');
+    p.textContent = msg;
+    if (msg) { input.setAttribute('aria-invalid', 'true'); } else { input.removeAttribute('aria-invalid'); }
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = form.elements.name, email = form.elements.email, bad = null;
+    ok.hidden = true;
+    if (!name.value.trim()) { setErr(name, 'Please add your name.'); bad = bad || name; } else setErr(name, '');
+    var v = email.value.trim();
+    if (!v) { setErr(email, 'Please enter your email.'); bad = bad || email; }
+    else if (!emailRe.test(v)) { setErr(email, 'That email looks incomplete — check for a typo.'); bad = bad || email; }
+    else setErr(email, '');
+    if (bad) {
+      form.classList.remove('shake'); void form.offsetWidth; if (!reduce) form.classList.add('shake');
+      bad.focus(); return;
+    }
+    ok.hidden = false; form.reset();
+  });
+
+  // Service worker
+  if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+    window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(function () {}); });
+  }
+  window.__ghReady = true;
+})();
+</script>
+</body>
+</html>

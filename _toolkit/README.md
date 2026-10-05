@@ -32,7 +32,7 @@ Notes that saved time:
 - Map an edit back to the original song with chroma + MFCC cross-correlation (not raw waveforms; the preview MP3 and the WAV don't line up sample for sample). It gives a constant offset, so the original's whisper word times carry over to the edit.
 - Tailwind's preflight sets `img { max-width: 100% }`: an oversized hero image (`width: 112%`) needs `max-width: none`, or the image stops short on the right.
 - Tailwind `flex` on a `[hidden]` element wins over the attribute, so the mobile menu stays visible. Add `#mobileMenu[hidden] { display: none !important }`.
-- Before naming a brand, also grep `topics-log.json` and `sites/` for the name, not just the web: older runs live under `sites/<date>-<name>/`.
+- Before naming a brand, also grep `topics-log.json` and `automation-v1/` for the name, not just the web: older runs live under `automation-v1/<date>-<name>/`.
 - `cmd1 && cd dir && curl … &` sends the whole chain to the background, so later lines run in the old cwd. Put downloads in a subshell `( cd dir && … )` or use absolute `-o` paths, and never let audio land in the repo.
 
 - `rec.js` only drives the scroll when a shot's `from` and `to` differ; otherwise the page scrolls itself, so smooth anchor links work in the recording. Each shot writes `<profile>-<shot>.json` with every click/tap/hover target's rect and any `probe` rects. Use them to place the Remotion cursor, tap rings and underlines on the real positions. It also logs late frames.

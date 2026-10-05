@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Quillmoss Veterinary Clinic — Calm, unhurried care for dogs & cats</title>
+<meta name="description" content="Quillmoss is a quiet neighbourhood vet clinic: 30-minute exams, a cats-only waiting room, fear-free handling and simple monthly care plans. A fictional concept by WebDrip.">
+<meta name="theme-color" content="#FBFAF7">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Quillmoss Veterinary Clinic">
+<meta property="og:title" content="Quillmoss Veterinary Clinic — Calm, unhurried care for dogs & cats">
+<meta property="og:description" content="30-minute exams, a cats-only waiting room and fear-free handling. A fictional concept site by WebDrip.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1777395391040-8b919bc39464?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OHx8ZG9nJTIwbWVhZG93JTIwbW9ybmluZ3xlbnwwfHx8fDE3OTA5MDE0NTR8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<meta property="og:image:alt" content="A large white dog standing in a meadow of purple wildflowers">
+<meta property="og:url" content="https://webdripsamples.netlify.app/automation-v1/2026-10-02-quillmoss/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Quillmoss Veterinary Clinic — Calm, unhurried care for dogs & cats">
+<meta name="twitter:description" content="30-minute exams, a cats-only waiting room and fear-free handling. A fictional concept site by WebDrip.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1777395391040-8b919bc39464?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OHx8ZG9nJTIwbWVhZG93JTIwbW9ybmluZ3xlbnwwfHx8fDE3OTA5MDE0NTR8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1777395391040-8b919bc39464?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OHx8ZG9nJTIwbWVhZG93JTIwbW9ybmluZ3xlbnwwfHx8fDE3OTA5MDE0NTR8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          paper: '#FBFAF7', mist: '#EEF3EE', lilac: '#ECE7F5', fern: '#2E5B45',
+          fernDeep: '#234836', lavender: '#6A58A8', apricot: '#E58A5C', ink: '#16211B', line: '#E2E6DF', muted: '#4D5B53'
+        },
+        fontFamily: {
+          display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
+          sans: ['Figtree', 'system-ui', 'sans-serif']
+        }
+      }
+    }
+  };
+</script>
+<style>
+  /* Motion personality: Corporate / Professional — calm & trustworthy.
+     Signature ease (0.2,0,0,1); durations 200 / 300 / 400ms; entrance = rise 16px + fade; stagger 60ms; overshoot 0–3%. */
+  :root{
+    --ease: cubic-bezier(0.2,0,0,1);
+    --ease-in: cubic-bezier(0.3,0,1,1);
+    --ease-ambient: cubic-bezier(0.37,0,0.63,1); /* sine in-out for loops */
+    --t-quick: 200ms; --t-std: 300ms; --t-slow: 400ms;
+  }
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;background:#FBFAF7;overflow-x:hidden}
+  /* guard layout before the Tailwind CDN applies its preflight */
+  img{max-width:100%;height:auto}
+  .font-display{font-variation-settings:"opsz" 96;letter-spacing:-.035em}
+
+  /* ---------- hero camera stage ---------- */
+  .stage{position:fixed;inset:0;z-index:0;overflow:hidden;perspective:1200px;perspective-origin:50% 40%;background:#dfe6dc}
+  .stage img{position:absolute;inset:-6%;width:112%;height:112%;max-width:none;object-fit:cover;object-position:50% 45%;
+    transform-origin:50% 55%;will-change:transform;backface-visibility:hidden}
+  .stage .wash{position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,rgba(251,250,247,.55) 0%,rgba(251,250,247,0) 22%,rgba(251,250,247,0) 42%,rgba(251,250,247,.86) 74%,#FBFAF7 100%)}
+  @media (max-width:639px){
+    .stage img{top:-40%;bottom:auto;height:150%;object-position:40% 50%}
+    .stage .wash{background:linear-gradient(180deg,rgba(251,250,247,.6) 0%,rgba(251,250,247,0) 16%,rgba(251,250,247,0) 30%,rgba(251,250,247,.82) 52%,rgba(251,250,247,.96) 66%,#FBFAF7 100%)}
+  }
+  .stage .glow{position:absolute;left:-10%;bottom:-18%;width:70vmax;height:70vmax;border-radius:50%;pointer-events:none;
+    background:radial-gradient(closest-side,rgba(236,231,245,.95),rgba(236,231,245,0));will-change:transform,opacity}
+  .stage .arc{position:absolute;right:-8vmax;top:14%;width:46vmax;height:46vmax;pointer-events:none;will-change:transform,opacity;opacity:.9}
+
+  /* ---------- entrances ---------- */
+  .enter{opacity:0;transform:translate3d(0,16px,0);transition:opacity var(--t-slow) var(--ease),transform var(--t-slow) var(--ease);transition-delay:var(--d,0ms)}
+  .is-ready .enter{opacity:1;transform:none}
+  .reveal{opacity:0;transform:translate3d(0,16px,0);transition:opacity var(--t-std) var(--ease),transform var(--t-std) var(--ease);transition-delay:var(--d,0ms)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal .shadow-lift{transition:box-shadow var(--t-slow) var(--ease) calc(var(--d,0ms) + 80ms)}
+
+  .card{transition:transform var(--t-quick) var(--ease),box-shadow var(--t-std) var(--ease),border-color var(--t-quick) var(--ease)}
+  @media (hover:hover){
+    .card:hover{transform:translate3d(0,-4px,0);box-shadow:0 2px 4px rgba(22,33,27,.04),0 22px 40px -22px rgba(22,33,27,.28);border-color:rgba(46,91,69,.28)}
+    .card:hover .card-img{transform:scale(1.03)}
+  }
+  .card-img{transition:transform var(--t-slow) var(--ease)}
+
+  /* ---------- spotlight ambient ---------- */
+  #spotlight{position:relative;overflow:hidden}
+  .kb{animation:kenburns 26s var(--ease-ambient) infinite alternate;transform-origin:62% 55%;will-change:transform}
+  @keyframes kenburns{from{transform:scale(1.04) translate3d(0,0,0)}to{transform:scale(1.14) translate3d(-2.5%,-1.5%,0)}}
+  .sweep{position:absolute;inset:-20% -60%;pointer-events:none;mix-blend-mode:soft-light;
+    background:linear-gradient(100deg,rgba(255,255,255,0) 40%,rgba(255,250,235,.55) 50%,rgba(255,255,255,0) 60%);
+    animation:sweep 11s var(--ease-ambient) infinite;will-change:transform}
+  @keyframes sweep{0%{transform:translate3d(-35%,0,0)}55%,100%{transform:translate3d(35%,0,0)}}
+  .paused .kb,.paused .sweep{animation-play-state:paused}
+
+  /* ---------- nav ---------- */
+  .nav-shell{transition:background-color var(--t-std) var(--ease),box-shadow var(--t-std) var(--ease)}
+  .nav-scrolled .nav-shell{background:#FBFAF7;box-shadow:0 1px 0 rgba(22,33,27,.06),0 10px 30px -18px rgba(22,33,27,.25)}
+  @media (min-width:768px){.nav-scrolled .nav-shell{background:rgba(251,250,247,.86)}}
+  #mobile-menu{transition:opacity var(--t-quick) var(--ease),transform var(--t-quick) var(--ease)}
+  #mobile-menu[hidden]{display:none}
+  #mobile-menu.open{opacity:1;transform:none}
+  #mobile-menu.closing{opacity:0;transform:translate3d(0,-8px,0);transition-timing-function:var(--ease-in)}
+  .bar{transition:transform var(--t-quick) var(--ease),opacity var(--t-quick) var(--ease)}
+  [aria-expanded="true"] .bar1{transform:translateY(6px) rotate(45deg)}
+  [aria-expanded="true"] .bar2{opacity:0}
+  [aria-expanded="true"] .bar3{transform:translateY(-6px) rotate(-45deg)}
+
+  :focus-visible{outline:3px solid #6A58A8;outline-offset:3px;border-radius:10px}
+  .btn{min-height:48px}
+  .btn-primary{transition:transform var(--t-quick) var(--ease),box-shadow var(--t-quick) var(--ease),background-color var(--t-quick) var(--ease)}
+  .btn-primary:hover{background:#234836;box-shadow:0 12px 26px -12px rgba(46,91,69,.65)}
+  .btn-primary:active{transform:scale(.98)}
+  .field-err{color:#B4232C}
+  input[aria-invalid="true"],select[aria-invalid="true"]{border-color:#B4232C;box-shadow:0 0 0 3px rgba(180,35,44,.12)}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .enter,.reveal{opacity:1!important;transform:none!important;transition:none!important}
+    .kb,.sweep{animation:none!important}
+    .stage img,.stage .glow,.stage .arc,#hero-copy{transform:none!important}
+    .card,.card-img{transition:none}
+  }
+</style>
+</head>
+<body class="font-sans text-ink antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:shadow-lg">Skip to content</a>
+
+  <!-- Fixed hero camera stage -->
+  <div class="stage" aria-hidden="true">
+    <img id="hero-img" src="https://images.unsplash.com/photo-1777395391040-8b919bc39464?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OHx8ZG9nJTIwbWVhZG93JTIwbW9ybmluZ3xlbnwwfHx8fDE3OTA5MDE0NTR8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80" alt="" fetchpriority="high" decoding="async" width="2400" height="1800">
+    <div class="glow" id="hero-glow"></div>
+    <svg class="arc" id="hero-arc" viewBox="0 0 200 200" fill="none">
+      <circle cx="100" cy="100" r="92" stroke="#FBFAF7" stroke-opacity=".7" stroke-width="1"/>
+      <circle cx="100" cy="100" r="70" stroke="#FBFAF7" stroke-opacity=".45" stroke-width="1" stroke-dasharray="2 6"/>
+    </svg>
+    <div class="wash"></div>
+  </div>
+
+  <!-- Sticky nav -->
+  <header id="top" class="sticky top-0 z-50">
+    <div class="nav-shell bg-paper/95 md:bg-paper/60 md:backdrop-blur-xl">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6 py-2.5" aria-label="Primary">
+        <a href="#top" class="flex min-h-[44px] items-center gap-2.5" aria-label="Quillmoss Veterinary Clinic, back to top">
+          <svg class="h-8 w-8" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="10" fill="#2E5B45"/>
+            <path d="M22.5 7.5c-6.5.6-11.5 5.6-12.4 12.6l-.6 4.4" stroke="#ECE7F5" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+            <path d="M22.5 7.5c.4 6.6-3.6 11.6-10.6 12.8 1-5.6 5-10.6 10.6-12.8Z" fill="#ECE7F5"/>
+            <circle cx="9.6" cy="24.4" r="1.6" fill="#E58A5C"/>
+          </svg>
+          <span class="leading-none">
+            <span class="block font-display text-[19px] font-semibold">Quillmoss</span>
+            <span class="block text-[11px] font-semibold uppercase tracking-[.16em] text-muted">Veterinary clinic</span>
+          </span>
+        </a>
+        <ul class="hidden items-center gap-1 md:flex text-[15px] font-medium">
+          <li><a class="inline-flex min-h-[44px] items-center rounded-lg px-3 hover:text-fern" href="#care">Care</a></li>
+          <li><a class="inline-flex min-h-[44px] items-center rounded-lg px-3 hover:text-fern" href="#calm">Our approach</a></li>
+          <li><a class="inline-flex min-h-[44px] items-center rounded-lg px-3 hover:text-fern" href="#plans">Care plans</a></li>
+          <li><a class="inline-flex min-h-[44px] items-center rounded-lg px-3 hover:text-fern" href="#visit">Visit</a></li>
+          <li class="ml-2"><a class="btn btn-primary inline-flex items-center rounded-full bg-fern px-5 font-semibold text-white" href="#book">Book a visit</a></li>
+        </ul>
+        <button id="menu-btn" class="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white/80" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span class="relative block h-3.5 w-5">
+            <span class="bar bar1 absolute left-0 top-0 h-[2px] w-5 rounded bg-ink"></span>
+            <span class="bar bar2 absolute left-0 top-[6px] h-[2px] w-5 rounded bg-ink"></span>
+            <span class="bar bar3 absolute left-0 top-[12px] h-[2px] w-5 rounded bg-ink"></span>
+          </span>
+        </button>
+      </nav>
+      <div id="mobile-menu" class="md:hidden border-t border-line bg-paper opacity-0 -translate-y-2" hidden>
+        <ul class="mx-auto max-w-6xl px-4 py-3 text-lg font-medium">
+          <li><a class="flex min-h-[48px] items-center border-b border-line/70" href="#care">Care</a></li>
+          <li><a class="flex min-h-[48px] items-center border-b border-line/70" href="#calm">Our approach</a></li>
+          <li><a class="flex min-h-[48px] items-center border-b border-line/70" href="#plans">Care plans</a></li>
+          <li><a class="flex min-h-[48px] items-center border-b border-line/70" href="#visit">Visit</a></li>
+          <li class="pt-3 pb-1"><a class="btn btn-primary flex items-center justify-center rounded-full bg-fern font-semibold text-white" href="#book">Book a visit</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative z-10 flex min-h-[100svh] items-end -mt-[64px] pt-24 sm:pt-28" aria-labelledby="hero-title">
+    <div id="hero-copy" class="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-8 sm:pb-16 will-change-transform">
+      <p class="enter inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/75 px-3.5 py-1.5 text-[13px] font-semibold text-fern shadow-sm" style="--d:0ms">
+        <span class="h-2 w-2 rounded-full bg-apricot" aria-hidden="true"></span> Now welcoming new patients
+      </p>
+      <h1 id="hero-title" class="font-display mt-4 max-w-3xl text-[40px] leading-[1.02] font-semibold sm:mt-5 sm:text-7xl lg:text-[80px]">
+        <span class="enter block" style="--d:80ms">Unhurried care</span>
+        <span class="enter block" style="--d:160ms">for the ones who <span class="text-lavender">wait for you</span>.</span>
+      </h1>
+      <p class="enter mt-4 max-w-xl text-[17px] leading-relaxed text-ink/80 sm:mt-5 sm:text-xl" style="--d:240ms">
+        A quiet neighbourhood clinic for dogs and cats. Thirty-minute exams, a cats-only waiting room and vets who never rush the nervous ones.
+      </p>
+      <div class="enter mt-6 flex gap-3 sm:mt-8 sm:items-center" style="--d:320ms">
+        <a href="#book" class="btn btn-primary inline-flex flex-1 sm:flex-none items-center justify-center gap-2 rounded-full bg-fern px-5 sm:px-7 text-base sm:text-[17px] font-semibold text-white shadow-[0_10px_24px_-12px_rgba(46,91,69,.7)]">Book a calm visit <span aria-hidden="true">→</span></a>
+        <a href="#care" class="btn inline-flex items-center justify-center rounded-full border border-ink/15 bg-white/80 px-5 sm:px-7 text-base sm:text-[17px] font-semibold hover:border-fern/40">See our care</a>
+      </div>
+      <dl class="enter mt-10 hidden max-w-xl grid-cols-3 gap-3 text-sm sm:grid" style="--d:400ms">
+        <div class="rounded-2xl border border-white/70 bg-white/70 p-3.5"><dt class="text-muted">Exam length</dt><dd class="font-display text-2xl font-semibold">30 min</dd></div>
+        <div class="rounded-2xl border border-white/70 bg-white/70 p-3.5"><dt class="text-muted">Same-day</dt><dd class="font-display text-2xl font-semibold">Sick visits</dd></div>
+        <div class="rounded-2xl border border-white/70 bg-white/70 p-3.5"><dt class="text-muted">Open</dt><dd class="font-display text-2xl font-semibold">7 days</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <main id="main" class="relative z-10 bg-paper">
+    <!-- Care -->
+    <section id="care" class="scroll-mt-20 mx-auto max-w-6xl px-4 sm:px-6 pt-20 pb-20 sm:pt-28" aria-labelledby="care-title">
+      <div class="reveal flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="text-[13px] font-semibold uppercase tracking-[.18em] text-lavender">Everyday care</p>
+          <h2 id="care-title" class="font-display mt-3 max-w-2xl text-4xl font-semibold leading-[1.05] sm:text-5xl">Everything a good check-up should be, minus the rush.</h2>
+        </div>
+        <p class="max-w-sm text-muted">Clear prices before we start. If plans change on the table, we talk it through with you first.</p>
+      </div>
+
+      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="reveal card group flex flex-col overflow-hidden rounded-3xl border border-line bg-white shadow-[0_1px_2px_rgba(22,33,27,.04),0_14px_34px_-24px_rgba(22,33,27,.25)]" style="--d:0ms">
+          <div class="aspect-[4/3] overflow-hidden bg-mist"><img class="card-img h-full w-full object-cover" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1630438994394-3deff7a591bf?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8M3x8cHVwcHklMjB2ZXR8ZW58MHx8fHwxNzkwOTAxNDUzfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A French bulldog in a patterned shirt sitting on a clinic exam table"></div>
+          <div class="flex flex-1 flex-col p-6">
+            <h3 class="font-display text-2xl font-semibold">Wellness exams</h3>
+            <p class="mt-2 flex-1 text-[15px] leading-relaxed text-muted">A full nose-to-tail check, weight trend and a written plan you take home. Thirty minutes, every time.</p>
+            <p class="mt-5 flex items-baseline justify-between border-t border-line pt-4"><span class="text-sm text-muted">From</span><span class="font-display text-2xl font-semibold text-fern">$68</span></p>
+          </div>
+        </article>
+        <article class="reveal card group flex flex-col overflow-hidden rounded-3xl border border-line bg-white shadow-[0_1px_2px_rgba(22,33,27,.04),0_14px_34px_-24px_rgba(22,33,27,.25)]" style="--d:60ms">
+          <div class="aspect-[4/3] overflow-hidden bg-mist"><img class="card-img h-full w-full object-cover object-[50%_35%]" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1770836037816-4445dbd449fd?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OXx8dmV0ZXJpbmFyaWFuJTIwc3RldGhvc2NvcGUlMjBkb2d8ZW58MHx8fHwxNzkwOTAxNDU0fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A veterinarian gently examining a dachshund's teeth"></div>
+          <div class="flex flex-1 flex-col p-6">
+            <h3 class="font-display text-2xl font-semibold">Dental care</h3>
+            <p class="mt-2 flex-1 text-[15px] leading-relaxed text-muted">Cleaning, polish and digital X-rays under monitored anaesthesia, with a photo report of every tooth.</p>
+            <p class="mt-5 flex items-baseline justify-between border-t border-line pt-4"><span class="text-sm text-muted">From</span><span class="font-display text-2xl font-semibold text-fern">$240</span></p>
+          </div>
+        </article>
+        <article class="reveal card group flex flex-col overflow-hidden rounded-3xl border border-line bg-white shadow-[0_1px_2px_rgba(22,33,27,.04),0_14px_34px_-24px_rgba(22,33,27,.25)]" style="--d:120ms">
+          <div class="aspect-[4/3] overflow-hidden bg-mist"><img class="card-img h-full w-full object-cover object-[50%_30%]" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1721907043535-318e2f352757?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8dmV0ZXJpbmFyaWFuJTIwZXhhbWluaW5nJTIwY2F0fGVufDB8fHx8MTc5MDkwMTQ1M3ww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A woman in scrubs holding a white cat in her arms"></div>
+          <div class="flex flex-1 flex-col p-6">
+            <h3 class="font-display text-2xl font-semibold">Cats-only hours</h3>
+            <p class="mt-2 flex-1 text-[15px] leading-relaxed text-muted">Thursday evenings belong to cats: no barking, dimmed rooms and a separate entrance from the car park.</p>
+            <p class="mt-5 flex items-baseline justify-between border-t border-line pt-4"><span class="text-sm text-muted">Thu 4–8pm</span><span class="font-display text-2xl font-semibold text-fern">$72</span></p>
+          </div>
+        </article>
+        <article class="reveal card group flex flex-col overflow-hidden rounded-3xl border border-line bg-white shadow-[0_1px_2px_rgba(22,33,27,.04),0_14px_34px_-24px_rgba(22,33,27,.25)]" style="--d:180ms">
+          <div class="aspect-[4/3] overflow-hidden bg-mist"><img class="card-img h-full w-full object-cover" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8cHVwcHklMjB2ZXR8ZW58MHx8fHwxNzkwOTAxNDUzfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A golden puppy with a red collar looking to the side"></div>
+          <div class="flex flex-1 flex-col p-6">
+            <h3 class="font-display text-2xl font-semibold">First puppy &amp; kitten visit</h3>
+            <p class="mt-2 flex-1 text-[15px] leading-relaxed text-muted">First vaccines, microchip, a feeding plan and a treat-filled tour so the next visit feels familiar.</p>
+            <p class="mt-5 flex items-baseline justify-between border-t border-line pt-4"><span class="text-sm text-muted">All-in</span><span class="font-display text-2xl font-semibold text-fern">$95</span></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Spotlight -->
+    <section id="calm" class="scroll-mt-20 px-4 sm:px-6" aria-labelledby="calm-title">
+      <div id="spotlight" class="reveal relative mx-auto max-w-6xl overflow-hidden rounded-[32px] bg-mist shadow-[0_30px_60px_-40px_rgba(22,33,27,.45)]">
+        <div class="relative h-[460px] sm:h-[560px]">
+          <img class="kb absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1612245229854-e69ff79cd51a?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Nnx8Y2F0JTIwd2luZG93fGVufDB8fHx8MTc5MDkwMTQ1NXww&amp;ixlib=rb-4.1.0&amp;w=2000&amp;q=80" alt="A tabby cat resting on a sunny window sill, looking outside">
+          <div class="sweep" aria-hidden="true"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/20 to-transparent sm:bg-gradient-to-r sm:from-ink/65 sm:via-ink/25 sm:to-transparent" aria-hidden="true"></div>
+        </div>
+        <div class="absolute inset-x-0 bottom-0 p-6 sm:inset-y-0 sm:left-0 sm:right-auto sm:flex sm:max-w-lg sm:flex-col sm:justify-center sm:p-12 text-white">
+          <p class="text-[13px] font-semibold uppercase tracking-[.18em] text-lilac">Our approach</p>
+          <h2 id="calm-title" class="font-display mt-3 text-4xl font-semibold leading-[1.05] sm:text-5xl">A quiet clinic, on purpose.</h2>
+          <p class="mt-4 text-[17px] leading-relaxed text-white/90">Soft lighting, non-slip exam mats and fear-free handling. Separate waiting rooms mean your cat never shares a bench with a beagle.</p>
+        </div>
+        <button id="motion-toggle" type="button" class="absolute right-4 top-4 inline-flex min-h-[44px] items-center gap-2 rounded-full bg-white/90 px-4 text-sm font-semibold text-ink shadow" aria-pressed="false">
+          <svg id="ico-pause" class="h-4 w-4" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" rx="1" fill="currentColor"/></svg>
+          <svg id="ico-play" class="hidden h-4 w-4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11a.8.8 0 0 0 1.2.7l9-5.5a.8.8 0 0 0 0-1.4l-9-5.5A.8.8 0 0 0 4 2.5Z" fill="currentColor"/></svg>
+          <span id="motion-label">Pause motion</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Care plans -->
+    <section id="plans" class="scroll-mt-20 mx-auto max-w-6xl px-4 sm:px-6 py-20 sm:py-28" aria-labelledby="plans-title">
+      <div class="reveal max-w-2xl">
+        <p class="text-[13px] font-semibold uppercase tracking-[.18em] text-lavender">Care plans</p>
+        <h2 id="plans-title" class="font-display mt-3 text-4xl font-semibold leading-[1.05] sm:text-5xl">One small monthly payment. No surprise invoices.</h2>
+        <p class="mt-4 text-muted">Every plan includes unlimited nurse consults and 10% off everything else we do. Cancel any month.</p>
+      </div>
+      <div class="mt-12 grid gap-5 md:grid-cols-3">
+        <article class="reveal card flex flex-col rounded-3xl border border-line bg-white p-7 shadow-[0_1px_2px_rgba(22,33,27,.04),0_14px_34px_-24px_rgba(22,33,27,.25)]" style="--d:0ms">
+          <div class="flex items-center justify-between"><h3 class="font-display text-2xl font-semibold">Sprout</h3><span class="rounded-full bg-mist px-3 py-1 text-xs font-semibold text-fern">Under 1 year</span></div>
+          <p class="mt-6 font-display text-5xl font-semibold">$29<span class="text-lg font-medium text-muted">/mo</span></p>
+          <ul class="mt-6 flex-1 space-y-3 text-[15px] text-muted">
+            <li class="flex gap-2.5"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-fern"></span>All first-year vaccines</li>
+            <li class="flex gap-2.5"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-fern"></span>Three wellness exams</li>
+            <li class="flex gap-2.5"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-fern"></span>Flea, tick &amp; worm cover</li>
+          </ul>
+          <a href="#book" class="btn mt-8 inline-flex items-center justify-center rounded-full border border-ink/15 font-semibold hover:border-fern/50 hover:text-fern">Choose Sprout</a>
+        </article>
+        <article class="reveal card relative flex flex-col rounded-3xl border-2 border-fern bg-white p-7 shadow-[0_1px_2px_rgba(22,33,27,.04),0_24px_44px_-26px_rgba(46,91,69,.5)]" style="--d:60ms">
+          <span class="absolute -top-3 left-7 rounded-full bg-fern px-3 py-1 text-xs font-semibold text-white">Most chosen</span>
+          <div class="flex items-center justify-between"><h3 class="font-display text-2xl font-semibold">Evergreen</h3><span class="rounded-full bg-mist px-3 py-1 text-xs font-semibold text-fern">Adults</span></div>
+          <p class="mt-6 font-display text-5xl font-semibold">$34<span class="text-lg font-medium text-muted">/mo</span></p>
+          <ul class="mt-6 flex-1 space-y-3 text-[15px] text-muted">
+            <li class="flex gap-2.5"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-fern"></span>Two wellness exams a year</li>
+            <li class="flex gap-2.5"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-fern"></span>Annual boosters &amp; blood panel</li>
+            <li class="flex gap-2.5"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-fern"></span>Nail trims whenever you pop in</li>
+          </ul>
+          <a href="#book" class="btn btn-primary mt-8 inline-flex items-center justify-center rounded-full bg-fern font-semibold text-white">Choose Evergreen</a>
+        </article>
+        <article class="reveal card flex flex-col rounded-3xl border border-line bg-white p-7 shadow-[0_1px_2px_rgba(22,33,27,.04),0_14px_34px_-24px_rgba(22,33,27,.25)]" style="--d:120ms">
+          <div class="flex items-center justify-between"><h3 class="font-display text-2xl font-semibold">Silver Fern</h3><span class="rounded-full bg-lilac px-3 py-1 text-xs font-semibold text-lavender">8 years +</span></div>
+          <p class="mt-6 font-display text-5xl font-semibold">$44<span class="text-lg font-medium text-muted">/mo</span></p>
+          <ul class="mt-6 flex-1 space-y-3 text-[15px] text-muted">
+            <li class="flex gap-2.5"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-lavender"></span>Senior check every six months</li>
+            <li class="flex gap-2.5"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-lavender"></span>Kidney, thyroid &amp; blood pressure</li>
+            <li class="flex gap-2.5"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-lavender"></span>Joint &amp; comfort review</li>
+          </ul>
+          <a href="#book" class="btn mt-8 inline-flex items-center justify-center rounded-full border border-ink/15 font-semibold hover:border-fern/50 hover:text-fern">Choose Silver Fern</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Visit -->
+    <section id="visit" class="scroll-mt-20 border-y border-line bg-mist/60" aria-labelledby="visit-title">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-20 sm:py-28">
+        <div class="reveal max-w-2xl">
+          <p class="text-[13px] font-semibold uppercase tracking-[.18em] text-lavender">Your visit</p>
+          <h2 id="visit-title" class="font-display mt-3 text-4xl font-semibold leading-[1.05] sm:text-5xl">Four steps, zero guesswork.</h2>
+        </div>
+        <ol class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <li class="reveal card rounded-3xl border border-line bg-white p-6" style="--d:0ms">
+            <span class="font-display text-sm font-semibold text-lavender">01</span>
+            <h3 class="font-display mt-3 text-xl font-semibold">Book in two minutes</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-muted">Pick a time online and tell us what's worrying you, or that nothing is.</p>
+          </li>
+          <li class="reveal card rounded-3xl border border-line bg-white p-6" style="--d:60ms">
+            <span class="font-display text-sm font-semibold text-lavender">02</span>
+            <h3 class="font-display mt-3 text-xl font-semibold">Wait somewhere calm</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-muted">Separate dog and cat rooms, or wait in your car and we'll text you.</p>
+          </li>
+          <li class="reveal card rounded-3xl border border-line bg-white p-6" style="--d:120ms">
+            <span class="font-display text-sm font-semibold text-lavender">03</span>
+            <h3 class="font-display mt-3 text-xl font-semibold">A proper half hour</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-muted">Time for treats, questions and a vet who explains every finding.</p>
+          </li>
+          <li class="reveal card rounded-3xl border border-line bg-white p-6" style="--d:180ms">
+            <span class="font-display text-sm font-semibold text-lavender">04</span>
+            <h3 class="font-display mt-3 text-xl font-semibold">Notes in your inbox</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-muted">A written summary and any reminders arrive before you're home.</p>
+          </li>
+        </ol>
+        <div class="reveal mt-10 grid gap-5 rounded-3xl border border-line bg-white p-6 sm:grid-cols-3 sm:p-8">
+          <div><p class="text-sm font-semibold text-muted">Find us</p><p class="mt-1 font-display text-xl font-semibold">14 Linden Row, Fernhill</p></div>
+          <div><p class="text-sm font-semibold text-muted">Hours</p><p class="mt-1 font-display text-xl font-semibold">Mon–Fri 8–7 · Sat–Sun 9–4</p></div>
+          <div><p class="text-sm font-semibold text-muted">Out of hours</p><p class="mt-1 font-display text-xl font-semibold">Partner ER, 10 min away</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Book / newsletter -->
+    <section id="book" class="scroll-mt-20 mx-auto max-w-6xl px-4 sm:px-6 py-20 sm:py-28" aria-labelledby="book-title">
+      <div class="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+        <div class="reveal">
+          <p class="text-[13px] font-semibold uppercase tracking-[.18em] text-lavender">Request a visit</p>
+          <h2 id="book-title" class="font-display mt-3 text-4xl font-semibold leading-[1.05] sm:text-5xl">Tell us who's coming in.</h2>
+          <p class="mt-4 max-w-md text-muted">We'll reply within one working day with a time that suits you both. You'll also get our seasonal care notes, once a month at most.</p>
+          <div class="mt-8 flex items-center gap-4 rounded-2xl border border-line bg-lilac/60 p-5">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white font-display text-lg font-semibold text-lavender" aria-hidden="true">!</span>
+            <p class="text-[15px] text-ink">Emergency? Please call your nearest emergency vet straight away rather than using this form.</p>
+          </div>
+        </div>
+        <form id="book-form" class="reveal rounded-3xl border border-line bg-white p-6 shadow-[0_1px_2px_rgba(22,33,27,.04),0_24px_50px_-30px_rgba(22,33,27,.35)] sm:p-8" novalidate style="--d:60ms">
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label for="f-name" class="text-sm font-semibold">Your name <span class="text-lavender" aria-hidden="true">*</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name" class="mt-2 block min-h-[48px] w-full rounded-xl border border-line bg-paper px-4 text-base outline-none focus:border-fern focus:ring-2 focus:ring-fern/20">
+              <p id="e-name" class="field-err mt-1.5 text-sm" hidden>Please tell us your name.</p>
+            </div>
+            <div>
+              <label for="f-email" class="text-sm font-semibold">Email <span class="text-lavender" aria-hidden="true">*</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="e-email" class="mt-2 block min-h-[48px] w-full rounded-xl border border-line bg-paper px-4 text-base outline-none focus:border-fern focus:ring-2 focus:ring-fern/20">
+              <p id="e-email" class="field-err mt-1.5 text-sm" hidden>Please enter a valid email, like name@example.com.</p>
+            </div>
+            <div>
+              <label for="f-pet" class="text-sm font-semibold">Pet's name <span class="text-lavender" aria-hidden="true">*</span></label>
+              <input id="f-pet" name="pet" type="text" required aria-describedby="e-pet" class="mt-2 block min-h-[48px] w-full rounded-xl border border-line bg-paper px-4 text-base outline-none focus:border-fern focus:ring-2 focus:ring-fern/20">
+              <p id="e-pet" class="field-err mt-1.5 text-sm" hidden>Who are we meeting?</p>
+            </div>
+            <div>
+              <label for="f-species" class="text-sm font-semibold">Dog or cat? <span class="text-lavender" aria-hidden="true">*</span></label>
+              <select id="f-species" name="species" required aria-describedby="e-species" class="mt-2 block min-h-[48px] w-full rounded-xl border border-line bg-paper px-4 text-base outline-none focus:border-fern focus:ring-2 focus:ring-fern/20">
+                <option value="">Choose one</option><option>Dog</option><option>Cat</option><option>Both</option>
+              </select>
+              <p id="e-species" class="field-err mt-1.5 text-sm" hidden>Please choose one.</p>
+            </div>
+            <div class="sm:col-span-2">
+              <label for="f-note" class="text-sm font-semibold">Anything we should know? <span class="font-normal text-muted">(optional)</span></label>
+              <textarea id="f-note" name="note" rows="3" class="mt-2 block w-full rounded-xl border border-line bg-paper px-4 py-3 text-base outline-none focus:border-fern focus:ring-2 focus:ring-fern/20"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-fern px-7 text-[17px] font-semibold text-white">Request my visit <span aria-hidden="true">→</span></button>
+          <p id="form-success" class="mt-4 rounded-xl bg-mist p-4 text-[15px] font-medium text-fern" role="status" hidden>Thank you! Your request is in. (This is a concept site, so nothing was actually sent.)</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="relative z-10 border-t border-line bg-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-10 text-sm text-muted">
+      <div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <p class="font-display text-lg font-semibold text-ink">Quillmoss Veterinary Clinic</p>
+          <p class="mt-1">14 Linden Row, Fernhill · Open 7 days</p>
+        </div>
+        <p class="max-w-md">Photos from Unsplash:
+          <a class="underline hover:text-fern" href="https://unsplash.com/photos/a-large-dog-stands-in-a-field-of-purple-flowers-_wIro999OVY?utm_source=webdrip&utm_medium=referral">Farzane Radetemadi</a>,
+          <a class="underline hover:text-fern" href="https://unsplash.com/photos/silver-tabby-cat-on-window-urUcOb5XlyA?utm_source=webdrip&utm_medium=referral">Chen</a>,
+          <a class="underline hover:text-fern" href="https://unsplash.com/photos/white-and-black-short-coated-dog-wearing-white-and-black-polka-dot-shirt-loJL4ijUobg?utm_source=webdrip&utm_medium=referral">Karsten Winegeart</a>,
+          <a class="underline hover:text-fern" href="https://unsplash.com/photos/veterinarian-examines-a-dachshunds-teeth-sdpIuIbKaQg?utm_source=webdrip&utm_medium=referral">Alexander Mass</a>,
+          <a class="underline hover:text-fern" href="https://unsplash.com/photos/a-woman-holding-a-cat-in-her-arms-vh6henQFueg?utm_source=webdrip&utm_medium=referral">ooneiroslyl</a> and
+          <a class="underline hover:text-fern" href="https://unsplash.com/photos/selective-focus-photography-of-short-coated-brown-puppy-facing-right-side-ngqyo2AYYnE?utm_source=webdrip&utm_medium=referral">Berkay Gumustekin</a>
+          on <a class="underline hover:text-fern" href="https://unsplash.com/?utm_source=webdrip&utm_medium=referral">Unsplash</a>.</p>
+      </div>
+      <p class="mt-8 border-t border-line pt-6"><a class="inline-flex min-h-[44px] items-center underline-offset-4 hover:underline" href="https://getwebdrip.com">Concept design by WebDrip — fictional brand</a></p>
+    </div>
+  </footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var root = document.documentElement;
+
+  /* Hero entrance: one staggered sequence after first paint */
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.body.classList.add('is-ready'); }); });
+
+  /* Scroll-driven 3D camera (transform + opacity only) */
+  var img = document.getElementById('hero-img'), glow = document.getElementById('hero-glow'),
+      arc = document.getElementById('hero-arc'), copy = document.getElementById('hero-copy');
+  var header = document.getElementById('top');
+  var cur = 0, target = 0, running = false;
+  function measure(){ target = Math.min(window.scrollY / Math.max(window.innerHeight, 1), 1.4); }
+  function ease(t){ return t < .5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2) / 2; }
+  function render(){
+    var p = Math.min(cur, 1), e = ease(p);
+    if (!reduce.matches){
+      img.style.transform = 'translate3d(' + (-1.5*e) + '%,' + (-4*e) + '%,' + (140*e) + 'px) rotateX(' + (5*e) + 'deg) rotateY(' + (-2.5*e) + 'deg) scale(' + (1.04 + .1*e) + ')';
+      glow.style.transform = 'translate3d(' + (8*e) + 'vw,' + (-26*e) + 'vh,0) scale(' + (1 + .25*e) + ')';
+      glow.style.opacity = String(1 - .4*e);
+      arc.style.transform = 'translate3d(0,' + (-38*e) + 'vh,0) rotate(' + (40*e) + 'deg)';
+      arc.style.opacity = String(.9 - .9*e);
+      copy.style.transform = 'translate3d(0,' + (-90*e) + 'px,0)';
+      copy.style.opacity = String(1 - Math.max(0, (p - .35) / .5));
+    } else {
+      img.style.transform = ''; glow.style.transform = ''; arc.style.transform = ''; copy.style.transform = ''; copy.style.opacity = '';
+    }
+  }
+  function tick(){
+    cur += (target - cur) * .12;
+    if (Math.abs(target - cur) < .0005){ cur = target; running = false; render(); return; }
+    render(); requestAnimationFrame(tick);
+  }
+  function onScroll(){
+    measure();
+    header.classList.toggle('nav-scrolled', window.scrollY > 24);
+    if (!running){ running = true; requestAnimationFrame(tick); }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  measure(); cur = target; render(); onScroll();
+
+  /* Reveal on scroll */
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduce.matches){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: .12 });
+    reveals.forEach(function(el){ io.observe(el); });
+  } else { reveals.forEach(function(el){ el.classList.add('in'); }); }
+
+  /* Mobile menu */
+  var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu');
+  function openMenu(){
+    menu.hidden = false; menu.classList.remove('closing');
+    requestAnimationFrame(function(){ menu.classList.add('open'); });
+    btn.setAttribute('aria-expanded', 'true'); btn.setAttribute('aria-label', 'Close menu');
+  }
+  function closeMenu(focusBtn){
+    if (btn.getAttribute('aria-expanded') !== 'true') return;
+    btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-label', 'Open menu');
+    menu.classList.remove('open'); menu.hidden = true;
+    if (focusBtn) btn.focus();
+  }
+  btn.addEventListener('click', function(){ btn.getAttribute('aria-expanded') === 'true' ? closeMenu(false) : openMenu(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeMenu(true); });
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ closeMenu(false); }); });
+  window.matchMedia('(min-width: 768px)').addEventListener('change', function(m){ if (m.matches) closeMenu(false); });
+
+  /* Spotlight pause / play */
+  var spot = document.getElementById('spotlight'), mt = document.getElementById('motion-toggle');
+  function setPaused(p){
+    spot.classList.toggle('paused', p);
+    mt.setAttribute('aria-pressed', String(p));
+    document.getElementById('motion-label').textContent = p ? 'Play motion' : 'Pause motion';
+    document.getElementById('ico-pause').classList.toggle('hidden', p);
+    document.getElementById('ico-play').classList.toggle('hidden', !p);
+  }
+  mt.addEventListener('click', function(){ setPaused(!spot.classList.contains('paused')); });
+  if (reduce.matches) setPaused(true);
+
+  /* Form validation */
+  var form = document.getElementById('book-form'), ok = document.getElementById('form-success');
+  var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function check(id, errId, valid){
+    var el = document.getElementById(id), err = document.getElementById(errId);
+    el.setAttribute('aria-invalid', valid ? 'false' : 'true'); err.hidden = valid; return valid;
+  }
+  form.addEventListener('submit', function(e){
+    e.preventDefault(); ok.hidden = true;
+    var v = [
+      check('f-name', 'e-name', form.elements.name.value.trim().length > 0),
+      check('f-email', 'e-email', emailRe.test(form.elements.email.value.trim())),
+      check('f-pet', 'e-pet', form.elements.pet.value.trim().length > 0),
+      check('f-species', 'e-species', form.elements.species.value !== '')
+    ];
+    var firstBad = ['f-name','f-email','f-pet','f-species'][v.indexOf(false)];
+    if (firstBad){ document.getElementById(firstBad).focus(); return; }
+    ok.hidden = false; form.reset();
+    ['f-name','f-email','f-pet','f-species'].forEach(function(id){ document.getElementById(id).setAttribute('aria-invalid','false'); });
+  });
+
+  /* Service worker */
+  if ('serviceWorker' in navigator){
+    window.addEventListener('load', function(){ navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(function(){}); });
+  }
+})();
+</script>
+</body>
+</html>

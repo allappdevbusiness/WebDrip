@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cogsparrow Bike Workshop — Ride it in rattling. Roll out quiet.</title>
+<meta name="description" content="Same-week tune-ups, hand-built wheels and Wednesday fix-it nights from a small open-bench bike workshop. A fictional concept site by WebDrip.">
+<meta name="theme-color" content="#FBF5EA">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cogsparrow Bike Workshop">
+<meta property="og:title" content="Cogsparrow Bike Workshop — Ride it in rattling. Roll out quiet.">
+<meta property="og:description" content="Same-week tune-ups, hand-built wheels and Wednesday fix-it nights. A fictional concept site by WebDrip.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1671040690726-b78261eff126?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8YmljeWNsZSUyMHRvb2xzfGVufDB8MHx8fDE3OTA5MDkyMTB8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<meta property="og:image:alt" content="Bike tools hanging on a pegboard above a wooden workbench with parts">
+<meta property="og:url" content="https://webdripsamples.netlify.app/automation-v1/2026-10-02-cogsparrow/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cogsparrow Bike Workshop — Ride it in rattling. Roll out quiet.">
+<meta name="twitter:description" content="Same-week tune-ups, hand-built wheels and Wednesday fix-it nights. A fictional concept site by WebDrip.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1671040690726-b78261eff126?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8YmljeWNsZSUyMHRvb2xzfGVufDB8MHx8fDE3OTA5MDkyMTB8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Overpass+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1671040690726-b78261eff126?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8YmljeWNsZSUyMHRvb2xzfGVufDB8MHx8fDE3OTA5MDkyMTB8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root{
+    --paper:#FBF5EA; --paper-2:#F4EBDA; --card:#FFFDF8;
+    --pink:#FF4FA3; --pink-ink:#C2186F; --pink-tint:#FFE1EF;
+    --blue:#2C40A7; --blue-tint:#E4E8FA; --sun:#FFD84D;
+    --ink:#161B33; --muted:#4A4F66; --line:rgba(44,64,167,.22);
+    --mono:"Overpass Mono",ui-monospace,monospace;
+    --ease:cubic-bezier(.2,.7,.2,1);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;font-family:"Space Grotesk",system-ui,sans-serif;color:var(--ink);background:var(--paper);overflow-x:hidden;line-height:1.55}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--pink-ink);outline-offset:3px;border-radius:6px}
+  .mono{font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+  @media (min-width:768px){.wrap{padding:0 32px}}
+
+  /* riso grain / halftone */
+  .grain{position:relative}
+  .grain::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(44,64,167,.09) 1px,transparent 1.2px);background-size:7px 7px;mix-blend-mode:multiply}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:0 22px;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;border:2px solid var(--ink);transition:transform .18s var(--ease),box-shadow .18s var(--ease),background .18s;cursor:pointer}
+  .btn-pink{background:var(--pink-ink);color:#fff;border-color:var(--pink-ink);box-shadow:4px 4px 0 var(--blue)}
+  .btn-pink:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--blue)}
+  .btn-pink:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--blue)}
+  .btn-ghost{background:var(--card);color:var(--blue);border-color:var(--blue);box-shadow:4px 4px 0 var(--pink)}
+  .btn-ghost:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--pink)}
+
+  /* nav */
+  .nav{position:sticky;top:0;z-index:50;transition:background .25s,box-shadow .25s;background:rgba(251,245,234,.9);box-shadow:0 1px 0 var(--line)}
+  @media (min-width:900px){.nav{background:rgba(251,245,234,.72);-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2)}}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .nav.scrolled{background:rgba(251,245,234,.96);box-shadow:0 1px 0 var(--line),0 8px 24px -16px rgba(22,27,51,.25)}
+  @media (min-width:900px){.nav.scrolled{background:rgba(251,245,234,.78);-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2)}}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.15rem;letter-spacing:-.02em;text-decoration:none;color:var(--blue);min-height:44px}
+  .nav-links{display:none;gap:6px;align-items:center}
+  .nav-links a.link{padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:600;color:var(--ink);min-height:44px;display:inline-flex;align-items:center}
+  .nav-links a.link:hover{background:var(--pink-tint);color:var(--pink-ink)}
+  @media (min-width:900px){.nav-links{display:flex}.burger{display:none!important}}
+  .burger{width:48px;height:48px;border-radius:8px;border:2px solid var(--blue);background:var(--card);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:3px 3px 0 var(--pink)}
+  .burger span{display:block;width:20px;height:2px;background:var(--blue);position:relative;transition:transform .25s var(--ease),background .2s}
+  .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--blue);transition:transform .25s var(--ease)}
+  .burger span::before{top:-6px}.burger span::after{top:6px}
+  .burger[aria-expanded="true"] span{background:transparent}
+  .burger[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+  .burger[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+  .mobile-menu{position:fixed;inset:72px 0 auto 0;background:var(--paper);border-bottom:2px solid var(--blue);padding:12px 20px 24px;display:none;z-index:49;box-shadow:0 18px 30px -18px rgba(22,27,51,.35)}
+  .mobile-menu.open{display:block}
+  .mobile-menu a{display:flex;align-items:center;min-height:52px;font-size:1.25rem;font-weight:700;color:var(--blue);text-decoration:none;border-bottom:1px dashed var(--line)}
+  .mobile-menu a.btn{border-bottom:2px solid var(--pink-ink);color:#fff;margin-top:16px;justify-content:center}
+
+  /* hero */
+  .hero{position:relative;min-height:100vh;min-height:100svh;margin-top:-72px;display:flex;align-items:flex-end;overflow:hidden}
+  .hero-stage{position:fixed;inset:0;z-index:0;perspective:1100px;overflow:hidden;pointer-events:none;background:var(--paper-2)}
+  .hero-img{position:absolute;inset:-6%;background-size:cover;background-position:center 40%;transform-origin:50% 40%;will-change:transform}
+  .hero-stage::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(251,245,234,.0) 0%,rgba(251,245,234,.05) 45%,rgba(251,245,234,.75) 100%)}
+  .hero-stage .dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,79,163,.22) 1.2px,transparent 1.4px);background-size:9px 9px;mix-blend-mode:multiply;opacity:.55}
+  .hero-layer{position:relative;z-index:2;will-change:transform,opacity}
+  .ticket{background:var(--card);border:2px solid var(--blue);border-radius:14px;box-shadow:8px 8px 0 var(--pink),0 30px 60px -30px rgba(22,27,51,.45);padding:22px 20px 24px;max-width:640px;position:relative}
+  @media (min-width:768px){.ticket{padding:34px 36px 36px}.lead{font-size:1.08rem}.scroll-cue{display:flex}}
+    .ticket-head{display:flex;justify-content:space-between;gap:12px;font-size:.72rem;color:var(--blue);margin:0 -20px 26px;padding:0 20px 16px;border-bottom:2px dashed var(--line)}
+  @media (min-width:768px){.ticket-head{margin:0 -36px 30px;padding:0 36px 20px}}
+  .ticket-head .opt{display:none}
+  @media (min-width:480px){.ticket-head .opt{display:inline}}
+  .h1{font-weight:700;letter-spacing:-.045em;line-height:.95;font-size:clamp(2.6rem,9vw,5.2rem);color:var(--blue);margin:0;position:relative}
+  .h1 .offset{position:absolute;inset:0;color:var(--pink);mix-blend-mode:multiply;transform:translate(3px,3px);pointer-events:none;opacity:.75}
+  .h1 .base{position:relative}
+  .lead{font-size:1rem;color:var(--muted);max-width:34rem;margin:18px 0 26px}
+  .wheel{position:absolute;z-index:1;pointer-events:none;will-change:transform}
+  .wheel-a{width:min(46vw,420px);right:-6vw;top:12vh}
+  .wheel-b{width:min(26vw,220px);right:28vw;bottom:8vh}
+  .blob{position:absolute;z-index:1;width:min(60vw,560px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,216,77,.55),rgba(255,216,77,0) 65%);right:10vw;top:-10vh;pointer-events:none;will-change:transform}
+  .scroll-cue{display:none;gap:10px;align-items:center;font-size:.72rem;color:var(--blue);margin-top:18px}
+  .scroll-cue i{width:28px;height:2px;background:var(--pink-ink);display:block}
+
+  /* sections over the fixed hero */
+  main{position:relative;z-index:3}
+  .sheet{background:var(--paper);position:relative}
+  .strip{background:var(--blue);color:#fff;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);overflow:hidden}
+  .strip-row{display:flex;gap:40px;white-space:nowrap;padding:14px 0;font-weight:700;font-size:1rem;animation:marq 28s linear infinite;width:max-content}
+  .strip-row span{display:inline-flex;align-items:center;gap:40px}
+  .strip-row b{color:var(--sun)}
+  @keyframes marq{to{transform:translateX(-50%)}}
+  section.block{padding:84px 0}
+  @media (min-width:768px){section.block{padding:112px 0}}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.75rem;font-weight:700;color:var(--pink-ink);background:var(--pink-tint);padding:6px 10px;border-radius:4px}
+  .h2{font-weight:700;letter-spacing:-.04em;line-height:1;font-size:clamp(2.1rem,5.4vw,3.6rem);color:var(--blue);margin:14px 0 14px}
+  .h2 em{font-style:normal;background:linear-gradient(transparent 58%,var(--sun) 58%,var(--sun) 92%,transparent 92%);padding:0 .08em}
+  .sub{color:var(--muted);max-width:40rem;font-size:1.06rem}
+  .head-row{display:grid;gap:18px;margin-bottom:44px}
+  @media (min-width:900px){.head-row{grid-template-columns:1.2fr 1fr;align-items:end}}
+  .grid3{display:grid;gap:26px}
+  @media (min-width:700px){.grid3{grid-template-columns:repeat(2,1fr)}}
+  @media (min-width:1024px){.grid3{grid-template-columns:repeat(3,1fr)}}
+  .card{background:var(--card);border:2px solid var(--blue);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;box-shadow:6px 6px 0 var(--blue-tint),0 18px 40px -26px rgba(22,27,51,.35);transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
+  .card:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--pink),0 24px 44px -26px rgba(22,27,51,.4)}
+  .card .ph{aspect-ratio:4/3;overflow:hidden;border-bottom:2px solid var(--blue);position:relative;background:var(--paper-2)}
+  .card .ph img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.02)}
+  .card .ph::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,79,163,.18) 1px,transparent 1.2px);background-size:6px 6px;mix-blend-mode:multiply;pointer-events:none}
+  .tag{position:absolute;left:12px;top:12px;z-index:1;background:var(--sun);color:var(--ink);font-size:.7rem;font-weight:700;padding:5px 8px;border-radius:4px;border:1.5px solid var(--ink)}
+  .card .body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .card h3{margin:0;font-weight:700;font-size:1.35rem;letter-spacing:-.02em;color:var(--blue);line-height:1.15}
+  .card p{margin:0;color:var(--muted);font-size:.98rem}
+  .card .meta{margin-top:auto;padding-top:14px;display:flex;justify-content:space-between;align-items:baseline;border-top:1.5px dashed var(--line)}
+  .price{font-weight:700;font-size:1.5rem;color:var(--pink-ink);letter-spacing:-.02em}
+  .meta small{font-family:var(--mono);font-size:.72rem;color:var(--blue);text-transform:uppercase;letter-spacing:.06em}
+  .alt{background:var(--paper-2)}
+
+  /* spotlight */
+  .spot{position:relative;border:2px solid var(--blue);border-radius:16px;overflow:hidden;min-height:520px;padding-top:200px;display:flex;align-items:flex-end;box-shadow:10px 10px 0 var(--pink)}
+  .spot-img{position:absolute;inset:-4%;background-size:cover;background-position:72% center;animation:kb 22s ease-in-out infinite alternate;will-change:transform}
+  .spot-sweep{position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.35) 50%,transparent 65%);background-size:250% 100%;animation:sweep 7s ease-in-out infinite;mix-blend-mode:soft-light;pointer-events:none}
+  .spot.paused .spot-img,.spot.paused .spot-sweep{animation-play-state:paused}
+  @keyframes kb{0%{transform:scale(1.02) translate(0,0)}100%{transform:scale(1.14) translate(-2.5%,-2%)}}
+  @keyframes sweep{0%{background-position:120% 0}60%,100%{background-position:-120% 0}}
+  .spot-card{position:relative;z-index:2;margin:20px;background:var(--card);border:2px solid var(--blue);border-radius:12px;padding:24px;max-width:470px}
+  @media (min-width:768px){.spot-card{margin:36px;padding:30px}.spot{padding-top:0}.spot-stats b{font-size:1.3rem}}
+  .spot-toggle{position:absolute;z-index:3;right:16px;top:16px;min-height:44px;min-width:44px;padding:0 14px;border-radius:8px;background:var(--card);border:2px solid var(--blue);color:var(--blue);font-weight:700;display:inline-flex;gap:8px;align-items:center;cursor:pointer}
+  .spot-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+  .spot-stats div{border:1.5px solid var(--line);border-radius:8px;padding:10px;background:var(--paper)}
+  .spot-stats b{display:block;white-space:nowrap;font-size:1.1rem;color:var(--pink-ink);letter-spacing:-.02em}
+  .spot-stats span{font-size:.72rem;color:var(--blue)}
+
+  /* form */
+  .form-card{background:var(--card);border:2px solid var(--blue);border-radius:16px;padding:24px;box-shadow:8px 8px 0 var(--blue);position:relative}
+  @media (min-width:768px){.form-card{padding:40px}}
+  label.lbl{display:block;font-weight:700;font-size:.92rem;margin-bottom:6px;color:var(--ink)}
+  .field{width:100%;min-height:48px;border:2px solid #8E95B8;border-radius:8px;padding:10px 14px;font:inherit;background:#fff;color:var(--ink)}
+  .field:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(44,64,167,.18)}
+  .field[aria-invalid="true"]{border-color:#C0262D;background:#FFF6F6}
+  .err{color:#B3141C;font-size:.86rem;margin-top:6px;min-height:1.2em;font-weight:600}
+  .ok{display:none;margin-top:18px;padding:14px 16px;border-radius:8px;border:2px solid #16804A;background:#EAF8EF;color:#0F5A33;font-weight:700}
+  .ok.show{display:block}
+  .chk{display:flex;gap:10px;align-items:flex-start;min-height:44px;padding-top:8px}
+  .chk input{width:22px;height:22px;accent-color:var(--pink-ink);margin-top:2px}
+
+  footer{background:var(--blue);color:#EEF0FB;position:relative;z-index:3}
+  footer a{color:#fff}
+  footer .credit a{text-decoration:underline;text-underline-offset:2px}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .spot-img,.spot-sweep,.strip-row{animation:none!important}
+    .reveal{opacity:1;transform:none;transition:none}
+    .hero-img,.hero-layer,.wheel,.blob{transform:none!important}
+    .btn,.card{transition:none}
+  }
+</style>
+</head>
+<body>
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:bg-white focus:px-4 focus:py-3 focus:rounded">Skip to content</a>
+
+<div class="hero-stage" aria-hidden="true">
+  <div class="hero-img" id="heroImg" style="background-image:url('https://images.unsplash.com/photo-1671040690726-b78261eff126?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8YmljeWNsZSUyMHRvb2xzfGVufDB8MHx8fDE3OTA5MDkyMTB8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80')"></div>
+  <div class="dots"></div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Cogsparrow Bike Workshop, back to top">
+      <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="#FFE1EF" stroke="#2C40A7" stroke-width="2.5"/><g stroke="#2C40A7" stroke-width="2" stroke-linecap="round"><path d="M20 5v30M5 20h30M9.4 9.4l21.2 21.2M30.6 9.4 9.4 30.6"/></g><circle cx="20" cy="20" r="5" fill="#FF4FA3" stroke="#2C40A7" stroke-width="2"/></svg>
+      <span>Cogsparrow</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="link" href="#repairs">Repairs</a>
+      <a class="link" href="#builds">Wheels &amp; builds</a>
+      <a class="link" href="#nights">Fix-it nights</a>
+      <a class="btn btn-pink" href="#book">Book a slot</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+    <a href="#repairs">Repairs</a>
+    <a href="#builds">Wheels &amp; builds</a>
+    <a href="#nights">Fix-it nights</a>
+    <a href="#book" class="btn btn-pink">Book a slot</a>
+  </nav>
+</header>
+
+<section class="hero" id="top" aria-labelledby="heroTitle">
+  <div class="blob" id="blob" aria-hidden="true"></div>
+  <svg class="wheel wheel-a" id="wheelA" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="92" fill="none" stroke="#FF4FA3" stroke-width="10" opacity=".85"/><circle cx="100" cy="100" r="78" fill="none" stroke="#2C40A7" stroke-width="2" stroke-dasharray="3 6"/><g stroke="#2C40A7" stroke-width="1.6" opacity=".75"><path d="M100 22v156M22 100h156M45 45l110 110M155 45 45 155M70 27l60 146M27 70l146 60M130 27 70 173M173 70 27 130"/></g><circle cx="100" cy="100" r="12" fill="#FFD84D" stroke="#2C40A7" stroke-width="3"/></svg>
+  <svg class="wheel wheel-b" id="wheelB" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="90" fill="none" stroke="#2C40A7" stroke-width="12"/><g fill="#2C40A7"><circle cx="100" cy="10" r="9"/><circle cx="190" cy="100" r="9"/><circle cx="100" cy="190" r="9"/><circle cx="10" cy="100" r="9"/><circle cx="164" cy="36" r="9"/><circle cx="164" cy="164" r="9"/><circle cx="36" cy="164" r="9"/><circle cx="36" cy="36" r="9"/></g><circle cx="100" cy="100" r="34" fill="#FF4FA3" opacity=".9"/></svg>
+  <div class="wrap w-full pb-14 pt-28 md:pb-20">
+    <div class="hero-layer" id="heroLayer">
+      <div class="ticket">
+        <div class="ticket-head mono"><span>Repair ticket Nº 0417</span><span class="opt">Open bench · Tue–Sat</span></div>
+        <h1 class="h1" id="heroTitle"><span class="base">Ride it in rattling.<br>Roll out quiet.</span><span class="offset" aria-hidden="true">Ride it in rattling.<br>Roll out quiet.</span></h1>
+        <p class="lead">Cogsparrow is a small, open-bench bike workshop. Same-week tune-ups, hand-built wheels and Wednesday fix-it nights, with a mechanic you can actually talk to.</p>
+        <div class="flex flex-wrap gap-4">
+          <a class="btn btn-pink" href="#book">Book a repair slot</a>
+          <a class="btn btn-ghost" href="#repairs">See the repair menu</a>
+        </div>
+        <div class="scroll-cue mono"><i></i>Scroll the workshop</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main id="main">
+  <div class="strip" aria-label="Workshop promises">
+    <div class="strip-row" aria-hidden="true">
+      <span>Most tune-ups back in <b>48 hours</b> ✺ Free 10-minute safety check ✺ Watch us work at the open bench ✺ Fixed prices, written before we start ✺</span>
+      <span>Most tune-ups back in <b>48 hours</b> ✺ Free 10-minute safety check ✺ Watch us work at the open bench ✺ Fixed prices, written before we start ✺</span>
+    </div>
+    <p class="sr-only">Most tune-ups back in 48 hours. Free 10-minute safety check. Watch us work at the open bench. Fixed prices, written before we start.</p>
+  </div>
+
+  <section class="block sheet grain" id="repairs" aria-labelledby="repairsTitle">
+    <div class="wrap">
+      <div class="head-row reveal">
+        <div>
+          <span class="eyebrow mono">01 · Repair menu</span>
+          <h2 class="h2" id="repairsTitle">Fixed prices. <em>No surprises.</em></h2>
+        </div>
+        <p class="sub">Every job starts with a free safety check and a written quote. Parts are extra and always shown before we fit them.</p>
+      </div>
+      <div class="grid3">
+        <article class="card reveal">
+          <div class="ph"><span class="tag mono">Same day</span><img src="https://images.unsplash.com/photo-1675798227643-da319f8ee8f7?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8YmljeWNsZSUyMHJlcGFpciUyMHdvcmtzaG9wfGVufDB8MHx8fDE3OTA5MDkyMDh8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Hands adjusting the drivetrain of a bike in a repair stand" loading="lazy" width="1080" height="810"></div>
+          <div class="body"><h3>Flat &amp; fettle</h3><p>New tube, tyre check, brake and gear nip-up, and a chain clean. Drop it at lunch, ride home after work.</p>
+            <div class="meta"><span class="price">$25</span><small>~30 min bench time</small></div></div>
+        </article>
+        <article class="card reveal">
+          <div class="ph"><span class="tag mono">Most booked</span><img src="https://images.unsplash.com/photo-1676531443468-0e2b5a57e48f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8OHx8YmljeWNsZSUyMHRvb2xzfGVufDB8MHx8fDE3OTA5MDkyMTB8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A mechanic working on a bike clamped in a workstand in a tidy workshop" loading="lazy" width="1080" height="810"></div>
+          <div class="body"><h3>Full tune-up</h3><p>Gears indexed, brakes bled or set, wheels trued, bearings checked and every bolt torqued to spec.</p>
+            <div class="meta"><span class="price">$85</span><small>Back in 48 hrs</small></div></div>
+        </article>
+        <article class="card reveal">
+          <div class="ph"><span class="tag mono">Deep clean</span><img src="https://images.unsplash.com/photo-1673870861521-626b40f9657e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8YmljeWNsZSUyMHRvb2xzfGVufDB8MHx8fDE3OTA5MDkyMTB8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A mechanic servicing a bicycle surrounded by tools in a bike shop" loading="lazy" width="1080" height="810"></div>
+          <div class="body"><h3>Strip-down overhaul</h3><p>Fully stripped, degreased and rebuilt. Fresh cables and bar tape included. It comes back feeling new.</p>
+            <div class="meta"><span class="price">$190</span><small>3–4 working days</small></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block sheet" aria-labelledby="spotTitle">
+    <div class="wrap">
+      <div class="spot" id="spot">
+        <div class="spot-img" style="background-image:url('https://images.unsplash.com/photo-1523357585206-175e971f2ad9?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8YmlrZSUyMHdoZWVsJTIwc3Bva2VzfGVufDB8MHx8fDE3OTA5MDkyMDl8MA&amp;ixlib=rb-4.1.0&amp;w=2000&amp;q=80')" role="img" aria-label="Close-up of a red and white bicycle tyre against a turquoise wall"></div>
+        <div class="spot-sweep" aria-hidden="true"></div>
+        <button class="spot-toggle" id="spotToggle" type="button" aria-pressed="false" aria-label="Pause background motion"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" id="spotIcon"><rect x="2" y="1" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="8.5" y="1" width="3.5" height="12" rx="1" fill="currentColor"/></svg><span id="spotLabel">Pause</span></button>
+        <div class="spot-card">
+          <span class="eyebrow mono">Spotlight · The truing stand</span>
+          <h2 class="h2" id="spotTitle" style="font-size:clamp(1.9rem,4.4vw,2.8rem)">Straight to within <em>half a millimetre.</em></h2>
+          <p class="sub">Every wheel that comes through the door gets spun on the stand, tensioned spoke by spoke and checked for dish before it goes back on your bike.</p>
+          <div class="spot-stats">
+            <div><b>0.5 mm</b><span class="mono">True tolerance</span></div>
+            <div><b>32</b><span class="mono">Spokes per wheel</span></div>
+            <div><b>1 yr</b><span class="mono">Wheel warranty</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt grain" id="builds" aria-labelledby="buildsTitle">
+    <div class="wrap">
+      <div class="head-row reveal">
+        <div>
+          <span class="eyebrow mono">02 · Wheels &amp; builds</span>
+          <h2 class="h2" id="buildsTitle">Built by hand, <em>one bike at a time.</em></h2>
+        </div>
+        <p class="sub">From a stronger wheelset to a full custom commuter, we spec it with you over coffee and build it on our own bench.</p>
+      </div>
+      <div class="grid3">
+        <article class="card reveal">
+          <div class="ph"><span class="tag mono">2-week lead</span><img src="https://images.unsplash.com/photo-1673870767999-20e9af6dc896?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MTJ8fGJpa2UlMjB3aGVlbCUyMHNwb2tlc3xlbnwwfDB8fHwxNzkwOTA5MjA5fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A hand holding a red bicycle wheel in the workshop" loading="lazy" width="1080" height="810"></div>
+          <div class="body"><h3>Hand-built wheelset</h3><p>Your choice of hubs and rims, laced and tensioned by hand, with a free re-true after your first 500 km.</p>
+            <div class="meta"><span class="price">from $420</span><small>Pair, ready to ride</small></div></div>
+        </article>
+        <article class="card reveal">
+          <div class="ph"><span class="tag mono">Made to order</span><img src="https://images.unsplash.com/photo-1669637842182-aa5656dd1492?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8N3x8YmljeWNsZSUyMG1lY2hhbmljfGVufDB8MHx8fDE3OTA5MDkyMDl8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A bicycle frame and components laid out neatly on a wooden floor" loading="lazy" width="1080" height="810"></div>
+          <div class="body"><h3>Custom commuter build</h3><p>A frame, parts and fit chosen around your daily ride, then built, tested and delivered to your door.</p>
+            <div class="meta"><span class="price">from $1,450</span><small>4–6 weeks</small></div></div>
+        </article>
+        <article class="card reveal">
+          <div class="ph"><span class="tag mono">90 minutes</span><img src="https://images.unsplash.com/photo-1505705694340-019e1e335916?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8NHx8cm9hZCUyMGJpa2V8ZW58MHwwfHx8MTc5MDkwOTIwOXww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A white road bike leaning on a teal wooden wall" loading="lazy" width="1080" height="810"></div>
+          <div class="body"><h3>Bike fit &amp; cockpit setup</h3><p>Saddle height, reach and bar position dialled in on the trainer, so long rides stop hurting your knees.</p>
+            <div class="meta"><span class="price">$95</span><small>Includes small parts</small></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block sheet grain" id="nights" aria-labelledby="nightsTitle">
+    <div class="wrap">
+      <div class="head-row reveal">
+        <div>
+          <span class="eyebrow mono">03 · Fix-it nights</span>
+          <h2 class="h2" id="nightsTitle">Wednesdays, <em>you hold the wrench.</em></h2>
+        </div>
+        <p class="sub">Small evening classes at the open bench. Bring your own bike, borrow our tools and leave knowing how to fix it yourself.</p>
+      </div>
+      <div class="grid3">
+        <article class="card reveal">
+          <div class="ph"><span class="tag mono">Beginners</span><img src="https://images.unsplash.com/photo-1673870861138-3d7b92d8b619?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Nnx8YmljeWNsZSUyMHJlcGFpciUyMHdvcmtzaG9wfGVufDB8MHx8fDE3OTA5MDkyMDh8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A mechanic in an orange hoodie truing a wheel in a bike shop" loading="lazy" width="1080" height="810"></div>
+          <div class="body"><h3>Puncture school</h3><p>Tyre levers, patches and tubeless plugs. Fix a flat at the roadside in under ten minutes.</p>
+            <div class="meta"><span class="price">$20</span><small>90 min · 6 seats</small></div></div>
+        </article>
+        <article class="card reveal">
+          <div class="ph"><span class="tag mono">Intermediate</span><img src="https://images.unsplash.com/photo-1562615193-cbeef074a501?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8NHx8YmljeWNsZSUyMHRvb2xzfGVufDB8MHx8fDE3OTA5MDkyMTB8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Close-up of a mountain bike cassette and derailleur" loading="lazy" width="1080" height="810"></div>
+          <div class="body"><h3>Brakes &amp; gears</h3><p>Index your gears, centre your calipers and stop that squeal, with a mechanic beside you the whole time.</p>
+            <div class="meta"><span class="price">$35</span><small>2 hrs · 6 seats</small></div></div>
+        </article>
+        <article class="card reveal">
+          <div class="ph"><span class="tag mono">Drop-in</span><img src="https://images.unsplash.com/photo-1676531356064-0a527118baf4?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8M3x8YmljeWNsZSUyMHJlcGFpciUyMHdvcmtzaG9wfGVufDB8MHx8fDE3OTA5MDkyMDh8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A man working on a bicycle in a home garage workshop" loading="lazy" width="1080" height="810"></div>
+          <div class="body"><h3>Open bench hour</h3><p>Rent a stand and the full tool wall for an hour. A mechanic is on hand if you get stuck.</p>
+            <div class="meta"><span class="price">$12</span><small>Per hour · walk-in</small></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt grain" id="book" aria-labelledby="bookTitle">
+    <div class="wrap grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+      <div class="reveal">
+        <span class="eyebrow mono">04 · Book a slot</span>
+        <h2 class="h2" id="bookTitle">Tell us what's <em>rattling.</em></h2>
+        <p class="sub">Send a note and we'll reply within one working day with a time and a written quote. You can also join the workshop letter for class dates and seasonal service reminders.</p>
+        <ul class="mt-6 space-y-3 text-[1rem]">
+          <li class="flex gap-3"><span class="mono text-[var(--pink-ink)] font-bold">→</span>Drop-off Tue–Sat, 8:00–18:00</li>
+          <li class="flex gap-3"><span class="mono text-[var(--pink-ink)] font-bold">→</span>Free collection within 3 km on tune-ups</li>
+          <li class="flex gap-3"><span class="mono text-[var(--pink-ink)] font-bold">→</span>Text when it's ready, pay when you pick up</li>
+        </ul>
+      </div>
+      <form class="form-card reveal" id="bookForm" novalidate>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label class="lbl" for="name">Your name</label>
+            <input class="field" id="name" name="name" type="text" autocomplete="name" required aria-describedby="nameErr">
+            <p class="err" id="nameErr" aria-live="polite"></p>
+          </div>
+          <div>
+            <label class="lbl" for="email">Email</label>
+            <input class="field" id="email" name="email" type="email" autocomplete="email" required aria-describedby="emailErr" inputmode="email">
+            <p class="err" id="emailErr" aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="mt-1">
+          <label class="lbl" for="job">What do you need?</label>
+          <select class="field" id="job" name="job" required aria-describedby="jobErr">
+            <option value="">Choose a service</option>
+            <option>Flat &amp; fettle</option>
+            <option>Full tune-up</option>
+            <option>Strip-down overhaul</option>
+            <option>Wheel build or custom bike</option>
+            <option>Fix-it night seat</option>
+          </select>
+          <p class="err" id="jobErr" aria-live="polite"></p>
+        </div>
+        <div>
+          <label class="lbl" for="msg">Anything else? <span class="font-normal text-[var(--muted)]">(optional)</span></label>
+          <textarea class="field" id="msg" name="msg" rows="3" placeholder="e.g. Clicking from the pedals when climbing"></textarea>
+        </div>
+        <label class="chk mt-3"><input type="checkbox" id="letter" name="letter" checked><span>Send me the workshop letter (once a month, no spam)</span></label>
+        <button class="btn btn-pink mt-5 w-full sm:w-auto" type="submit">Request my slot</button>
+        <p class="ok" id="formOk" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap py-14 grid gap-8 md:grid-cols-[1.2fr_1fr]">
+    <div>
+      <p class="text-2xl font-bold tracking-tight">Cogsparrow Bike Workshop</p>
+      <p class="mt-2 text-[#D5DAF5]">Open bench · Tue–Sat 8:00–18:00 · Wednesday fix-it nights 18:30</p>
+      <p class="mt-6 text-sm"><a href="https://getwebdrip.com" class="underline underline-offset-2">Concept design by WebDrip — fictional brand</a></p>
+    </div>
+    <div class="credit text-sm text-[#D5DAF5]">
+      <p class="mono text-xs text-white mb-2">Photo credits</p>
+      <p><a href="https://unsplash.com/photos/a-bunch-of-tools-hanging-up-on-a-wall-2Qlj2Gaft7w?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a href="https://unsplash.com/@tonchik?utm_source=webdrip&amp;utm_medium=referral">Anton Savinov</a> · <a href="https://unsplash.com/photos/photo-of-red-and-white-bike-tire-cAY9X4rPG3g?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a href="https://unsplash.com/@alessandracaretto?utm_source=webdrip&amp;utm_medium=referral">Alessandra Caretto</a> · <a href="https://unsplash.com/photos/a-man-working-on-a-bike-in-a-garage--cxC8iFx6V4?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a href="https://unsplash.com/@tonchik?utm_source=webdrip&amp;utm_medium=referral">Anton Savinov</a> · <a href="https://unsplash.com/photos/a-close-up-of-a-person-working-on-a-bike-d284XSho6gU?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a href="https://unsplash.com/@kadunchick?utm_source=webdrip&amp;utm_medium=referral">Bohdan Kadun</a> · <a href="https://unsplash.com/photos/a-person-is-working-on-a-bike-in-a-bike-shop-RbjKpfcNENs?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a href="https://unsplash.com/@tonchik?utm_source=webdrip&amp;utm_medium=referral">Anton Savinov</a> · <a href="https://unsplash.com/photos/a-bicycle-with-a-wooden-frame-zesJwnz0A5Y?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a href="https://unsplash.com/@paolocandelo?utm_source=webdrip&amp;utm_medium=referral">paolo candelo</a> · <a href="https://unsplash.com/photos/white-road-bike-leaning-on-teal-wooden-wall-during-daytime-igKjieyjcko?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a href="https://unsplash.com/@archduk3?utm_source=webdrip&amp;utm_medium=referral">Carl Nenzen Loven</a> · <a href="https://unsplash.com/photos/a-close-up-of-a-person-holding-a-bike-wheel-L2FwHV40-rY?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a href="https://unsplash.com/@tonchik?utm_source=webdrip&amp;utm_medium=referral">Anton Savinov</a> · <a href="https://unsplash.com/photos/a-man-working-on-a-bicycle-in-a-bike-shop-3eIcZ0yxm2w?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a href="https://unsplash.com/@tonchik?utm_source=webdrip&amp;utm_medium=referral">Anton Savinov</a> · <a href="https://unsplash.com/photos/black-mountain-bike-gear-set-A7Qi_0oqOqA?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a href="https://unsplash.com/@tecreate?utm_source=webdrip&amp;utm_medium=referral">Tom Conway</a> · <a href="https://unsplash.com/photos/a-man-working-on-a-bike-in-a-garage-o6wceYJw2Tw?utm_source=webdrip&amp;utm_medium=referral">Photo</a> by <a href="https://unsplash.com/@tonchik?utm_source=webdrip&amp;utm_medium=referral">Anton Savinov</a> on <a href="https://unsplash.com/?utm_source=webdrip&amp;utm_medium=referral">Unsplash</a>.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // nav state
+  var nav = document.getElementById('nav');
+  function navState(){ nav.classList.toggle('scrolled', window.scrollY > 24); }
+  navState();
+
+  // hamburger
+  var burger = document.getElementById('burger'), menu = document.getElementById('mobileMenu');
+  function setMenu(open){
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    menu.classList.toggle('open', open);
+    if (open) nav.classList.add('scrolled'); else navState();
+  }
+  burger.addEventListener('click', function(){ setMenu(burger.getAttribute('aria-expanded') !== 'true'); });
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && menu.classList.contains('open')) { setMenu(false); burger.focus(); } });
+  window.addEventListener('resize', function(){ if (window.innerWidth >= 900) setMenu(false); });
+
+  // scroll-driven 3D camera
+  var img = document.getElementById('heroImg'), layer = document.getElementById('heroLayer');
+  var wa = document.getElementById('wheelA'), wb = document.getElementById('wheelB'), blob = document.getElementById('blob');
+  var cur = 0, target = 0, running = false;
+  function readTarget(){ var vh = window.innerHeight || 1; target = Math.min(window.scrollY / vh, 1.6); }
+  function apply(p){
+    var e = p * p * (3 - 2 * Math.min(p, 1)) ; // smooth ease in the first screen
+    if (p > 1) e = 1 + (p - 1) * 0.6;
+    img.style.transform = 'translate3d(' + (-2.2 * e) + '%,' + (-4 * e) + '%,' + (80 * e) + 'px) rotateX(' + (7 * e) + 'deg) rotateY(' + (-3 * e) + 'deg) scale(' + (1.04 + 0.16 * e) + ')';
+    layer.style.transform = 'translate3d(0,' + (-140 * p) + 'px,0)';
+    layer.style.opacity = String(Math.max(0, 1 - p * 1.15));
+    wa.style.transform = 'translate3d(0,' + (-320 * p) + 'px,0) rotate(' + (140 * p) + 'deg)';
+    wb.style.transform = 'translate3d(0,' + (-90 * p) + 'px,0) rotate(' + (-200 * p) + 'deg)';
+    blob.style.transform = 'translate3d(' + (-60 * p) + 'px,' + (120 * p) + 'px,0) scale(' + (1 + 0.3 * p) + ')';
+  }
+  function tick(){
+    cur += (target - cur) * 0.085;
+    if (Math.abs(target - cur) < 0.0005) { cur = target; running = false; apply(cur); return; }
+    apply(cur);
+    requestAnimationFrame(tick);
+  }
+  function onScroll(){
+    navState();
+    if (reduce) return;
+    readTarget();
+    if (!running) { running = true; requestAnimationFrame(tick); }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  if (!reduce) { readTarget(); cur = target; apply(cur); }
+
+  // reveal on scroll
+  var els = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) { els.forEach(function(el){ el.classList.add('in'); }); }
+  else {
+    var io = new IntersectionObserver(function(entries){ entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }); }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    els.forEach(function(el){ io.observe(el); });
+  }
+
+  // spotlight pause / play
+  var spot = document.getElementById('spot'), tg = document.getElementById('spotToggle'), lbl = document.getElementById('spotLabel'), icon = document.getElementById('spotIcon');
+  function setPaused(p){
+    spot.classList.toggle('paused', p);
+    tg.setAttribute('aria-pressed', p ? 'true' : 'false');
+    tg.setAttribute('aria-label', p ? 'Play background motion' : 'Pause background motion');
+    lbl.textContent = p ? 'Play' : 'Pause';
+    icon.innerHTML = p ? '<path d="M3 1.5v11l9-5.5z" fill="currentColor"/>' : '<rect x="2" y="1" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="8.5" y="1" width="3.5" height="12" rx="1" fill="currentColor"/>';
+  }
+  tg.addEventListener('click', function(){ setPaused(!spot.classList.contains('paused')); });
+  if (reduce) setPaused(true);
+
+  // form validation
+  var form = document.getElementById('bookForm'), ok = document.getElementById('formOk');
+  var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function setErr(id, msg){
+    var f = document.getElementById(id), e = document.getElementById(id + 'Err');
+    e.textContent = msg || '';
+    if (msg) f.setAttribute('aria-invalid', 'true'); else f.removeAttribute('aria-invalid');
+    return !msg;
+  }
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    ok.classList.remove('show'); ok.textContent = '';
+    var name = form.name.value.trim(), email = form.email.value.trim(), job = form.job.value;
+    var a = setErr('name', name ? '' : 'Please tell us your name.');
+    var b = setErr('email', !email ? 'Please enter your email.' : (emailRe.test(email) ? '' : 'That email doesn’t look right. Try name@example.com.'));
+    var c = setErr('job', job ? '' : 'Choose the service you need.');
+    if (!(a && b && c)) { var first = form.querySelector('[aria-invalid="true"]'); if (first) first.focus(); return; }
+    ok.textContent = 'Thanks, ' + name.split(' ')[0] + '! Your request for “' + job + '” is in. We’ll email ' + email + ' within one working day. (Concept demo: nothing was sent.)';
+    ok.classList.add('show');
+    form.reset();
+  });
+  ['name','email','job'].forEach(function(id){ document.getElementById(id).addEventListener('input', function(){ setErr(id, ''); }); });
+
+  // service worker
+  if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+    window.addEventListener('load', function(){ navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(function(){}); });
+  }
+})();
+</script>
+</body>
+</html>

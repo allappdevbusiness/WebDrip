@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nightquarry Planetarium — Look up. Stay late.</title>
+<meta name="description" content="Nightquarry Planetarium is a dark-sky dome and rooftop observatory: full-dome shows, telescope nights and stargazing trips. A concept website by WebDrip.">
+<meta name="theme-color" content="#070A1A">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nightquarry Planetarium">
+<meta property="og:title" content="Nightquarry Planetarium — Look up. Stay late.">
+<meta property="og:description" content="Full-dome shows, rooftop telescope nights and dark-sky trips. A concept website by WebDrip.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1778401133087-475ee2caaba6?ixid=M3wxMDYxOTEwfDB8MXxhbGx8fHx8fHx8fHwxNzkwOTU1NDMxfA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<meta property="og:image:alt" content="Two observatory domes under the Milky Way">
+<meta property="og:url" content="https://webdripsamples.netlify.app/automation-v1/demos/nightquarry-demo/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nightquarry Planetarium — Look up. Stay late.">
+<meta name="twitter:description" content="Full-dome shows, rooftop telescope nights and dark-sky trips. A concept website by WebDrip.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1778401133087-475ee2caaba6?ixid=M3wxMDYxOTEwfDB8MXxhbGx8fHx8fHx8fHwxNzkwOTU1NDMxfA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1778401133087-475ee2caaba6?ixid=M3wxMDYxOTEwfDB8MXxhbGx8fHx8fHx8fHwxNzkwOTU1NDMxfA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { void:'#070A1A', deep:'#0C1130', panel:'#121A3F', line:'#26306A', star:'#EEF2FF', haze:'#B9C3F5', nova:'#60A5FA', nebula:'#A78BFA', aurora:'#5EEAD4', flare:'#FBBF77' },
+    fontFamily: { display:['Audiowide','system-ui','sans-serif'], sans:['Manrope','system-ui','sans-serif'], mono:['"JetBrains Mono"','ui-monospace','monospace'] }
+  } } };
+</script>
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  :root{ --void:#070A1A; --deep:#0C1130; --panel:#121A3F; --line:#26306A; --star:#EEF2FF; --haze:#B9C3F5; --nova:#60A5FA; --nebula:#A78BFA; --aurora:#5EEAD4; --flare:#FBBF77; --ease:cubic-bezier(.22,1,.36,1); }
+  html{ scroll-behavior:smooth; background:var(--void); }
+  body{ font-family:Manrope,system-ui,sans-serif; background:var(--void); color:var(--star); overflow-x:clip; }
+  ::selection{ background:var(--nebula); color:var(--void); }
+  .font-display{ letter-spacing:.01em; }
+
+  /* progress bar */
+  #progress{ position:fixed; inset:0 0 auto 0; height:3px; z-index:70; transform-origin:0 50%; transform:scaleX(0); background:linear-gradient(90deg,var(--aurora),var(--nova),var(--nebula)); }
+
+  /* nav */
+  #nav{ transition:background-color .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease); border-bottom:1px solid transparent; }
+  #nav .bar{ transition:transform .45s var(--ease); }
+  #nav.scrolled{ background:rgba(7,10,26,.78); border-color:rgba(96,165,250,.18); box-shadow:0 10px 40px -20px rgba(0,0,0,.8); }
+  @media (min-width:768px){ #nav.scrolled{ -webkit-backdrop-filter:blur(14px) saturate(1.3); backdrop-filter:blur(14px) saturate(1.3); background:rgba(7,10,26,.55);} }
+  #nav .navin{ transition:padding .45s var(--ease); }
+  #nav.scrolled .navin{ padding-top:.55rem; padding-bottom:.55rem; }
+  .ulink{ position:relative; }
+  .ulink::after{ content:""; position:absolute; left:0; right:0; bottom:-3px; height:2px; background:linear-gradient(90deg,var(--aurora),var(--nebula)); transform:scaleX(0); transform-origin:right; transition:transform .4s var(--ease); }
+  .ulink:hover::after,.ulink:focus-visible::after{ transform:scaleX(1); transform-origin:left; }
+
+  /* focus ring */
+  :focus-visible{ outline:2px solid var(--aurora); outline-offset:3px; border-radius:8px; animation:ring .5s var(--ease); }
+  @keyframes ring{ from{ outline-offset:9px; outline-color:transparent; } to{ outline-offset:3px; } }
+
+  /* hamburger */
+  .burger span{ display:block; position:absolute; left:11px; width:22px; height:2px; border-radius:2px; background:var(--star); transition:transform .4s var(--ease), opacity .25s; }
+  .burger span:nth-child(1){ top:15px } .burger span:nth-child(2){ top:21px } .burger span:nth-child(3){ top:27px }
+  .burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(6px) rotate(45deg) }
+  .burger[aria-expanded="true"] span:nth-child(2){ opacity:0; transform:scaleX(.2) }
+  .burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-6px) rotate(-45deg) }
+  #mobileMenu{ transform-origin:top; transform:translateY(-12px); opacity:0; visibility:hidden; transition:transform .4s var(--ease), opacity .3s, visibility 0s .4s; }
+  #mobileMenu.open{ transform:none; opacity:1; visibility:visible; transition:transform .45s var(--ease), opacity .3s, visibility 0s; }
+  #mobileMenu a{ transform:translateY(-8px); opacity:0; transition:transform .4s var(--ease), opacity .35s; }
+  #mobileMenu.open a{ transform:none; opacity:1; }
+  #mobileMenu.open a:nth-child(2){ transition-delay:.05s } #mobileMenu.open a:nth-child(3){ transition-delay:.1s } #mobileMenu.open a:nth-child(4){ transition-delay:.15s } #mobileMenu.open a:nth-child(5){ transition-delay:.2s }
+
+  /* hero */
+  #heroStage{ position:fixed; inset:0; z-index:0; overflow:hidden; perspective:1200px; pointer-events:none; }
+  #heroImg{ position:absolute; inset:-6%; width:112%; height:112%; object-fit:cover; object-position:50% 78%; transform-origin:50% 70%; will-change:transform; transform:scale(1.08); }
+  #heroShade{ position:absolute; inset:0; background:
+     radial-gradient(120% 80% at 20% 30%, rgba(7,10,26,.15), rgba(7,10,26,.75) 70%),
+     linear-gradient(180deg, rgba(7,10,26,.55) 0%, rgba(7,10,26,.1) 35%, rgba(7,10,26,.85) 100%); }
+  .glow{ position:absolute; border-radius:50%; filter:blur(60px); opacity:.55; will-change:transform; }
+  .stars i{ position:absolute; width:2px; height:2px; border-radius:50%; background:#fff; opacity:.2; animation:twinkle var(--d,4s) ease-in-out infinite; animation-delay:var(--t,0s); }
+  @keyframes twinkle{ 0%,100%{ opacity:.15; transform:scale(.8) } 50%{ opacity:.95; transform:scale(1.3) } }
+  @keyframes drift{ 0%,100%{ transform:translate3d(0,0,0) scale(1) } 50%{ transform:translate3d(40px,-30px,0) scale(1.12) } }
+  @keyframes drift2{ 0%,100%{ transform:translate3d(0,0,0) } 50%{ transform:translate3d(-50px,30px,0) } }
+  @keyframes spin{ to{ transform:rotate(360deg) } }
+  .orbit{ animation:spin 60s linear infinite; }
+  .orbit .sat{ animation:spin 60s linear infinite reverse; }
+
+  /* intro + masked headline */
+  .js .intro{ opacity:0; transform:translateY(-10px); }
+  .loaded .intro{ opacity:1; transform:none; transition:opacity .7s var(--ease), transform .7s var(--ease); }
+  .mask{ display:block; overflow:hidden; padding-bottom:.08em; }
+  .mask > span{ display:inline-block; }
+  .js .mask > span{ transform:translateY(110%); }
+  .loaded .mask > span{ transform:none; transition:transform 1s var(--ease); }
+  .loaded .mask:nth-child(2) > span{ transition-delay:.12s } .loaded .mask:nth-child(3) > span{ transition-delay:.24s }
+  .js .after-h{ opacity:0; transform:translateY(16px); }
+  .loaded .after-h{ opacity:1; transform:none; transition:opacity .8s var(--ease) .5s, transform .8s var(--ease) .5s; }
+  .loaded .after-h.d2{ transition-delay:.65s } .loaded .after-h.d3{ transition-delay:.8s }
+
+  /* reveals (JS opts in) */
+  .js [data-reveal]{ opacity:0; transition:opacity .9s var(--ease), transform .9s var(--ease), clip-path 1s var(--ease); transition-delay:var(--delay,0ms); }
+  .js [data-reveal="up"]{ transform:translateY(34px); }
+  .js [data-reveal="scale"]{ transform:scale(.92); }
+  .js [data-reveal="left"]{ transform:translateX(-40px); }
+  .js [data-reveal="right"]{ transform:translateX(40px); }
+  .js [data-reveal="tilt"]{ transform:perspective(900px) rotateX(14deg) translateY(30px); transform-origin:50% 100%; }
+  .js [data-reveal="wipe"]{ opacity:1; }
+  .js [data-reveal="wipe"] > span{ clip-path:inset(0 100% 0 0); transition:clip-path 1.1s var(--ease); transition-delay:var(--delay,0ms); }
+  .js [data-reveal="wipe"].in > span{ clip-path:inset(0 0 0 0); }
+  .js [data-reveal].in{ opacity:1; transform:none; clip-path:inset(0 0 0 0); }
+
+  /* cards */
+  .card{ background:linear-gradient(180deg,rgba(18,26,63,.92),rgba(12,17,48,.92)); border:1px solid rgba(96,165,250,.16); border-radius:8px; box-shadow:0 20px 50px -30px rgba(0,0,0,.9), inset 0 1px 0 rgba(255,255,255,.04); transition:transform .5s var(--ease), box-shadow .5s var(--ease), border-color .5s; }
+  .card:hover{ transform:translateY(-8px); border-color:rgba(94,234,212,.45); box-shadow:0 34px 70px -30px rgba(96,165,250,.45), 0 0 0 1px rgba(94,234,212,.12); }
+  .js .card[data-reveal].in:hover{ transform:translateY(-8px); }
+  .card:active,.js .card[data-reveal].in:active{ transform:translateY(-3px) scale(.99); }
+  .card .ph{ overflow:hidden; border-radius:6px 6px 0 0; }
+  .card .ph img{ transition:transform 1.1s var(--ease); transform:scale(1.02); }
+  .card:hover .ph img{ transform:scale(1.09); }
+  .chip{ font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; }
+
+  /* buttons */
+  .btn{ position:relative; display:inline-flex; align-items:center; justify-content:center; gap:.5rem; min-height:48px; padding:0 1.4rem; border-radius:8px; font-weight:700; overflow:hidden; transition:transform .35s var(--ease), box-shadow .35s var(--ease), background-color .3s; will-change:transform; }
+  .btn-primary{ background:var(--aurora); color:#06121A; box-shadow:0 10px 30px -10px rgba(94,234,212,.6); }
+  .btn-primary:hover{ box-shadow:0 16px 40px -10px rgba(94,234,212,.85); }
+  .btn-ghost{ border:1px solid rgba(185,195,245,.45); color:var(--star); background:rgba(7,10,26,.35); }
+  .btn-ghost:hover{ border-color:var(--aurora); background:rgba(94,234,212,.08); }
+  .btn::after{ content:""; position:absolute; top:0; bottom:0; left:-60%; width:40%; background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent); transform:translateX(0) skewX(-18deg); opacity:0; }
+  .btn:hover::after{ opacity:1; transform:translateX(420%) skewX(-18deg); transition:transform .9s var(--ease), opacity .2s; }
+  .btn:active{ transform:scale(.97); }
+  .btn > *{ position:relative; z-index:1; }
+
+  /* glass */
+  .glass{ background:rgba(12,17,48,.55); border:1px solid rgba(185,195,245,.22); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); border-radius:8px; }
+
+  /* spotlight */
+  .spot-img{ animation:kenburns 26s ease-in-out infinite alternate; transform-origin:60% 40%; }
+  @keyframes kenburns{ from{ transform:scale(1.05) translate3d(0,0,0) } to{ transform:scale(1.18) translate3d(-2.5%,-2%,0) } }
+  .sweep{ position:absolute; inset:-20%; background:linear-gradient(115deg,transparent 40%,rgba(167,139,250,.18) 50%,transparent 60%); animation:sweep 9s ease-in-out infinite; }
+  @keyframes sweep{ 0%{ transform:translateX(-60%) } 60%,100%{ transform:translateX(60%) } }
+  .paused .spot-img,.paused .sweep,.paused .glow{ animation-play-state:paused !important; }
+
+  /* timeline */
+  .tl-row{ border-top:1px solid rgba(96,165,250,.18); transition:background-color .4s; }
+  .tl-row:hover{ background:rgba(96,165,250,.05); }
+  .tl-dot{ width:10px; height:10px; border-radius:50%; background:var(--aurora); box-shadow:0 0 0 4px rgba(94,234,212,.15), 0 0 18px rgba(94,234,212,.7); }
+
+  /* form */
+  .field{ background:rgba(7,10,26,.6); border:1px solid rgba(185,195,245,.3); border-radius:8px; min-height:50px; color:var(--star); transition:border-color .3s, box-shadow .3s; }
+  .field:focus{ outline:none; border-color:var(--aurora); box-shadow:0 0 0 3px rgba(94,234,212,.25); }
+  .field[aria-invalid="true"]{ border-color:#FCA5A5; }
+  .err{ color:#FCA5A5; min-height:1.25rem; }
+  .shake{ animation:shake .45s cubic-bezier(.36,.07,.19,.97); }
+  @keyframes shake{ 10%,90%{ transform:translateX(-2px) } 20%,80%{ transform:translateX(4px) } 30%,50%,70%{ transform:translateX(-7px) } 40%,60%{ transform:translateX(7px) } }
+  #formOk .ck{ stroke-dasharray:40; stroke-dashoffset:40; }
+  #formOk.show .ck{ animation:draw .6s var(--ease) .15s forwards; }
+  #formOk.show .cc{ animation:pop .5s var(--ease); }
+  @keyframes draw{ to{ stroke-dashoffset:0 } }
+  @keyframes pop{ from{ transform:scale(.4); opacity:0 } to{ transform:none; opacity:1 } }
+  #formOk.show{ animation:fadeup .5s var(--ease); }
+  @keyframes fadeup{ from{ opacity:0; transform:translateY(8px) } to{ opacity:1; transform:none } }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{ animation:none !important; transition-property:opacity !important; transition-duration:.2s !important; transition-delay:0s !important; }
+    .js [data-reveal],.js .mask>span,.js .after-h,.js .intro{ transform:none !important; clip-path:none !important; }
+    #heroImg{ transform:scale(1.06) !important; }
+  }
+</style>
+</head>
+<body class="antialiased">
+<div id="progress" aria-hidden="true"></div>
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[80] focus:bg-aurora focus:text-void focus:px-4 focus:py-3 focus:rounded-lg">Skip to content</a>
+
+<!-- Fixed hero stage -->
+<div id="heroStage" aria-hidden="true">
+  <img id="heroImg" src="https://images.unsplash.com/photo-1778401133087-475ee2caaba6?ixid=M3wxMDYxOTEwfDB8MXxhbGx8fHx8fHx8fHwxNzkwOTU1NDMxfA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80" alt="" fetchpriority="high" width="2400" height="1600">
+  <div id="heroShade"></div>
+  <div id="heroGlow" class="absolute inset-0">
+    <div class="glow" style="width:46vw;height:46vw;left:-10vw;top:10vh;background:radial-gradient(circle,#7C3AED,transparent 70%);animation:drift 18s ease-in-out infinite"></div>
+    <div class="glow" style="width:38vw;height:38vw;right:-8vw;top:-6vh;background:radial-gradient(circle,#2563EB,transparent 70%);animation:drift2 22s ease-in-out infinite"></div>
+    <div class="glow" style="width:30vw;height:30vw;right:18vw;bottom:-10vh;background:radial-gradient(circle,#14B8A6,transparent 70%);opacity:.35;animation:drift 26s ease-in-out infinite reverse"></div>
+  </div>
+  <div id="starsLayer" class="stars absolute inset-0"></div>
+</div>
+
+<header id="nav" class="fixed inset-x-0 top-0 z-50">
+  <div class="navin mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 py-4">
+    <a href="#top" class="intro flex min-h-[44px] items-center gap-3" aria-label="Nightquarry Planetarium, back to top">
+      <svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5EEAD4"/><stop offset="1" stop-color="#A78BFA"/></linearGradient></defs><path d="M6 28a14 14 0 0 1 28 0" fill="none" stroke="url(#lg)" stroke-width="3" stroke-linecap="round"/><path d="M3 28h34" stroke="#EEF2FF" stroke-width="2.4" stroke-linecap="round"/><path d="M20 14l1.6 3.4 3.4 1.6-3.4 1.6L20 24l-1.6-3.4-3.4-1.6 3.4-1.6z" fill="#EEF2FF"/><circle cx="30" cy="8" r="2" fill="#5EEAD4"/></svg>
+      <span class="font-display text-[1.05rem] leading-none">Nightquarry<span class="block font-mono text-[.62rem] tracking-[.22em] text-haze mt-1">PLANETARIUM</span></span>
+    </a>
+    <nav class="intro hidden md:flex items-center gap-8 text-[.95rem] font-semibold text-haze" aria-label="Main">
+      <a class="ulink hover:text-star py-3" href="#shows">Dome shows</a>
+      <a class="ulink hover:text-star py-3" href="#tonight">Tonight</a>
+      <a class="ulink hover:text-star py-3" href="#trips">Sky trips</a>
+      <a class="btn btn-primary magnetic !min-h-[44px] !px-5" href="#visit"><span>Get sky notes</span></a>
+    </nav>
+    <button id="burger" class="intro burger md:hidden relative h-11 w-11 rounded-lg border border-line/80 bg-void/40" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </div>
+  <div id="mobileMenu" class="md:hidden absolute left-4 right-4 top-full mt-1 rounded-lg border border-line bg-deep/95 p-3 shadow-2xl" role="dialog" aria-label="Menu">
+    <a class="flex min-h-[48px] items-center rounded-md px-4 text-lg font-semibold hover:bg-panel" href="#shows">Dome shows</a>
+    <a class="flex min-h-[48px] items-center rounded-md px-4 text-lg font-semibold hover:bg-panel" href="#tonight">Tonight</a>
+    <a class="flex min-h-[48px] items-center rounded-md px-4 text-lg font-semibold hover:bg-panel" href="#trips">Sky trips</a>
+    <a class="flex min-h-[48px] items-center rounded-md px-4 text-lg font-semibold hover:bg-panel" href="#visit">Get sky notes</a>
+    <a class="flex min-h-[48px] items-center rounded-md px-4 text-lg font-semibold text-aurora hover:bg-panel" href="#spotlight">Rooftop Fridays</a>
+  </div>
+</header>
+
+<main id="main" class="relative z-10" style="overflow-x:clip">
+  <!-- HERO: two-column split, copy left, glass "tonight's sky" panel right -->
+  <section id="top" class="relative min-h-[100svh] flex items-center overflow-hidden">
+    <div class="mx-auto grid w-full max-w-7xl items-center gap-10 px-4 sm:px-6 pt-28 pb-20 lg:grid-cols-[1.25fr_.75fr]">
+      <div id="heroCopy" class="will-change-transform">
+        <p class="after-h chip inline-flex items-center gap-2 rounded-full border border-aurora/40 bg-void/50 px-3 py-2 text-aurora"><span class="tl-dot !w-2 !h-2"></span> Dark-sky dome &amp; rooftop observatory</p>
+        <h1 class="font-display mt-6 text-[2.6rem] leading-[1.02] sm:text-6xl lg:text-[5.2rem]">
+          <span class="mask"><span>Look up.</span></span>
+          <span class="mask"><span class="bg-gradient-to-r from-aurora via-nova to-nebula bg-clip-text text-transparent">Stay late.</span></span>
+        </h1>
+        <p class="after-h mt-6 max-w-xl text-lg leading-relaxed text-haze sm:text-xl">Full-dome shows under an 18-metre sky, then real telescopes on the roof. Nightquarry is where city kids, couples and quiet wonderers come to meet the dark.</p>
+        <div class="after-h d2 mt-8 flex flex-wrap gap-3">
+          <a href="#shows" class="btn btn-primary magnetic"><span>See tonight's shows</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#tonight" class="btn btn-ghost magnetic"><span>Plan a night</span></a>
+        </div>
+      </div>
+      <aside id="heroPanel" class="after-h d3 glass relative p-6 will-change-transform" aria-label="Tonight's sky">
+        <svg class="orbit pointer-events-none absolute -right-10 -top-10 h-40 w-40 opacity-70" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="#A78BFA" stroke-width=".6" stroke-dasharray="2 4"/><g class="sat" style="transform-origin:50px 50px"><circle cx="50" cy="4" r="3" fill="#5EEAD4"/></g></svg>
+        <p class="chip text-haze">Tonight's sky · 2 Oct</p>
+        <div class="mt-4 flex items-center gap-4">
+          <svg width="56" height="56" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="22" fill="#26306A"/><path d="M28 6a22 22 0 0 1 0 44a14 22 0 0 0 0-44z" fill="#EEF2FF"/></svg>
+          <div><p class="font-display text-2xl">Waxing gibbous</p><p class="text-haze text-sm">Moon sets 03:12 · 71% lit</p></div>
+        </div>
+        <dl class="mt-6 grid grid-cols-3 gap-3 text-center">
+          <div class="rounded-md border border-line bg-void/50 p-3"><dt class="chip text-haze">Sunset</dt><dd class="font-display mt-1 text-lg">18:51</dd></div>
+          <div class="rounded-md border border-line bg-void/50 p-3"><dt class="chip text-haze">Seeing</dt><dd class="font-display mt-1 text-lg text-aurora">4/5</dd></div>
+          <div class="rounded-md border border-line bg-void/50 p-3"><dt class="chip text-haze">Saturn</dt><dd class="font-display mt-1 text-lg">21:40</dd></div>
+        </dl>
+        <p class="mt-5 text-sm text-haze">Roof deck opens at 20:30 if the clouds behave.</p>
+      </aside>
+    </div>
+    <a href="#shows" class="after-h d3 absolute bottom-6 left-1/2 -translate-x-1/2 chip flex min-h-[44px] flex-col items-center gap-2 text-haze hover:text-star" aria-label="Scroll to dome shows">Scroll<svg width="16" height="24" viewBox="0 0 16 24" aria-hidden="true"><rect x="1" y="1" width="14" height="22" rx="7" fill="none" stroke="currentColor"/><circle cx="8" cy="7" r="2" fill="currentColor"><animate attributeName="cy" values="7;14;7" dur="2s" repeatCount="indefinite"/></circle></svg></a>
+  </section>
+
+  <!-- SHOWS: left-aligned intro + three cards -->
+  <section id="shows" class="relative bg-void py-24 sm:py-32 overflow-hidden">
+    <div class="pointer-events-none absolute -left-40 top-20 h-96 w-96 rounded-full opacity-30 blur-3xl" data-parallax="0.12" style="background:radial-gradient(circle,#7C3AED,transparent 70%)"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-end">
+        <div>
+          <p class="chip text-aurora" data-reveal="left">01 · Full-dome shows</p>
+          <h2 class="font-display mt-4 text-4xl sm:text-5xl leading-[1.05]" data-reveal="left" style="--delay:80ms">Sit back. The ceiling is the universe.</h2>
+        </div>
+        <p class="text-lg text-haze leading-relaxed" data-reveal="up" style="--delay:160ms">Every show is narrated live by one of our astronomers, so questions are welcome and no two nights sound the same. Reclining seats, 8K projection, 45 minutes.</p>
+      </div>
+      <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-stagger>
+        <article class="card" data-reveal="tilt">
+          <div class="ph aspect-[4/3]"><img src="https://images.unsplash.com/photo-1717705422478-0b42e89e06b7?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxhbGx8fHx8fHx8fHwxNzkwOTU1NDMxfA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="The Horsehead Nebula glowing gold among stars" loading="lazy" class="h-full w-full object-cover" data-parallax-img></div>
+          <div class="p-6">
+            <p class="chip text-nebula">Daily · 17:00 &amp; 19:30</p>
+            <h3 class="font-display mt-3 text-2xl">The Horse in the Dust</h3>
+            <p class="mt-3 text-haze leading-relaxed">Fly into Orion's belt and find the dark nebula shaped like a horse's head, a cloud where new suns are still forming.</p>
+            <div class="mt-6 flex items-center justify-between border-t border-line pt-4"><span class="font-display text-xl">$18</span><span class="text-sm text-haze">Ages 7+</span></div>
+          </div>
+        </article>
+        <article class="card" data-reveal="tilt">
+          <div class="ph aspect-[4/3]"><img src="https://images.unsplash.com/photo-1504333638930-c8787321eee0?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxhbGx8fHx8fHx8fHwxNzkwOTU1NDMxfA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="The Orion Nebula in pink and blue" loading="lazy" class="h-full w-full object-cover" data-parallax-img></div>
+          <div class="p-6">
+            <p class="chip text-nebula">Weekends · 11:00</p>
+            <h3 class="font-display mt-3 text-2xl">Star Nursery</h3>
+            <p class="mt-3 text-haze leading-relaxed">A gentle, giggly show for little astronomers about how stars are born, grow up and light up the night.</p>
+            <div class="mt-6 flex items-center justify-between border-t border-line pt-4"><span class="font-display text-xl">$12</span><span class="text-sm text-haze">Ages 3–8</span></div>
+          </div>
+        </article>
+        <article class="card" data-reveal="tilt">
+          <div class="ph aspect-[4/3]"><img src="https://images.unsplash.com/photo-1468186402854-9a641fd7a7c4?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxhbGx8fHx8fHx8fHwxNzkwOTU1NDMyfA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="The Milky Way arching over a dark horizon" loading="lazy" class="h-full w-full object-cover" data-parallax-img></div>
+          <div class="p-6">
+            <p class="chip text-nebula">Fri &amp; Sat · 22:00</p>
+            <h3 class="font-display mt-3 text-2xl">River of Night</h3>
+            <p class="mt-3 text-haze leading-relaxed">Our late show: the Milky Way at full scale, a slow ambient soundtrack and the lights turned all the way down.</p>
+            <div class="mt-6 flex items-center justify-between border-t border-line pt-4"><span class="font-display text-xl">$22</span><span class="text-sm text-haze">Adults</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPOTLIGHT -->
+  <section id="spotlight" class="relative overflow-hidden bg-void" aria-labelledby="spotTitle">
+    <div class="relative mx-4 sm:mx-6 xl:mx-auto xl:max-w-[1216px] overflow-hidden rounded-lg border border-line" id="spotFrame" data-reveal="scale">
+      <div class="absolute inset-0 overflow-hidden">
+        <div id="spotShift" class="absolute inset-[-8%] will-change-transform">
+          <img src="https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixid=M3wxMDYxOTEwfDB8MXxhbGx8fHx8fHx8fHwxNzkwOTU1NDMxfA&amp;ixlib=rb-4.1.0&amp;w=1800&amp;q=80" alt="A person silhouetted under a sky full of stars" loading="lazy" class="spot-img h-full w-full object-cover">
+        </div>
+        <div class="sweep" aria-hidden="true"></div>
+        <div class="absolute inset-0" style="background:linear-gradient(90deg,rgba(7,10,26,.92) 0%,rgba(7,10,26,.6) 45%,rgba(7,10,26,.1) 100%)"></div>
+        <div class="glow" style="width:420px;height:420px;left:-120px;bottom:-160px;background:radial-gradient(circle,#14B8A6,transparent 70%);opacity:.4;animation:drift 16s ease-in-out infinite"></div>
+      </div>
+      <div class="relative px-6 py-20 sm:px-12 sm:py-28 max-w-2xl">
+        <p class="chip text-aurora" data-reveal="up">Spotlight · Every Friday</p>
+        <h2 id="spotTitle" class="font-display mt-4 text-4xl sm:text-6xl leading-[1.02]" data-reveal="wipe" style="--delay:100ms"><span class="block">Rooftop Telescope Fridays</span></h2>
+        <p class="mt-6 text-lg text-haze leading-relaxed" data-reveal="up" style="--delay:200ms">Four big telescopes, hot cocoa and an astronomer on every eyepiece. Bring a blanket and stay until the last bus. Free with any evening show ticket.</p>
+        <div class="mt-8 flex flex-wrap items-center gap-3" data-reveal="up" style="--delay:300ms">
+          <a href="#visit" class="btn btn-primary magnetic"><span>Save a Friday spot</span></a>
+          <button id="motionToggle" type="button" class="btn btn-ghost" aria-pressed="false"><svg id="mtIcon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" rx="1" fill="currentColor"/></svg><span id="mtLabel">Pause motion</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TONIGHT: stat row + ruled timeline -->
+  <section id="tonight" class="relative bg-void py-24 sm:py-32 overflow-hidden">
+    <div class="pointer-events-none absolute right-[-10rem] top-10 h-[28rem] w-[28rem] rounded-full opacity-25 blur-3xl" data-parallax="-0.1" style="background:radial-gradient(circle,#2563EB,transparent 70%)"></div>
+    <div class="relative mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="text-center">
+        <p class="chip text-aurora" data-reveal="up">02 · A night at Nightquarry</p>
+        <h2 class="font-display mt-4 text-4xl sm:text-5xl" data-reveal="up" style="--delay:80ms">From sunset to Saturn</h2>
+      </div>
+      <dl class="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4" data-stagger>
+        <div class="card p-5 text-center" data-reveal="scale"><dt class="chip text-haze">Dome width</dt><dd class="font-display mt-2 text-4xl"><span data-count="18">18</span>m</dd></div>
+        <div class="card p-5 text-center" data-reveal="scale"><dt class="chip text-haze">Stars on the dome</dt><dd class="font-display mt-2 text-4xl"><span data-count="9100">9,100</span></dd></div>
+        <div class="card p-5 text-center" data-reveal="scale"><dt class="chip text-haze">Rooftop scopes</dt><dd class="font-display mt-2 text-4xl"><span data-count="4">4</span></dd></div>
+        <div class="card p-5 text-center" data-reveal="scale"><dt class="chip text-haze">Clear nights a year</dt><dd class="font-display mt-2 text-4xl"><span data-count="212">212</span></dd></div>
+      </dl>
+      <ol class="mt-14 border-b border-line/60" aria-label="Tonight's schedule">
+        <li class="tl-row grid grid-cols-[4.5rem_1fr] gap-4 py-6 sm:grid-cols-[7rem_1fr_auto] sm:items-center" data-reveal="right"><time class="font-mono text-aurora text-lg">18:30</time><div><h3 class="font-display text-xl">Doors &amp; sky café</h3><p class="text-haze mt-1">Meteorite table, moon globes and a sunset view from the terrace.</p></div><span class="hidden sm:inline chip text-haze">Lobby</span></li>
+        <li class="tl-row grid grid-cols-[4.5rem_1fr] gap-4 py-6 sm:grid-cols-[7rem_1fr_auto] sm:items-center" data-reveal="right"><time class="font-mono text-aurora text-lg">19:30</time><div><h3 class="font-display text-xl">The Horse in the Dust</h3><p class="text-haze mt-1">Our main evening show, live-narrated under the full dome.</p></div><span class="hidden sm:inline chip text-haze">Dome</span></li>
+        <li class="tl-row grid grid-cols-[4.5rem_1fr] gap-4 py-6 sm:grid-cols-[7rem_1fr_auto] sm:items-center" data-reveal="right"><time class="font-mono text-aurora text-lg">20:30</time><div><h3 class="font-display text-xl">Roof deck opens</h3><p class="text-haze mt-1">The moon's craters first, then Saturn's rings as it climbs.</p></div><span class="hidden sm:inline chip text-haze">Roof</span></li>
+        <li class="tl-row grid grid-cols-[4.5rem_1fr] gap-4 py-6 sm:grid-cols-[7rem_1fr_auto] sm:items-center" data-reveal="right"><time class="font-mono text-aurora text-lg">22:00</time><div><h3 class="font-display text-xl">River of Night</h3><p class="text-haze mt-1">The late, slow, lights-off show for night owls.</p></div><span class="hidden sm:inline chip text-haze">Dome</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- TRIPS -->
+  <section id="trips" class="relative bg-deep py-24 sm:py-32 overflow-hidden">
+    <div class="pointer-events-none absolute left-1/2 top-0 h-px w-[80%] -translate-x-1/2 bg-gradient-to-r from-transparent via-nova/50 to-transparent"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="max-w-2xl">
+        <p class="chip text-aurora" data-reveal="up">03 · Dark-sky trips</p>
+        <h2 class="font-display mt-4 text-4xl sm:text-5xl leading-[1.05]" data-reveal="up" style="--delay:80ms">When the city's too bright, we drive.</h2>
+        <p class="mt-5 text-lg text-haze leading-relaxed" data-reveal="up" style="--delay:160ms">Small groups, warm layers provided, and a guide who knows every constellation by its story.</p>
+      </div>
+      <div class="mt-14 grid gap-6 md:grid-cols-3" data-stagger>
+        <article class="card" data-reveal="up">
+          <div class="ph aspect-[3/2]"><img src="https://images.unsplash.com/photo-1548124771-9f2040b66df8?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxhbGx8fHx8fHx8fHwxNzkwOTU1NDMyfA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A telescope on a hilltop under a starry sky" loading="lazy" class="h-full w-full object-cover" data-parallax-img></div>
+          <div class="p-6"><h3 class="font-display text-2xl">Hilltop Telescope Night</h3><p class="mt-3 text-haze leading-relaxed">One hour out of town, three telescopes, a thermos of something hot and a sky ten times darker.</p><div class="mt-6 flex items-center justify-between border-t border-line pt-4"><span class="font-display text-xl">$45</span><span class="chip text-haze">6 hrs · 12 guests</span></div></div>
+        </article>
+        <article class="card" data-reveal="up">
+          <div class="ph aspect-[3/2]"><img src="https://images.unsplash.com/photo-1628818144466-856f7d477125?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxhbGx8fHx8fHx8fHwxNzkwOTU1NDMyfA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Green and purple aurora ribbons across a starry sky" loading="lazy" class="h-full w-full object-cover" data-parallax-img></div>
+          <div class="p-6"><h3 class="font-display text-2xl">Aurora Chase Weekend</h3><p class="mt-3 text-haze leading-relaxed">Two nights up north with a cabin, a forecast-watching guide and a camera lesson for the big moment.</p><div class="mt-6 flex items-center justify-between border-t border-line pt-4"><span class="font-display text-xl">$290</span><span class="chip text-haze">2 nights · 8 guests</span></div></div>
+        </article>
+        <article class="card" data-reveal="up">
+          <div class="ph aspect-[3/2]"><img src="https://images.unsplash.com/photo-1604728890708-631078e3eab7?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxhbGx8fHx8fHx8fHwxNzkwOTU1NDMyfA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="A camera tripod on snow under a starry night" loading="lazy" class="h-full w-full object-cover" data-parallax-img></div>
+          <div class="p-6"><h3 class="font-display text-2xl">Winter Sky Photo Class</h3><p class="mt-3 text-haze leading-relaxed">Learn to shoot star trails and the Milky Way with any camera, phone included. Tripods on us.</p><div class="mt-6 flex items-center justify-between border-t border-line pt-4"><span class="font-display text-xl">$65</span><span class="chip text-haze">4 hrs · 10 guests</span></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT / NEWSLETTER -->
+  <section id="visit" class="relative bg-void py-24 sm:py-32 overflow-hidden">
+    <div class="pointer-events-none absolute left-1/2 top-1/2 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-25 blur-3xl" data-parallax="0.08" style="background:radial-gradient(circle,#7C3AED,transparent 70%)"></div>
+    <div class="relative mx-auto max-w-xl px-4 sm:px-6 text-center">
+      <p class="chip text-aurora" data-reveal="up">04 · Monthly sky notes</p>
+      <h2 class="font-display mt-4 text-4xl sm:text-5xl leading-[1.05]" data-reveal="up" style="--delay:80ms">Never miss a clear night.</h2>
+      <p class="mt-5 text-lg text-haze" data-reveal="up" style="--delay:160ms">One short email a month: what to look for, when the roof opens and first dibs on trip seats.</p>
+      <form id="skyForm" class="glass mt-10 p-6 sm:p-8 text-left" novalidate data-reveal="scale" style="--delay:220ms">
+        <div>
+          <label for="name" class="block font-semibold">Your name</label>
+          <input id="name" name="name" type="text" autocomplete="name" class="field mt-2 w-full px-4" aria-describedby="nameErr" required>
+          <p id="nameErr" class="err mt-1 text-sm" aria-live="polite"></p>
+        </div>
+        <div class="mt-3">
+          <label for="email" class="block font-semibold">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" inputmode="email" class="field mt-2 w-full px-4" aria-describedby="emailErr" required>
+          <p id="emailErr" class="err mt-1 text-sm" aria-live="polite"></p>
+        </div>
+        <div class="mt-3">
+          <label for="interest" class="block font-semibold">I'm most curious about</label>
+          <select id="interest" name="interest" class="field mt-2 w-full px-4">
+            <option>Dome shows</option><option>Rooftop Fridays</option><option>Dark-sky trips</option><option>Kids' mornings</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary magnetic mt-6 w-full"><span>Send me the sky notes</span></button>
+        <div id="formOk" class="mt-5 hidden items-center gap-3 rounded-md border border-aurora/40 bg-aurora/10 p-4" role="status">
+          <svg class="cc shrink-0" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#5EEAD4"/><path class="ck" d="M9 16.5l4.5 4.5L23 11.5" fill="none" stroke="#06121A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p class="font-semibold">You're on the list. Clear skies!</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="relative z-10 border-t border-line bg-void py-14">
+  <div class="mx-auto max-w-5xl px-4 sm:px-6 text-center">
+    <p class="font-display text-2xl" data-reveal="up">Nightquarry Planetarium</p>
+    <p class="mt-2 text-haze" data-reveal="up">Open Tue–Sun · 10:00–late</p>
+    <nav class="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-1 font-semibold text-haze" aria-label="Footer">
+      <a class="ulink inline-flex min-h-[44px] items-center hover:text-star" href="#shows">Dome shows</a>
+      <a class="ulink inline-flex min-h-[44px] items-center hover:text-star" href="#tonight">Tonight</a>
+      <a class="ulink inline-flex min-h-[44px] items-center hover:text-star" href="#trips">Sky trips</a>
+      <a class="ulink inline-flex min-h-[44px] items-center hover:text-star" href="#visit">Sky notes</a>
+    </nav>
+    <p class="mt-8 text-xs leading-relaxed text-haze/90">Photos on Unsplash: <a class="ulink inline-block py-1 underline-offset-2" href="https://unsplash.com/@joshwi?utm_source=webdrip_concepts&utm_medium=referral">Photo by Josh Williams</a> · <a class="ulink inline-block py-1 underline-offset-2" href="https://unsplash.com/@grakozy?utm_source=webdrip_concepts&utm_medium=referral">Photo by Greg Rakozy</a> · <a class="ulink inline-block py-1 underline-offset-2" href="https://unsplash.com/@arnaudastro?utm_source=webdrip_concepts&utm_medium=referral">Photo by arnaud girault</a> · <a class="ulink inline-block py-1 underline-offset-2" href="https://unsplash.com/@bryangoffphoto?utm_source=webdrip_concepts&utm_medium=referral">Photo by Bryan Goff</a> · <a class="ulink inline-block py-1 underline-offset-2" href="https://unsplash.com/@nathananderson?utm_source=webdrip_concepts&utm_medium=referral">Photo by Nathan Anderson</a> · <a class="ulink inline-block py-1 underline-offset-2" href="https://unsplash.com/@worldsbetweenlines?utm_source=webdrip_concepts&utm_medium=referral">Photo by Patrick Hendry</a> · <a class="ulink inline-block py-1 underline-offset-2" href="https://unsplash.com/@cwcanchn?utm_source=webdrip_concepts&utm_medium=referral">Photo by Condor Wei</a> · <a class="ulink inline-block py-1 underline-offset-2" href="https://unsplash.com/@kencheungphoto?utm_source=webdrip_concepts&utm_medium=referral">Photo by Ken Cheung</a> on <a class="ulink inline-block py-1" href="https://unsplash.com/?utm_source=webdrip_concepts&utm_medium=referral">Unsplash</a></p>
+    <p class="mt-4 text-sm text-haze"><a class="ulink text-star" href="https://getwebdrip.com">Concept design by WebDrip — fictional brand</a></p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  // intro
+  requestAnimationFrame(() => setTimeout(() => root.classList.add('loaded'), 80));
+
+  // stars
+  const starsLayer = document.getElementById('starsLayer');
+  if (starsLayer && !reduce) {
+    const frag = document.createDocumentFragment();
+    for (let i = 0; i < 46; i++) {
+      const s = document.createElement('i');
+      s.style.left = (Math.random() * 100).toFixed(2) + '%';
+      s.style.top = (Math.random() * 70).toFixed(2) + '%';
+      s.style.setProperty('--d', (3 + Math.random() * 4).toFixed(2) + 's');
+      s.style.setProperty('--t', (-Math.random() * 6).toFixed(2) + 's');
+      if (Math.random() > .8) { s.style.width = s.style.height = '3px'; }
+      frag.appendChild(s);
+    }
+    starsLayer.appendChild(frag);
+  }
+
+  // mobile menu
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobileMenu');
+  const setMenu = (open) => {
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    menu.classList.toggle('open', open);
+  };
+  burger.addEventListener('click', () => setMenu(burger.getAttribute('aria-expanded') !== 'true'));
+  menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') { setMenu(false); burger.focus(); } });
+
+  // reveals
+  document.querySelectorAll('[data-stagger]').forEach((g) => {
+    [...g.querySelectorAll(':scope > [data-reveal]')].forEach((el, i) => el.style.setProperty('--delay', (i * 90) + 'ms'));
+  });
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  let pendingReveal = [...revealEls];
+  const reveal = (el) => {
+    if (el.classList.contains('in')) return;
+    el.classList.add('in');
+    setTimeout(() => el.style.setProperty('--delay', '0ms'), 1400);
+  };
+  let io = null;
+  if ('IntersectionObserver' in window && !reduce) {
+    io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (en.isIntersecting) { reveal(en.target); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    revealEls.forEach((el) => io.observe(el));
+  } else {
+    revealEls.forEach(reveal);
+    pendingReveal = [];
+  }
+  // safety net for fast flings: anything that has entered or passed the viewport gets revealed
+  const sweepReveals = () => {
+    if (!pendingReveal.length) return;
+    const limit = window.innerHeight * 0.95;
+    pendingReveal = pendingReveal.filter((el) => {
+      if (el.classList.contains('in')) return false;
+      if (el.getBoundingClientRect().top < limit) { reveal(el); if (io) io.unobserve(el); return false; }
+      return true;
+    });
+  };
+
+  // count-up
+  const fmt = new Intl.NumberFormat('en-US');
+  const counters = document.querySelectorAll('[data-count]');
+  const runCount = (el) => {
+    const end = +el.dataset.count, t0 = performance.now(), dur = 1400;
+    const step = (t) => { const p = Math.min(1, (t - t0) / dur); el.textContent = fmt.format(Math.round(end * (1 - Math.pow(1 - p, 3)))); if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  };
+  if ('IntersectionObserver' in window && !reduce) {
+    const co = new IntersectionObserver((entries) => entries.forEach((en) => { if (en.isIntersecting) { runCount(en.target); co.unobserve(en.target); } }), { threshold: .6 });
+    counters.forEach((c) => co.observe(c));
+  }
+
+  // magnetic buttons
+  if (finePointer && !reduce) {
+    document.querySelectorAll('.magnetic').forEach((b) => {
+      b.addEventListener('pointermove', (e) => {
+        const r = b.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width / 2) * .22, y = (e.clientY - r.top - r.height / 2) * .3;
+        b.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`;
+      });
+      b.addEventListener('pointerleave', () => { b.style.transform = ''; });
+    });
+  }
+
+  // spotlight motion toggle
+  const spot = document.getElementById('spotlight');
+  const mt = document.getElementById('motionToggle');
+  mt.addEventListener('click', () => {
+    const paused = spot.classList.toggle('paused');
+    mt.setAttribute('aria-pressed', String(paused));
+    document.getElementById('mtLabel').textContent = paused ? 'Play motion' : 'Pause motion';
+    document.getElementById('mtIcon').innerHTML = paused ? '<path d="M4 2.5v11l9-5.5z" fill="currentColor"/>' : '<rect x="3" y="2" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" rx="1" fill="currentColor"/>';
+  });
+
+  // form
+  const form = document.getElementById('skyForm');
+  const ok = document.getElementById('formOk');
+  const fields = { name: document.getElementById('name'), email: document.getElementById('email') };
+  const errs = { name: document.getElementById('nameErr'), email: document.getElementById('emailErr') };
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  const setErr = (k, msg) => { errs[k].textContent = msg; fields[k].setAttribute('aria-invalid', msg ? 'true' : 'false'); };
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    ok.classList.add('hidden'); ok.classList.remove('flex', 'show');
+    const name = fields.name.value.trim(), email = fields.email.value.trim();
+    setErr('name', name ? '' : 'Please tell us your name.');
+    setErr('email', !email ? 'Please enter your email.' : (emailRe.test(email) ? '' : 'That email doesn\'t look right — check for typos.'));
+    const bad = Object.keys(fields).find((k) => errs[k].textContent);
+    if (bad) {
+      form.classList.remove('shake'); void form.offsetWidth; form.classList.add('shake');
+      fields[bad].focus();
+      return;
+    }
+    ok.classList.remove('hidden'); ok.classList.add('flex'); void ok.offsetWidth; ok.classList.add('show');
+    form.reset();
+    Object.keys(fields).forEach((k) => fields[k].setAttribute('aria-invalid', 'false'));
+  });
+  form.addEventListener('animationend', () => form.classList.remove('shake'));
+
+  // shared scroll loop
+  const nav = document.getElementById('nav');
+  const bar = document.getElementById('progress');
+  const heroImg = document.getElementById('heroImg');
+  const heroStage = document.getElementById('heroStage');
+  const heroGlow = document.getElementById('heroGlow');
+  const heroCopy = document.getElementById('heroCopy');
+  const heroPanel = document.getElementById('heroPanel');
+  const starsL = document.getElementById('starsLayer');
+  const spotShift = document.getElementById('spotShift');
+  const parallax = [...document.querySelectorAll('[data-parallax]')];
+  const pImgs = [...document.querySelectorAll('[data-parallax-img]')];
+  let cur = window.scrollY, target = cur, vh = window.innerHeight, tick = 0;
+  window.addEventListener('resize', () => { vh = window.innerHeight; }, { passive: true });
+  window.addEventListener('scroll', () => { target = window.scrollY; }, { passive: true });
+
+  const frame = () => {
+    target = window.scrollY;
+    cur += (target - cur) * (reduce ? 1 : 0.12);
+    if (Math.abs(target - cur) < 0.05) cur = target;
+    const max = Math.max(1, document.documentElement.scrollHeight - vh);
+    bar.style.transform = `scaleX(${(target / max).toFixed(4)})`;
+    nav.classList.toggle('scrolled', target > 40);
+
+    const p = Math.min(1.4, cur / vh);
+    if (!reduce) {
+      const e = p * p * (3 - 2 * Math.min(1, p)); // smoothstep-ish
+      heroImg.style.transform = `translate3d(${(-p * 2).toFixed(2)}%, ${(-p * 6).toFixed(2)}%, 0) scale(${(1.08 + e * 0.28).toFixed(4)}) rotateX(${(p * 9).toFixed(2)}deg) rotateZ(${(p * -1.2).toFixed(2)}deg)`;
+      heroGlow.style.transform = `translate3d(0, ${(-p * 120).toFixed(1)}px, 0) scale(${(1 + p * .2).toFixed(3)})`;
+      starsL.style.transform = `translate3d(0, ${(-p * 60).toFixed(1)}px, 0)`;
+      heroCopy.style.transform = `translate3d(0, ${(-cur * .35).toFixed(1)}px, 0)`;
+      heroPanel.style.transform = `translate3d(0, ${(-cur * .18).toFixed(1)}px, 0) rotateY(${(-p * 6).toFixed(2)}deg)`;
+      heroCopy.style.opacity = heroPanel.style.opacity = Math.max(0, 1 - p * 1.1).toFixed(3);
+      for (const el of parallax) {
+        const r = el.getBoundingClientRect();
+        const c = r.top + r.height / 2 - vh / 2;
+        el.style.transform = `translate3d(0, ${(c * parseFloat(el.dataset.parallax)).toFixed(1)}px, 0)`;
+      }
+      for (const img of pImgs) {
+        const r = img.getBoundingClientRect();
+        if (r.bottom < -100 || r.top > vh + 100) continue;
+        const c = (r.top + r.height / 2 - vh / 2) / vh;
+        img.style.translate = `0 ${(c * -14).toFixed(1)}px`;
+      }
+      if (spotShift) {
+        const r = spotShift.parentElement.getBoundingClientRect();
+        const c = (r.top + r.height / 2 - vh / 2) / vh;
+        spotShift.style.transform = `translate3d(0, ${(c * -50).toFixed(1)}px, 0)`;
+      }
+    }
+    heroStage.style.opacity = p > 1.25 ? '0' : '1';
+    if (++tick % 8 === 0) sweepReveals();
+    requestAnimationFrame(frame);
+  };
+  requestAnimationFrame(frame);
+
+  // service worker
+  if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+    window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(() => {}));
+  }
+})();
+</script>
+</body>
+</html>
