@@ -19,9 +19,9 @@ Use REMOTION for this video. This request supersedes the previous HyperFrames-on
 
 ## 2. Exact project
 Repository: https://github.com/allappdevbusiness/WebDrip
-Folder: sites/2026-10-02-larkmere/
-Source: sites/2026-10-02-larkmere/index.html
-Previously recorded preview: https://webdripsamples.netlify.app/sites/2026-10-02-larkmere/
+Folder: automation-v1/2026-10-02-larkmere/
+Source: automation-v1/2026-10-02-larkmere/index.html
+Previously recorded preview: https://webdripsamples.netlify.app/automation-v1/2026-10-02-larkmere/
 Brand: Larkmere Flower Studio, a fictional concept website.
 
 The main source was read when preparing this brief. Inspect the current checkout and render the page before choosing crops. Treat the checkout as authoritative if something has changed.
@@ -194,7 +194,7 @@ Do not fabricate conversion results, customer testimonials, a working checkout o
 Continue through render and concrete fixes. Hand over the finished video, not only a storyboard or preview.
 
 ## Source references
-- Project source: https://github.com/allappdevbusiness/WebDrip/blob/main/sites/2026-10-02-larkmere/index.html
+- Project source: https://github.com/allappdevbusiness/WebDrip/blob/main/automation-v1/2026-10-02-larkmere/index.html
 - Chosen vocal track: https://www.epidemicsound.com/music/tracks/fa26e649-d35e-4f3c-8bee-d19f24ed1103/
 - Release metadata: https://www.epidemicsound.com/release/feels-like-that/
 - Remotion transitions: https://www.remotion.dev/docs/transitioning
