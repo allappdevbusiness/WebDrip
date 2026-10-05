@@ -696,6 +696,18 @@
       "soft": "#4B5468"
     },
     "fonts": "Inter Variable + JetBrains Mono (self-hosted via @fontsource)",
-    "stack": "React 19 + Vite 7 + Tailwind 4 (@tailwindcss/vite), prerendered with renderToString, hydrateRoot"
+    "stack": "React 19 + Vite 7 + Tailwind 4 (@tailwindcss/vite), prerendered with renderToString, hydrateRoot",
+    "chatgpt_pr": "https://github.com/allappdevbusiness/WebDrip/pull/1",
+    "editing_commit": "286f991a299af2c5f7d381045955d27f02f3911e",
+    "music_track": {
+      "id": "2bf4be37-0d26-4ca1-a767-c80c23597c1d",
+      "title": "Domino",
+      "artist": "Peachwood",
+      "excerpt": "25.99-57.99 s (brief said 28.03; moved so the real lift at 30.0 s lands on the video's 4.0 s price reveal)"
+    },
+    "sound_effects": "Epidemic Sound: UI tap, cloth swish, soft airy whoosh, tech button click, soft confirm chime",
+    "edit_style": "32 s practical-question edit: real taps and clicks from frame-by-frame Playwright recordings, tight readable crops, one cobalt mask wipe, 3 s WebDrip end card",
+    "caption_hook": "If customers can't find your prices, they ask someone else.",
+    "hook_type": "relatable truth"
   }
 ]
