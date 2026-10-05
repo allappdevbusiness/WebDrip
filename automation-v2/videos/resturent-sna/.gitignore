@@ -1,0 +1,9 @@
+# licensed / third-party media and renders never go to GitHub
+public/sfx/
+public/video/
+public/shots/*.png
+out/
+*.mp3
+*.wav
+*.mp4
+reference-audio/

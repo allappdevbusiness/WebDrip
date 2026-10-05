@@ -1,0 +1,97 @@
+{
+ "boom_final": {
+  "peak": 0.022,
+  "dur": 5.375,
+  "peakDb": -9.5
+ },
+ "click": {
+  "peak": 0.007,
+  "dur": 0.193,
+  "peakDb": -18.6
+ },
+ "confirm": {
+  "peak": 0.003,
+  "dur": 0.321,
+  "peakDb": -10.5
+ },
+ "impact_deep_boom": {
+  "peak": 0.131,
+  "dur": 2.8,
+  "peakDb": -1.1
+ },
+ "impact_heavy": {
+  "peak": 0.054,
+  "dur": 1.69,
+  "peakDb": -6.9
+ },
+ "kaching": {
+  "peak": 0.369,
+  "dur": 2.25,
+  "peakDb": -8.4
+ },
+ "paper": {
+  "peak": 0.329,
+  "dur": 0.762,
+  "peakDb": -3.0
+ },
+ "pop": {
+  "peak": 0.056,
+  "dur": 0.439,
+  "peakDb": -1.0
+ },
+ "riser": {
+  "peak": 2.516,
+  "dur": 2.86,
+  "peakDb": -10.4
+ },
+ "shutter": {
+  "peak": 0.054,
+  "dur": 0.634,
+  "peakDb": -7.0
+ },
+ "sizzle": {
+  "peak": 0.344,
+  "dur": 2.433,
+  "peakDb": -3.4
+ },
+ "stamp": {
+  "peak": 0.033,
+  "dur": 2.152,
+  "peakDb": -3.3
+ },
+ "success": {
+  "peak": 0.032,
+  "dur": 1.201,
+  "peakDb": -11.3
+ },
+ "swipe": {
+  "peak": 0.069,
+  "dur": 0.191,
+  "peakDb": -0.5
+ },
+ "swish1": {
+  "peak": 0.086,
+  "dur": 0.268,
+  "peakDb": -1.0
+ },
+ "swish2": {
+  "peak": 0.138,
+  "dur": 0.367,
+  "peakDb": -1.0
+ },
+ "thud": {
+  "peak": 0.054,
+  "dur": 0.245,
+  "peakDb": -1.0
+ },
+ "whoosh_deep": {
+  "peak": 0.764,
+  "dur": 2.437,
+  "peakDb": -0.2
+ },
+ "whoosh_wide": {
+  "peak": 0.494,
+  "dur": 1.163,
+  "peakDb": -21.0
+ }
+}
