@@ -1,0 +1,124 @@
+{
+ "name": "mob-suits-head",
+ "viewport": {
+  "width": 390,
+  "height": 844
+ },
+ "scrollY": 1951,
+ "rects": {
+  "#suitsTitle": {
+   "x": 20,
+   "y": 104.1875,
+   "w": 350,
+   "h": 67.8125
+  },
+  "#suits li.wd-suit:nth-child(1)": {
+   "x": 20,
+   "y": 322.390625,
+   "w": 350,
+   "h": 393.015625
+  },
+  "#suits li.wd-suit:nth-child(1) img": {
+   "x": 21,
+   "y": 323.390625,
+   "w": 348,
+   "h": 261
+  },
+  "#suits li.wd-suit:nth-child(1) h3": {
+   "x": 43,
+   "y": 608.390625,
+   "w": 176.390625,
+   "h": 23.390625
+  },
+  "#suits li.wd-suit:nth-child(2)": {
+   "x": 20,
+   "y": 771.40625,
+   "w": 350,
+   "h": 417.328125
+  },
+  "#suits li.wd-suit:nth-child(2) img": {
+   "x": 21,
+   "y": 772.40625,
+   "w": 348,
+   "h": 261
+  },
+  "#suits li.wd-suit:nth-child(2) h3": {
+   "x": 43,
+   "y": 1057.40625,
+   "w": 186.578125,
+   "h": 23.390625
+  },
+  "#suits li.wd-suit:nth-child(3)": {
+   "x": 20,
+   "y": 1212.734375,
+   "w": 350,
+   "h": 393.015625
+  },
+  "#suits li.wd-suit:nth-child(3) img": {
+   "x": 21,
+   "y": 1213.734375,
+   "w": 348,
+   "h": 261
+  },
+  "#suits li.wd-suit:nth-child(3) h3": {
+   "x": 43,
+   "y": 1498.734375,
+   "w": 128.90625,
+   "h": 23.390625
+  },
+  "#suits li.wd-suit:nth-child(4)": {
+   "x": 20,
+   "y": 1629.75,
+   "w": 350,
+   "h": 393.015625
+  },
+  "#suits li.wd-suit:nth-child(4) img": {
+   "x": 21,
+   "y": 1630.75,
+   "w": 348,
+   "h": 261
+  },
+  "#suits li.wd-suit:nth-child(4) h3": {
+   "x": 43,
+   "y": 1915.75,
+   "w": 130.59375,
+   "h": 23.390625
+  },
+  "#suits li.wd-suit:nth-child(5)": {
+   "x": 20,
+   "y": 2046.765625,
+   "w": 350,
+   "h": 393.015625
+  },
+  "#suits li.wd-suit:nth-child(5) img": {
+   "x": 21,
+   "y": 2047.765625,
+   "w": 348,
+   "h": 261
+  },
+  "#suits li.wd-suit:nth-child(5) h3": {
+   "x": 43,
+   "y": 2332.765625,
+   "w": 103.21875,
+   "h": 23.390625
+  },
+  "#suits li.wd-suit:nth-child(6)": {
+   "x": 20,
+   "y": 2463.78125,
+   "w": 350,
+   "h": 393.015625
+  },
+  "#suits li.wd-suit:nth-child(6) img": {
+   "x": 21,
+   "y": 2464.78125,
+   "w": 348,
+   "h": 261
+  },
+  "#suits li.wd-suit:nth-child(6) h3": {
+   "x": 43,
+   "y": 2749.78125,
+   "w": 189.125,
+   "h": 23.390625
+  }
+ }
+}

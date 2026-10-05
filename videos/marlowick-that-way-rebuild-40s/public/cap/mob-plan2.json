@@ -1,0 +1,64 @@
+{
+ "name": "mob-plan2",
+ "viewport": {
+  "width": 390,
+  "height": 844
+ },
+ "scrollY": 6833,
+ "rects": {
+  "#hire li.wd-plan:nth-child(1)": {
+   "x": 20,
+   "y": -389.59375,
+   "w": 350,
+   "h": 416.25
+  },
+  "#hire li.wd-plan:nth-child(1) h3": {
+   "x": 47,
+   "y": -360.59375,
+   "w": 296,
+   "h": 23.390625
+  },
+  "#hire li.wd-plan:nth-child(1) .wd-plan-price": {
+   "x": 47,
+   "y": -319.203125,
+   "w": 296,
+   "h": 72
+  },
+  "#hire li.wd-plan:nth-child(2)": {
+   "x": 20,
+   "y": 50.65625,
+   "w": 350,
+   "h": 416.25
+  },
+  "#hire li.wd-plan:nth-child(2) h3": {
+   "x": 47,
+   "y": 79.65625,
+   "w": 296,
+   "h": 23.390625
+  },
+  "#hire li.wd-plan:nth-child(2) .wd-plan-price": {
+   "x": 47,
+   "y": 121.046875,
+   "w": 296,
+   "h": 72
+  },
+  "#hire li.wd-plan:nth-child(3)": {
+   "x": 20,
+   "y": 490.90625,
+   "w": 350,
+   "h": 438.328125
+  },
+  "#hire li.wd-plan:nth-child(3) h3": {
+   "x": 47,
+   "y": 519.90625,
+   "w": 296,
+   "h": 23.390625
+  },
+  "#hire li.wd-plan:nth-child(3) .wd-plan-price": {
+   "x": 47,
+   "y": 561.296875,
+   "w": 296,
+   "h": 72
+  }
+ }
+}

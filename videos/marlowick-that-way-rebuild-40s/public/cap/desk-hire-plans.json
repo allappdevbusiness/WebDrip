@@ -1,0 +1,64 @@
+{
+ "name": "desk-hire-plans",
+ "viewport": {
+  "width": 1440,
+  "height": 900
+ },
+ "scrollY": 4725,
+ "rects": {
+  "#hire li.wd-plan:nth-child(1)": {
+   "x": 176,
+   "y": 120.484375,
+   "w": 346.65625,
+   "h": 438.328125
+  },
+  "#hire li.wd-plan:nth-child(1) h3": {
+   "x": 203,
+   "y": 149.484375,
+   "w": 292.65625,
+   "h": 23.390625
+  },
+  "#hire li.wd-plan:nth-child(1) .wd-plan-price": {
+   "x": 203,
+   "y": 190.875,
+   "w": 292.65625,
+   "h": 72
+  },
+  "#hire li.wd-plan:nth-child(2)": {
+   "x": 546.65625,
+   "y": 120.484375,
+   "w": 346.671875,
+   "h": 438.328125
+  },
+  "#hire li.wd-plan:nth-child(2) h3": {
+   "x": 573.65625,
+   "y": 149.484375,
+   "w": 292.671875,
+   "h": 23.390625
+  },
+  "#hire li.wd-plan:nth-child(2) .wd-plan-price": {
+   "x": 573.65625,
+   "y": 190.875,
+   "w": 292.671875,
+   "h": 72
+  },
+  "#hire li.wd-plan:nth-child(3)": {
+   "x": 917.328125,
+   "y": 120.484375,
+   "w": 346.65625,
+   "h": 438.328125
+  },
+  "#hire li.wd-plan:nth-child(3) h3": {
+   "x": 944.328125,
+   "y": 149.484375,
+   "w": 292.65625,
+   "h": 23.390625
+  },
+  "#hire li.wd-plan:nth-child(3) .wd-plan-price": {
+   "x": 944.328125,
+   "y": 190.875,
+   "w": 292.65625,
+   "h": 72
+  }
+ }
+}

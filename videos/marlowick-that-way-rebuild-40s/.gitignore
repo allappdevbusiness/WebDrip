@@ -1,0 +1,8 @@
+node_modules/
+out/
+# Licensed Epidemic Sound audio stays local (public repo)
+audio-src/
+public/audio/*.wav
+public/audio/sfx/*.wav
+# per-frame recording JPEGs are rebuilt from public/rec/*.mp4 (see ../marlowick-that-way-tiktok-40s/scripts/extract-rec.sh)
+public/rec/*/

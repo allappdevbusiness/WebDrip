@@ -1,0 +1,22 @@
+{
+  "name": "marlowick-that-way-rebuild-40s",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts MarlowickRebuild40 out/render-raw.mp4 --codec=h264 --audio-codec=aac --audio-bitrate=320k --crf=15 --x264-preset=slow --browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell --concurrency=4 && bash scripts/finish.sh"
+  },
+  "dependencies": {
+    "@playwright/test": "1.56.1",
+    "@remotion/bundler": "4.0.533",
+    "@remotion/cli": "4.0.533",
+    "@remotion/media": "4.0.533",
+    "@remotion/motion-blur": "4.0.533",
+    "@remotion/renderer": "4.0.533",
+    "@remotion/transitions": "4.0.533",
+    "@types/react": "19.2.2",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.533",
+    "typescript": "5.6.3"
+  }
+}

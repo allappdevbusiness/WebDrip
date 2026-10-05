@@ -1,0 +1,118 @@
+{
+ "name": "mob-suit1",
+ "viewport": {
+  "width": 390,
+  "height": 844
+ },
+ "scrollY": 2193,
+ "rects": {
+  "#suits li.wd-suit:nth-child(1)": {
+   "x": 20,
+   "y": 80.390625,
+   "w": 350,
+   "h": 393.015625
+  },
+  "#suits li.wd-suit:nth-child(1) img": {
+   "x": 21,
+   "y": 81.390625,
+   "w": 348,
+   "h": 261
+  },
+  "#suits li.wd-suit:nth-child(1) h3": {
+   "x": 43,
+   "y": 366.390625,
+   "w": 176.390625,
+   "h": 23.390625
+  },
+  "#suits li.wd-suit:nth-child(2)": {
+   "x": 20,
+   "y": 497.40625,
+   "w": 350,
+   "h": 417.328125
+  },
+  "#suits li.wd-suit:nth-child(2) img": {
+   "x": 21,
+   "y": 498.40625,
+   "w": 348,
+   "h": 261
+  },
+  "#suits li.wd-suit:nth-child(2) h3": {
+   "x": 43,
+   "y": 783.40625,
+   "w": 186.578125,
+   "h": 23.390625
+  },
+  "#suits li.wd-suit:nth-child(3)": {
+   "x": 20,
+   "y": 970.734375,
+   "w": 350,
+   "h": 393.015625
+  },
+  "#suits li.wd-suit:nth-child(3) img": {
+   "x": 21,
+   "y": 971.734375,
+   "w": 348,
+   "h": 261
+  },
+  "#suits li.wd-suit:nth-child(3) h3": {
+   "x": 43,
+   "y": 1256.734375,
+   "w": 128.90625,
+   "h": 23.390625
+  },
+  "#suits li.wd-suit:nth-child(4)": {
+   "x": 20,
+   "y": 1387.75,
+   "w": 350,
+   "h": 393.015625
+  },
+  "#suits li.wd-suit:nth-child(4) img": {
+   "x": 21,
+   "y": 1388.75,
+   "w": 348,
+   "h": 261
+  },
+  "#suits li.wd-suit:nth-child(4) h3": {
+   "x": 43,
+   "y": 1673.75,
+   "w": 130.59375,
+   "h": 23.390625
+  },
+  "#suits li.wd-suit:nth-child(5)": {
+   "x": 20,
+   "y": 1804.765625,
+   "w": 350,
+   "h": 393.015625
+  },
+  "#suits li.wd-suit:nth-child(5) img": {
+   "x": 21,
+   "y": 1805.765625,
+   "w": 348,
+   "h": 261
+  },
+  "#suits li.wd-suit:nth-child(5) h3": {
+   "x": 43,
+   "y": 2090.765625,
+   "w": 103.21875,
+   "h": 23.390625
+  },
+  "#suits li.wd-suit:nth-child(6)": {
+   "x": 20,
+   "y": 2221.78125,
+   "w": 350,
+   "h": 393.015625
+  },
+  "#suits li.wd-suit:nth-child(6) img": {
+   "x": 21,
+   "y": 2222.78125,
+   "w": 348,
+   "h": 261
+  },
+  "#suits li.wd-suit:nth-child(6) h3": {
+   "x": 43,
+   "y": 2507.78125,
+   "w": 189.125,
+   "h": 23.390625
+  }
+ }
+}

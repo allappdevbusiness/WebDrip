@@ -1,0 +1,116 @@
+{
+ "boom-low-hit.wav": {
+  "dur": 3.549,
+  "onset_s": 0.0224,
+  "peak_s": 0.3304,
+  "peak_dbfs": -11.2
+ },
+ "camera-shutter-panasonic.wav": {
+  "dur": 0.634,
+  "onset_s": 0.052,
+  "peak_s": 0.0545,
+  "peak_dbfs": -7.0
+ },
+ "cloth-flap-whoosh-02.wav": {
+  "dur": 2.887,
+  "onset_s": 0.2877,
+  "peak_s": 0.3484,
+  "peak_dbfs": -8.6
+ },
+ "cloth-movement-jacket.wav": {
+  "dur": 1.017,
+  "onset_s": 0.0135,
+  "peak_s": 0.5609,
+  "peak_dbfs": -7.7
+ },
+ "flyby-bright-fast.wav": {
+  "dur": 0.992,
+  "onset_s": 0.3462,
+  "peak_s": 0.511,
+  "peak_dbfs": -7.1
+ },
+ "glitch-short-circuit-04.wav": {
+  "dur": 0.898,
+  "onset_s": 0.0237,
+  "peak_s": 0.4128,
+  "peak_dbfs": -12.6
+ },
+ "impact-fast-scifi-02.wav": {
+  "dur": 1.153,
+  "onset_s": 0.3614,
+  "peak_s": 0.5089,
+  "peak_dbfs": -13.2
+ },
+ "impact-heavy-percussive.wav": {
+  "dur": 1.69,
+  "onset_s": 0.0176,
+  "peak_s": 0.1415,
+  "peak_dbfs": -6.9
+ },
+ "keyboard-typing-short-01.wav": {
+  "dur": 1.077,
+  "onset_s": 0.021,
+  "peak_s": 0.3851,
+  "peak_dbfs": -3.0
+ },
+ "pop-low-zap.wav": {
+  "dur": 0.212,
+  "onset_s": 0.0,
+  "peak_s": 0.0612,
+  "peak_dbfs": -18.4
+ },
+ "riser-short-fast.wav": {
+  "dur": 2.86,
+  "onset_s": 1.8794,
+  "peak_s": 2.5156,
+  "peak_dbfs": -10.4
+ },
+ "stinger-whoosh-to-impact.wav": {
+  "dur": 2.635,
+  "onset_s": 0.5858,
+  "peak_s": 0.9646,
+  "peak_dbfs": -3.0
+ },
+ "swipe-through-air-01.wav": {
+  "dur": 0.191,
+  "onset_s": 0.0543,
+  "peak_s": 0.0699,
+  "peak_dbfs": -0.5
+ },
+ "swish-air-fast-01.wav": {
+  "dur": 0.268,
+  "onset_s": 0.0672,
+  "peak_s": 0.0844,
+  "peak_dbfs": -1.0
+ },
+ "swish-air-fast-03.wav": {
+  "dur": 0.367,
+  "onset_s": 0.123,
+  "peak_s": 0.1389,
+  "peak_dbfs": -1.0
+ },
+ "touchscreen-tap-hard-02.wav": {
+  "dur": 0.12,
+  "onset_s": 0.0047,
+  "peak_s": 0.0093,
+  "peak_dbfs": -0.5
+ },
+ "ui-click-hard-short.wav": {
+  "dur": 0.5,
+  "onset_s": 0.0,
+  "peak_s": 0.0017,
+  "peak_dbfs": -7.7
+ },
+ "ui-click-onoff-small-03.wav": {
+  "dur": 1.14,
+  "onset_s": 0.0059,
+  "peak_s": 0.0086,
+  "peak_dbfs": -1.0
+ },
+ "whoosh-deep-reversed.wav": {
+  "dur": 0.878,
+  "onset_s": 0.4129,
+  "peak_s": 0.5029,
+  "peak_dbfs": -0.4
+ }
+}
