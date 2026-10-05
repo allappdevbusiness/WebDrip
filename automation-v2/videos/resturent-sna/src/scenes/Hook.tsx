@@ -54,7 +54,7 @@ export const Hook: React.FC<{ t: number }> = ({ t }) => {
 
   const digit = (d: (typeof DIGITS)[number], i: number, fill: string, dx = 0, dy = 0) => {
     if (t < d.at - 0.09) return null;
-    const s = slam(t, d.at, 3.2, 0.09);
+    const s = slam(t, d.at, 2.3, 0.09);
     const rot = lerp(d.tilt * 4, d.tilt, ease.outCubic(prog(t, d.at - 0.09, d.at)));
     return (
       <text

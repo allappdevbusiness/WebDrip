@@ -19,14 +19,14 @@ const N = {
 const START = CYCLE[7];
 const END = CYCLE[8];
 
-const K = 2;
+const K = 2.3;
 const CHIPS = [
-  { label: 'Everything', cat: 'all', x: 90, y: 250, w: 250 },
-  { label: 'De la Brasa', cat: 'brasa', x: 360, y: 250, w: 260 },
-  { label: 'Tacos', cat: 'tacos', x: 640, y: 250, w: 170 },
-  { label: 'Masa & Maíz', cat: 'masa', x: 90, y: 360, w: 270 },
-  { label: 'Del Mar', cat: 'mar', x: 380, y: 360, w: 200 },
-  { label: 'Dulce', cat: 'dulce', x: 600, y: 360, w: 160 },
+  { label: 'Everything', cat: 'all', x: 80, y: 220, w: 290 },
+  { label: 'De la Brasa', cat: 'brasa', x: 390, y: 220, w: 300 },
+  { label: 'Tacos', cat: 'tacos', x: 710, y: 220, w: 200 },
+  { label: 'Masa & Maíz', cat: 'masa', x: 80, y: 345, w: 310 },
+  { label: 'Del Mar', cat: 'mar', x: 410, y: 345, w: 230 },
+  { label: 'Dulce', cat: 'dulce', x: 660, y: 345, w: 190 },
 ];
 const FILTERS: Record<string, (keyof typeof DISHES)[]> = {
   all: ['pollo', 'birria', 'pastor', 'elote', 'pupusas', 'ceviche'],
@@ -40,8 +40,8 @@ const TAPS: { at: number; cat: string }[] = [
   { at: N.E3, cat: 'dulce' },
   { at: N.D, cat: 'all' },
 ];
-const CW = 300, GAP = 30;
-const pos = (i: number) => ({ x: 75 + (i % 3) * (CW + GAP), y: 540 + Math.floor(i / 3) * 430 });
+const CW = 440, GAP = 40;
+const pos = (i: number) => ({ x: 80 + (i % 2) * (CW + GAP), y: 500 + Math.floor(i / 2) * 400 });
 
 const ROUTE = [
   { day: 'MONDAY', where: 'Rainey St & Davis', hours: '5–10pm' },
@@ -85,7 +85,7 @@ export const Interact: React.FC<{ t: number }> = ({ t }) => {
           })}
           {TAPS.map((x) => {
             const c = CHIPS.find((c) => c.cat === x.cat)!;
-            return <Tap key={x.at} t={t} at={x.at} x={c.x + c.w / 2} y={c.y + 44} k={1.6} />;
+            return <Tap key={x.at} t={t} at={x.at} x={c.x + c.w / 2} y={c.y + 50} k={1.8} />;
           })}
         </div>
       </AbsoluteFill>

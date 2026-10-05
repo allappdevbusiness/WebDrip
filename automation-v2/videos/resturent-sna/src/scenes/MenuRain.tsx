@@ -53,11 +53,33 @@ export const MenuRain: React.FC<{ t: number }> = ({ t }) => {
     );
   }
 
-  // table camera: oblique → top-down push on C
-  const tilt = kf(t, [[N.Cn - 0.05, 26], [N.B - 0.1, 0, ease.inOutCubic]]);
-  const zoom = kf(t, [[START, 1.0], [N.Cn - 0.05, 1.04], [N.B - 0.1, 1.9, ease.inOutCubic]]);
-  const camY = kf(t, [[N.Cn - 0.05, 0], [N.B - 0.1, 160, ease.inOutCubic]]);
-  const camX = kf(t, [[N.Cn - 0.05, 0], [N.B - 0.1, -90, ease.inOutCubic]]);
+  // camera lands on each card as it drops (close), then pulls out to the whole table on C (wide)
+  const focus = (id: string) => {
+    const c = CARDS.find((x) => x.id === id)!;
+    return { x: c.x + CW / 2, y: c.y + 150 };
+  };
+  const path: [number, { x: number; y: number }, number][] = [
+    [N.E, focus('pollo'), 1.75],
+    [N.E2, focus('birria'), 1.75],
+    [N.G, focus('pastor'), 1.75],
+    [N.E3, focus('ceviche'), 1.7],
+    [N.D, focus('pupusas'), 1.7],
+    [N.Cn + 0.3, { x: 540, y: 1020 }, 0.98],
+  ];
+  const key = (sel: (p: (typeof path)[number]) => number): [number, number, (x: number) => number][] => {
+    const k: [number, number, (x: number) => number][] = [[START, sel(path[0]), ease.linear]];
+    path.forEach((p, i) => {
+      if (i === 0) return;
+      const move = i === path.length - 1 ? 0.3 : 0.16;
+      k.push([p[0] - move, sel(path[i - 1]), ease.linear]);
+      k.push([p[0], sel(p), ease.inOutCubic]);
+    });
+    return k;
+  };
+  const fx = kf(t, key((p) => p[1].x));
+  const fy = kf(t, key((p) => p[1].y));
+  const zoom = kf(t, key((p) => p[2])) * kf(t, [[N.Cn + 0.3, 1], [N.B, 1.06, ease.linear]]);
+  const tilt = kf(t, [[N.Cn, 24], [N.Cn + 0.3, 16, ease.inOutCubic]]);
 
   return (
     <AbsoluteFill style={{ perspective: 1500 }}>
@@ -66,11 +88,11 @@ export const MenuRain: React.FC<{ t: number }> = ({ t }) => {
         style={{
           position: 'absolute',
           left: 0,
-          top: 180,
+          top: 0,
           width: 1080,
-          height: 1700,
-          transformOrigin: '50% 40%',
-          transform: `translate(${camX}px, ${camY}px) scale(${zoom}) rotateX(${tilt}deg)`,
+          height: 1900,
+          transformOrigin: '0 0',
+          transform: `translate(${540 - fx * zoom}px, ${960 - fy * zoom}px) scale(${zoom}) rotateX(${tilt}deg)`,
           transformStyle: 'preserve-3d',
         }}
       >

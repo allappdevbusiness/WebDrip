@@ -128,7 +128,13 @@ export const Control: React.FC<{ t: number }> = ({ t }) => {
       {demo === 'hours' && (
         <>
           <Label text="HOURS" t={t} at={A.Cn} />
-          <div style={{ position: 'absolute', left: 70, top: 700, width: 940, transform: `translateY(${(1 - enter) * 700}px)` }}>
+          <div style={{ position: 'absolute', left: 70, top: 560, width: 940, transform: `translateY(${(1 - enter) * 700}px)`, opacity: 0.55 }}>
+            <RouteRow day="WEDNESDAY" where="E 6th & Waller — taco night" hours="11am–9pm" k={2.5} />
+          </div>
+          <div style={{ position: 'absolute', left: 70, top: 1000, width: 940, transform: `translateY(${(1 - enter) * 900}px)`, opacity: 0.55 }}>
+            <RouteRow day="FRIDAY" where="S Congress & Elizabeth" hours="11am–12am" k={2.5} />
+          </div>
+          <div style={{ position: 'absolute', left: 70, top: 780, width: 940, transform: `translateY(${(1 - enter) * 700}px) scale(1.04)` }}>
             <RouteRow
               day="THURSDAY"
               where="Zilker Park, Barton Springs"
@@ -141,7 +147,7 @@ export const Control: React.FC<{ t: number }> = ({ t }) => {
               }
             />
           </div>
-          <Badge t={t} at={A.B} y={1150} />
+          <Badge t={t} at={A.B} y={1330} />
         </>
       )}
       {demo === 'photo' && (
