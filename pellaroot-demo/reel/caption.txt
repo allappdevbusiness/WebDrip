@@ -1,7 +1,0 @@
-Built a demo website for a small skincare brand called Pellaroot. The product photos drift gently as you scroll, each section fades in softly, and it looks just as good on your phone. If you run a beauty or skincare shop, yours could look like this too.
-
-See it here: https://webdripsamples.netlify.app/pellaroot-demo/
-
-Book your meeting today 👉 www.getwebdrip.com
-
-#skincare #skincarebrand #naturalskincare #beautybusiness #webdesign #websitedesign #smallbusinesswebsite #smallbusiness #entrepreneur #video

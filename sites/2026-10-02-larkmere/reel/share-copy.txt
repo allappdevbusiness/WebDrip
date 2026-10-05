@@ -1,1 +1,0 @@
-Larkmere Flower Studio is a fictional florist we designed at WebDrip: a storybook website where every section is a chapter, from everyday bouquets to wedding flowers and Saturday workshops. See it scroll on desktop and phone: https://webdripsamples.netlify.app/sites/2026-10-02-larkmere/

@@ -1,7 +1,0 @@
-Built a demo website for a planetarium called Nightquarry. The night sky photo slowly moves as you scroll, every show and stargazing trip has its own card, and it looks great on your phone too. If you run a place people love to visit, yours could look like this.
-
-See it here: https://webdripsamples.netlify.app/nightquarry-demo/
-
-Book your meeting today 👉 www.getwebdrip.com
-
-#planetarium #stargazing #astronomy #nightsky #websitedesign #webdesigner #websiteforbusiness #localbusiness #creativebusiness #video
