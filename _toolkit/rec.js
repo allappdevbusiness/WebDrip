@@ -1,7 +1,7 @@
 // WebDrip toolkit — frame-by-frame site recorder (Playwright + CDP).
 // Usage: NODE_PATH=<remotion project>/node_modules node rec.js plan.json
 // plan.json: {
-//   "url": "http://localhost:8080/<slug>/", "out": "/tmp/rec", "fps": 30, "rate": 0.1667,
+//   "url": "http://localhost:8080/<slug>/" (a profile may override it with its own "url"), "out": "/tmp/rec", "fps": 30, "rate": 0.1667,
 //   "profiles": [{ "name": "desk", "viewport": {"width":1440,"height":900}, "dpr": 1, "mobile": false,
 //     "shots": [{ "name": "hero", "frames": 180, "fresh": true,
 //                 "from": 0 | "#id" | "#id+40" | "bottom", "to": ..., "ease": "inout", "holdStart": 20, "holdEnd": 20,
@@ -66,7 +66,7 @@ async function openPage(browser, prof) {
   const page = await ctx.newPage();
   await retryRoutes(page);
   await page.addInitScript((r) => { window.__wdTimeScale = r; }, RATE);
-  await page.goto(plan.url, { waitUntil: 'networkidle', timeout: 90000 });
+  await page.goto(prof.url || plan.url, { waitUntil: 'networkidle', timeout: 90000 });
   await page.addStyleTag({ content: 'html{scroll-behavior:auto!important} ::-webkit-scrollbar{display:none} *{scrollbar-width:none!important;caret-color:transparent}' });
   // load every image now (lazy ones too) and wait for fonts, retrying failed images
   for (let attempt = 0; attempt < 4; attempt++) {

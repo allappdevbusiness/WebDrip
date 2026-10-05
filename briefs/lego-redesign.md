@@ -313,3 +313,18 @@ The brief's main CTA line is used; the backup line wasn't needed. No VO runs at 
 3. Avoid wide desktop overviews below about 0.9× scale. Ask for one readable framing per beat, or larger card type, if the grid must read on a phone.
 
 **One next experiment:** compare this sparse-VO, interface-led format against a music-only cut of the same footage, once both have real retention data.
+
+### Version 2: 30-second redesign cut (Sourav's change request, 2026-10-05)
+
+After the 36-second video was posted, Sourav asked for a stronger page and a tighter story. The hero was rebuilt and the video re-cut to 30 seconds:
+- **Hero:** a wall of blocks. A big uppercase "What will you build next?" block, and large product cutouts on coloured tiles (Gaming: Mario Kart and Game Boy; Display: Book Nook; Seasonal: Holiday House). Each tile jumps to its interest.
+- **Motion:** on load, every block drops and snaps into place; later sections assemble the same way as they scroll in. Reduced motion and no-JS show the page at once. The unofficial notice bar is lighter but stays.
+- **Structure:**
+  - 0–2 s: the finished hero, "We imagined a new LEGO homepage."
+  - 2–8.4 s: the page assembling, a pull-back reveal, then "Find my next build" and the sets section assembling.
+  - 8–16 s: Gaming selected at 10.8 s, two gaming sets.
+  - 16–24 s: a large phone, a close-up of the Gaming tile as it is tapped, then a bigger phone and a close-up of the two gaming sets.
+  - 24–30 s: "Want a website with this much personality?" with Book a meeting and getwebdrip.com dropping in like blocks.
+- **Sound:** Outliers stems (original 24.25–40.25 s, 48.25–56.25 s and 64.25–70.25 s, so the bass lands at 8.0 s and the breakdown chord at 24.0 s). Epidemic brick snaps on each block landing, UI clicks on the two desktop clicks, a touchscreen tap on the phone, two air whooshes and the mallet resolve. Kokoro af_heart at 1.0 for five lines.
+- **The quick-view dialogs are no longer in the video** (still on the site). The overlay is one 22 px line, "Unofficial WebDrip concept · Not affiliated with LEGO", in every frame.
+- **Checks:** Playwright 24/24 on desktop and iPhone 13; alignment 70/70 stills; 900 frames, −14.2 LUFS, −2.4 dBFS peak; no still stretches; the final-mix transcript matches the script.

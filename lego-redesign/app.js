@@ -217,7 +217,9 @@
       var finish = function () { root.classList.remove('wd-anim', 'wd-go'); root.classList.add('wd-built'); };
       if (last) last.addEventListener('animationend', finish, { once: true }); else finish();
     };
-    if (document.readyState === 'complete') go(); else window.addEventListener('load', go, { once: true });
+    // ?hold keeps the blocks waiting so a screen recorder can start the assembly on a chosen frame (window.__wdBuild()).
+    if (/[?&]hold\b/.test(location.search)) window.__wdBuild = go;
+    else if (document.readyState === 'complete') go(); else window.addEventListener('load', go, { once: true });
   }
 
   /* ---------- Hero tiles jump to their interest ---------- */

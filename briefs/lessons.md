@@ -25,7 +25,7 @@ What worked, what didn't, what to try next. Merge repeats; newest insight wins. 
 
 ## Tooling and posting
 16. `Animation.setPlaybackRate` also slows `requestAnimationFrame` timestamps, while `performance.now()` keeps real time. Page JS must drive animations from rAF timestamps only, or smooth scrolls stall in recordings. `rec.js` only drives the scroll itself when a shot's `from` ≠ `to`.
-17. Chromium proxy needs `bypass: '<-loopback>,localhost,127.0.0.1'` or local pages return 405. Never `pkill -f` a pattern that also appears in your own command line.
+17. Page-load animations play 12× slower inside the recorder (it sets the CDP playback rate before settleMs), so a "finished" take can still be assembling. Hold load animations behind a URL flag (`?hold` → `window.__wdBuild()`) and start them on a chosen frame; use the assembled end of that take as the finished view. Chromium proxy needs `bypass: '<-loopback>,localhost,127.0.0.1'` or local pages return 405. Never `pkill -f` a pattern that also appears in your own command line.
 18. Background chains (`a && cd x && curl … &`) lose the `cd`. Use absolute output paths so audio never lands in the repo. Don't name a Python script after a stdlib module (`struct.py`).
 19. The alignment checker must measure after web fonts load (the box logger now waits for the font promise), or titles measure at fallback width and fail.
 20. Buffer TikTok "large number of posts… wait 24 hours" is a final error; don't retry in the same run. Check brand names against `topics-log.json` and `sites/` too.

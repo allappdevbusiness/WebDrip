@@ -67,6 +67,25 @@
     "fb_post_url": "https://www.facebook.com/reel/1615690343613725/",
     "tiktok_post_url": "https://tiktok.com/@getwebdrip/video/7692890207183457549",
     "fb_sent_at": "2026-10-04T19:02:36Z",
-    "tiktok_sent_at": "2026-10-04T19:04:52Z"
+    "tiktok_sent_at": "2026-10-04T19:04:52Z",
+    "v2": {
+      "status": "awaiting_approval",
+      "requested_by": "Sourav (in session)",
+      "video_length": 30,
+      "preview_url_facebook": "https://pub-027038837b0f4c1bb96993e264c3509a.r2.dev/lego-redesign/v2/video.mp4",
+      "preview_url_tiktok": "https://pub-027038837b0f4c1bb96993e264c3509a.r2.dev/lego-redesign/v2/video-tiktok.mp4",
+      "preview_sent_at": "2026-10-05T02:11:15Z",
+      "structure": "0-3 hook, 3-10 block assembly + reveal, 10-16 Gaming, 16-24 large mobile, 24-30 CTA",
+      "voice": "Kokoro af_heart",
+      "music": "Outliers (Gridded) full + stems",
+      "sfx": "Epidemic brick snaps, UI clicks, touchscreen tap, air, mallet resolve",
+      "checks": {
+        "playwright": "24/24",
+        "alignment": "70/70",
+        "loudness": "-14.2 LUFS, -2.4 dBFS peak",
+        "frames": 900
+      },
+      "videos_deleted": false
+    }
   }
 ]
