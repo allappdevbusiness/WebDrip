@@ -1,0 +1,19 @@
+{
+  "name": "marlowick-that-way-tiktok-40s",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts MarlowickThatWayTikTok40 out/render-raw.mp4 --codec=h264 --pixel-format=yuv420p --audio-codec=aac --audio-bitrate=320k --crf=16 --x264-preset=slow --browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell --concurrency=4 && bash scripts/finish.sh"
+  },
+  "dependencies": {
+    "@playwright/test": "1.56.1",
+    "@remotion/cli": "4.0.532",
+    "@remotion/renderer": "4.0.532",
+    "@remotion/bundler": "4.0.532",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.532",
+    "typescript": "5.6.3",
+    "@types/react": "18.3.12"
+  }
+}

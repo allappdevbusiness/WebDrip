@@ -1,0 +1,9 @@
+node_modules/
+out/review/
+out/render-raw.mp4
+# Licensed Epidemic Sound audio stays local (this repository is public). Rebuild with the steps in edit-notes.md.
+audio-src/
+public/audio/*.wav
+public/audio/sfx/*.wav
+# Recorded interaction frames are rebuilt from public/rec/*.mp4 by scripts/extract-rec.sh
+public/rec/*/

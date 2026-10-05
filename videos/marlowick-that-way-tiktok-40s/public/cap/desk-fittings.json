@@ -1,0 +1,16 @@
+{
+ "name": "desk-fittings",
+ "viewport": {
+  "width": 1440,
+  "height": 900
+ },
+ "scrollY": 5430,
+ "rects": {
+  "#fittings h2": {
+   "x": 400,
+   "y": 160.8125,
+   "w": 640,
+   "h": 101.75
+  }
+ }
+}

@@ -1,0 +1,25 @@
+{
+  "url": "http://127.0.0.1:8080/automation-v2/websites/marlowick/",
+  "out": "public/rec",
+  "fps": 60,
+  "rate": 0.1,
+  "profiles": [
+    { "name": "mob", "viewport": { "width": 390, "height": 844 }, "dpr": 3, "mobile": true,
+      "shots": [
+        { "name": "menu", "frames": 120, "fresh": true, "from": 0, "to": 0,
+          "actions": [ { "frame": 0, "type": "eval", "value": "new Promise(r => setTimeout(r, 2500))" },
+                       { "frame": 30, "type": "tap", "selector": "#burger" },
+                       { "frame": 100, "type": "probe", "label": "menu", "selectors": ["#burger", "#mobileMenu a[href=\"#suits\"]", "#mobileMenu a.wd-btn"] } ] },
+        { "name": "book", "frames": 150, "fresh": true, "from": 0, "to": "#visit-76", "holdStart": 36, "holdEnd": 54, "ease": "inout",
+          "actions": [ { "frame": 0, "type": "eval", "value": "new Promise(r => setTimeout(r, 2500))" },
+                       { "frame": 30, "type": "tap", "selector": ".wd-hero-copy a[href=\"#visit\"]" },
+                       { "frame": 140, "type": "probe", "label": "arrive", "selectors": ["#visitTitle", "#bookForm", "#occasion"] } ] },
+        { "name": "occasion", "frames": 150, "from": "#visit-76", "to": "#bookForm-150", "holdStart": 6, "holdEnd": 110, "ease": "inout",
+          "actions": [ { "frame": 0, "type": "eval", "value": "new Promise(r => setTimeout(r, 1500))" },
+                       { "frame": 50, "type": "probe", "label": "before", "selectors": ["#occasion", "#bookForm"] },
+                       { "frame": 60, "type": "focus", "selector": "#occasion" },
+                       { "frame": 66, "type": "select", "selector": "#occasion", "value": "Black tie" },
+                       { "frame": 140, "type": "probe", "label": "after", "selectors": ["#occasion", "#bookForm"] } ] }
+      ] }
+  ]
+}

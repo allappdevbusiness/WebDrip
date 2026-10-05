@@ -1,0 +1,120 @@
+{
+ "integrated_lufs": -14.0,
+ "true_peak_dbtp_4x": -1.89,
+ "duration_s": 40.0,
+ "cues": [
+  {
+   "id": "tick-1",
+   "file": "sfx/ui-click-hard-short.wav",
+   "frame": 6,
+   "gain_db": -9,
+   "align": "onset",
+   "note": "Payout: $300 snaps in",
+   "start_s": 0.1,
+   "anchor_offset_s": 0.0,
+   "len_s": 0.5
+  },
+  {
+   "id": "tick-2",
+   "file": "sfx/ui-click-hard-short.wav",
+   "frame": 18,
+   "gain_db": -9,
+   "align": "onset",
+   "note": "Opus + Astra cost: $24 snaps in",
+   "start_s": 0.3,
+   "anchor_offset_s": 0.0,
+   "len_s": 0.5
+  },
+  {
+   "id": "lapel-swish",
+   "file": "sfx/cloth-flap-whoosh-02.wav",
+   "frame": 180,
+   "gain_db": -11,
+   "align": "peak",
+   "trim_s": 1.6,
+   "note": "lapel planes open on the hook downbeat; music carries the impact",
+   "start_s": 2.6516,
+   "anchor_offset_s": 0.3484,
+   "len_s": 1.948
+  },
+  {
+   "id": "shutter-1",
+   "file": "sfx/camera-shutter-panasonic.wav",
+   "frame": 443,
+   "gain_db": -12,
+   "align": "onset",
+   "note": "photo match cut 1 (Navy Two-Piece)",
+   "start_s": 7.3313,
+   "anchor_offset_s": 0.0521,
+   "len_s": 0.634
+  },
+  {
+   "id": "shutter-2",
+   "file": "sfx/camera-shutter-panasonic.wav",
+   "frame": 600,
+   "gain_db": -12,
+   "align": "onset",
+   "note": "photo match cut 2 (Dinner Suit), on a bar",
+   "start_s": 9.9479,
+   "anchor_offset_s": 0.0521,
+   "len_s": 0.634
+  },
+  {
+   "id": "typing",
+   "file": "sfx/keyboard-typing-short-01.wav",
+   "frame": 880,
+   "gain_db": -16,
+   "align": "onset",
+   "trim_s": 0.95,
+   "note": "Opus types the Hero.jsx excerpt",
+   "start_s": 14.6456,
+   "anchor_offset_s": 0.0211,
+   "len_s": 0.971
+  },
+  {
+   "id": "cloth-guide",
+   "file": "sfx/cloth-movement-jacket.wav",
+   "frame": 1050,
+   "gain_db": -15,
+   "align": "peak",
+   "note": "measuring guide swaps desktop for mobile",
+   "start_s": 16.9391,
+   "anchor_offset_s": 0.5609,
+   "len_s": 1.017
+  },
+  {
+   "id": "tap-burger",
+   "file": "sfx/touchscreen-tap-hard-02.wav",
+   "frame": 1178,
+   "gain_db": -14,
+   "align": "onset",
+   "note": "tap on the real menu button",
+   "start_s": 19.6286,
+   "anchor_offset_s": 0.0047,
+   "len_s": 0.12
+  },
+  {
+   "id": "tap-book",
+   "file": "sfx/touchscreen-tap-hard-02.wav",
+   "frame": 1389,
+   "gain_db": -11,
+   "align": "onset",
+   "note": "tap on Book a fitting (on beat)",
+   "start_s": 23.1453,
+   "anchor_offset_s": 0.0047,
+   "len_s": 0.12
+  },
+  {
+   "id": "select-tick",
+   "file": "sfx/ui-click-onoff-small-03.wav",
+   "frame": 1573,
+   "gain_db": -13,
+   "align": "onset",
+   "trim_s": 0.35,
+   "note": "Black tie selected",
+   "start_s": 26.2108,
+   "anchor_offset_s": 0.0059,
+   "len_s": 0.356
+  }
+ ]
+}

@@ -1,0 +1,765 @@
+{
+ "track": {
+  "title": "That Way",
+  "artist": "Nbhd Nick",
+  "version": "Full mix (vocal)",
+  "epidemic_id": "58bb6bb2-d6b6-41e1-a09f-ef99b215e39b",
+  "url": "https://www.epidemicsound.com/music/tracks/58bb6bb2-d6b6-41e1-a09f-ef99b215e39b/",
+  "source_duration_s": 182.334,
+  "sample_rate": 48000,
+  "catalog_bpm": 137
+ },
+ "measured": {
+  "bpm": 137.0,
+  "beat_s": 0.43795620437956206,
+  "grid_first_beat_src_s": 0.012,
+  "meter": "4/4, half-time trap feel: kick on beat 1, snare/clap on beat 3",
+  "downbeats": "beat index % 4 == 0",
+  "hook_accent_src_s": 28.03,
+  "sections_src_s": {
+   "intro_no_drums": [
+    0,
+    14.03
+   ],
+   "verse1_hook_lines": [
+    14.03,
+    28.04
+   ],
+   "chorus1": [
+    28.04,
+    42.05
+   ],
+   "verse2": [
+    42.05,
+    70.24
+   ],
+   "breakdown": [
+    70.24,
+    84.09
+   ],
+   "outro_no_drums": [
+    168.19,
+    182.33
+   ]
+  }
+ },
+ "excerpt_choice": {
+  "chosen": "A: \"Put my bros on the payroll\" -> chorus 1 (\"Out of sight, out of mind, I'm away\" x4) -> verse 2 up to \"I can make ten in a day\" -> song outro",
+  "rejected": "B: breakdown -> hook 2 at 84.09 -> chorus 2 -> bridge \"Anything I do, I do it\". Heavier drums, but video 0 would start inside \"Take care of my mommy\" and its 40 s out point falls inside \"Bought a whole house\"; it also needed an off-grid exit edit.",
+  "lyric_check": "Lyrics transcribed from the vocal stem preview (faster-whisper small.en) and checked by section. The excerpt avoids the breakdown (70-84 s) and its \"robbery\" / slang lines."
+ },
+ "segments": [
+  {
+   "video_in": 0.0,
+   "video_out": 2.528,
+   "src_in": 24.592,
+   "src_out": 27.12,
+   "crossfade_in_s": 0.03,
+   "gain_db": 0
+  },
+  {
+   "video_in": 2.528,
+   "video_out": 34.47,
+   "src_in": 27.558,
+   "src_out": 59.5,
+   "crossfade_in_s": 0.015,
+   "gain_db": 0
+  },
+  {
+   "video_in": 34.47,
+   "video_out": 40.0,
+   "src_in": 168.113,
+   "src_out": 173.643,
+   "crossfade_in_s": 0.04,
+   "gain_db": 5.0
+  }
+ ],
+ "edits": [
+  {
+   "video_s": 2.528,
+   "type": "one-beat drop",
+   "detail": "removed source 27.120-27.558 (beat 3 of the bar before the hook) inside a held vowel; splice points sit just before two matching snare hits; 15 ms equal-power crossfade"
+  },
+  {
+   "video_s": 34.47,
+   "type": "jump to outro",
+   "detail": "after \"...ten in a day\" (vocal gap 59.30-59.50) to the outro start at 168.113 (end of the final chorus's reverb tail); 40 ms crossfade; outro lifted +5 dB over one bar"
+  },
+  {
+   "video_s": 39.25,
+   "type": "fade",
+   "detail": "0.75 s cosine fade to the last sample; no syllable is cut (outro has no vocal before 180.9 s)"
+  }
+ ],
+ "markers": {
+  "hook_accent": {
+   "video_s": 3.0,
+   "frame": 180,
+   "note": "lapel planes open on this frame (website reveal)"
+  },
+  "scenes_frames": {
+   "hook": [
+    0,
+    180
+   ],
+   "reveal": [
+    180,
+    443
+   ],
+   "detail": [
+    443,
+    706
+   ],
+   "team": [
+    706,
+    1021
+   ],
+   "mobile": [
+    1021,
+    1336
+   ],
+   "tap": [
+    1336,
+    1626
+   ],
+   "value": [
+    1626,
+    2020
+   ],
+   "close": [
+    2020,
+    2400
+   ]
+  },
+  "events_frames": {
+   "hookFigure1": 6,
+   "hookFigure2": 18,
+   "lapelClose": 164,
+   "lapelOpen": 180,
+   "revealTitleOut": 300,
+   "matchCut1": 443,
+   "matchCut2": 600,
+   "astraNote1": 785,
+   "astraNote2": 838,
+   "opusIn": 864,
+   "codeType": [
+    878,
+    944
+   ],
+   "uiResolve": 944,
+   "gridResolve": 975,
+   "guideSweep": [
+    1040,
+    1086
+   ],
+   "burgerTap": 1178,
+   "menuRecStart": 1148,
+   "lapelWipe": 1322,
+   "bookRecStart": 1359,
+   "bookTap": 1389,
+   "occasionRecStart": 1507,
+   "occasionPress": 1567,
+   "occasionSelect": 1573,
+   "browse": 1626,
+   "compare": 1731,
+   "enquire": 1836,
+   "beauty": 1941,
+   "leadIn": 2020,
+   "ctaStart": 2068,
+   "ctaComplete": 2100,
+   "loopReturn": 2340
+  },
+  "sfx_frames": {
+   "tick-1": 6,
+   "tick-2": 18,
+   "lapel-swish": 180,
+   "shutter-1": 443,
+   "shutter-2": 600,
+   "typing": 880,
+   "cloth-guide": 1050,
+   "tap-burger": 1178,
+   "tap-book": 1389,
+   "select-tick": 1573
+  },
+  "lyric_holds": [
+   {
+    "video_s": [
+     0.35,
+     2.75
+    ],
+    "lyric": "Put my bros on the payroll"
+   },
+   {
+    "video_s": [
+     3.0,
+     17.0
+    ],
+    "lyric": "Out of sight, out of mind, I'm away (x4) - chorus under reveal, design detail and Astra + Opus"
+   },
+   {
+    "video_s": [
+     16.4,
+     34.4
+    ],
+    "lyric": "verse 2, ending \"...I can make ten in a day\" before the CTA"
+   },
+   {
+    "video_s": [
+     34.47,
+     40.0
+    ],
+    "lyric": "instrumental outro under the CTA"
+   }
+  ],
+  "bars": [
+   {
+    "beat": 64,
+    "bar_beat": 1,
+    "video_s": 3.0,
+    "frame": 180
+   },
+   {
+    "beat": 68,
+    "bar_beat": 1,
+    "video_s": 4.7518,
+    "frame": 285
+   },
+   {
+    "beat": 72,
+    "bar_beat": 1,
+    "video_s": 6.5036,
+    "frame": 390
+   },
+   {
+    "beat": 76,
+    "bar_beat": 1,
+    "video_s": 8.2555,
+    "frame": 495
+   },
+   {
+    "beat": 80,
+    "bar_beat": 1,
+    "video_s": 10.0073,
+    "frame": 600
+   },
+   {
+    "beat": 84,
+    "bar_beat": 1,
+    "video_s": 11.7591,
+    "frame": 706
+   },
+   {
+    "beat": 88,
+    "bar_beat": 1,
+    "video_s": 13.5109,
+    "frame": 811
+   },
+   {
+    "beat": 92,
+    "bar_beat": 1,
+    "video_s": 15.2628,
+    "frame": 916
+   },
+   {
+    "beat": 96,
+    "bar_beat": 1,
+    "video_s": 17.0146,
+    "frame": 1021
+   },
+   {
+    "beat": 100,
+    "bar_beat": 1,
+    "video_s": 18.7664,
+    "frame": 1126
+   },
+   {
+    "beat": 104,
+    "bar_beat": 1,
+    "video_s": 20.5182,
+    "frame": 1231
+   },
+   {
+    "beat": 108,
+    "bar_beat": 1,
+    "video_s": 22.2701,
+    "frame": 1336
+   },
+   {
+    "beat": 112,
+    "bar_beat": 1,
+    "video_s": 24.0219,
+    "frame": 1441
+   },
+   {
+    "beat": 116,
+    "bar_beat": 1,
+    "video_s": 25.7737,
+    "frame": 1546
+   },
+   {
+    "beat": 120,
+    "bar_beat": 1,
+    "video_s": 27.5255,
+    "frame": 1652
+   },
+   {
+    "beat": 124,
+    "bar_beat": 1,
+    "video_s": 29.2774,
+    "frame": 1757
+   },
+   {
+    "beat": 128,
+    "bar_beat": 1,
+    "video_s": 31.0292,
+    "frame": 1862
+   },
+   {
+    "beat": 132,
+    "bar_beat": 1,
+    "video_s": 32.781,
+    "frame": 1967
+   }
+  ],
+  "beats": [
+   {
+    "beat": 63,
+    "bar_beat": 4,
+    "video_s": 2.562,
+    "frame": 154
+   },
+   {
+    "beat": 64,
+    "bar_beat": 1,
+    "video_s": 3.0,
+    "frame": 180
+   },
+   {
+    "beat": 65,
+    "bar_beat": 2,
+    "video_s": 3.438,
+    "frame": 206
+   },
+   {
+    "beat": 66,
+    "bar_beat": 3,
+    "video_s": 3.8759,
+    "frame": 233
+   },
+   {
+    "beat": 67,
+    "bar_beat": 4,
+    "video_s": 4.3139,
+    "frame": 259
+   },
+   {
+    "beat": 68,
+    "bar_beat": 1,
+    "video_s": 4.7518,
+    "frame": 285
+   },
+   {
+    "beat": 69,
+    "bar_beat": 2,
+    "video_s": 5.1898,
+    "frame": 311
+   },
+   {
+    "beat": 70,
+    "bar_beat": 3,
+    "video_s": 5.6277,
+    "frame": 338
+   },
+   {
+    "beat": 71,
+    "bar_beat": 4,
+    "video_s": 6.0657,
+    "frame": 364
+   },
+   {
+    "beat": 72,
+    "bar_beat": 1,
+    "video_s": 6.5036,
+    "frame": 390
+   },
+   {
+    "beat": 73,
+    "bar_beat": 2,
+    "video_s": 6.9416,
+    "frame": 416
+   },
+   {
+    "beat": 74,
+    "bar_beat": 3,
+    "video_s": 7.3796,
+    "frame": 443
+   },
+   {
+    "beat": 75,
+    "bar_beat": 4,
+    "video_s": 7.8175,
+    "frame": 469
+   },
+   {
+    "beat": 76,
+    "bar_beat": 1,
+    "video_s": 8.2555,
+    "frame": 495
+   },
+   {
+    "beat": 77,
+    "bar_beat": 2,
+    "video_s": 8.6934,
+    "frame": 522
+   },
+   {
+    "beat": 78,
+    "bar_beat": 3,
+    "video_s": 9.1314,
+    "frame": 548
+   },
+   {
+    "beat": 79,
+    "bar_beat": 4,
+    "video_s": 9.5693,
+    "frame": 574
+   },
+   {
+    "beat": 80,
+    "bar_beat": 1,
+    "video_s": 10.0073,
+    "frame": 600
+   },
+   {
+    "beat": 81,
+    "bar_beat": 2,
+    "video_s": 10.4453,
+    "frame": 627
+   },
+   {
+    "beat": 82,
+    "bar_beat": 3,
+    "video_s": 10.8832,
+    "frame": 653
+   },
+   {
+    "beat": 83,
+    "bar_beat": 4,
+    "video_s": 11.3212,
+    "frame": 679
+   },
+   {
+    "beat": 84,
+    "bar_beat": 1,
+    "video_s": 11.7591,
+    "frame": 706
+   },
+   {
+    "beat": 85,
+    "bar_beat": 2,
+    "video_s": 12.1971,
+    "frame": 732
+   },
+   {
+    "beat": 86,
+    "bar_beat": 3,
+    "video_s": 12.635,
+    "frame": 758
+   },
+   {
+    "beat": 87,
+    "bar_beat": 4,
+    "video_s": 13.073,
+    "frame": 784
+   },
+   {
+    "beat": 88,
+    "bar_beat": 1,
+    "video_s": 13.5109,
+    "frame": 811
+   },
+   {
+    "beat": 89,
+    "bar_beat": 2,
+    "video_s": 13.9489,
+    "frame": 837
+   },
+   {
+    "beat": 90,
+    "bar_beat": 3,
+    "video_s": 14.3869,
+    "frame": 863
+   },
+   {
+    "beat": 91,
+    "bar_beat": 4,
+    "video_s": 14.8248,
+    "frame": 889
+   },
+   {
+    "beat": 92,
+    "bar_beat": 1,
+    "video_s": 15.2628,
+    "frame": 916
+   },
+   {
+    "beat": 93,
+    "bar_beat": 2,
+    "video_s": 15.7007,
+    "frame": 942
+   },
+   {
+    "beat": 94,
+    "bar_beat": 3,
+    "video_s": 16.1387,
+    "frame": 968
+   },
+   {
+    "beat": 95,
+    "bar_beat": 4,
+    "video_s": 16.5766,
+    "frame": 995
+   },
+   {
+    "beat": 96,
+    "bar_beat": 1,
+    "video_s": 17.0146,
+    "frame": 1021
+   },
+   {
+    "beat": 97,
+    "bar_beat": 2,
+    "video_s": 17.4526,
+    "frame": 1047
+   },
+   {
+    "beat": 98,
+    "bar_beat": 3,
+    "video_s": 17.8905,
+    "frame": 1073
+   },
+   {
+    "beat": 99,
+    "bar_beat": 4,
+    "video_s": 18.3285,
+    "frame": 1100
+   },
+   {
+    "beat": 100,
+    "bar_beat": 1,
+    "video_s": 18.7664,
+    "frame": 1126
+   },
+   {
+    "beat": 101,
+    "bar_beat": 2,
+    "video_s": 19.2044,
+    "frame": 1152
+   },
+   {
+    "beat": 102,
+    "bar_beat": 3,
+    "video_s": 19.6423,
+    "frame": 1179
+   },
+   {
+    "beat": 103,
+    "bar_beat": 4,
+    "video_s": 20.0803,
+    "frame": 1205
+   },
+   {
+    "beat": 104,
+    "bar_beat": 1,
+    "video_s": 20.5182,
+    "frame": 1231
+   },
+   {
+    "beat": 105,
+    "bar_beat": 2,
+    "video_s": 20.9562,
+    "frame": 1257
+   },
+   {
+    "beat": 106,
+    "bar_beat": 3,
+    "video_s": 21.3942,
+    "frame": 1284
+   },
+   {
+    "beat": 107,
+    "bar_beat": 4,
+    "video_s": 21.8321,
+    "frame": 1310
+   },
+   {
+    "beat": 108,
+    "bar_beat": 1,
+    "video_s": 22.2701,
+    "frame": 1336
+   },
+   {
+    "beat": 109,
+    "bar_beat": 2,
+    "video_s": 22.708,
+    "frame": 1362
+   },
+   {
+    "beat": 110,
+    "bar_beat": 3,
+    "video_s": 23.146,
+    "frame": 1389
+   },
+   {
+    "beat": 111,
+    "bar_beat": 4,
+    "video_s": 23.5839,
+    "frame": 1415
+   },
+   {
+    "beat": 112,
+    "bar_beat": 1,
+    "video_s": 24.0219,
+    "frame": 1441
+   },
+   {
+    "beat": 113,
+    "bar_beat": 2,
+    "video_s": 24.4599,
+    "frame": 1468
+   },
+   {
+    "beat": 114,
+    "bar_beat": 3,
+    "video_s": 24.8978,
+    "frame": 1494
+   },
+   {
+    "beat": 115,
+    "bar_beat": 4,
+    "video_s": 25.3358,
+    "frame": 1520
+   },
+   {
+    "beat": 116,
+    "bar_beat": 1,
+    "video_s": 25.7737,
+    "frame": 1546
+   },
+   {
+    "beat": 117,
+    "bar_beat": 2,
+    "video_s": 26.2117,
+    "frame": 1573
+   },
+   {
+    "beat": 118,
+    "bar_beat": 3,
+    "video_s": 26.6496,
+    "frame": 1599
+   },
+   {
+    "beat": 119,
+    "bar_beat": 4,
+    "video_s": 27.0876,
+    "frame": 1625
+   },
+   {
+    "beat": 120,
+    "bar_beat": 1,
+    "video_s": 27.5255,
+    "frame": 1652
+   },
+   {
+    "beat": 121,
+    "bar_beat": 2,
+    "video_s": 27.9635,
+    "frame": 1678
+   },
+   {
+    "beat": 122,
+    "bar_beat": 3,
+    "video_s": 28.4015,
+    "frame": 1704
+   },
+   {
+    "beat": 123,
+    "bar_beat": 4,
+    "video_s": 28.8394,
+    "frame": 1730
+   },
+   {
+    "beat": 124,
+    "bar_beat": 1,
+    "video_s": 29.2774,
+    "frame": 1757
+   },
+   {
+    "beat": 125,
+    "bar_beat": 2,
+    "video_s": 29.7153,
+    "frame": 1783
+   },
+   {
+    "beat": 126,
+    "bar_beat": 3,
+    "video_s": 30.1533,
+    "frame": 1809
+   },
+   {
+    "beat": 127,
+    "bar_beat": 4,
+    "video_s": 30.5912,
+    "frame": 1835
+   },
+   {
+    "beat": 128,
+    "bar_beat": 1,
+    "video_s": 31.0292,
+    "frame": 1862
+   },
+   {
+    "beat": 129,
+    "bar_beat": 2,
+    "video_s": 31.4672,
+    "frame": 1888
+   },
+   {
+    "beat": 130,
+    "bar_beat": 3,
+    "video_s": 31.9051,
+    "frame": 1914
+   },
+   {
+    "beat": 131,
+    "bar_beat": 4,
+    "video_s": 32.3431,
+    "frame": 1941
+   },
+   {
+    "beat": 132,
+    "bar_beat": 1,
+    "video_s": 32.781,
+    "frame": 1967
+   },
+   {
+    "beat": 133,
+    "bar_beat": 2,
+    "video_s": 33.219,
+    "frame": 1993
+   },
+   {
+    "beat": 134,
+    "bar_beat": 3,
+    "video_s": 33.6569,
+    "frame": 2019
+   },
+   {
+    "beat": 135,
+    "bar_beat": 4,
+    "video_s": 34.0949,
+    "frame": 2046
+   }
+  ]
+ }
+}
