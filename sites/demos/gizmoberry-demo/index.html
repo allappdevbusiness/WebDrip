@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gizmoberry Robot Club — little hands, big inventions</title>
+<meta name="description" content="Gizmoberry is a playful after-school robot club for kids aged 5–14: build, wire and code real robots in small, friendly classes. A WebDrip concept site for a fictional brand.">
+<meta name="theme-color" content="#F3F0FF">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Gizmoberry Robot Club">
+<meta property="og:title" content="Gizmoberry Robot Club — little hands, big inventions">
+<meta property="og:description" content="A playful after-school robot club for kids aged 5–14. Concept website by WebDrip.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1678225867994-e7a5b071ebfd?ixid=M3wxMDYxOTEwfDB8MXxhbGx8fHx8fHx8fHwxNzkwOTg0NjUwfA&ixlib=rb-4.1.0&w=2400&q=80">
+<meta property="og:url" content="https://webdripsamples.netlify.app/sites/demos/gizmoberry-demo/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gizmoberry Robot Club — little hands, big inventions">
+<meta name="twitter:description" content="A playful after-school robot club for kids aged 5–14. Concept website by WebDrip.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1678225867994-e7a5b071ebfd?ixid=M3wxMDYxOTEwfDB8MXxhbGx8fHx8fHx8fHwxNzkwOTg0NjUwfA&ixlib=rb-4.1.0&w=2400&q=80">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='7' width='26' height='20' rx='9' fill='%237C5CFF'/%3E%3Ccircle cx='12' cy='17' r='3' fill='%23fff'/%3E%3Ccircle cx='20' cy='17' r='3' fill='%23fff'/%3E%3Ccircle cx='16' cy='4' r='2.5' fill='%23FF7A59'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Montserrat:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  // JS opts elements into their hidden "before" state; if the main script never runs, show everything.
+  document.documentElement.classList.add('js');
+  setTimeout(function () { if (!window.__gzReady) document.documentElement.classList.add('reveal-all'); }, 2500);
+</script>
+<style>
+  :root{
+    --bg:#F3F0FF; --surface:#FFFFFF; --ink:#1C2A6B; --ink-soft:#44508A;
+    --primary:#2F5BEA; --primary-deep:#1E40C8; --berry:#7C5CFF; --coral:#FF7A59; --sun:#FFC94D; --mint:#4ADE9A;
+    --lilac:#E8E1FF; --mintt:#DDF7EA; --peach:#FFE5DA; --butter:#FFF3C9; --sky:#DCE8FF;
+    --r-lg:32px; --r-md:22px; --r-sm:14px;
+    --clay: 0 22px 44px -18px rgba(28,42,107,.30), 0 6px 14px -6px rgba(28,42,107,.14), inset 0 -8px 16px rgba(28,42,107,.08), inset 0 8px 14px rgba(255,255,255,.95);
+    --clay-lift: 0 34px 60px -20px rgba(28,42,107,.36), 0 10px 20px -8px rgba(28,42,107,.16), inset 0 -8px 16px rgba(28,42,107,.08), inset 0 8px 14px rgba(255,255,255,.95);
+    --ease: cubic-bezier(.22,1,.36,1);
+  }
+  [hidden]{display:none!important}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:Montserrat,system-ui,sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;overflow-x:clip}
+  .display{font-family:Poppins,system-ui,sans-serif;letter-spacing:-.025em}
+  .mono{font-family:"JetBrains Mono",ui-monospace,monospace;letter-spacing:.04em}
+  :focus-visible{outline:3px solid var(--primary);outline-offset:3px;border-radius:12px;animation:ring .5s var(--ease)}
+  @keyframes ring{from{outline-offset:9px;outline-color:rgba(47,91,234,0)}to{outline-offset:3px}}
+  .skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ink);color:#fff;padding:12px 16px;border-radius:12px}
+  .skip:focus{top:12px}
+
+  /* progress */
+  #progress{position:fixed;inset:0 0 auto 0;height:4px;z-index:70;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--berry),var(--coral),var(--sun))}
+
+  /* nav */
+  #nav{position:fixed;inset:12px 12px auto 12px;z-index:60;transition:transform .5s var(--ease)}
+  #nav .bar{background:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.9);box-shadow:var(--clay);border-radius:999px;transition:padding .4s var(--ease),background .4s}
+  @media (min-width:768px){#nav .bar{-webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4)}}
+  #nav.scrolled .bar{background:rgba(255,255,255,.92);padding-top:4px;padding-bottom:4px}
+  .navlink{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:0 4px;font-weight:600;color:var(--ink)}
+  .navlink::after,.ulink::after{content:"";position:absolute;left:4px;right:4px;bottom:9px;height:3px;border-radius:3px;background:var(--coral);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
+  .navlink:hover::after,.navlink:focus-visible::after,.ulink:hover::after{transform:scaleX(1);transform-origin:left}
+  .ulink{position:relative;display:inline-flex;align-items:center;min-height:44px;font-weight:700;color:var(--primary-deep)}
+  .ulink::after{left:0;right:0;bottom:8px}
+  #burger{width:48px;height:48px;border-radius:999px;background:var(--lilac);box-shadow:inset 0 -4px 8px rgba(28,42,107,.10),inset 0 4px 8px rgba(255,255,255,.9);position:relative}
+  #burger span{position:absolute;left:14px;right:14px;height:3px;border-radius:3px;background:var(--ink);transition:transform .35s var(--ease),opacity .2s}
+  #burger span:nth-child(1){top:16px}#burger span:nth-child(2){top:22.5px}#burger span:nth-child(3){top:29px}
+  #burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  #burger[aria-expanded="true"] span:nth-child(2){opacity:0;transform:scaleX(.2)}
+  #burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+  #mobileMenu{transform-origin:top center;max-height:calc(100vh - 96px);overflow-y:auto;overscroll-behavior:contain}
+  #mobileMenu:not([hidden]){animation:menuIn .42s var(--ease)}
+  @keyframes menuIn{from{opacity:0;transform:translateY(-14px) scale(.97)}to{opacity:1;transform:none}}
+  #mobileMenu a{opacity:1}
+  #mobileMenu:not([hidden]) a{animation:itemIn .5s var(--ease) both}
+  #mobileMenu:not([hidden]) li:nth-child(2) a{animation-delay:.05s}#mobileMenu:not([hidden]) li:nth-child(3) a{animation-delay:.1s}#mobileMenu:not([hidden]) li:nth-child(4) a{animation-delay:.15s}#mobileMenu:not([hidden]) li:nth-child(5) a{animation-delay:.2s}
+  @keyframes itemIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+  /* buttons */
+  .btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:52px;padding:0 26px;border-radius:999px;font-weight:700;overflow:hidden;isolation:isolate;transition:transform .35s var(--ease),box-shadow .35s var(--ease);will-change:transform;-webkit-tap-highlight-color:transparent}
+  .btn-primary{background:var(--primary);color:#fff;box-shadow:0 16px 30px -12px rgba(47,91,234,.7),inset 0 -6px 12px rgba(10,20,90,.28),inset 0 6px 10px rgba(255,255,255,.35)}
+  .btn-soft{background:#fff;color:var(--ink);box-shadow:var(--clay)}
+  .btn::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);transition:transform .8s var(--ease)}
+  .btn:hover::before{transform:translateX(120%)}
+  .btn:active{transform:scale(.96)!important}
+  .btn-sm{min-height:44px;padding:0 18px;font-size:.95rem}
+
+  /* hero */
+  #stage{position:fixed;inset:0;z-index:0;overflow:hidden;background:#2a54d8}
+  @media (pointer:fine){#stage{perspective:1200px}}
+  #heroImg{position:absolute;inset:-6%;width:112%;height:112%;max-width:none;object-fit:cover;transform-origin:50% 60%;will-change:transform}
+  #stage::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 40%,rgba(28,42,107,0) 30%,rgba(28,42,107,.45) 100%),linear-gradient(180deg,rgba(243,240,255,0) 60%,rgba(243,240,255,.85) 100%)}
+  #top{position:relative;z-index:1;min-height:100vh;min-height:100svh;overflow:hidden;overflow:clip}
+  .blob{position:absolute;border-radius:50%;filter:blur(2px);will-change:transform}
+  .float-a{animation:floatA 9s ease-in-out infinite}.float-b{animation:floatB 11s ease-in-out infinite}.float-c{animation:floatA 13s ease-in-out infinite reverse}
+  @keyframes floatA{0%,100%{translate:0 0}50%{translate:12px -18px}}
+  @keyframes floatB{0%,100%{translate:0 0 ;rotate:0deg}50%{translate:-14px 14px;rotate:14deg}}
+  .clay{background:var(--surface);border-radius:var(--r-lg);box-shadow:var(--clay)}
+  .glass-clay{background:rgba(255,255,255,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.95);border-radius:40px;box-shadow:var(--clay-lift)}
+  .line{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+  .line>span{display:inline-block}
+  .js .line>span{transform:translateY(110%)}
+  .js .intro-fade{opacity:0;transform:translateY(14px)}
+  .loaded .line>span{transform:none;transition:transform 1s var(--ease)}
+  .loaded .line:nth-child(2)>span{transition-delay:.12s}
+  .loaded .intro-fade{opacity:1;transform:none;transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,.35s)}
+  .js #nav{opacity:0;transform:translateY(-16px)}
+  .loaded #nav{opacity:1;transform:none;transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  .chip{display:inline-flex;align-items:center;gap:.5rem;padding:8px 14px;border-radius:999px;background:var(--lilac);font-weight:700;font-size:.8rem;color:var(--ink);box-shadow:inset 0 -3px 6px rgba(28,42,107,.08),inset 0 3px 6px rgba(255,255,255,.9)}
+  .hl{position:relative;white-space:nowrap;z-index:0}
+  .hl::before{content:"";position:absolute;left:-.08em;right:-.08em;bottom:.08em;height:.36em;border-radius:.2em;background:var(--sun);z-index:-1}
+
+  /* sections */
+  main{position:relative;z-index:2;overflow-x:hidden;overflow-x:clip;background:var(--bg);border-radius:48px 48px 0 0;box-shadow:0 -30px 60px -30px rgba(28,42,107,.35)}
+  .section-pad{padding:96px 0}
+  @media (max-width:767px){.section-pad{padding:72px 0}}
+  .card{position:relative;background:var(--surface);border-radius:var(--r-lg);box-shadow:var(--clay);transition:transform .45s var(--ease),box-shadow .45s var(--ease);-webkit-tap-highlight-color:transparent}
+  .card:hover{transform:translateY(-8px) rotate(-.4deg);box-shadow:var(--clay-lift)}
+  .card:active{transform:translateY(-2px) scale(.985)}
+  .card .ph{overflow:hidden;border-radius:24px;margin:10px 10px 0;aspect-ratio:4/3;background:var(--sky)}
+  .card .ph img{width:100%;height:100%;object-fit:cover;transform:translate3d(0,var(--py,0px),0) scale(var(--zoom,1.1));transition:transform .8s var(--ease);will-change:transform}
+  .card:hover .ph img{--zoom:1.17}
+  .blob[data-speed]{transform:translate3d(0,var(--py,0px),0)}
+  .tag{display:inline-flex;align-items:center;padding:6px 12px;border-radius:999px;font-size:.75rem;font-weight:700}
+  .price{font-family:Poppins,sans-serif;font-weight:800;font-size:1.5rem;letter-spacing:-.02em}
+  .step{border-radius:var(--r-lg);padding:28px;box-shadow:var(--clay)}
+  .num{display:grid;place-items:center;width:56px;height:56px;border-radius:20px;background:#fff;font-family:Poppins,sans-serif;font-weight:800;font-size:1.4rem;box-shadow:0 10px 20px -10px rgba(28,42,107,.4),inset 0 -4px 8px rgba(28,42,107,.08),inset 0 4px 8px rgba(255,255,255,.95)}
+  .stat{border-radius:26px;background:#fff;box-shadow:var(--clay);padding:20px 16px;text-align:center}
+
+  /* reveals (only when JS opted in) */
+  .js [data-reveal]{opacity:0;transition:opacity .8s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0ms)}
+  .js [data-reveal="up"]{transform:translateY(40px)}
+  .js [data-reveal="scale"]{transform:scale(.88) translateY(20px)}
+  .js [data-reveal="pop"]{transform:scale(.7) rotate(-4deg)}
+  .js [data-reveal="left"]{transform:translateX(-48px)}
+  .js [data-reveal="right"]{transform:translateX(48px)}
+  .js [data-reveal="tilt"]{transform:rotate(-3deg) translateY(36px) scale(.96)}
+  .js [data-reveal].in,.reveal-all [data-reveal]{opacity:1;transform:none}
+  .reveal-all .line>span,.reveal-all .intro-fade,.reveal-all #nav{opacity:1!important;transform:none!important}
+
+  /* spotlight */
+  #spotlight .frame{position:relative;overflow:hidden;border-radius:44px;box-shadow:var(--clay-lift);isolation:isolate}
+  #spotImg{width:100%;height:100%;object-fit:cover;transform:scale(1.12);animation:kenburns 22s ease-in-out infinite alternate}
+  @keyframes kenburns{from{transform:scale(1.12) translate(-2%,1%)}to{transform:scale(1.22) translate(2%,-2%)}}
+  .sweep{position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.28) 50%,transparent 65%);transform:translateX(-100%);animation:sweep 7s ease-in-out infinite}
+  @keyframes sweep{0%,20%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
+  .glow{position:absolute;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(255,201,77,.55),rgba(255,201,77,0) 70%);animation:glow 8s ease-in-out infinite}
+  @keyframes glow{0%,100%{opacity:.5;transform:scale(.9)}50%{opacity:1;transform:scale(1.1)}}
+  #spotlight.paused #spotImg,#spotlight.paused .sweep,#spotlight.paused .glow{animation-play-state:paused}
+
+  /* form */
+  .field{width:100%;min-height:52px;padding:12px 18px;border-radius:18px;background:#F7F5FF;border:2px solid transparent;color:var(--ink);font-weight:500;box-shadow:inset 0 3px 8px rgba(28,42,107,.10),inset 0 -2px 4px rgba(255,255,255,.9);transition:border-color .25s, box-shadow .25s}
+  .field:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 4px rgba(47,91,234,.18),inset 0 3px 8px rgba(28,42,107,.08)}
+  .field[aria-invalid="true"]{border-color:#C2410C;background:#FFF4EF}
+  .err{min-height:1.25rem;color:#B42318;font-size:.85rem;font-weight:600;margin-top:6px}
+  .shake{animation:shake .45s cubic-bezier(.36,.07,.19,.97)}
+  @keyframes shake{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(4px)}30%,50%,70%{transform:translateX(-7px)}40%,60%{transform:translateX(7px)}}
+  #formOk .check path{stroke-dasharray:40;stroke-dashoffset:40}
+  #formOk:not([hidden]) .check path{animation:draw .6s .15s var(--ease) forwards}
+  #formOk:not([hidden]){animation:menuIn .5s var(--ease)}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
+    .js [data-reveal]{transform:none!important}
+    .js .line>span,.js .intro-fade{transform:none!important}
+  }
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+<div id="progress" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header id="nav">
+  <div class="bar mx-auto flex max-w-6xl items-center justify-between gap-3 py-2 pl-4 pr-2 sm:pl-6">
+    <a href="#top" class="flex min-h-[44px] items-center gap-2.5" aria-label="Gizmoberry Robot Club, back to top">
+      <svg width="36" height="36" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="8" width="26" height="20" rx="9" fill="#7C5CFF"/><rect x="5" y="10" width="22" height="7" rx="3.5" fill="#fff" opacity=".22"/><circle cx="12" cy="18" r="3.2" fill="#fff"/><circle cx="20" cy="18" r="3.2" fill="#fff"/><circle cx="12.6" cy="18.4" r="1.4" fill="#1C2A6B"/><circle cx="20.6" cy="18.4" r="1.4" fill="#1C2A6B"/><rect x="15" y="3.5" width="2" height="5" rx="1" fill="#1C2A6B"/><circle cx="16" cy="3.6" r="2.6" fill="#FF7A59"/></svg>
+      <span class="display text-[1.2rem] font-extrabold">Gizmoberry</span>
+    </a>
+    <nav aria-label="Main" class="hidden md:block">
+      <ul class="flex items-center gap-6 text-[.95rem]">
+        <li><a class="navlink" href="#programs">Programs</a></li>
+        <li><a class="navlink" href="#how">How it works</a></li>
+        <li><a class="navlink" href="#camps">Camps &amp; parties</a></li>
+        <li><a class="navlink" href="#join">Visit</a></li>
+      </ul>
+    </nav>
+    <div class="flex items-center gap-2">
+      <span class="hidden sm:block"><a href="#join" class="btn btn-primary btn-sm magnetic">Book a free class</a></span>
+      <button id="burger" class="md:hidden" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="md:hidden mx-auto mt-3 max-w-6xl rounded-[28px] bg-white p-3 shadow-[0_30px_60px_-24px_rgba(28,42,107,.45)]" hidden>
+    <ul class="flex flex-col text-lg font-semibold">
+      <li><a class="flex min-h-[52px] items-center rounded-2xl px-4 hover:bg-[#F3F0FF]" href="#programs">Programs</a></li>
+      <li><a class="flex min-h-[52px] items-center rounded-2xl px-4 hover:bg-[#F3F0FF]" href="#how">How it works</a></li>
+      <li><a class="flex min-h-[52px] items-center rounded-2xl px-4 hover:bg-[#F3F0FF]" href="#camps">Camps &amp; parties</a></li>
+      <li><a class="flex min-h-[52px] items-center rounded-2xl px-4 hover:bg-[#F3F0FF]" href="#join">Visit</a></li>
+      <li class="p-2"><a class="btn btn-primary w-full" href="#join">Book a free class</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- HERO: fixed image stage + centered clay stack -->
+<div id="stage" aria-hidden="true">
+  <img id="heroImg" src="https://images.unsplash.com/photo-1678225867994-e7a5b071ebfd?ixid=M3wxMDYxOTEwfDB8MXxhbGx8fHx8fHx8fHwxNzkwOTg0NjUwfA&ixlib=rb-4.1.0&w=2400&q=80" alt="" fetchpriority="high">
+</div>
+
+<section id="top" class="flex items-center justify-center px-4 pb-16 pt-28 sm:pt-32">
+  <div class="blob float-a" data-depth="0.5" style="width:220px;height:220px;left:-60px;top:16%;background:radial-gradient(circle at 35% 30%,#FFD6C9,#FF7A59 70%);opacity:.85"></div>
+  <div class="blob float-b" data-depth="0.9" style="width:120px;height:120px;right:6%;top:18%;background:radial-gradient(circle at 35% 30%,#FFF1C2,#FFC94D 70%);opacity:.95"></div>
+  <div class="blob float-c" data-depth="0.7" style="width:180px;height:180px;right:-50px;bottom:10%;background:radial-gradient(circle at 35% 30%,#C9F5DF,#4ADE9A 70%);opacity:.8"></div>
+
+  <div id="heroCard" class="glass-clay relative w-full max-w-3xl px-6 py-10 text-center sm:px-12 sm:py-14" style="will-change:transform">
+    <p class="intro-fade" style="--d:.1s"><span class="chip"><span class="h-2 w-2 rounded-full bg-[#4ADE9A]" aria-hidden="true"></span>After-school robot club · ages 5–14</span></p>
+    <h1 class="display mt-6 text-[2.6rem] font-extrabold leading-[1.02] sm:text-6xl lg:text-7xl">
+      <span class="line"><span>Little hands,</span></span>
+      <span class="line"><span><span class="hl">big inventions.</span></span></span>
+    </h1>
+    <p class="intro-fade mx-auto mt-6 max-w-xl text-lg leading-relaxed text-[var(--ink-soft)]" style="--d:.45s">Kids build, wire and code real robots in small, cheerful classes — and bring home the thing they made.</p>
+    <div class="intro-fade mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row" style="--d:.6s">
+      <a href="#join" class="btn btn-primary magnetic">Book a free trial class</a>
+      <a href="#programs" class="btn btn-soft magnetic">See the programs</a>
+    </div>
+  </div>
+  <svg class="blob float-b pointer-events-none hidden sm:block" data-depth="1.2" style="left:7%;bottom:12%;filter:none" width="84" height="84" viewBox="0 0 84 84" aria-hidden="true"><path fill="#7C5CFF" d="M42 6l6 10 11-3 2 11 11 3-3 11 10 6-10 6 3 11-11 3-2 11-11-3-6 10-6-10-11 3-2-11-11-3 3-11-10-6 10-6-3-11 11-3 2-11 11 3z"/><circle cx="42" cy="42" r="13" fill="#E8E1FF"/></svg>
+</section>
+
+<main id="main">
+  <!-- STATS -->
+  <section aria-label="Club at a glance" class="mx-auto max-w-6xl px-4 pt-14 sm:px-6">
+    <ul class="grid grid-cols-2 gap-4 md:grid-cols-4">
+      <li class="stat" data-reveal="pop"><p class="display text-4xl font-extrabold text-[var(--primary-deep)]"><span data-count="12">12</span></p><p class="mt-1 text-sm font-semibold text-[var(--ink-soft)]">kids max per class</p></li>
+      <li class="stat" data-reveal="pop"><p class="display text-4xl font-extrabold text-[#5B3FE0]"><span data-count="2">2</span></p><p class="mt-1 text-sm font-semibold text-[var(--ink-soft)]">coaches in every room</p></li>
+      <li class="stat" data-reveal="pop"><p class="display text-4xl font-extrabold text-[#B83E1E]"><span data-count="40">40</span>+</p><p class="mt-1 text-sm font-semibold text-[var(--ink-soft)]">robots built each term</p></li>
+      <li class="stat" data-reveal="pop"><p class="display text-4xl font-extrabold text-[#127A4A]"><span data-count="3">3</span></p><p class="mt-1 text-sm font-semibold text-[var(--ink-soft)]">age groups, 5 to 14</p></li>
+    </ul>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section id="programs" class="section-pad scroll-mt-24">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="max-w-2xl">
+        <p class="mono text-xs font-bold uppercase text-[#B83E1E]" data-reveal="left">Weekly programs</p>
+        <h2 class="display mt-3 text-4xl font-extrabold sm:text-5xl" data-reveal="left" style="--d:80ms">A club for every age of curious.</h2>
+        <p class="mt-4 text-lg text-[var(--ink-soft)]" data-reveal="left" style="--d:160ms">Each term ends with a showcase, so every kid goes home with a working robot and a story about how they built it.</p>
+      </div>
+      <div class="mt-12 grid gap-6 md:grid-cols-3" data-stagger>
+        <article class="card flex flex-col" data-reveal="up">
+          <div class="ph"><img loading="lazy" data-speed="-0.04" src="https://images.unsplash.com/photo-1742047654060-fcd0b0d06b7a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDYxOTEwfDB8MXxhbGx8fHx8fHx8fHwxNzkwOTg0NjQ5fA&ixlib=rb-4.1.0&q=80&w=1080" alt="A young girl carefully building a small toy car on a table"></div>
+          <div class="flex flex-1 flex-col p-6">
+            <span class="tag self-start bg-[var(--peach)] text-[#8A2E14]">Ages 5–7</span>
+            <h3 class="display mt-3 text-2xl font-bold">Tiny Tinkerers</h3>
+            <p class="mt-2 flex-1 text-[var(--ink-soft)]">Gears, motors and wobbly walkers. First builds with big, friendly parts and lots of giggles.</p>
+            <p class="mt-5 flex items-end justify-between"><span class="price">$89<span class="text-base font-semibold text-[var(--ink-soft)]">/month</span></span><span class="text-sm font-semibold text-[var(--ink-soft)]">60 min · weekly</span></p>
+          </div>
+        </article>
+        <article class="card flex flex-col" data-reveal="up">
+          <div class="ph"><img loading="lazy" data-speed="-0.04" src="https://images.unsplash.com/photo-1780006393664-142ed57a1593?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDYxOTEwfDB8MXxhbGx8fHx8fHx8fHwxNzkwOTg0NjQ4fA&ixlib=rb-4.1.0&q=80&w=1080" alt="A girl concentrating as she assembles a construction kit"></div>
+          <div class="flex flex-1 flex-col p-6">
+            <span class="tag self-start bg-[var(--lilac)] text-[#4527C4]">Ages 8–10</span>
+            <h3 class="display mt-3 text-2xl font-bold">Bot Builders</h3>
+            <p class="mt-2 flex-1 text-[var(--ink-soft)]">Wire up a robot car, teach it to dodge walls, then race it against friends on Fridays.</p>
+            <p class="mt-5 flex items-end justify-between"><span class="price">$109<span class="text-base font-semibold text-[var(--ink-soft)]">/month</span></span><span class="text-sm font-semibold text-[var(--ink-soft)]">90 min · weekly</span></p>
+          </div>
+        </article>
+        <article class="card flex flex-col" data-reveal="up">
+          <div class="ph"><img loading="lazy" data-speed="-0.04" src="https://images.unsplash.com/photo-1568585262983-9b54814595a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDYxOTEwfDB8MXxhbGx8fHx8fHx8fHwxNzkwOTg0NjUzfA&ixlib=rb-4.1.0&q=80&w=1080" alt="A boy using a tablet to steer small round robots across the floor"></div>
+          <div class="flex flex-1 flex-col p-6">
+            <span class="tag self-start bg-[var(--mintt)] text-[#0F6B3F]">Ages 11–14</span>
+            <h3 class="display mt-3 text-2xl font-bold">Code Crew</h3>
+            <p class="mt-2 flex-1 text-[var(--ink-soft)]">From blocks to real code: program robots that sense, sort, chat and light up on cue.</p>
+            <p class="mt-5 flex items-end justify-between"><span class="price">$129<span class="text-base font-semibold text-[var(--ink-soft)]">/month</span></span><span class="text-sm font-semibold text-[var(--ink-soft)]">90 min · weekly</span></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="section-pad relative overflow-hidden scroll-mt-24 bg-white/60">
+    <div class="blob float-a" data-speed="0.12" aria-hidden="true" style="width:260px;height:260px;right:-80px;top:40px;background:radial-gradient(circle at 35% 30%,#E8E1FF,#B9A6FF 70%);opacity:.6"></div>
+    <div class="relative mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="mono text-xs font-bold uppercase text-[#4527C4]" data-reveal="scale">How a session works</p>
+        <h2 class="display mt-3 text-4xl font-extrabold sm:text-5xl" data-reveal="scale" style="--d:80ms">Ninety minutes, four happy steps.</h2>
+      </div>
+      <ol class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4" data-stagger>
+        <li class="step bg-[var(--butter)]" data-reveal="tilt"><span class="num">1</span><h3 class="display mt-5 text-xl font-bold">Warm-up puzzle</h3><p class="mt-2 text-[var(--ink-soft)]">A quick brain teaser to get everyone talking and thinking like engineers.</p><p class="mono mt-4 text-xs font-bold text-[#7A5600]">10 MIN</p></li>
+        <li class="step bg-[var(--peach)]" data-reveal="tilt"><span class="num">2</span><h3 class="display mt-5 text-xl font-bold">Build sprint</h3><p class="mt-2 text-[var(--ink-soft)]">Pairs grab a kit and build the week's robot, with coaches close by.</p><p class="mono mt-4 text-xs font-bold text-[#8A2E14]">40 MIN</p></li>
+        <li class="step bg-[var(--mintt)]" data-reveal="tilt"><span class="num">3</span><h3 class="display mt-5 text-xl font-bold">Test &amp; tweak</h3><p class="mt-2 text-[var(--ink-soft)]">It wobbles? Great. We find out why, fix it, and try again together.</p><p class="mono mt-4 text-xs font-bold text-[#0F6B3F]">25 MIN</p></li>
+        <li class="step bg-[var(--lilac)]" data-reveal="tilt"><span class="num">4</span><h3 class="display mt-5 text-xl font-bold">Show &amp; tell</h3><p class="mt-2 text-[var(--ink-soft)]">Each pair demos their bot. Parents are welcome for the last ten minutes.</p><p class="mono mt-4 text-xs font-bold text-[#4527C4]">15 MIN</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- SPOTLIGHT -->
+  <section id="spotlight" class="section-pad" aria-labelledby="spotTitle">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div id="spotWrap" style="will-change:transform"><div class="frame aspect-[4/5] sm:aspect-[16/9]" data-reveal="scale">
+        <img id="spotImg" loading="lazy" src="https://images.unsplash.com/photo-1518792528501-352f829886dc?ixid=M3wxMDYxOTEwfDB8MXxhbGx8fHx8fHx8fHwxNzkwOTg0NjQ5fA&ixlib=rb-4.1.0&w=1800&q=80" alt="A boy crouching over a floor full of electronic parts, building something of his own">
+        <div class="glow" aria-hidden="true" style="left:-80px;bottom:-80px"></div>
+        <div class="sweep" aria-hidden="true"></div>
+        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[rgba(20,28,80,.85)] via-[rgba(20,28,80,.45)] to-transparent p-6 pt-24 sm:p-10 sm:pt-32">
+          <p class="mono text-xs font-bold uppercase text-[#FFE08A]">Open build Saturdays</p>
+          <h2 id="spotTitle" class="display mt-2 max-w-xl text-3xl font-extrabold text-white sm:text-5xl">The parts bin is open. Bring an idea.</h2>
+          <p class="mt-3 max-w-lg text-white/90">Every Saturday morning the whole workshop is free play: motors, sensors, cardboard and a coach to help untangle the wires.</p>
+        </div>
+        <button id="motionToggle" type="button" class="absolute right-4 top-4 inline-flex min-h-[44px] items-center gap-2 rounded-full bg-white/90 px-4 text-sm font-bold text-[var(--ink)] shadow-lg" aria-pressed="false">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" id="mtIcon"><rect x="3" y="2" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" rx="1" fill="currentColor"/></svg>
+          <span id="mtLabel">Pause motion</span>
+        </button>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- CAMPS & PARTIES -->
+  <section id="camps" class="section-pad pt-4 scroll-mt-24">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+        <div class="max-w-2xl">
+          <p class="mono text-xs font-bold uppercase text-[#0F6B3F]" data-reveal="right">Camps &amp; parties</p>
+          <h2 class="display mt-3 text-4xl font-extrabold sm:text-5xl" data-reveal="right" style="--d:80ms">School's out. Robots are in.</h2>
+        </div>
+        <p class="max-w-sm text-[var(--ink-soft)]" data-reveal="right" style="--d:160ms">Holiday weeks, birthday builds and a monthly night for the whole family.</p>
+      </div>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-stagger>
+        <article class="card flex flex-col" data-reveal="scale">
+          <div class="ph"><img loading="lazy" data-speed="-0.04" src="https://images.unsplash.com/photo-1788366852101-fe1277240147?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDYxOTEwfDB8MXxhbGx8fHx8fHx8fHwxNzkwOTg0NjUzfA&ixlib=rb-4.1.0&q=80&w=1080" alt="Three small robots built from plastic bricks on a light floor"></div>
+          <div class="flex flex-1 flex-col p-6">
+            <h3 class="display text-2xl font-bold">Holiday Robot Camp</h3>
+            <p class="mt-2 flex-1 text-[var(--ink-soft)]">Five days, one big mission. Teams design, build and race a robot by Friday's finale.</p>
+            <p class="mt-5 flex items-end justify-between"><span class="price">$345<span class="text-base font-semibold text-[var(--ink-soft)]">/week</span></span><span class="text-sm font-semibold text-[var(--ink-soft)]">9am–3pm</span></p>
+          </div>
+        </article>
+        <article class="card flex flex-col" data-reveal="scale">
+          <div class="ph"><img loading="lazy" data-speed="-0.04" src="https://images.unsplash.com/photo-1527430253228-e93688616381?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDYxOTEwfDB8MXxhbGx8fHx8fHx8fHwxNzkwOTg0NjUyfA&ixlib=rb-4.1.0&q=80&w=1080" alt="A retro blue tin robot toy standing against a pale wall"></div>
+          <div class="flex flex-1 flex-col p-6">
+            <h3 class="display text-2xl font-bold">Birthday Build Party</h3>
+            <p class="mt-2 flex-1 text-[var(--ink-soft)]">Two hours of building with a coach host. Every guest takes home a mini bot.</p>
+            <p class="mt-5 flex items-end justify-between"><span class="price">from $280</span><span class="text-sm font-semibold text-[var(--ink-soft)]">up to 12 kids</span></p>
+          </div>
+        </article>
+        <article class="card flex flex-col sm:col-span-2 lg:col-span-1" data-reveal="scale">
+          <div class="ph"><img loading="lazy" data-speed="-0.04" src="https://images.unsplash.com/photo-1616857002717-d337600d15ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDYxOTEwfDB8MXxhbGx8fHx8fHx8fHwxNzkwOTg0NjUyfA&ixlib=rb-4.1.0&q=80&w=1080" alt="A small orange robot with glowing green eyes in a dim room"></div>
+          <div class="flex flex-1 flex-col p-6">
+            <h3 class="display text-2xl font-bold">Family Build Night</h3>
+            <p class="mt-2 flex-1 text-[var(--ink-soft)]">First Friday of the month: parents and kids team up on a glow-in-the-dark challenge.</p>
+            <p class="mt-5 flex items-end justify-between"><span class="price">$25<span class="text-base font-semibold text-[var(--ink-soft)]">/family</span></span><span class="text-sm font-semibold text-[var(--ink-soft)]">6–8pm</span></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN / FORM -->
+  <section id="join" class="section-pad pt-6 scroll-mt-24">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="relative overflow-hidden rounded-[44px] bg-[var(--primary)] p-6 text-white shadow-[0_40px_80px_-30px_rgba(47,91,234,.7)] sm:p-12" data-reveal="up">
+        <div class="blob float-b hidden sm:block" data-speed="0.08" aria-hidden="true" style="width:240px;height:240px;right:-70px;top:-70px;background:radial-gradient(circle at 35% 30%,#FFF1C2,#FFC94D 70%);opacity:.9"></div>
+        <div class="blob float-a" aria-hidden="true" style="width:160px;height:160px;left:-50px;bottom:-60px;background:radial-gradient(circle at 35% 30%,#FFD6C9,#FF7A59 70%);opacity:.85"></div>
+        <div class="relative grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p class="mono text-xs font-bold uppercase text-[#FFE08A]">First class is on us</p>
+            <h2 class="display mt-3 text-4xl font-extrabold sm:text-5xl">Book a free trial class.</h2>
+            <p class="mt-4 max-w-md text-lg text-white/90">Tell us who's coming and we'll send two times that suit their age group. No kit to buy, just bring curiosity.</p>
+            <p class="mt-6 font-semibold text-white/90">Open Tue–Sat · 3:30–7pm weekdays, 9am–1pm Saturdays</p>
+          </div>
+          <form id="trialForm" class="rounded-[32px] bg-white p-6 text-[var(--ink)] shadow-[var(--clay-lift)] sm:p-8" novalidate>
+            <div>
+              <label for="name" class="font-bold">Parent's name</label>
+              <input id="name" name="name" class="field mt-2" type="text" autocomplete="name" required aria-describedby="nameErr">
+              <p id="nameErr" class="err" aria-live="polite"></p>
+            </div>
+            <div class="mt-2">
+              <label for="email" class="font-bold">Email</label>
+              <input id="email" name="email" class="field mt-2" type="email" autocomplete="email" inputmode="email" required aria-describedby="emailErr">
+              <p id="emailErr" class="err" aria-live="polite"></p>
+            </div>
+            <div class="mt-2">
+              <label for="age" class="font-bold">Child's age <span class="font-medium text-[var(--ink-soft)]">(optional)</span></label>
+              <select id="age" name="age" class="field mt-2">
+                <option value="">Choose an age group</option><option>5–7</option><option>8–10</option><option>11–14</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary magnetic mt-6 w-full">Save my free spot</button>
+            <div id="formOk" class="mt-5 flex items-center gap-3 rounded-2xl bg-[var(--mintt)] p-4 font-semibold text-[#0F5132]" role="status" hidden>
+              <svg class="check shrink-0" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#4ADE9A"/><path d="M9 16.5l4.5 4.5L23 11.5" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>You're on the list! We'll email you two class times soon.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-[#DDD6FF] bg-white/70 py-12">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="flex flex-col items-center gap-4 text-center">
+        <a href="#top" class="flex min-h-[44px] items-center gap-2.5" aria-label="Gizmoberry, back to top">
+          <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="8" width="26" height="20" rx="9" fill="#7C5CFF"/><circle cx="12" cy="18" r="3.2" fill="#fff"/><circle cx="20" cy="18" r="3.2" fill="#fff"/><circle cx="12.6" cy="18.4" r="1.4" fill="#1C2A6B"/><circle cx="20.6" cy="18.4" r="1.4" fill="#1C2A6B"/><rect x="15" y="3.5" width="2" height="5" rx="1" fill="#1C2A6B"/><circle cx="16" cy="3.6" r="2.6" fill="#FF7A59"/></svg>
+          <span class="display text-lg font-extrabold">Gizmoberry Robot Club</span>
+        </a>
+        <ul class="flex flex-wrap justify-center gap-x-6 text-sm">
+          <li><a class="ulink" href="#programs">Programs</a></li><li><a class="ulink" href="#how">How it works</a></li><li><a class="ulink" href="#camps">Camps &amp; parties</a></li><li><a class="ulink" href="#join">Book a class</a></li>
+        </ul>
+        <p class="max-w-3xl text-xs leading-relaxed text-[var(--ink-soft)]">Photos on Unsplash:
+          <a class="underline" href="https://unsplash.com/photos/a-small-robot-car-with-wheels-and-wires-attached-to-it-mVJzfw2Zm7Y?utm_source=webdrip&utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@gabimedia?utm_source=webdrip&utm_medium=referral">Gabriel Vasiliu</a>,
+          <a class="underline" href="https://unsplash.com/photos/boy-sitting-while-holding-electronic-device-part-t3d22GqvUqs?utm_source=webdrip&utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@kjarrett?utm_source=webdrip&utm_medium=referral">Kevin Jarrett</a>,
+          <a class="underline" href="https://unsplash.com/photos/girl-is-building-a-toy-car-with-concentration-KA63fEdHTvg?utm_source=webdrip&utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@thenowtime?utm_source=webdrip&utm_medium=referral">The Now Time</a>,
+          <a class="underline" href="https://unsplash.com/photos/young-girl-concentrating-on-assembling-a-construction-toy-lM2ww7eebG4?utm_source=webdrip&utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@anna_khromova?utm_source=webdrip&utm_medium=referral">Anna Khromova</a>,
+          <a class="underline" href="https://unsplash.com/photos/boy-using-tablet-computer-rSdkzkfvqlY?utm_source=webdrip&utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@stem_t4l?utm_source=webdrip&utm_medium=referral">stem.T4L</a>,
+          <a class="underline" href="https://unsplash.com/photos/robotic-models-built-from-plastic-bricks-dFpMNW0Z4FU?utm_source=webdrip&utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@cedricfolliot?utm_source=webdrip&utm_medium=referral">Cedric Folliot</a>,
+          <a class="underline" href="https://unsplash.com/photos/blue-plastic-robot-toy-R4WCbazrD1g?utm_source=webdrip&utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@emilipothese?utm_source=webdrip&utm_medium=referral">Emilipothèse</a>,
+          <a class="underline" href="https://unsplash.com/photos/yellow-and-black-robot-toy-Y40Ga3oahAs?utm_source=webdrip&utm_medium=referral">Photo</a> by <a class="underline" href="https://unsplash.com/@jochenvw?utm_source=webdrip&utm_medium=referral">Jochen van Wylick</a>
+          on <a class="underline" href="https://unsplash.com/?utm_source=webdrip&utm_medium=referral">Unsplash</a>.
+        </p>
+        <p class="text-sm text-[var(--ink-soft)]"><a class="ulink" href="https://getwebdrip.com">Concept design by WebDrip — fictional brand</a></p>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finePointer = window.matchMedia('(pointer: fine)').matches;
+
+  // Intro: nav, then headline lines, subheading and CTAs
+  requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.add('loaded'); }); });
+
+  // Mobile menu
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  function setMenu(open) {
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    menu.hidden = !open;
+  }
+  burger.addEventListener('click', function () { setMenu(burger.getAttribute('aria-expanded') !== 'true'); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') { setMenu(false); burger.focus(); } });
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+
+  // Reveal on scroll with grid stagger
+  document.querySelectorAll('[data-stagger]').forEach(function (grid) {
+    Array.prototype.forEach.call(grid.children, function (el, i) { el.style.setProperty('--d', (i * 90) + 'ms'); });
+  });
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if (reduce || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  }
+
+  // Count-up stats
+  var counters = document.querySelectorAll('[data-count]');
+  function countUp(el) {
+    var end = +el.getAttribute('data-count'), t0 = null;
+    if (reduce) { el.textContent = end; return; }
+    function step(t) { if (!t0) t0 = t; var p = Math.min(1, (t - t0) / 1300); el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(step); }
+    el.textContent = '0'; requestAnimationFrame(step);
+  }
+  if ('IntersectionObserver' in window) {
+    var cio = new IntersectionObserver(function (entries) { entries.forEach(function (en) { if (en.isIntersecting) { countUp(en.target); cio.unobserve(en.target); } }); }, { threshold: 0.6 });
+    counters.forEach(function (c) { cio.observe(c); });
+  }
+
+  // Shared scroll loop: progress bar, nav state, hero camera, parallax
+  var nav = document.getElementById('nav');
+  var bar = document.getElementById('progress');
+  var heroImg = document.getElementById('heroImg');
+  var heroCard = document.getElementById('heroCard');
+  var stage = document.getElementById('stage');
+  var depthEls = Array.prototype.slice.call(document.querySelectorAll('#top [data-depth]'));
+  var speedEls = Array.prototype.slice.call(document.querySelectorAll('[data-speed]'));
+  var spotWrap = document.getElementById('spotWrap');
+  var cur = 0, target = 0, ticking = false;
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function easeInOut(t) { return t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+
+  function frame() {
+    var y = window.scrollY, vh = window.innerHeight;
+    var max = document.documentElement.scrollHeight - vh;
+    bar.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
+    nav.classList.toggle('scrolled', y > 40);
+    target = Math.min(1, Math.max(0, y / vh));
+    cur = reduce ? target : lerp(cur, target, 0.09);
+    if (Math.abs(cur - target) < 0.0005) cur = target;
+    var e = easeInOut(cur);
+    if (!reduce) {
+      heroImg.style.transform = 'translate3d(' + (e * -2) + '%,' + (e * -6) + '%,0) scale(' + (1.04 + e * 0.22).toFixed(4) + ')' + (finePointer ? ' rotateX(' + (e * 7).toFixed(3) + 'deg)' : '') + ' rotate(' + (e * -1.5).toFixed(3) + 'deg)';
+      heroCard.style.transform = 'translate3d(0,' + (e * -140).toFixed(1) + 'px,0) scale(' + (1 - e * 0.08).toFixed(4) + ')';
+      heroCard.style.opacity = String(Math.max(0, 1 - e * 1.1));
+      depthEls.forEach(function (el) { var d = +el.getAttribute('data-depth'); el.style.transform = 'translate3d(0,' + (e * -260 * d).toFixed(1) + 'px,0)'; });
+      speedEls.forEach(function (el) {
+        var r = el.getBoundingClientRect(); if (r.bottom < -200 || r.top > vh + 200) return;
+        var c = (r.top + r.height / 2 - vh / 2); el.style.setProperty('--py', (c * +el.getAttribute('data-speed')).toFixed(1) + 'px');
+      });
+      if (spotWrap) {
+        var sr = spotWrap.getBoundingClientRect();
+        if (sr.bottom > 0 && sr.top < vh) { var sp = (sr.top + sr.height / 2 - vh / 2) / vh; spotWrap.style.transform = 'translate3d(0,' + (sp * 30).toFixed(1) + 'px,0) rotate(' + (sp * -1.2).toFixed(3) + 'deg)'; }
+      }
+    }
+    stage.style.visibility = y > vh * 1.6 ? 'hidden' : 'visible';
+    if (cur !== target) requestAnimationFrame(frame); else ticking = false;
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+
+  // Spotlight motion toggle
+  var spot = document.getElementById('spotlight');
+  var mt = document.getElementById('motionToggle');
+  mt.addEventListener('click', function () {
+    var paused = spot.classList.toggle('paused');
+    mt.setAttribute('aria-pressed', String(paused));
+    document.getElementById('mtLabel').textContent = paused ? 'Play motion' : 'Pause motion';
+    document.getElementById('mtIcon').innerHTML = paused ? '<path d="M4 2.5v11l9-5.5z" fill="currentColor"/>' : '<rect x="3" y="2" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" rx="1" fill="currentColor"/>';
+  });
+  if (reduce) { spot.classList.add('paused'); mt.setAttribute('aria-pressed', 'true'); document.getElementById('mtLabel').textContent = 'Play motion'; }
+
+  // Magnetic buttons (desktop only)
+  if (finePointer && !reduce) {
+    document.querySelectorAll('.magnetic').forEach(function (b) {
+      b.addEventListener('pointermove', function (e) {
+        var r = b.getBoundingClientRect();
+        b.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * 0.18).toFixed(1) + 'px,' + ((e.clientY - r.top - r.height / 2) * 0.28).toFixed(1) + 'px)';
+      });
+      b.addEventListener('pointerleave', function () { b.style.transform = ''; });
+    });
+  }
+
+  // Form validation
+  var form = document.getElementById('trialForm');
+  var ok = document.getElementById('formOk');
+  var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function setErr(input, msg) {
+    var p = document.getElementById(input.id + 'Err');
+    p.textContent = msg;
+    if (msg) { input.setAttribute('aria-invalid', 'true'); } else { input.removeAttribute('aria-invalid'); }
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = form.elements.name, email = form.elements.email, bad = null;
+    ok.hidden = true;
+    if (!name.value.trim()) { setErr(name, 'Please add your name.'); bad = bad || name; } else setErr(name, '');
+    var v = email.value.trim();
+    if (!v) { setErr(email, 'Please enter your email.'); bad = bad || email; }
+    else if (!emailRe.test(v)) { setErr(email, 'That email looks incomplete — check for a typo.'); bad = bad || email; }
+    else setErr(email, '');
+    if (bad) {
+      form.classList.remove('shake'); void form.offsetWidth; if (!reduce) form.classList.add('shake');
+      bad.focus(); return;
+    }
+    ok.hidden = false; form.reset();
+  });
+
+  // Service worker
+  if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+    window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(function () {}); });
+  }
+  window.__gzReady = true;
+})();
+</script>
+</body>
+</html>

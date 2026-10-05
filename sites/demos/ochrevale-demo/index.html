@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ochrevale Desert House — slow days, wide skies</title>
+<meta name="description" content="Ochrevale Desert House: fourteen quiet suites with private plunge pools, sunrise canyon walks and nights under a sky full of stars. A WebDrip concept design.">
+<meta name="theme-color" content="#120E1A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ochrevale Desert House — slow days, wide skies">
+<meta property="og:description" content="Fourteen quiet suites, private plunge pools and nights under a sky full of stars. A WebDrip concept website.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1528351040353-814ae7cb214f?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Nnx8ZGVzZXJ0JTIwdmlsbGElMjB0ZXJyYWNlfGVufDB8MHx8fDE3OTEwMDY0NDJ8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<meta property="og:url" content="https://webdripsamples.netlify.app/sites/demos/ochrevale-demo/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ochrevale Desert House — slow days, wide skies">
+<meta name="twitter:description" content="Fourteen quiet suites, private plunge pools and nights under a sky full of stars. A WebDrip concept website.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1528351040353-814ae7cb214f?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Nnx8ZGVzZXJ0JTIwdmlsbGElMjB0ZXJyYWNlfGVufDB8MHx8fDE3OTEwMDY0NDJ8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1528351040353-814ae7cb214f?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Nnx8ZGVzZXJ0JTIwdmlsbGElMjB0ZXJyYWNlfGVufDB8MHx8fDE3OTEwMDY0NDJ8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { night: '#120E1A', dusk: '#221a30', plum: '#2E2240', sand: '#F5EADB', sand2: '#CDBFAE', clay: '#E8875A', rose: '#D88BA0', sage: '#A9C6A2' },
+    fontFamily: { sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'], mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'] }
+  } } };
+</script>
+<style>
+  :root {
+    --night: #120E1A; --dusk: #221a30; --plum: #2E2240; --sand: #F5EADB; --sand2: #CDBFAE;
+    --clay: #E8875A; --clay-2: #F2A47C; --rose: #D88BA0; --sage: #A9C6A2;
+    --glass: rgba(255, 244, 230, 0.07); --glass-2: rgba(255, 244, 230, 0.12);
+    --edge: rgba(255, 236, 214, 0.18); --edge-hi: rgba(255, 236, 214, 0.38);
+    --r-sm: 8px; --r-md: 16px; --r-lg: 28px;
+    --ease: cubic-bezier(.2, .8, .2, 1);
+  }
+  html { scroll-behavior: smooth; background: var(--night); overflow-x: clip; }
+  body { background: var(--night); color: var(--sand); font-family: 'Plus Jakarta Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+  main, footer { overflow-x: clip; }
+  ::selection { background: var(--clay); color: var(--night); }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; font-size: .72rem; }
+
+  /* focus: animated ring */
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--clay-2); outline-offset: 3px; border-radius: 10px; animation: ring .5s var(--ease);
+  }
+  @keyframes ring { from { outline-offset: 9px; outline-color: transparent; } to { outline-offset: 3px; } }
+
+  /* glass */
+  .glass { background: linear-gradient(140deg, rgba(255,244,230,.11), rgba(255,244,230,.04)); border: 1px solid var(--edge); backdrop-filter: blur(18px) saturate(140%); -webkit-backdrop-filter: blur(18px) saturate(140%); box-shadow: 0 1px 0 rgba(255,255,255,.12) inset, 0 24px 60px -24px rgba(0,0,0,.6); }
+  .glass-solid { background: linear-gradient(150deg, rgba(58,44,78,.92), rgba(30,23,42,.92)); border: 1px solid var(--edge); box-shadow: 0 1px 0 rgba(255,255,255,.1) inset, 0 24px 60px -28px rgba(0,0,0,.7); }
+
+  /* progress bar */
+  #progress { position: fixed; left: 0; top: 0; height: 3px; width: 100%; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, var(--clay), var(--rose)); z-index: 70; }
+
+  /* nav */
+  #nav { position: fixed; inset: 0 0 auto 0; z-index: 60; transition: background-color .4s, border-color .4s; border-bottom: 1px solid transparent; }
+  #nav .bar { transition: padding .4s var(--ease); }
+  #nav.scrolled { background: rgba(18, 14, 26, .78); border-color: var(--edge); }
+  @media (min-width: 768px) { #nav.scrolled { backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); background: rgba(18,14,26,.55); } }
+  #nav.scrolled .bar { padding-top: .55rem; padding-bottom: .55rem; }
+  .ulink { position: relative; }
+  .ulink::after { content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 1.5px; background: var(--clay-2); transform: scaleX(0); transform-origin: right; transition: transform .35s var(--ease); }
+  .ulink:hover::after, .ulink:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+
+  /* buttons */
+  .btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 48px; padding: 0 1.5rem; border-radius: 999px; font-weight: 700; overflow: hidden; transition: transform .25s var(--ease), box-shadow .3s; will-change: transform; -webkit-tap-highlight-color: transparent; }
+  .btn-primary { background: var(--clay); color: var(--night); box-shadow: 0 10px 30px -10px rgba(232,135,90,.7); }
+  .btn-primary:hover { box-shadow: 0 16px 40px -12px rgba(232,135,90,.9); }
+  .btn-ghost { color: var(--sand); background: rgba(255,244,230,.08); border: 1px solid var(--edge-hi); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .btn::before { content: ''; position: absolute; top: 0; bottom: 0; left: -60%; width: 45%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.55), transparent); transform: translateX(0) skewX(-18deg); opacity: 0; }
+  .btn:hover::before { animation: sheen .8s var(--ease); }
+  @keyframes sheen { 0% { opacity: 1; transform: translateX(0) skewX(-18deg); } 100% { opacity: 0; transform: translateX(380%) skewX(-18deg); } }
+  .btn:active { transform: scale(.96); }
+  .btn .inner { display: inline-flex; align-items: center; gap: .5rem; transition: transform .25s var(--ease); }
+
+  /* hero camera */
+  .hero-stage { position: fixed; inset: 0; z-index: 0; perspective: 1200px; overflow: hidden; pointer-events: none; }
+  #heroImg { position: absolute; inset: -6%; width: 112%; height: 112%; max-width: none; object-fit: cover; transform-origin: 50% 60%; will-change: transform; }
+  .hero-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,14,26,.6) 0%, rgba(18,14,26,.2) 22%, rgba(18,14,26,.15) 35%, rgba(18,14,26,.75) 78%, var(--night) 100%), radial-gradient(120% 80% at 15% 90%, rgba(18,14,26,.8), transparent 60%); }
+  @media (max-width: 767px) { .hero-shade { background: linear-gradient(180deg, rgba(18,14,26,.6) 0%, rgba(18,14,26,.45) 30%, rgba(18,14,26,.62) 60%, var(--night) 100%); } }
+  #heroCopy p:not(.chip) { text-shadow: 0 2px 20px rgba(18,14,26,.6); }
+  .blob { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .55; will-change: transform; }
+  .blob-a { width: 42vw; height: 42vw; left: -10vw; top: 40vh; background: radial-gradient(circle, rgba(232,135,90,.55), transparent 70%); animation: floatA 18s ease-in-out infinite; }
+  .blob-b { width: 34vw; height: 34vw; right: -8vw; top: 8vh; background: radial-gradient(circle, rgba(216,139,160,.45), transparent 70%); animation: floatB 22s ease-in-out infinite; }
+  @keyframes floatA { 0%,100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(6vw,-4vh,0) scale(1.12); } }
+  @keyframes floatB { 0%,100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(-5vw,6vh,0) scale(.92); } }
+  .sun-ring { position: absolute; right: 8%; top: 18%; width: min(30vw, 340px); aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(255,220,190,.35); box-shadow: 0 0 80px rgba(242,164,124,.25) inset, 0 0 60px rgba(242,164,124,.18); will-change: transform; }
+  .sun-ring::after { content: ''; position: absolute; inset: 18%; border-radius: 50%; border: 1px dashed rgba(255,220,190,.25); animation: spin 60s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* masked headline */
+  .mask { display: block; overflow: hidden; padding-bottom: .08em; }
+  .mask > span { display: inline-block; }
+  .js .mask > span { transform: translateY(105%); }
+  .js.loaded .mask > span { transform: none; transition: transform 1s var(--ease); }
+  .js.loaded .mask:nth-child(2) > span { transition-delay: .12s; }
+  .js .intro { opacity: 0; transform: translateY(14px); }
+  .js.loaded .intro { opacity: 1; transform: none; transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: var(--d, .35s); }
+  .js #nav { opacity: 0; }
+  .js.loaded #nav { opacity: 1; transition: opacity .6s ease, background-color .4s, border-color .4s; }
+
+  /* reveals (content starts visible; JS opts in) */
+  .js [data-reveal] { opacity: 0; transition: opacity .8s var(--ease), transform .9s var(--ease); transition-delay: var(--stagger, 0ms); }
+  .js [data-reveal="up"] { transform: translateY(36px); }
+  .js [data-reveal="scale"] { transform: scale(.94); }
+  .js [data-reveal="left"] { transform: translateX(-40px); }
+  .js [data-reveal="right"] { transform: translateX(40px); }
+  .js [data-reveal="tilt"] { transform: perspective(900px) rotateX(10deg) translateY(30px); transform-origin: 50% 100%; }
+  .js [data-reveal].in { opacity: 1; transform: none; }
+
+  /* cards */
+  .card { border-radius: var(--r-lg); overflow: hidden; transition: transform .45s var(--ease), box-shadow .45s var(--ease), border-color .45s; }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 34px 70px -30px rgba(0,0,0,.85), 0 0 0 1px var(--edge-hi); }
+  .card .ph { overflow: hidden; position: relative; }
+  .card .ph img { transition: transform .9s var(--ease); }
+  .card:hover .ph img { transform: scale(1.06); }
+  .card:active { transform: translateY(-2px) scale(.99); }
+  .chip { display: inline-flex; align-items: center; gap: .4rem; padding: .35rem .7rem; border-radius: 999px; background: rgba(18,14,26,.55); border: 1px solid var(--edge); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+
+  /* parallax images */
+  [data-par] { will-change: transform; }
+
+  /* spotlight */
+  .spot { position: relative; border-radius: 36px; overflow: hidden; isolation: isolate; min-height: 620px; }
+  .spot img { position: absolute; inset: -8%; width: 116%; height: 116%; max-width: none; object-fit: cover; animation: kenburns 26s ease-in-out infinite alternate; }
+  @keyframes kenburns { from { transform: scale(1.02) translate3d(0,0,0); } to { transform: scale(1.14) translate3d(-3%, -2%, 0); } }
+  .spot .sweep { position: absolute; inset: 0; background: linear-gradient(110deg, transparent 35%, rgba(255,214,180,.16) 50%, transparent 65%); transform: translateX(-100%); animation: sweep 9s ease-in-out infinite; }
+  @keyframes sweep { 0%, 15% { transform: translateX(-100%); } 60%, 100% { transform: translateX(100%); } }
+  .spot .glow { position: absolute; width: 60%; aspect-ratio: 1; left: 20%; bottom: -30%; border-radius: 50%; background: radial-gradient(circle, rgba(242,164,124,.45), transparent 65%); filter: blur(30px); animation: pulse 7s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: .55; transform: scale(1); } 50% { opacity: .95; transform: scale(1.1); } }
+  .spot.paused img, .spot.paused .sweep, .spot.paused .glow, .spot.paused .twinkle { animation-play-state: paused; }
+  .twinkle { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: #fff; box-shadow: 0 0 8px #fff; animation: tw 3.5s ease-in-out infinite; }
+  @keyframes tw { 0%,100% { opacity: .15; transform: scale(.6); } 50% { opacity: 1; transform: scale(1.2); } }
+
+  /* marquee */
+  .marquee { display: flex; width: max-content; animation: marq 38s linear infinite; }
+  @keyframes marq { to { transform: translateX(-50%); } }
+
+  /* accordion */
+  details summary { list-style: none; cursor: pointer; }
+  details summary::-webkit-details-marker { display: none; }
+  details .plus { transition: transform .35s var(--ease); }
+  details[open] .plus { transform: rotate(45deg); }
+  details .ans { animation: none; }
+  details[open] .ans { animation: drop .45s var(--ease); }
+  @keyframes drop { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+
+  /* hamburger */
+  #burger .l { display: block; width: 22px; height: 2px; background: var(--sand); border-radius: 2px; transition: transform .35s var(--ease), opacity .25s; }
+  #burger .l + .l { margin-top: 5px; }
+  #burger[aria-expanded="true"] .l1 { transform: translateY(7px) rotate(45deg); }
+  #burger[aria-expanded="true"] .l2 { opacity: 0; transform: scaleX(.3); }
+  #burger[aria-expanded="true"] .l3 { transform: translateY(-7px) rotate(-45deg); }
+  #mobileMenu { transform-origin: top; }
+  #mobileMenu.open { animation: menuIn .35s var(--ease); }
+  @keyframes menuIn { from { opacity: 0; transform: translateY(-12px) scaleY(.96); } to { opacity: 1; transform: none; } }
+  #mobileMenu a { animation: none; }
+  #mobileMenu.open a { animation: linkIn .4s var(--ease) both; }
+  #mobileMenu.open li:nth-child(2) a { animation-delay: .04s; } #mobileMenu.open li:nth-child(3) a { animation-delay: .08s; }
+  #mobileMenu.open li:nth-child(4) a { animation-delay: .12s; } #mobileMenu.open li:nth-child(5) a { animation-delay: .16s; }
+  @keyframes linkIn { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: none; } }
+
+  /* form */
+  .field { width: 100%; min-height: 50px; border-radius: 14px; padding: .8rem 1rem; background: rgba(255,244,230,.06); border: 1px solid var(--edge); color: var(--sand); transition: border-color .25s, background-color .25s; }
+  .field::placeholder { color: #a99c8d; }
+  .field:hover { border-color: var(--edge-hi); }
+  .field:focus { border-color: var(--clay-2); background: rgba(255,244,230,.09); outline: none; }
+  .field[aria-invalid="true"] { border-color: #FF8A80; }
+  select.field option { color: #120E1A; }
+  .err { color: #FFB4AB; min-height: 1.25rem; font-size: .85rem; }
+  .shake { animation: shake .45s ease; }
+  @keyframes shake { 10%,90% { transform: translateX(-2px); } 20%,80% { transform: translateX(4px); } 30%,50%,70% { transform: translateX(-6px); } 40%,60% { transform: translateX(6px); } }
+  #formOk .check path { stroke-dasharray: 30; stroke-dashoffset: 30; }
+  #formOk.show .check path { animation: draw .6s .15s var(--ease) forwards; }
+  #formOk.show { animation: drop .5s var(--ease); }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  section { position: relative; z-index: 2; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; }
+    .js .mask > span, .js [data-reveal] { transform: none !important; }
+    .js [data-reveal] { transition: opacity .2s linear !important; transition-delay: 0ms !important; }
+    .js .intro { transform: none !important; transition: opacity .2s linear !important; }
+    .card, .card .ph img, .btn { transition: none !important; }
+    #heroImg, [data-par], .sun-ring, .blob { transform: none !important; }
+  }
+</style>
+</head>
+<body>
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[80] focus:bg-sand focus:text-night focus:px-4 focus:py-3 focus:rounded-lg">Skip to content</a>
+<div id="progress" aria-hidden="true"></div>
+
+<!-- fixed hero stage (3D camera) -->
+<div class="hero-stage" aria-hidden="true">
+  <img id="heroImg" src="https://images.unsplash.com/photo-1528351040353-814ae7cb214f?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Nnx8ZGVzZXJ0JTIwdmlsbGElMjB0ZXJyYWNlfGVufDB8MHx8fDE3OTEwMDY0NDJ8MA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80" alt="" fetchpriority="high" decoding="async">
+  <div class="hero-shade"></div>
+  <div class="blob blob-a"></div>
+  <div class="blob blob-b"></div>
+  <div class="sun-ring" id="sunRing"></div>
+</div>
+
+<header id="nav">
+  <div class="bar max-w-7xl mx-auto flex items-center justify-between px-5 md:px-8 py-4">
+    <a href="#top" class="flex items-center gap-3 font-extrabold text-lg tracking-tight min-h-[44px]" aria-label="Ochrevale Desert House, back to top">
+      <svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2A47C"/><stop offset="1" stop-color="#D88BA0"/></linearGradient></defs><circle cx="20" cy="17" r="8" fill="url(#lg)"/><path d="M3 30c6-6 11-6 17-2s11 4 17-2v8H3z" fill="#F5EADB"/><circle cx="20" cy="20" r="18.5" fill="none" stroke="rgba(245,234,219,.4)"/></svg>
+      <span>Ochrevale</span>
+    </a>
+    <nav aria-label="Main" class="hidden md:block">
+      <ul class="flex items-center gap-8 text-[15px] font-semibold text-sand" style="text-shadow:0 1px 12px rgba(18,14,26,.6)">
+        <li><a class="ulink hover:text-sand" href="#suites">Suites</a></li>
+        <li><a class="ulink hover:text-sand" href="#days">Days out</a></li>
+        <li><a class="ulink hover:text-sand" href="#rituals">Rituals</a></li>
+        <li><a class="ulink hover:text-sand" href="#faq">Questions</a></li>
+      </ul>
+    </nav>
+    <a href="#stay" class="btn btn-primary magnetic hidden md:inline-flex"><span class="inner">Check dates</span></a>
+    <button id="burger" class="md:hidden w-12 h-12 grid place-content-center rounded-full glass" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+      <span class="l l1"></span><span class="l l2"></span><span class="l l3"></span>
+    </button>
+  </div>
+  <div id="mobileMenu" class="md:hidden px-5 pb-5" hidden>
+    <ul class="glass-solid rounded-3xl p-3 text-lg font-semibold">
+      <li><a class="block px-4 py-3 rounded-2xl hover:bg-white/5" href="#suites">Suites</a></li>
+      <li><a class="block px-4 py-3 rounded-2xl hover:bg-white/5" href="#days">Days out</a></li>
+      <li><a class="block px-4 py-3 rounded-2xl hover:bg-white/5" href="#rituals">Rituals</a></li>
+      <li><a class="block px-4 py-3 rounded-2xl hover:bg-white/5" href="#faq">Questions</a></li>
+      <li><a class="block px-4 py-3 rounded-2xl bg-clay text-night text-center mt-2" href="#stay">Check dates</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+  <!-- HERO -->
+  <section id="top" class="relative min-h-[100svh] flex items-end">
+    <div class="w-full max-w-7xl mx-auto px-5 md:px-8 pb-16 md:pb-24 pt-32 grid md:grid-cols-12 gap-10 items-end">
+      <div class="md:col-span-7" id="heroCopy">
+        <p class="mono intro chip" style="--d:.1s; color: #F7C9A8; text-shadow:none">Desert house · 14 suites · Open all year</p>
+        <h1 class="mt-5 font-extrabold tracking-tight leading-[.98] text-[clamp(2.9rem,8.4vw,6.6rem)]">
+          <span class="mask"><span>Slow days,</span></span>
+          <span class="mask"><span class="bg-gradient-to-r from-[#F7C9A8] via-[#F2A47C] to-[#D88BA0] bg-clip-text text-transparent">wide skies.</span></span>
+        </h1>
+        <p class="intro mt-6 max-w-xl text-lg md:text-xl text-sand2 leading-relaxed" style="--d:.55s">A quiet house at the edge of the dunes. Every suite has its own plunge pool, and every night ends under more stars than you have ever seen.</p>
+        <div class="intro mt-8 flex flex-wrap gap-3" style="--d:.7s">
+          <a href="#stay" class="btn btn-primary magnetic"><span class="inner">Check your dates <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          <a href="#suites" class="btn btn-ghost magnetic"><span class="inner">See the suites</span></a>
+        </div>
+      </div>
+      <aside class="md:col-span-5 md:justify-self-end w-full max-w-sm intro" style="--d:.9s" aria-label="Tonight at Ochrevale" id="heroCard">
+        <div class="glass rounded-[28px] p-6">
+          <div class="flex items-center justify-between">
+            <p class="mono text-sand2">Tonight at the house</p>
+            <span class="inline-flex items-center gap-2 text-sm font-semibold text-sage"><span class="w-2 h-2 rounded-full bg-sage animate-pulse"></span>Clear sky</span>
+          </div>
+          <dl class="mt-5 grid grid-cols-3 gap-3 text-center">
+            <div class="rounded-2xl bg-white/5 border border-white/10 py-3"><dt class="mono text-[10px] text-sand2">Sunset</dt><dd class="mt-1 text-xl font-bold">18:42</dd></div>
+            <div class="rounded-2xl bg-white/5 border border-white/10 py-3"><dt class="mono text-[10px] text-sand2">Pools</dt><dd class="mt-1 text-xl font-bold">31°</dd></div>
+            <div class="rounded-2xl bg-white/5 border border-white/10 py-3"><dt class="mono text-[10px] text-sand2">Lights out</dt><dd class="mt-1 text-xl font-bold">22:00</dd></div>
+          </dl>
+          <p class="mt-4 text-sm text-sand2">Two suites free next weekend.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- MARQUEE + STATS -->
+  <section class="bg-night pt-6 pb-20 md:pb-28 border-t border-white/10" aria-label="The house in numbers">
+    <div class="overflow-hidden py-4 select-none" aria-hidden="true">
+      <div class="marquee text-[clamp(1.6rem,4vw,3rem)] font-light italic text-sand2/70 whitespace-nowrap">
+        <span class="px-6">Plunge pools</span><span class="px-6 text-clay">✦</span><span class="px-6">Canyon mornings</span><span class="px-6 text-clay">✦</span><span class="px-6">Salt-stone rituals</span><span class="px-6 text-clay">✦</span><span class="px-6">Dark-sky nights</span><span class="px-6 text-clay">✦</span>
+        <span class="px-6">Plunge pools</span><span class="px-6 text-clay">✦</span><span class="px-6">Canyon mornings</span><span class="px-6 text-clay">✦</span><span class="px-6">Salt-stone rituals</span><span class="px-6 text-clay">✦</span><span class="px-6">Dark-sky nights</span><span class="px-6 text-clay">✦</span>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-5 md:px-8 mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="glass rounded-3xl p-6" data-reveal="up"><p class="text-4xl md:text-5xl font-extrabold"><span data-count="14">14</span></p><p class="mt-2 text-sand2">suites, never more</p></div>
+      <div class="glass rounded-3xl p-6" data-reveal="up"><p class="text-4xl md:text-5xl font-extrabold"><span data-count="38">38</span> km</p><p class="mt-2 text-sand2">to the nearest town</p></div>
+      <div class="glass rounded-3xl p-6" data-reveal="up"><p class="text-4xl md:text-5xl font-extrabold"><span data-count="300">300</span>+</p><p class="mt-2 text-sand2">clear nights a year</p></div>
+      <div class="glass rounded-3xl p-6" data-reveal="up"><p class="text-4xl md:text-5xl font-extrabold"><span data-count="1">1</span></p><p class="mt-2 text-sand2">private pool per suite</p></div>
+    </div>
+  </section>
+
+  <!-- SUITES -->
+  <section id="suites" class="bg-night py-20 md:py-28 overflow-hidden">
+    <div class="blob" style="width:38vw;height:38vw;right:-12vw;top:10%;background:radial-gradient(circle,rgba(216,139,160,.22),transparent 70%)" data-par="0.12" aria-hidden="true"></div>
+    <div class="relative max-w-7xl mx-auto px-5 md:px-8">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <div>
+          <p class="mono" style="color:var(--clay-2)" data-reveal="left">01 — The suites</p>
+          <h2 class="mt-4 text-[clamp(2.2rem,5vw,3.8rem)] font-extrabold tracking-tight leading-[1.02]" data-reveal="left">Rooms made of<br>light and clay.</h2>
+        </div>
+        <p class="max-w-md text-sand2 text-lg leading-relaxed" data-reveal="right">Thick earth walls keep the days cool. Wide doors open straight onto your own terrace, pool and sky.</p>
+      </div>
+      <div class="mt-14 grid md:grid-cols-3 gap-6">
+        <article class="card glass" data-reveal="up">
+          <div class="ph aspect-[4/3]"><img src="https://images.unsplash.com/photo-1760261799672-2469a6c4c6f3?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Nnx8ZGVzZXJ0JTIwaG90ZWwlMjBwb29sJTIwZHVza3xlbnwwfDB8fHwxNzkxMDA2NDMxfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Sand-coloured courtyard with a long pool and palm trees" class="w-full h-full object-cover" loading="lazy" data-par="-0.04"></div>
+          <div class="p-6"><div class="flex items-center justify-between"><h3 class="text-xl font-bold">Courtyard Suite</h3><span class="chip mono text-[10px]">Sleeps 2</span></div>
+            <p class="mt-3 text-sand2 leading-relaxed">Opens onto the long palm courtyard. Morning shade, an evening swim, and a reading nook built into the wall.</p>
+            <p class="mt-5 text-lg"><span class="font-bold text-sand">from $420</span><span class="text-sand2"> / night</span></p></div>
+        </article>
+        <article class="card glass" data-reveal="up">
+          <div class="ph aspect-[4/3]"><img src="https://images.unsplash.com/photo-1505575064689-c5f0586c4a78?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8ZGVzZXJ0JTIwdmlsbGElMjB0ZXJyYWNlfGVufDB8MHx8fDE3OTEwMDY0NDJ8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Whitewashed shaded terrace with a low daybed and striped cushions" class="w-full h-full object-cover" loading="lazy" data-par="-0.04"></div>
+          <div class="p-6"><div class="flex items-center justify-between"><h3 class="text-xl font-bold">Shade Terrace Room</h3><span class="chip mono text-[10px]">Sleeps 2</span></div>
+            <p class="mt-3 text-sand2 leading-relaxed">A slatted roof throws stripes of light across a daybed big enough for a lazy afternoon nap for two.</p>
+            <p class="mt-5 text-lg"><span class="font-bold text-sand">from $380</span><span class="text-sand2"> / night</span></p></div>
+        </article>
+        <article class="card glass" data-reveal="up">
+          <div class="ph aspect-[4/3]"><img src="https://images.unsplash.com/photo-1785057707880-777f72acea8f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8M3x8YmF0aHR1YiUyMHZpZXclMjBtb3VudGFpbnN8ZW58MHwwfHx8MTc5MTAwNjQ0MXww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Guest relaxing in a deep outdoor tub with a mountain view" class="w-full h-full object-cover" loading="lazy" data-par="-0.04"></div>
+          <div class="p-6"><div class="flex items-center justify-between"><h3 class="text-xl font-bold">Ridge Soak Suite</h3><span class="chip mono text-[10px]">Sleeps 2–3</span></div>
+            <p class="mt-3 text-sand2 leading-relaxed">Our highest suite, with a deep stone tub on the deck. Fill it at dusk and watch the ridge turn pink.</p>
+            <p class="mt-5 text-lg"><span class="font-bold text-sand">from $560</span><span class="text-sand2"> / night</span></p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAYS OUT -->
+  <section id="days" class="py-20 md:py-28" style="background: linear-gradient(180deg, var(--night), var(--dusk))">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <p class="mono" style="color:var(--clay-2)" data-reveal="scale">02 — Days out</p>
+        <h2 class="mt-4 text-[clamp(2.2rem,5vw,3.8rem)] font-extrabold tracking-tight leading-[1.02]" data-reveal="scale">Out early, back for the pool.</h2>
+        <p class="mt-5 text-sand2 text-lg" data-reveal="scale">Small groups, local guides, and always home before the heat.</p>
+      </div>
+      <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="card glass group" data-reveal="tilt">
+          <div class="ph aspect-[3/4] relative"><img src="https://images.unsplash.com/photo-1645378704753-6fce1ae98080?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8eW9nYSUyMGRlc2VydHxlbnwwfDB8fHwxNzkxMDA2NDMzfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Person stretching on the sand under a red rock arch" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-night via-night/20 to-transparent"></div>
+            <div class="absolute bottom-0 p-6"><span class="chip mono text-[10px]">06:10 · 75 min</span><h3 class="mt-3 text-2xl font-bold">Sunrise stretch under the arch</h3><p class="mt-2 text-sand2">Slow yoga in the cool sand while the rock glows orange.</p><p class="mt-3 font-bold">$45 per guest</p></div></div>
+        </article>
+        <article class="card glass group" data-reveal="tilt">
+          <div class="ph aspect-[3/4] relative"><img src="https://images.unsplash.com/photo-1682695795255-b236b1f1267d?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8ZGVzZXJ0JTIwaGlraW5nJTIwY2FueW9ufGVufDB8MHx8fDE3OTEwMDY0MzR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Walker heading down a sunlit sandstone canyon" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-night via-night/20 to-transparent"></div>
+            <div class="absolute bottom-0 p-6"><span class="chip mono text-[10px]">07:00 · 3 hrs</span><h3 class="mt-3 text-2xl font-bold">The hidden canyon walk</h3><p class="mt-2 text-sand2">An easy trail between tall red walls, with tea at the far end.</p><p class="mt-3 font-bold">$80 per guest</p></div></div>
+        </article>
+        <article class="card glass group sm:col-span-2 lg:col-span-1" data-reveal="tilt">
+          <div class="ph aspect-[3/4] sm:aspect-[16/9] lg:aspect-[3/4] relative"><img src="https://images.unsplash.com/photo-1457264635001-828d0cbd483e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8M3x8aG90JTIwYWlyJTIwZGVzZXJ0JTIwc3VucmlzZXxlbnwwfDB8fHwxNzkxMDA2NDMzfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Small group walking along a golden dune ridge at dusk" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-night via-night/20 to-transparent"></div>
+            <div class="absolute bottom-0 p-6"><span class="chip mono text-[10px]">17:30 · 2 hrs</span><h3 class="mt-3 text-2xl font-bold">Dune ridge at golden hour</h3><p class="mt-2 text-sand2">Climb the big dune, sit down, and watch the sun go.</p><p class="mt-3 font-bold">$60 per guest</p></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPOTLIGHT -->
+  <section id="night" class="py-16 md:py-24" style="background: var(--dusk)" aria-label="Dark-sky nights">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+      <div class="spot" id="spot" data-reveal="scale">
+        <img src="https://images.unsplash.com/20/dusty-sky.JPG?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8MXx8ZGVzZXJ0JTIwbmlnaHQlMjBzdGFyc3xlbnwwfDB8fHwxNzkxMDA2NDMyfDA&amp;ixlib=rb-4.1.0&amp;w=2400&amp;q=80" alt="Sand dunes under a dark starry sky with a warm orange glow on the horizon" id="spotImg" loading="lazy">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="sweep" aria-hidden="true"></div>
+        <span class="twinkle" style="left:12%;top:14%" aria-hidden="true"></span><span class="twinkle" style="left:68%;top:10%;animation-delay:1.2s" aria-hidden="true"></span><span class="twinkle" style="left:84%;top:30%;animation-delay:2.1s" aria-hidden="true"></span><span class="twinkle" style="left:40%;top:22%;animation-delay:.6s" aria-hidden="true"></span>
+        <div class="absolute inset-0 bg-gradient-to-r from-night/85 via-night/40 to-transparent"></div>
+        <div class="relative z-10 p-7 md:p-14 max-w-xl flex flex-col justify-end min-h-[620px] pb-16 md:pb-20" id="spotText">
+          <p class="mono" style="color:var(--clay-2)">Every night · 22:00</p>
+          <h2 class="mt-4 text-[clamp(2.2rem,5vw,4rem)] font-extrabold leading-[1.02] tracking-tight">Lights out at ten. The sky does the rest.</h2>
+          <p class="mt-5 text-sand2 text-lg">We switch off every lamp in the house. Blankets on the roof, a telescope, and a guide who knows each star by name.</p>
+          <div class="mt-7 flex flex-wrap gap-3 items-center">
+            <a href="#stay" class="btn btn-primary magnetic"><span class="inner">Book a star night</span></a>
+            <button type="button" id="spotToggle" class="btn btn-ghost" aria-pressed="false"><span class="inner"><svg id="pauseIco" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg id="playIco" class="hidden" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5l12 7-12 7z"/></svg><span id="spotLabel">Pause motion</span></span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RITUALS (bento) -->
+  <section id="rituals" class="py-20 md:py-28" style="background: linear-gradient(180deg, var(--dusk), var(--night))">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+      <p class="mono" style="color:var(--clay-2)" data-reveal="right">03 — Rituals</p>
+      <h2 class="mt-4 text-[clamp(2.2rem,5vw,3.8rem)] font-extrabold tracking-tight leading-[1.02] max-w-2xl" data-reveal="right">Warm stones, cool water, nowhere to be.</h2>
+      <div class="mt-14 grid md:grid-cols-6 gap-6">
+        <article class="card glass md:col-span-3" data-reveal="left">
+          <div class="ph aspect-[16/10]"><img src="https://images.unsplash.com/photo-1737064700128-c0769e13e211?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8M3x8c3BhJTIwc3RvbmVzJTIwY2FuZGxlc3xlbnwwfDB8fHwxNzkxMDA2NDM1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Candles, a rolled white towel and pink bath salts" class="w-full h-full object-cover" loading="lazy"></div>
+          <div class="p-6 flex items-start justify-between gap-4"><div><h3 class="text-xl font-bold">Salt-stone massage</h3><p class="mt-2 text-sand2">Heated desert stones and pink salt, in a cool clay room.</p></div><p class="text-right shrink-0"><span class="block font-bold text-lg">$140</span><span class="text-sand2 text-sm">90 min</span></p></div>
+        </article>
+        <article class="card glass md:col-span-3" data-reveal="right">
+          <div class="ph aspect-[16/10]"><img src="https://images.unsplash.com/photo-1589046207215-b5ee3097bafc?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8NXx8aG90JTIwYWlyJTIwZGVzZXJ0JTIwc3VucmlzZXxlbnwwfDB8fHwxNzkxMDA2NDMzfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Tall cactus silhouetted against an orange desert sunset" class="w-full h-full object-cover" loading="lazy"></div>
+          <div class="p-6 flex items-start justify-between gap-4"><div><h3 class="text-xl font-bold">Sunset sound bath</h3><p class="mt-2 text-sand2">Bowls and soft drums on the roof as the light fades.</p></div><p class="text-right shrink-0"><span class="block font-bold text-lg">$55</span><span class="text-sand2 text-sm">45 min</span></p></div>
+        </article>
+        <article class="card glass-solid md:col-span-2 p-7" data-reveal="up">
+          <p class="mono text-sand2">Included</p><h3 class="mt-3 text-xl font-bold">Your own plunge pool</h3><p class="mt-2 text-sand2">Warmed in winter, cool in summer, always yours.</p>
+        </article>
+        <article class="card glass-solid md:col-span-2 p-7" data-reveal="up">
+          <p class="mono text-sand2">Included</p><h3 class="mt-3 text-xl font-bold">Hammam at dusk</h3><p class="mt-2 text-sand2">Steam, mint tea and a long cold rinse. Open 17:00–21:00.</p>
+        </article>
+        <article class="card md:col-span-2 p-7 border" style="background:linear-gradient(140deg,#E8875A,#D88BA0);color:#120E1A;border-color:transparent" data-reveal="up">
+          <p class="mono" style="color:#3a2230">Two nights or more</p><h3 class="mt-3 text-xl font-extrabold">One ritual on us</h3><p class="mt-2 font-medium">Pick any ritual for one guest when you stay two nights.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="bg-night py-20 md:py-28">
+    <div class="max-w-3xl mx-auto px-5 md:px-8">
+      <div class="text-center">
+        <p class="mono" style="color:var(--clay-2)" data-reveal="up">04 — Good to know</p>
+        <h2 class="mt-4 text-[clamp(2rem,4.5vw,3.4rem)] font-extrabold tracking-tight" data-reveal="up">Before you pack.</h2>
+      </div>
+      <div class="mt-12 space-y-3">
+        <details class="glass rounded-2xl" data-reveal="up"><summary class="flex items-center justify-between gap-4 p-5 min-h-[56px] font-semibold text-lg">How do we get there?<span class="plus text-2xl text-clay" aria-hidden="true">+</span></summary><p class="ans px-5 pb-5 text-sand2">We pick you up from the town square in our own car. The last 9 km are a sandy track, so leave the rental behind.</p></details>
+        <details class="glass rounded-2xl" data-reveal="up"><summary class="flex items-center justify-between gap-4 p-5 min-h-[56px] font-semibold text-lg">When is the best time to come?<span class="plus text-2xl text-clay" aria-hidden="true">+</span></summary><p class="ans px-5 pb-5 text-sand2">October to April for warm days and cold, clear nights. Summer is hot, but the pools and thick walls help a lot.</p></details>
+        <details class="glass rounded-2xl" data-reveal="up"><summary class="flex items-center justify-between gap-4 p-5 min-h-[56px] font-semibold text-lg">Is there Wi-Fi?<span class="plus text-2xl text-clay" aria-hidden="true">+</span></summary><p class="ans px-5 pb-5 text-sand2">In the library only. Most guests stop asking by day two.</p></details>
+        <details class="glass rounded-2xl" data-reveal="up"><summary class="flex items-center justify-between gap-4 p-5 min-h-[56px] font-semibold text-lg">Can we bring children?<span class="plus text-2xl text-clay" aria-hidden="true">+</span></summary><p class="ans px-5 pb-5 text-sand2">Guests aged 12 and up are welcome. Kids love the star nights.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAY / FORM -->
+  <section id="stay" class="py-20 md:py-28 overflow-hidden" style="background: radial-gradient(80% 60% at 50% 0%, rgba(232,135,90,.18), transparent 70%), var(--night)">
+    <div class="blob" style="width:30vw;height:30vw;left:-8vw;bottom:0;background:radial-gradient(circle,rgba(232,135,90,.25),transparent 70%)" data-par="-0.1" aria-hidden="true"></div>
+    <div class="relative max-w-2xl mx-auto px-5 md:px-8 text-center">
+      <p class="mono" style="color:var(--clay-2)" data-reveal="scale">05 — Stay with us</p>
+      <h2 class="mt-4 text-[clamp(2.2rem,5vw,3.8rem)] font-extrabold tracking-tight leading-[1.02]" data-reveal="scale">Tell us when you want to slow down.</h2>
+      <p class="mt-5 text-sand2 text-lg" data-reveal="scale">Leave your name and email and we'll send the open dates within a day.</p>
+      <form id="stayForm" class="glass rounded-[28px] p-6 md:p-8 mt-10 text-left grid gap-4" novalidate data-reveal="up">
+        <div class="grid md:grid-cols-2 gap-4">
+          <div><label for="name" class="block text-sm font-semibold mb-2">Your name</label><input id="name" name="name" class="field" autocomplete="name" required aria-describedby="nameErr" placeholder="Alex Rivera"><p id="nameErr" class="err mt-1" aria-live="polite"></p></div>
+          <div><label for="email" class="block text-sm font-semibold mb-2">Email</label><input id="email" name="email" type="email" class="field" autocomplete="email" required aria-describedby="emailErr" placeholder="you@example.com"><p id="emailErr" class="err mt-1" aria-live="polite"></p></div>
+        </div>
+        <div><label for="when" class="block text-sm font-semibold mb-2">When are you thinking? <span class="text-sand2 font-normal">(optional)</span></label>
+          <select id="when" name="when" class="field"><option>Any time — surprise me</option><option>This autumn</option><option>This winter</option><option>Next spring</option></select></div>
+        <div class="flex flex-col sm:flex-row gap-3 mt-2">
+          <button type="submit" class="btn btn-primary magnetic flex-1"><span class="inner">Send me open dates</span></button>
+          <a href="#suites" class="btn btn-ghost flex-1"><span class="inner">Browse suites first</span></a>
+        </div>
+        <div id="formOk" class="hidden rounded-2xl border border-sage/40 bg-sage/10 p-4 flex items-center gap-3" role="status">
+          <svg class="check shrink-0" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="#A9C6A2" stroke-width="2"/><path d="M9 16.5l4.5 4.5L23 11.5" fill="none" stroke="#A9C6A2" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p class="text-sand"><strong>Thank you.</strong> Open dates are on their way to your inbox. (Demo only — nothing was sent.)</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="relative z-[2] bg-night border-t border-white/10 py-14">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 text-center">
+    <a href="#top" class="inline-flex items-center gap-3 font-extrabold text-2xl min-h-[44px]"><svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="17" r="8" fill="#F2A47C"/><path d="M3 30c6-6 11-6 17-2s11 4 17-2v8H3z" fill="#F5EADB"/></svg>Ochrevale Desert House</a>
+    <ul class="mt-6 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sand2">
+      <li><a class="ulink hover:text-sand inline-block py-2" href="#suites">Suites</a></li>
+      <li><a class="ulink hover:text-sand inline-block py-2" href="#days">Days out</a></li>
+      <li><a class="ulink hover:text-sand inline-block py-2" href="#rituals">Rituals</a></li>
+      <li><a class="ulink hover:text-sand inline-block py-2" href="#stay">Check dates</a></li>
+    </ul>
+    <p class="mt-8 text-sm text-sand2 max-w-3xl mx-auto leading-relaxed">Photos: <a class="ulink hover:text-sand" href="https://unsplash.com/photos/white-mattress-and-pillows-on-wooden-flooring-near-swimming-pool-ZJjueReCg1Q?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="ulink hover:text-sand" href="https://unsplash.com/@rpnickson?utm_source=webdrip_concept&utm_medium=referral">Roberto Nickson</a> · <a class="ulink hover:text-sand" href="https://unsplash.com/photos/sand-dunes-under-starry-night-sky-yNGQ830uFB4?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="ulink hover:text-sand" href="https://unsplash.com/@timdegroot?utm_source=webdrip_concept&utm_medium=referral">Tim de Groot</a> · <a class="ulink hover:text-sand" href="https://unsplash.com/photos/courtyard-with-pool-and-palm-trees-in-desert-architecture-VBi7cdnaMBk?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="ulink hover:text-sand" href="https://unsplash.com/@dubai_love_story?utm_source=webdrip_concept&utm_medium=referral">Agnieszka Stankiewicz</a> · <a class="ulink hover:text-sand" href="https://unsplash.com/photos/two-brown-and-white-throw-pillows-WrmMvAMuPOo?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="ulink hover:text-sand" href="https://unsplash.com/@orlovamaria?utm_source=webdrip_concept&utm_medium=referral">Maria Orlova</a> · <a class="ulink hover:text-sand" href="https://unsplash.com/photos/woman-relaxing-in-an-outdoor-wooden-bathtub-with-mountain-view-hgNES6_ts-Q?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="ulink hover:text-sand" href="https://unsplash.com/@cli_k?utm_source=webdrip_concept&utm_medium=referral">Loris Boulinguez</a> · <a class="ulink hover:text-sand" href="https://unsplash.com/photos/a-person-kneeling-down-in-the-middle-of-a-desert-mod4XRc7VkU?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="ulink hover:text-sand" href="https://unsplash.com/@samsheppardphoto?utm_source=webdrip_concept&utm_medium=referral">Samantha Sheppard</a> · <a class="ulink hover:text-sand" href="https://unsplash.com/photos/a-person-walking-through-a-canyon-in-the-desert-9633dHhioC8?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="ulink hover:text-sand" href="https://unsplash.com/@neom?utm_source=webdrip_concept&utm_medium=referral">NEOM</a> · <a class="ulink hover:text-sand" href="https://unsplash.com/photos/group-of-people-walking-on-desert-during-dawn-m5P0c6ABWDs?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="ulink hover:text-sand" href="https://unsplash.com/@sortino?utm_source=webdrip_concept&utm_medium=referral">Joshua Sortino</a> · <a class="ulink hover:text-sand" href="https://unsplash.com/photos/a-couple-of-candles-sitting-on-top-of-a-table-OGiLrFM4x_M?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="ulink hover:text-sand" href="https://unsplash.com/@marylooo?utm_source=webdrip_concept&utm_medium=referral">Maria Kovalets</a> · <a class="ulink hover:text-sand" href="https://unsplash.com/photos/silhouette-of-cactus-during-sunset-qcofFqnGjww?utm_source=webdrip_concept&utm_medium=referral">Photo</a> by <a class="ulink hover:text-sand" href="https://unsplash.com/@joecook?utm_source=webdrip_concept&utm_medium=referral">Joe Cook</a> on <a class="ulink hover:text-sand" href="https://unsplash.com/?utm_source=webdrip_concept&utm_medium=referral">Unsplash</a>.</p>
+    <p class="mt-6 text-sm text-sand2"><a class="ulink hover:text-sand" href="https://getwebdrip.com">Concept design by WebDrip — fictional brand</a> · © 2026</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.classList.add('js');
+  requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.add('loaded'); }); });
+
+  /* service worker */
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(function () {}); });
+  }
+
+  /* mobile menu */
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  function setMenu(open) {
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (open) { menu.hidden = false; menu.classList.add('open'); } else { menu.classList.remove('open'); menu.hidden = true; }
+  }
+  burger.addEventListener('click', function () { setMenu(burger.getAttribute('aria-expanded') !== 'true'); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') { setMenu(false); burger.focus(); } });
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  window.addEventListener('resize', function () { if (window.innerWidth >= 768) setMenu(false); });
+
+  /* reveals */
+  var groups = new Map();
+  document.querySelectorAll('[data-reveal]').forEach(function (el) {
+    var p = el.parentElement; var i = groups.get(p) || 0; groups.set(p, i + 1);
+    el.style.setProperty('--stagger', (i * 80) + 'ms');
+  });
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else { revealEls.forEach(function (el) { el.classList.add('in'); }); }
+  // safety: anything above the fold of the current scroll is revealed
+  function sweepReveals() {
+    var vh = window.innerHeight;
+    revealEls.forEach(function (el) { if (!el.classList.contains('in') && el.getBoundingClientRect().top < vh * 0.98) el.classList.add('in'); });
+  }
+
+  /* count-up */
+  var counters = document.querySelectorAll('[data-count]');
+  function runCount(el) {
+    var target = +el.getAttribute('data-count'); if (reduce || target < 2) { el.textContent = target; return; }
+    var t0 = null;
+    function step(t) { if (!t0) t0 = t; var k = Math.min(1, (t - t0) / 1400); var e = 1 - Math.pow(1 - k, 3); el.textContent = Math.round(target * e); if (k < 1) requestAnimationFrame(step); }
+    el.textContent = '0'; requestAnimationFrame(step);
+  }
+  if ('IntersectionObserver' in window) {
+    var co = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { runCount(en.target); co.unobserve(en.target); } }); }, { threshold: .6 });
+    counters.forEach(function (c) { co.observe(c); });
+  }
+
+  /* shared scroll loop */
+  var nav = document.getElementById('nav');
+  var bar = document.getElementById('progress');
+  var heroImg = document.getElementById('heroImg');
+  var stage = document.querySelector('.hero-stage');
+  var ring = document.getElementById('sunRing');
+  var heroCopy = document.getElementById('heroCopy');
+  var heroCard = document.getElementById('heroCard');
+  var spot = document.getElementById('spot');
+  var spotText = document.getElementById('spotText');
+  var pars = Array.prototype.slice.call(document.querySelectorAll('[data-par]'));
+  var cur = window.scrollY, target = window.scrollY, ticking = false;
+
+  function frame() {
+    target = window.scrollY;
+    cur += (target - cur) * 0.12;
+    if (Math.abs(target - cur) < 0.3) cur = target;
+    var vh = window.innerHeight, docH = document.documentElement.scrollHeight - vh;
+    bar.style.transform = 'scaleX(' + (docH > 0 ? Math.min(1, target / docH) : 0) + ')';
+    nav.classList.toggle('scrolled', target > 40);
+
+    if (!reduce) {
+      var p = Math.min(1.4, cur / vh); // hero progress
+      var ease = p * p * (3 - 2 * Math.min(1, p));
+      heroImg.style.transform = 'translate3d(' + (-ease * 3) + '%,' + (ease * 6) + '%,0) scale(' + (1.04 + ease * 0.22) + ') rotateX(' + (ease * 7) + 'deg) rotateY(' + (-ease * 4) + 'deg)';
+      ring.style.transform = 'translate3d(0,' + (-cur * 0.35) + 'px,0) scale(' + (1 + ease * 0.3) + ')';
+      if (heroCopy) heroCopy.style.transform = 'translate3d(0,' + (-cur * 0.22) + 'px,0)';
+      if (heroCard) heroCard.style.transform = 'translate3d(0,' + (-cur * 0.38) + 'px,0)';
+      if (heroCopy) heroCopy.style.opacity = String(Math.max(0, 1 - p * 1.1));
+      pars.forEach(function (el) {
+        var r = el.getBoundingClientRect(); if (r.bottom < -200 || r.top > vh + 200) return;
+        var c = (r.top + r.height / 2 - vh / 2);
+        var f = parseFloat(el.getAttribute('data-par'));
+        el.style.transform = 'translate3d(0,' + (c * f) + 'px,0)' + (el.tagName === 'IMG' ? ' scale(1.08)' : '');
+      });
+      if (spot && spot.classList.contains('in')) {
+        var sr = spot.getBoundingClientRect();
+        var sp = (sr.top + sr.height / 2 - vh / 2) / vh;
+        spotText.style.transform = 'translate3d(0,' + (Math.max(-1, Math.min(1, sp)) * -24 - 12) + 'px,0)';
+      }
+    }
+    stage.style.opacity = String(Math.max(0, 1 - Math.max(0, target - vh * 0.9) / (vh * 0.6)));
+    sweepReveals();
+    if (Math.abs(target - cur) > 0.3 || target !== window.scrollY) requestAnimationFrame(frame); else ticking = false;
+  }
+  function kick() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+  window.addEventListener('scroll', kick, { passive: true });
+  window.addEventListener('resize', kick);
+  kick();
+
+  /* magnetic buttons (desktop pointer only) */
+  if (!reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('.magnetic').forEach(function (b) {
+      var inner = b.querySelector('.inner');
+      b.addEventListener('mousemove', function (e) {
+        var r = b.getBoundingClientRect(); var x = e.clientX - r.left - r.width / 2, y = e.clientY - r.top - r.height / 2;
+        b.style.transform = 'translate3d(' + x * 0.18 + 'px,' + y * 0.25 + 'px,0)';
+        if (inner) inner.style.transform = 'translate3d(' + x * 0.08 + 'px,' + y * 0.1 + 'px,0)';
+      });
+      b.addEventListener('mouseleave', function () { b.style.transform = ''; if (inner) inner.style.transform = ''; });
+    });
+  }
+
+  /* spotlight toggle */
+  var tgl = document.getElementById('spotToggle');
+  function setSpot(paused) {
+    spot.classList.toggle('paused', paused);
+    tgl.setAttribute('aria-pressed', String(paused));
+    document.getElementById('spotLabel').textContent = paused ? 'Play motion' : 'Pause motion';
+    document.getElementById('pauseIco').classList.toggle('hidden', paused);
+    document.getElementById('playIco').classList.toggle('hidden', !paused);
+  }
+  tgl.addEventListener('click', function () { setSpot(!spot.classList.contains('paused')); });
+  if (reduce) setSpot(true);
+
+  /* form */
+  var form = document.getElementById('stayForm');
+  var ok = document.getElementById('formOk');
+  var nameI = document.getElementById('name'), emailI = document.getElementById('email');
+  var nameE = document.getElementById('nameErr'), emailE = document.getElementById('emailErr');
+  function fail(input, errEl, msg) {
+    input.setAttribute('aria-invalid', 'true'); errEl.textContent = msg;
+    input.classList.remove('shake'); void input.offsetWidth; input.classList.add('shake');
+  }
+  function clear(input, errEl) { input.removeAttribute('aria-invalid'); errEl.textContent = ''; }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    ok.classList.add('hidden'); ok.classList.remove('show');
+    var good = true;
+    if (!nameI.value.trim()) { fail(nameI, nameE, 'Please tell us your name.'); good = false; } else clear(nameI, nameE);
+    var v = emailI.value.trim();
+    if (!v) { fail(emailI, emailE, 'Please enter your email.'); good = false; }
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { fail(emailI, emailE, 'That email looks incomplete — check it?'); good = false; }
+    else clear(emailI, emailE);
+    if (!good) { (form.querySelector('[aria-invalid="true"]') || nameI).focus(); return; }
+    ok.classList.remove('hidden'); void ok.offsetWidth; ok.classList.add('show');
+    form.reset();
+  });
+})();
+</script>
+</body>
+</html>
