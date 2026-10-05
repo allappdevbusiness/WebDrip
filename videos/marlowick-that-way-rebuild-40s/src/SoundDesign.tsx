@@ -62,8 +62,7 @@ export const SoundDesign: React.FC = () => (
     <Sfx name="shutter - montage 2" file="camera-shutter-panasonic.wav" at={beat(250)} db={-15} />
     <Sfx name="shutter - montage 3" file="camera-shutter-panasonic.wav" at={beat(252)} db={-15} />
     <Sfx name="glitch - quarter-beat run" file="glitch-short-circuit-04.wav" at={beat(254.5)} db={-15} maxS={0.55} />
-    {/* hold: near silence, then the suck into the bass return */}
-    <Sfx name="tick - $300?" file="ui-click-hard-short.wav" at={EV.holdPrice} db={-12} maxS={0.2} />
+    {/* hold: silence, then the suck into the bass return */}
     <Sfx name="reverse suck into the hero" file="whoosh-deep-reversed.wav" at={EV.hero} db={-11} align="peak" />
     {/* hero */}
     <Sfx name="stinger - billboard lands" file="stinger-whoosh-to-impact.wav" at={EV.hero} db={-15} align="peak" />

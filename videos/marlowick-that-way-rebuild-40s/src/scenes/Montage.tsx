@@ -29,7 +29,7 @@ const CLIPS: Clip[] = [
   { kind: 'photo', src: 'img/groom.jpg', iw: 1080, ih: 720 },
   { kind: 'layer', id: 'heroLine2', s: 3.8, bg: C.ivory },
   { kind: 'photo', src: 'img/spot.jpg', iw: 1080, ih: 720 },
-  { kind: 'layer', id: 'form', s: 2.2, bg: C.ivory, dy: -40 },
+  { kind: 'photo', src: 'img/p2.jpg', iw: 1080, ih: 720 }, // held as the freeze frame in the break
 ];
 // cut points: half beats from 248 to 254, then quarter beats to the stop
 const CUTS = [...Array.from({ length: 13 }, (_, i) => beat(248 + i * 0.5)), ...Array.from({ length: 6 }, (_, i) => beat(254.5 + i * 0.25))];

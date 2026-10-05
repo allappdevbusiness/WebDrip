@@ -1,27 +1,24 @@
-// 31.029-32.781  The drums drop out. Everything stops: the last montage frame freezes, drains to ink, and
-// the question sits in near-silence ("WORTH" on the next beat, "$300?" on the returning snare). The text
-// tightens in the last frames, pulling the viewer into the bass hit at 32.78 s.
+// 31.029-32.781  The drums drop out and the picture stops with them: the montage's last shot (the site's
+// tuxedo photo) freezes on its final frame, drains to monochrome while the camera creeps in, then is sucked
+// away into the dark just before the bass returns at 32.78 s. No text - the silence is the moment.
 import React from 'react';
 import { AbsoluteFill, useCurrentFrame } from 'remotion';
-import { EV, SCENES } from '../beats';
+import { SCENES } from '../beats';
 import { C, E, k } from '../theme';
-import { KineticText, SceneRoot, UILayer } from '../components/kit';
+import { Photo, SceneRoot } from '../components/kit';
 
 const S = SCENES.hold.from;
 
 export const Hold: React.FC = () => {
   const f = useCurrentFrame() + S;
-  const drain = k(f, [S, S + 20], [0, 1], E.glide);
-  const squeeze = k(f, [SCENES.hold.to - 26, SCENES.hold.to], [1, 0.9], E.accel);
+  const end = SCENES.hold.to;
+  const drain = k(f, [S + 2, S + 30], [0, 1], E.glide);
+  const creep = k(f, [S, end - 24], [1.1, 1.2], E.glide); // continues from the montage's last framing (1.1, -0.8 deg)
+  const suck = k(f, [end - 24, end], [0, 1], E.accel); // anticipation into the hit
   return (
     <SceneRoot bg={C.ink}>
-      {/* freeze frame of the last montage shot (the real form) */}
-      <AbsoluteFill style={{ background: C.ivory, opacity: 1 - drain, filter: `grayscale(${drain})`, scale: String(1.1 - 0.05 * drain) }}>
-        <UILayer id="form" s={2.2} x={540} y={920} />
-      </AbsoluteFill>
-      <AbsoluteFill style={{ scale: String(squeeze), transformOrigin: '400px 900px', opacity: k(f, [SCENES.hold.to - 6, SCENES.hold.to], [1, 0]) }}>
-        <KineticText name="WORTH" from={EV.holdWorth - S} mode="rise" color={C.ivory} size={170} y={620}>Worth</KineticText>
-        <KineticText name="$300?" from={EV.holdPrice - S} mode="slam" color={C.camel} size={300} y={800}>$300?</KineticText>
+      <AbsoluteFill style={{ rotate: '-0.8deg', scale: String(creep * (1 - 0.85 * suck)), opacity: 1 - suck, borderRadius: suck * 80, overflow: 'hidden', filter: `grayscale(${drain}) contrast(${1 + 0.15 * drain})` }}>
+        <Photo src="img/p2.jpg" iw={1080} ih={720} dx={20} />
       </AbsoluteFill>
     </SceneRoot>
   );
