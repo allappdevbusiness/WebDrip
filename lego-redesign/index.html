@@ -9,7 +9,7 @@
   <link rel="preload" href="fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
-  <script>document.documentElement.classList.add('wd-js');setTimeout(function(){if(!window.__wdReady)document.documentElement.classList.add('wd-reveal-all');},3000);</script>
+  <script>(function(d){d.classList.add('wd-js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('wd-anim');setTimeout(function(){if(!window.__wdReady){d.classList.add('wd-reveal-all');d.classList.remove('wd-anim');}},3000);})(document.documentElement);</script>
 </head>
 <body>
   <a class="wd-skip" href="#main">Skip to content</a>
@@ -51,39 +51,49 @@
 
   <main id="main">
     <section class="wd-hero" aria-labelledby="heroTitle">
-      <div class="wd-wrap wd-hero__grid">
-        <div class="wd-hero__panel">
-          <h1 class="wd-h1 wd-reveal" id="heroTitle">What will you build next?</h1>
-          <p class="wd-hero__sub wd-reveal">Discover new arrivals and find a set for your interests.</p>
-          <div class="wd-hero__actions wd-reveal">
+      <div class="wd-wrap wd-bento">
+        <div class="wd-block wd-bento__intro" style="--i:1">
+          <h1 class="wd-h1" id="heroTitle">What will <span class="wd-h1__hl">you build</span> next?</h1>
+          <p class="wd-hero__sub">Discover new arrivals and find a set for your interests.</p>
+          <div class="wd-hero__actions">
             <a class="wd-btn wd-btn--primary" id="heroFind" href="#sets" data-scroll="sets">Find my next build</a>
             <a class="wd-btn wd-btn--secondary" href="#gifts" data-scroll="gifts">Explore gifts</a>
           </div>
         </div>
-        <div class="wd-hero__media wd-reveal">
-          <picture>
-            <source media="(max-width: 767px)" srcset="assets/hero-playstation-mobile.webp" width="750" height="750">
-            <img class="wd-hero__img" src="assets/hero-playstation-desktop.webp" width="1920" height="600" alt="The LEGO PlayStation set and its controller displayed on an orange table.">
-          </picture>
-        </div>
+        <a class="wd-block wd-tile2 wd-tile2--blue wd-bento__feature" href="#sets" data-jump="gaming" style="--i:2">
+          <img class="wd-tile2__img" src="assets/product-mario-kart.webp" width="750" height="655" alt="LEGO Mario Kart Mario and Standard Kart set">
+          <span class="wd-tile2__label"><span class="wd-tile2__kicker">Gaming</span><span class="wd-tile2__name">Mario Kart™ – Mario &amp; Standard Kart</span><span class="wd-tile2__price">$169.99</span></span>
+        </a>
+        <a class="wd-block wd-tile2 wd-tile2--orange" href="#sets" data-jump="gaming" style="--i:3">
+          <img class="wd-tile2__img" src="assets/product-game-boy.webp" width="750" height="577" alt="LEGO Game Boy set">
+          <span class="wd-tile2__label"><span class="wd-tile2__kicker">Gaming</span><span class="wd-tile2__name">Game Boy™</span><span class="wd-tile2__price">$59.99</span></span>
+        </a>
+        <a class="wd-block wd-tile2 wd-tile2--white" href="#sets" data-jump="display" style="--i:4">
+          <img class="wd-tile2__img" src="assets/product-book-nook.webp" width="750" height="482" alt="LEGO Bookstore Book Nook set">
+          <span class="wd-tile2__label"><span class="wd-tile2__kicker">Display</span><span class="wd-tile2__name">Bookstore: Book Nook</span><span class="wd-tile2__price">$149.99</span></span>
+        </a>
+        <a class="wd-block wd-tile2 wd-tile2--red" href="#sets" data-jump="seasonal" style="--i:5">
+          <img class="wd-tile2__img" src="assets/product-holiday-house.webp" width="750" height="521" alt="LEGO Holiday House set">
+          <span class="wd-tile2__label"><span class="wd-tile2__kicker">Seasonal</span><span class="wd-tile2__name">Holiday House</span><span class="wd-tile2__price">$119.99</span></span>
+        </a>
       </div>
     </section>
 
     <section class="wd-section wd-sets" id="sets" aria-labelledby="setsTitle">
       <div class="wd-wrap">
-        <div class="wd-sets__head">
+        <div class="wd-sets__head wd-reveal">
           <h2 class="wd-h2" id="setsTitle" tabindex="-1">Find the perfect set</h2>
           <p class="wd-lead">Choose an interest to explore this concept selection.</p>
         </div>
-        <div class="wd-filters" role="group" aria-label="Choose an interest">
+        <div class="wd-filters wd-reveal" role="group" aria-label="Choose an interest">
           <button class="wd-filter" type="button" data-filter="all" aria-pressed="true">All</button>
           <button class="wd-filter" type="button" data-filter="gaming" aria-pressed="false">Gaming</button>
           <button class="wd-filter" type="button" data-filter="display" aria-pressed="false">Display</button>
           <button class="wd-filter" type="button" data-filter="seasonal" aria-pressed="false">Seasonal</button>
         </div>
-        <p class="wd-count" id="setCount" aria-live="polite">8 sets in this concept</p>
+        <p class="wd-count wd-reveal" id="setCount" aria-live="polite">8 sets in this concept</p>
         <ul class="wd-grid" id="setGrid" data-count="8">
-          <li class="wd-card" data-interest="gaming" data-id="game-boy">
+          <li class="wd-card wd-reveal" data-interest="gaming" data-id="game-boy">
             <div class="wd-card__inner">
               <div class="wd-card__media wd-card__media--product"><img src="assets/product-game-boy.webp" width="750" height="577" alt="LEGO Game Boy set"></div>
               <div class="wd-card__body">
@@ -93,7 +103,7 @@
               </div>
             </div>
           </li>
-          <li class="wd-card" data-interest="gaming" data-id="mario-kart">
+          <li class="wd-card wd-reveal" data-interest="gaming" data-id="mario-kart">
             <div class="wd-card__inner">
               <div class="wd-card__media wd-card__media--product"><img src="assets/product-mario-kart.webp" width="750" height="655" alt="LEGO Mario Kart Mario and Standard Kart set"></div>
               <div class="wd-card__body">
@@ -103,7 +113,7 @@
               </div>
             </div>
           </li>
-          <li class="wd-card" data-interest="display" data-id="book-nook">
+          <li class="wd-card wd-reveal" data-interest="display" data-id="book-nook">
             <div class="wd-card__inner">
               <div class="wd-card__media wd-card__media--product"><img src="assets/product-book-nook.webp" width="750" height="482" alt="LEGO Bookstore Book Nook set"></div>
               <div class="wd-card__body">
@@ -113,7 +123,7 @@
               </div>
             </div>
           </li>
-          <li class="wd-card" data-interest="display" data-id="golden-pothos">
+          <li class="wd-card wd-reveal" data-interest="display" data-id="golden-pothos">
             <div class="wd-card__inner">
               <div class="wd-card__media wd-card__media--photo"><img src="assets/lifestyle-golden-pothos.webp" width="2250" height="2250" alt="LEGO Hanging Golden Pothos set"></div>
               <div class="wd-card__body">
@@ -123,7 +133,7 @@
               </div>
             </div>
           </li>
-          <li class="wd-card" data-interest="display" data-id="downton-abbey">
+          <li class="wd-card wd-reveal" data-interest="display" data-id="downton-abbey">
             <div class="wd-card__inner">
               <div class="wd-card__media wd-card__media--photo"><img src="assets/lifestyle-downton-abbey.webp" width="2250" height="2250" alt="LEGO Downton Abbey set"></div>
               <div class="wd-card__body">
@@ -133,7 +143,7 @@
               </div>
             </div>
           </li>
-          <li class="wd-card" data-interest="display" data-id="bikini-bottom">
+          <li class="wd-card wd-reveal" data-interest="display" data-id="bikini-bottom">
             <div class="wd-card__inner">
               <div class="wd-card__media wd-card__media--photo"><img src="assets/lifestyle-bikini-bottom.webp" width="2250" height="2250" alt="LEGO SpongeBob SquarePants Bikini Bottom set"></div>
               <div class="wd-card__body">
@@ -143,7 +153,7 @@
               </div>
             </div>
           </li>
-          <li class="wd-card" data-interest="seasonal" data-id="holiday-house">
+          <li class="wd-card wd-reveal" data-interest="seasonal" data-id="holiday-house">
             <div class="wd-card__inner">
               <div class="wd-card__media wd-card__media--product"><img src="assets/product-holiday-house.webp" width="750" height="521" alt="LEGO Holiday House set"></div>
               <div class="wd-card__body">
@@ -153,7 +163,7 @@
               </div>
             </div>
           </li>
-          <li class="wd-card" data-interest="seasonal" data-id="home-alone">
+          <li class="wd-card wd-reveal" data-interest="seasonal" data-id="home-alone">
             <div class="wd-card__inner">
               <div class="wd-card__media wd-card__media--photo"><img src="assets/lifestyle-home-alone.webp" width="2250" height="2250" alt="LEGO Ideas Home Alone set"></div>
               <div class="wd-card__body">

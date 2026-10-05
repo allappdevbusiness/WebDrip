@@ -79,6 +79,7 @@
     var shown = cards.filter(function (c) { return filter === 'all' || c.dataset.interest === filter; });
     cards.forEach(function (c) {
       c.hidden = shown.indexOf(c) === -1;
+      c.classList.add('is-done'); c.classList.remove('is-in');
       c.getAnimations().forEach(function (a) { a.cancel(); });
     });
     grid.dataset.count = String(shown.length);
@@ -205,9 +206,33 @@
     if (menu.isOpen() && window.matchMedia('(min-width: 1101px)').matches) menu.close(false);
   });
 
-  /* ---------- Entrance motion ---------- */
+  /* ---------- Building-block assembly (hero) ---------- */
+  // Blocks wait (paused at their first keyframe) until the page's images are ready, then drop in one by one.
+  // Once the last product image has popped in, the animation classes come off so hover effects work normally.
+  if (root.classList.contains('wd-anim')) {
+    var go = function () {
+      root.classList.add('wd-go');
+      var imgs = document.querySelectorAll('.wd-bento .wd-tile2__img');
+      var last = imgs[imgs.length - 1];
+      var finish = function () { root.classList.remove('wd-anim', 'wd-go'); root.classList.add('wd-built'); };
+      if (last) last.addEventListener('animationend', finish, { once: true }); else finish();
+    };
+    if (document.readyState === 'complete') go(); else window.addEventListener('load', go, { once: true });
+  }
+
+  /* ---------- Hero tiles jump to their interest ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-jump]'), function (a) {
+    a.addEventListener('click', function (ev) { ev.preventDefault(); setFilter(a.dataset.jump); scrollToId('sets', true); });
+  });
+
+  /* ---------- Entrance motion (later sections assemble as they scroll in) ---------- */
   var reveals = Array.prototype.slice.call(document.querySelectorAll('.wd-reveal'));
-  function show(el) { el.classList.add('is-in'); }
+  function done(el) { el.classList.add('is-done'); el.classList.remove('is-in'); }
+  function show(el) {
+    if (reduced()) { done(el); return; }
+    el.addEventListener('animationend', function () { done(el); }, { once: true });
+    el.classList.add('is-in');
+  }
   if (reduced() || !('IntersectionObserver' in window)) {
     reveals.forEach(show);
   } else {

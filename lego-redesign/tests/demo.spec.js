@@ -38,6 +38,11 @@ async function revealAll(page) {
   for (let y = 0; y <= h; y += 300) { await page.evaluate((v) => window.scrollTo(0, v), y); await page.waitForTimeout(60); }
   await page.waitForTimeout(900);
 }
+// Sections assemble block by block as they scroll in: wait until nothing in #sets is still animating.
+async function settleSets(page) {
+  await page.waitForTimeout(100);
+  await page.waitForFunction(() => [...document.querySelectorAll('#sets *')].every((el) => el.getAnimations().every((a) => a.playState !== 'running')), null, { timeout: 5000 });
+}
 async function visibleNames(page) {
   return page.locator('#setGrid .wd-card:not([hidden]) .wd-card__name').allTextContents();
 }
@@ -100,6 +105,7 @@ for (const p of profiles) {
       expect(await visibleNames(page)).toEqual(ORDER.all);
       await expect(page.locator('.wd-filter[data-filter="all"]')).toHaveAttribute('aria-pressed', 'true');
       await page.evaluate(() => window.scrollTo(0, document.getElementById('sets').getBoundingClientRect().top + scrollY - document.querySelector('.wd-top').offsetHeight));
+      await settleSets(page);
       const groupTop = async () => page.locator('.wd-filters').evaluate((el) => el.getBoundingClientRect().top);
       for (const f of ['gaming', 'display', 'seasonal', 'all']) {
         const before = await groupTop();
@@ -299,8 +305,10 @@ for (const p of profiles) {
         await expect(page.locator('#setCount')).toHaveText('8 sets in this concept');
         expect(page.url()).toBe(BASE + PATH);
         // the recorded path: Gaming, then Game Boy quick view as a bottom sheet
+        await settleSets(page);
         await page.locator('.wd-filter[data-filter="gaming"]').tap();
         await expect(page.locator('#setCount')).toHaveText('2 sets in this concept');
+        await settleSets(page);
         const qbtn = page.locator('[data-quick="game-boy"]');
         await expect(qbtn).toBeInViewport({ ratio: 1 });
         await qbtn.tap();
