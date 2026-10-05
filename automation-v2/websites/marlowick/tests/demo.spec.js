@@ -207,6 +207,21 @@ for (const p of profiles) {
       expect(hidden, hidden.join('\n')).toEqual([]);
     });
 
+    test('spotlight pause/play keeps the photo visible', async ({ page }) => {
+      await page.goto(BASE + PATH, { waitUntil: 'load' });
+      const media = page.locator('#spotlight .wd-spot-media');
+      await media.scrollIntoViewIfNeeded();
+      await page.waitForTimeout(1500);
+      const toggle = page.locator('#spotlight .wd-spot-toggle');
+      await toggle.click();
+      await expect(toggle).toHaveAttribute('aria-pressed', 'true');
+      await toggle.click();
+      await expect(toggle).toHaveAttribute('aria-pressed', 'false');
+      await page.waitForTimeout(1200);
+      const op = await media.evaluate((el) => { let o = 1; for (let n = el; n && n !== document.body; n = n.parentElement) o *= parseFloat(getComputedStyle(n).opacity); return o; });
+      expect(op).toBeGreaterThan(0.999);
+    });
+
     test('screenshots', async ({ page }) => {
       await page.goto(BASE + PATH, { waitUntil: 'networkidle' });
       await page.waitForTimeout(800);

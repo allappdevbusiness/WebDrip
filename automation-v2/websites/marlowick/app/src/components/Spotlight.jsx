@@ -6,7 +6,9 @@ export default function Spotlight() {
   return (
     <section id="spotlight" className="wd-section wd-bg-sky" aria-labelledby="spotTitle">
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 md:grid-cols-2 md:px-8">
-        <div className={`wd-spot-media ${paused ? 'wd-paused' : ''}`} data-reveal="scale">
+        {/* the reveal class is added outside React, so the element React re-renders (pause state) sits inside it */}
+        <div data-reveal="scale">
+        <div className={`wd-spot-media ${paused ? 'wd-paused' : ''}`}>
           <div className="wd-spot-img" data-speed="1.12">
             <img src={spotlight.img.src} alt={spotlight.alt} loading="lazy" decoding="async" />
           </div>
@@ -25,6 +27,7 @@ export default function Spotlight() {
             )}
             <span>{paused ? 'Play' : 'Pause'}</span>
           </button>
+        </div>
         </div>
         <div data-reveal="left">
           <p className="wd-mono wd-kicker">{spotlight.kicker}</p>

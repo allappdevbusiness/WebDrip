@@ -3,8 +3,8 @@ const VERSION = 'marlowick-v1';
 const PRECACHE = [
   "./",
   "./index.html",
+  "./assets/index-B-Hetl_K.js",
   "./assets/index-C3pQSRPA.css",
-  "./assets/index-P8fO1R6r.js",
   "./assets/inter-latin-wght-normal-Dx4kXJAl.woff2",
   "./assets/jetbrains-mono-latin-500-normal-BWZEU5yA.woff2",
   "https://images.unsplash.com/photo-1743792931983-569266bb55d3?ixid=M3wxMDYxOTEwfDB8MXxzZWFyY2h8Nnx8bWVuc3dlYXIlMjBzdG9yZSUyMHN1aXRzJTIwcmFja3xlbnwwfDB8fHwxNzkxMjIzODgyfDA&ixlib=rb-4.1.0&w=2400&q=80",
