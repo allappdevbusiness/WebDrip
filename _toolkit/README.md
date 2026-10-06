@@ -52,3 +52,9 @@ Notes that saved time:
 - A CSS animation overrides inline transforms while it applies. For intro animations on elements that JS also moves, use `animation-fill-mode: backwards` so the inline transform wins once the animation ends.
 - Count-ups: keep the prerendered final number until the element is in view, then reset to 0 and count. Zeroing them early leaves 0 in static screenshots.
 - The hero photo's starting transform lives in both `index.css` (no-JS state) and the hero script. Keep the two in sync, or the first frame jumps.
+
+- Multi-page React (2026-10-06, EyeMax): `entry-server.jsx` exports `pages` (`{ 'file.html': () => html }`) and `prerender.mjs` injects every page and precaches all of them. Add each HTML file to `build.rollupOptions.input`. Vite warns that `outDir` is the parent of root; that's expected.
+- Mobile overflow: slide-in start states (`translateX(±56px)`) and `<fieldset>`'s default `min-width: min-content` widen the page on phones. Use `main > section { overflow-x: clip }` (sticky still works), `fieldset { min-width: 0 }` and `.grid > * { min-width: 0 }`.
+- Headless Chromium skips cross-document view transitions now and then. Record `pagereveal`'s `e.viewTransition` in an inline head script and add a fade-in class when it's null, so a transition always shows.
+- Letter-split headings: keep the space between words outside the `inline-block` word span, or it collapses ("Seewell.").
+- `@playwright/test` isn't installed globally (only `playwright`): `npm i @playwright/test@1.56.1` in a scratch dir and run with `NODE_PATH=<scratch>/node_modules`.

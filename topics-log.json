@@ -709,5 +709,39 @@
     "edit_style": "32 s practical-question edit: real taps and clicks from frame-by-frame Playwright recordings, tight readable crops, one cobalt mask wipe, 3 s WebDrip end card",
     "caption_hook": "If customers can't find your prices, they ask someone else.",
     "hook_type": "relatable truth"
+  },
+  {
+    "date": "2026-10-06",
+    "slug": "eyemax",
+    "site_path": "automation-v2/websites/eyemax",
+    "business_type": "independent optician & eyewear studio",
+    "brand_name": "EyeMax",
+    "tagline": "See well. Look like yourself.",
+    "topic_approved": true,
+    "topic_note": "Topic approved by Sourav. Brand name EyeMax requested by Sourav after being told several real opticians use the name; site is labelled fictional with an invented address.",
+    "design_style": "anthropics/skills 'frontend-design' (~173k stars, Apache-2.0): subject-led direction with one bold move, an eye-chart letter-reveal hero headline (Bricolage Grotesque Variable display + Instrument Sans Variable body, 20-28px card radii, soft teal-tinted shadows, sentence-case labels, no mono/all-caps chrome). Layouts from bergside/typeui: left-aligned intro + six-up grid, three pricing cards, centred single-column FAQ, four-column team grid; hero headline flush-left over a fixed 3D-camera photo.",
+    "design_source": {
+      "repo": "https://github.com/anthropics/skills",
+      "skill": "skills/frontend-design",
+      "stars": "~173k (from web search; GitHub API and pages are blocked in this session)",
+      "layouts": "https://github.com/bergside/typeui (prompts/marketing)"
+    },
+    "palette": {
+      "paper": "#F5F8F8",
+      "mint": "#DCEFEC",
+      "teal": "#0E5E63",
+      "teal2": "#147A78",
+      "coral": "#F0705A",
+      "blush": "#FCE7E1",
+      "sand": "#F6EFE0",
+      "brass": "#8A6A18",
+      "ink": "#10252A"
+    },
+    "pages": [
+      "index.html",
+      "services.html",
+      "book.html"
+    ],
+    "images": "26 Unsplash photos downloaded to assets/images (served locally at Sourav's request), credited in each footer"
   }
 ]
