@@ -1,0 +1,16 @@
+{
+ "next": 1,
+ "log": [
+  {
+   "n": 0,
+   "at": "20261007-031852",
+   "url": "https://pub-027038837b0f4c1bb96993e264c3509a.r2.dev/ai-posts/ai-00-20261007-031852.jpg",
+   "post_id": "6ac5ba1ec22c37a573b4e94c",
+   "result": "PostActionSuccess",
+   "status": "sent",
+   "link": "https://tiktok.com/@getwebdrip/video/7693760069506305293",
+   "error": null,
+   "buffer_deleted": "VoidMutationError"
+  }
+ ]
+}
