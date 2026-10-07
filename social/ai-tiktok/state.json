@@ -1,5 +1,5 @@
 {
- "next": 1,
+ "next": 2,
  "log": [
   {
    "n": 0,
@@ -9,6 +9,17 @@
    "result": "PostActionSuccess",
    "status": "sent",
    "link": "https://tiktok.com/@getwebdrip/video/7693760069506305293",
+   "error": null,
+   "buffer_deleted": "VoidMutationError"
+  },
+  {
+   "n": 1,
+   "at": "20261007-033635",
+   "url": "https://pub-027038837b0f4c1bb96993e264c3509a.r2.dev/ai-posts/ai-01-20261007-033635.jpg",
+   "post_id": "6ac5be4653551104161da6b5",
+   "result": "PostActionSuccess",
+   "status": "sent",
+   "link": "https://tiktok.com/@getwebdrip/video/7693764653385616654",
    "error": null,
    "buffer_deleted": "VoidMutationError"
   }
