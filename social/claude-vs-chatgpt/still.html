@@ -1,0 +1,121 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --orange: #D97757; --orange2: #F2A07B; --ink: #0B0B0F; --gpt: #10A37F; }
+  html, body { width: 1080px; background: var(--ink); }
+  body { font-family: 'Inter Display', 'Inter', 'Noto Color Emoji', sans-serif; color: #fff; overflow: hidden; }
+  .canvas { position: relative; width: 1080px; height: var(--h); overflow: hidden;
+    background:
+      radial-gradient(900px 700px at 78% 52%, rgba(217,119,87,.38), transparent 60%),
+      radial-gradient(700px 600px at 18% 50%, rgba(255,255,255,.06), transparent 60%),
+      linear-gradient(180deg, #121218 0%, #0B0B0F 45%, #160D0A 100%);
+  }
+  .grain { position: absolute; inset: 0; opacity: .07; background-image: repeating-linear-gradient(0deg, #fff 0 1px, transparent 1px 3px); mix-blend-mode: overlay; }
+  .wrap { position: absolute; inset: 0; padding: var(--top) 70px 0; display: flex; flex-direction: column; align-items: center; }
+
+  .pill { display: inline-flex; align-items: center; gap: 12px; padding: 12px 26px; border-radius: 999px;
+    background: rgba(255,255,255,.08); border: 1.5px solid rgba(255,255,255,.18);
+    font: 700 30px 'Inter'; letter-spacing: .06em; text-transform: uppercase; color: #ffd9c9; }
+  .dot { width: 14px; height: 14px; border-radius: 50%; background: #ff4d4d; box-shadow: 0 0 14px #ff4d4d; }
+
+  h1 { margin-top: 34px; text-align: center; font: 900 var(--h1)/0.98 'Inter Display'; letter-spacing: -0.035em; }
+  h1 .hl { color: var(--orange); }
+  h1 .strike { position: relative; color: rgba(255,255,255,.55); }
+  h1 .strike::after { content: ""; position: absolute; left: -4%; right: -4%; top: 52%; height: 10px; background: #ff4d4d; transform: rotate(-4deg); border-radius: 6px; }
+
+  .vs { position: relative; margin-top: var(--gap); width: var(--vsw); display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .card { position: relative; border-radius: 34px; padding: 40px var(--cardpad) 34px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .card.lose { background: rgba(255,255,255,.05); border: 2px solid rgba(255,255,255,.12); filter: saturate(.55); }
+  .card.win { background: linear-gradient(180deg, rgba(217,119,87,.28), rgba(217,119,87,.10)); border: 3px solid var(--orange);
+    box-shadow: 0 0 0 8px rgba(217,119,87,.12), 0 30px 90px rgba(217,119,87,.45); transform: scale(1.04); }
+  .logo { width: var(--logo); height: var(--logo); border-radius: 30px; display: grid; place-items: center; }
+  .lose .logo { background: #fff; }
+  .win .logo { background: #F6EEE6; box-shadow: 0 0 60px rgba(217,119,87,.55); }
+  .logo svg { width: 64%; height: 64%; }
+  .brand { margin-top: 22px; font: 800 var(--brand)/1 'Inter Display'; letter-spacing: -.02em; }
+  .model { margin-top: 10px; font: 600 30px/1.1 'Inter'; color: rgba(255,255,255,.7); }
+  .win .model { color: var(--orange2); }
+  .verdict { margin-top: 24px; display: flex; align-items: center; gap: 12px; font: 800 var(--verdict)/1.1 'Inter Display'; }
+  .badge { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; flex: none; font: 900 34px/1 'Inter'; }
+  .lose .badge { background: #ff4d4d; }
+  .win .badge { background: #2BD67B; color: #0B0B0F; }
+
+  /* beat timeline */
+  .track { margin-top: 26px; width: 100%; height: 86px; border-radius: 16px; background: rgba(0,0,0,.35); position: relative; overflow: hidden; }
+  .bars { position: absolute; inset: 10px 10px auto; height: 34px; display: flex; align-items: center; gap: 4px; }
+  .bars i { flex: 1; background: rgba(255,255,255,.35); border-radius: 2px; }
+  .win .bars i { background: rgba(242,160,123,.75); }
+  .clips { position: absolute; left: 10px; right: 10px; bottom: 10px; height: 26px; }
+  .clips b { position: absolute; top: 0; bottom: 0; border-radius: 6px; }
+  .lose .clips b { background: #6b6b75; }
+  .win .clips b { background: var(--orange); }
+  .beat { position: absolute; top: 6px; bottom: 6px; width: 3px; background: #fff; opacity: .9; border-radius: 2px; }
+  .lose .beat { opacity: .5; }
+
+  .vsbadge { position: absolute; left: 50%; top: 150px; transform: translate(-50%, -50%); width: 104px; height: 104px; border-radius: 50%;
+    background: #0B0B0F; border: 4px solid #fff; display: grid; place-items: center; font: 900 40px/1 'Inter Display'; font-style: italic; z-index: 2; }
+
+  .proof { margin-top: var(--gap); text-align: center; font: 800 var(--proof)/1.12 'Inter Display'; letter-spacing: -.02em; }
+  .proof .hl { color: var(--orange); }
+  .cta { margin-top: 30px; display: inline-flex; align-items: center; gap: 16px; padding: 24px 40px; border-radius: 999px;
+    background: #fff; color: #0B0B0F; font: 900 var(--cta)/1 'Inter Display'; letter-spacing: -.01em; box-shadow: 0 16px 50px rgba(0,0,0,.5); }
+</style></head>
+<body>
+<div class="canvas" id="c">
+  <div class="grain"></div>
+  <div class="wrap">
+    <div class="pill"><span class="dot"></span>AI video editing test</div>
+    <h1>I tried <span class="strike">ChatGPT</span><br>for my edits.<br><span class="hl">Claude</span> crushed it.</h1>
+
+    <div class="vs">
+      <div class="vsbadge">VS</div>
+      <div class="card lose">
+        <div class="logo"><!-- OpenAI / ChatGPT mark -->
+          <svg viewBox="0 0 24 24" fill="#000" fill-rule="evenodd"><path d="M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.950-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.970-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.830a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.840 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.260.095-1.880.310A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.490c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.260-.095 1.880-.309a5.960 5.960 0 004.162 1.713z"/></svg>
+        </div>
+        <div class="brand">ChatGPT</div>
+        <div class="model">GPT Astra Medium</div>
+        <div class="track" data-mode="off"><div class="bars"></div><div class="clips"></div></div>
+        <div class="verdict"><span class="badge">✕</span>Off the beat</div>
+      </div>
+      <div class="card win">
+        <div class="logo"><!-- Claude mark -->
+          <svg viewBox="0 0 24 24"><path fill="#D97757" d="M4.709 15.955l4.72-2.647.08-.23-.08-.128H9.2l-.79-.048-2.698-.073-2.339-.097-2.266-.122-.571-.121L0 11.784l.055-.352.48-.321.686.06 1.52.103 2.278.158 1.652.097 2.449.255h.389l.055-.157-.134-.098-.103-.097-2.358-1.596-2.552-1.688-1.336-.972-.724-.491-.364-.462-.158-1.008.656-.722.881.06.225.061.893.686 1.908 1.476 2.491 1.833.365.304.145-.103.019-.073-.164-.274-1.355-2.446-1.446-2.490-.644-1.032-.17-.619a2.970 2.970 0 01-.104-.729L6.283.134 6.696 0l.996.134.420.364.620 1.414 1.002 2.229 1.555 3.030.456.898.243.832.091.255h.158V9.010l.128-1.706.237-2.095.230-2.695.080-.760.376-.910.747-.492.584.280.480.685-.067.444-.286 1.851-.559 2.903-.364 1.942h.212l.243-.242.985-1.306 1.652-2.064.730-.820.850-.904.547-.431h1.033l.760 1.129-.340 1.166-1.064 1.347-.881 1.142-1.264 1.700-.790 1.360.073.110.188-.020 2.856-.606 1.543-.280 1.841-.315.833.388.091.395-.328.807-1.969.486-2.309.462-3.439.813-.042.030.049.061 1.549.146.662.036h1.622l3.020.225.790.522.474.638-.079.485-1.215.620-1.640-.389-3.829-.910-1.312-.329h-.182v.110l1.093 1.068 2.006 1.810 2.509 2.330.127.578-.322.455-.340-.049-2.205-1.657-.851-.747-1.926-1.620h-.128v.170l.444.649 2.345 3.521.122 1.080-.170.353-.608.213-.668-.122-1.374-1.925-1.415-2.167-1.143-1.943-.140.080-.674 7.254-.316.370-.729.280-.607-.461-.322-.747.322-1.476.389-1.924.315-1.530.286-1.900.170-.632-.012-.042-.140.018-1.434 1.967-2.180 2.945-1.726 1.845-.414.164-.717-.370.067-.662.401-.589 2.388-3.036 1.440-1.882.930-1.086-.006-.158h-.055L4.132 18.560l-1.130.146-.487-.456.061-.746.231-.243 1.908-1.312-.006.006z"/></svg>
+        </div>
+        <div class="brand">Claude</div>
+        <div class="model">Opus 5.5</div>
+        <div class="track" data-mode="on"><div class="bars"></div><div class="clips"></div></div>
+        <div class="verdict"><span class="badge">✓</span>Hits every beat</div>
+      </div>
+    </div>
+
+    <div class="proof">Every video on my profile<br>was edited with <span class="hl">Opus 5.5</span> 🎧</div>
+    <div class="cta">Agree? Tell me in the comments 👇</div>
+  </div>
+</div>
+<script>
+  // waveform bars (same "song" on both sides) + beat markers + clip cuts
+  const amp = [.35,.9,.4,.55,1,.45,.3,.85,.5,.6,.95,.4,.35,.8,.45,.7,1,.4,.3,.9,.5,.55,.85,.4];
+  const beats = [0.04, 0.29, 0.54, 0.79];          // fractions of track width
+  document.querySelectorAll('.track').forEach(t => {
+    t.querySelector('.bars').innerHTML = amp.map(a => `<i style="height:${a*100}%"></i>`).join('');
+    const on = t.dataset.mode === 'on';
+    const cuts = on ? beats : [0.04, 0.37, 0.48, 0.86]; // GPT cuts drift off the beat
+    const clips = t.querySelector('.clips');
+    clips.innerHTML = cuts.map((c, i) => {
+      const end = (cuts[i+1] ?? 1.0) - 0.012;
+      return `<b style="left:${c*100}%;width:${(end-c)*100}%"></b>`;
+    }).join('');
+    beats.forEach(b => { const m = document.createElement('div'); m.className='beat'; m.style.left = `calc(10px + ${b} * (100% - 20px))`; t.appendChild(m); });
+  });
+  const fmt = new URLSearchParams(location.search).get('fmt') || 'tiktok';
+  const S = fmt === 'feed'
+    ? { h: 1350, top: 70,  h1: 96,  gap: 44, logo: 150, proof: 50, cta: 38, vsw: '100%', verdict: 34, brand: 44, cardpad: 30 }
+    : { h: 1920, top: 190, h1: 112, gap: 80, logo: 160, proof: 56, cta: 40, vsw: '780px', verdict: 30, brand: 42, cardpad: 22 }; // TikTok: keep mid/low content <=780px wide, clear of the button column
+  const r = document.documentElement.style;
+  r.setProperty('--h', S.h + 'px'); r.setProperty('--top', S.top + 'px'); r.setProperty('--h1', S.h1 + 'px');
+  r.setProperty('--gap', S.gap + 'px'); r.setProperty('--logo', S.logo + 'px'); r.setProperty('--proof', S.proof + 'px'); r.setProperty('--cta', S.cta + 'px');
+  r.setProperty('--vsw', S.vsw); r.setProperty('--verdict', S.verdict + 'px'); r.setProperty('--brand', S.brand + 'px'); r.setProperty('--cardpad', S.cardpad + 'px');
+</script>
+</body></html>
