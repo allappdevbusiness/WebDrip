@@ -87,5 +87,47 @@
       },
       "videos_deleted": false
     }
+  },
+  {
+    "date": "2026-10-09",
+    "slug": "larkmere-promo",
+    "brand": "Larkmere Flower Studio (fictional concept site, automation-v1/2026-10-02-larkmere)",
+    "industry": "florist",
+    "video_length": 35,
+    "format": "music-only vertical promo (no voiceover)",
+    "edit_style": "Editorial floral commercial + romantic music video + web design film: template overgrown by real stems, justified Abril Fatface type stack with a zoom through THIS., brand match-cut into the real mobile header, 14-mile field-to-studio route folding into the real section, real-stem build-a-bouquet tied on 'tight' cutting to the real $38 card, wedding palette concept, drum-stop rose, real desktop + mobile on 'rose', WebDrip end card on the final chord.",
+    "hook": "Most websites look like this. / A flower shop should feel like this.",
+    "music_track": {
+      "id": "f84c2751-2855-35a5-b50c-2556df7033cb",
+      "title": "Rose In The Garden",
+      "artist": "Cody Francis",
+      "bpm": 95,
+      "delivery": "Epidemic DownloadRecording WAV FULL (vocal) + instrumental FULL 4cc61795-56ec-3b8d-be40-ca21e46b6742; vocal 67.512-100.33 s at 0 s, instrumental final downbeat 196.371 s at 32.848 s (sample-aligned versions); drums enter on frame 303, 'rose' on frame 909"
+    },
+    "sfx": "3 Epidemic SFX on real actions: paper fold (wrap), paper scrunch (cord pulls tight), glassy UI touch (4 palette taps)",
+    "status": "posted",
+    "preview_url_facebook": "https://pub-027038837b0f4c1bb96993e264c3509a.r2.dev/larkmere-promo/video.mp4",
+    "preview_url_tiktok": "https://pub-027038837b0f4c1bb96993e264c3509a.r2.dev/larkmere-promo/video.mp4",
+    "caption_facebook": "Most websites look like this. A flower shop should feel like this. 🌷\n\nWe designed Larkmere Flower Studio, a concept site for a florist where every section tells part of the story: flowers grown fourteen miles from the shop, bouquets from $38 with real photos and prices, wedding flowers, Saturday workshops and same-day delivery, on desktop and mobile.\n\nLarkmere is a fictional brand. Concept website designed by WebDrip.\n\n#WebDesign #FloristWebsite #SmallBusiness #WebDrip\n\nWant a website that feels like your business? Book a meeting at www.getwebdrip.com",
+    "caption_tiktok": "Most websites look like this. A flower shop should feel like this. 🌷 Our Larkmere Flower Studio concept: field-to-vase story, bouquets from $38, weddings and Saturday workshops, on desktop and mobile.\n\nFictional brand, concept site by WebDrip.\n\n#WebDesign #FlowerShop #Florist #SmallBusiness #WebDrip\n\nWant this for your business? Book a meeting at www.getwebdrip.com",
+    "tiktok_ai_label": false,
+    "approval_note": "Sourav asked to upload to R2 and post with captions, then asked for the 35 s cut with an animated opening; approved the final captions in session ('Post both now').",
+    "buffer_post_id": "6ac889ca93f9e5101fed4ca7",
+    "buffer_tiktok_post_id": "6ac889d893f9e5101fed4de8",
+    "fb_post_url": "https://facebook.com/1277092185496389_122108083035495093",
+    "fb_sent_at": "2026-10-09T06:29:48Z",
+    "tiktok_post_url": "https://tiktok.com/@getwebdrip/video/7694550924617960718",
+    "tiktok_sent_at": "2026-10-09T06:30:26Z",
+    "deviations": [
+      "Gatsby movie hook dropped: every official video host was blocked by the environment's network policy, and Sourav then asked to replace the hook with an animation and run 35 s",
+      "Coverr stock video unreachable (cdn.coverr.co blocked): floral imagery is Unsplash photography with camera moves",
+      "final 2.2 s uses the official instrumental version's final chord so the held vocal 'and...' does not hang"
+    ],
+    "checks": {
+      "frames": "1050 video frames, 1080x1920, 30 fps, 35.000 s",
+      "loudness": "-14.0 LUFS, true peak -2.96 dBTP (delivered AAC)",
+      "sync": "drums 10.088 s vs frame 303 (10.100), 'rose' 30.309 s vs frame 909 (30.300), final chord 32.824 s vs frame 985 (32.833)"
+    },
+    "source": "automation-v2/Claude-Video-Editor/larkmere-promo"
   }
 ]
