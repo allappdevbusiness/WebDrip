@@ -1,0 +1,122 @@
+{
+ "photos": {
+  "site-hero": {
+   "url": "https://images.unsplash.com/photo-1687831958087-30a2130c968f?ixlib=rb-4.1.0",
+   "size": "h=2880"
+  },
+  "site-field": {
+   "url": "https://images.unsplash.com/photo-1629031662322-486399584436?ixlib=rb-4.1.0",
+   "size": "h=2880"
+  },
+  "site-posy": {
+   "url": "https://images.unsplash.com/photo-1667555150959-3e881131b9e4?ixlib=rb-4.1.0",
+   "size": "h=2880"
+  },
+  "site-bridal": {
+   "url": "https://images.unsplash.com/photo-1602468690798-0820b3ec6ee7?ixlib=rb-4.1.0",
+   "size": "h=2880"
+  },
+  "macro-pink-droplets": {
+   "url": "https://images.unsplash.com/photo-1614154026202-a44875c6c6dc?ixlib=rb-4.1.0",
+   "size": "h=2880"
+  },
+  "macro-dusty-rose": {
+   "url": "https://images.unsplash.com/photo-1662540707652-e3091c33aee6?ixlib=rb-4.1.0",
+   "size": "h=2880"
+  },
+  "macro-red-rose": {
+   "url": "https://images.unsplash.com/photo-1551923922-a0d2cccc164b?ixlib=rb-4.1.0",
+   "size": "h=2880"
+  },
+  "macro-peony-black": {
+   "url": "https://images.unsplash.com/photo-1596907731844-b2c4156abab0?ixlib=rb-4.1.0",
+   "size": "h=2880"
+  },
+  "stem-euca-a": {
+   "url": "https://images.unsplash.com/photo-1533038590840-1cde6e668a91?ixlib=rb-4.1.0",
+   "size": "w=1800"
+  },
+  "stem-euca-b": {
+   "url": "https://images.unsplash.com/photo-1678902439117-ea4268c7661b?ixlib=rb-4.1.0",
+   "size": "w=1800"
+  },
+  "stem-green": {
+   "url": "https://images.unsplash.com/photo-1600524657945-559fba95f800?ixlib=rb-4.1.0",
+   "size": "w=1800"
+  },
+  "stem-lisi": {
+   "url": "https://images.unsplash.com/photo-1689155259057-c667689490cd?ixlib=rb-4.1.0",
+   "size": "w=1800"
+  },
+  "stem-lisi-row": {
+   "url": "https://images.unsplash.com/photo-1689079970980-e32547c23002?ixlib=rb-4.1.0",
+   "size": "w=1800"
+  },
+  "stem-sweetpea": {
+   "url": "https://images.unsplash.com/photo-1685969116188-ed5ad852a97a?ixlib=rb-4.1.0",
+   "size": "w=1800"
+  }
+ },
+ "cutouts": [
+  [
+   "stem-green",
+   "green",
+   null,
+   false
+  ],
+  [
+   "stem-euca-a",
+   "euca-a",
+   null,
+   false
+  ],
+  [
+   "stem-euca-b",
+   "euca-b",
+   null,
+   false
+  ],
+  [
+   "stem-sweetpea",
+   "sweetpea",
+   null,
+   false
+  ],
+  [
+   "stem-lisi",
+   "lisi-head",
+   "500,420,1110,960",
+   true
+  ],
+  [
+   "stem-lisi-row",
+   "lisi-a",
+   "60,500,520,1200",
+   false
+  ],
+  [
+   "stem-lisi-row",
+   "lisi-b",
+   "540,410,900,1200",
+   false
+  ],
+  [
+   "stem-lisi-row",
+   "lisi-c",
+   "860,410,1090,1200",
+   false
+  ],
+  [
+   "stem-lisi-row",
+   "lisi-d",
+   "1090,410,1400,1200",
+   false
+  ],
+  [
+   "stem-lisi-row",
+   "lisi-e",
+   "1400,460,1720,1200",
+   false
+  ]
+ ]
+}

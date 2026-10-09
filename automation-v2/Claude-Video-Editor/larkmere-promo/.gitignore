@@ -1,0 +1,11 @@
+node_modules/
+out/
+# heavy media is rebuilt by tools/prepare.sh (photos, cutouts, site recordings, card snaps); fonts stay committed
+public/photos/
+public/cut/
+public/snaps/
+public/rec/
+public/hook/
+*.mp4
+*.wav
+*.mp3

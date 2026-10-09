@@ -1,0 +1,88 @@
+{
+ "url": "http://127.0.0.1:8080/automation-v1/2026-10-02-larkmere/",
+ "out": "REC_OUT",
+ "fps": 30,
+ "rate": 0.1,
+ "profiles": [
+  {
+   "name": "m",
+   "viewport": {
+    "width": 390,
+    "height": 844
+   },
+   "dpr": 3,
+   "mobile": true,
+   "shots": [
+    {
+     "name": "hero",
+     "frames": 90,
+     "fresh": true,
+     "from": 0,
+     "to": 0
+    },
+    {
+     "name": "menu",
+     "frames": 50,
+     "fresh": true,
+     "from": 0,
+     "to": 0,
+     "actions": [
+      {
+       "frame": 8,
+       "type": "tap",
+       "selector": "#burger"
+      }
+     ]
+    },
+    {
+     "name": "field",
+     "frames": 75,
+     "fresh": true,
+     "from": "#spot-142",
+     "to": "#spot-142",
+     "settleMs": 2500
+    },
+    {
+     "name": "wsorder",
+     "frames": 120,
+     "fresh": true,
+     "from": "#workshops-10",
+     "to": "#order+40",
+     "holdStart": 8,
+     "holdEnd": 14,
+     "ease": "inout"
+    },
+    {
+     "name": "posy",
+     "frames": 60,
+     "fresh": true,
+     "from": "#bouquets+60",
+     "to": "#bouquets+60",
+     "settleMs": 200
+    }
+   ]
+  },
+  {
+   "name": "d",
+   "viewport": {
+    "width": 1440,
+    "height": 900
+   },
+   "dpr": 2,
+   "mobile": false,
+   "outWidth": 2160,
+   "shots": [
+    {
+     "name": "hero",
+     "frames": 150,
+     "fresh": true,
+     "from": 0,
+     "to": 760,
+     "holdStart": 48,
+     "holdEnd": 10,
+     "ease": "inout"
+    }
+   ]
+  }
+ ]
+}

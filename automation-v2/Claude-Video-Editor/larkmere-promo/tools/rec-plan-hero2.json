@@ -1,0 +1,38 @@
+{
+ "url": "http://127.0.0.1:8080/automation-v1/2026-10-02-larkmere/",
+ "out": "REC_OUT",
+ "fps": 30,
+ "rate": 0.1,
+ "profiles": [
+  {
+   "name": "m",
+   "viewport": {
+    "width": 390,
+    "height": 844
+   },
+   "dpr": 3,
+   "mobile": true,
+   "shots": [
+    {
+     "name": "hero2",
+     "frames": 80,
+     "fresh": true,
+     "from": 0,
+     "to": 0,
+     "actions": [
+      {
+       "frame": 0,
+       "type": "eval",
+       "value": "(()=>{const h=document.getElementById('hero');const els=h.querySelectorAll('.w>span,.intro');els.forEach(e=>e.style.transition='none');h.classList.remove('loaded');void h.offsetWidth;els.forEach(e=>e.style.transition='');})()"
+      },
+      {
+       "frame": 3,
+       "type": "eval",
+       "value": "document.getElementById('hero').classList.add('loaded')"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
