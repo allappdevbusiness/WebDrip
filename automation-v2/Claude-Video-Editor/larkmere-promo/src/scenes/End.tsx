@@ -16,7 +16,7 @@ const WebDripMark: React.FC<{ size: number }> = ({ size }) => (
 
 export const End: React.FC = () => {
   const t = useCurrentFrame();
-  const L = useMemo(() => layoutStack(['YOUR BUSINESS', 'SHOULD FEEL', 'LIKE THIS.'], WIDTH, 300, 0.2), []);
+  const L = useMemo(() => layoutStack(['YOUR BUSINESS', 'SHOULD FEEL', 'LIKE THIS.'], WIDTH, 420, 0.2), []);
   const REV = [0, 4, 8];
   const brand = outCubic(ramp(t, 14, 24));
   const url = outQuart(ramp(t, 18, 27));
@@ -39,7 +39,7 @@ export const End: React.FC = () => {
       ))}
       <image href={staticFile('photos/site-hero.jpg')} x={-200 + drift} y={last.base - last.cap - 300} width={1500} height={last.cap + 600} preserveAspectRatio="xMidYMid slice" mask="url(#eThis)" />
     </svg>
-    <div style={{ position: 'absolute', left: 0, right: 0, top: 1010, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div style={{ position: 'absolute', left: 0, right: 0, top: 960, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 26, opacity: brand, transform: `translateY(${(1 - brand) * 30}px)` }}>
         <WebDripMark size={112} />
         <div style={{ fontFamily: FONT.sans, fontWeight: 800, fontSize: 104, letterSpacing: '-0.03em', color: C.ink }}>WebDrip</div>
@@ -47,7 +47,7 @@ export const End: React.FC = () => {
       <div style={{ overflow: 'hidden', marginTop: 30 }}>
         <div style={{ transform: `translateY(${(1 - url) * 110}%)`, fontFamily: FONT.sans, fontWeight: 600, fontSize: 56, color: C.drip }}>getwebdrip.com</div>
       </div>
-      <div style={{ marginTop: 120, width: 820, textAlign: 'center', fontFamily: FONT.sans, fontWeight: 500, fontSize: 30, lineHeight: 1.4, color: C.muted, opacity: note }}>
+      <div style={{ marginTop: 96, width: 820, textAlign: 'center', fontFamily: FONT.sans, fontWeight: 500, fontSize: 30, lineHeight: 1.4, color: C.muted, opacity: note }}>
         Larkmere Flower Studio is a fictional concept site designed by WebDrip.
       </div>
     </div>

@@ -57,7 +57,8 @@ const PaperSheet: React.FC<{ d: string; t: number; at: number; dir: number; grad
 export const Bouquet: React.FC = () => {
   const t = useCurrentFrame();
   // ---- build (local 0–152) ----
-  const cam = lerp(1.0, 1.05, sine(ramp(t, 0, 152)));
+  // camera starts close on the single stem and pulls back as the bouquet grows, then a slow push into the tie
+  const cam = t < 104 ? lerp(1.42, 1.0, inOut(ramp(t, 4, 104))) : lerp(1.0, 1.04, sine(ramp(t, 104, 152)));
   const tug = t >= 148 && t < 160 ? Math.sin(((t - 148) / 12) * Math.PI) : 0; // the cord tightens: everything lifts a touch
   const cordA = ramp(t, 112, 124), cordB = ramp(t, 121, 132), bow = outCubic(ramp(t, 132, 146));
   const cinch = lerp(1.07, 1.0, outQuart(ramp(t, 149, 154)));
@@ -97,13 +98,7 @@ export const Bouquet: React.FC = () => {
 
   return <AbsoluteFill style={{ background: `radial-gradient(120% 80% at 30% 20%, #FFFDF9 0%, ${C.paper} 45%, ${C.linen} 100%)`, overflow: 'hidden' }}>
     <Grain opacity={0.05} />
-    <div style={{ position: 'absolute', left: 110, top: 168, width: 860 }}>
-      <Mono size={34}>Hand-tied in the studio</Mono>
-      <div style={{ overflow: 'hidden', height: 150, marginTop: 6 }}>
-        <div style={{ transform: `translateY(${(1 - stepP) * 110}%)`, fontFamily: FONT.display, fontSize: 128, lineHeight: '150px', color: step.word === 'Tied.' ? C.rose : C.ink }}>{step.word}</div>
-      </div>
-    </div>
-    <AbsoluteFill style={{ transform: `translateY(${-10 * tug}px) scale(${cam})`, transformOrigin: '540px 1000px' }}>
+    <AbsoluteFill style={{ transform: `translateY(${-10 * tug}px) scale(${cam})`, transformOrigin: '540px 900px' }}>
       <svg width={W} height={H} style={{ position: 'absolute', inset: 0 }}>
         <defs>
           <linearGradient id="pb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#F7E3E0" /><stop offset="1" stopColor="#EBC9C6" /></linearGradient>
@@ -158,5 +153,11 @@ export const Bouquet: React.FC = () => {
         </g>
       </svg>
     </AbsoluteFill>
+    <div style={{ position: 'absolute', left: 110, top: 168, width: 860 }}>
+      <Mono size={34} style={{ textShadow: '0 0 14px rgba(251,246,240,.95)' }}>Hand-tied in the studio</Mono>
+      <div style={{ overflow: 'hidden', height: 150, marginTop: 6 }}>
+        <div style={{ transform: `translateY(${(1 - stepP) * 110}%)`, fontFamily: FONT.display, fontSize: 128, lineHeight: '150px', color: step.word === 'Tied.' ? C.rose : C.ink, textShadow: '0 0 28px rgba(251,246,240,.95), 0 0 10px rgba(251,246,240,.9)' }}>{step.word}</div>
+      </div>
+    </div>
   </AbsoluteFill>;
 };

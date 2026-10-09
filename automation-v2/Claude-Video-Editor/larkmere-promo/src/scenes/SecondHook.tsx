@@ -16,8 +16,9 @@ export const SecondHook: React.FC = () => {
   // fit the stack to the useful vertical area (y 196 … ~1500)
   const this5 = L.lines[5];
   // zoom-through: the photo inside "THIS." grows to fill the frame by frame 76 (= drums)
-  const zp = inCubic(ramp(t, 56, 76));
-  const zoom = lerp(1, 46, zp);
+  const zp = inCubic(ramp(t, 55, 74));
+  const zoom = lerp(1, 40, zp);
+  const fill = ramp(t, 64, 71); // the photo completes the frame however the glyph geometry falls
   // pivot inside the thick stem of the "I" in THIS.
   const iPivot = useMemo(() => {
     const box = svgCharBox('THIS.', FONT.display, this5.size, 2);
@@ -53,6 +54,7 @@ export const SecondHook: React.FC = () => {
         })}
       </g>
       <image href={staticFile(HOOK2_PHOTO)} x={0} y={photoDrift} width={W} height={H + 60} preserveAspectRatio="xMidYMid slice" mask="url(#thisMask)" />
+      {fill > 0 && <image href={staticFile(HOOK2_PHOTO)} x={0} y={photoDrift} width={W} height={H + 60} preserveAspectRatio="xMidYMid slice" opacity={fill} />}
     </svg>
   </AbsoluteFill>;
 };
