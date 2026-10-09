@@ -1,37 +1,147 @@
 {
-  "track": { "title": "Rose In The Garden", "artist": "Cody Francis", "epidemic_id_vocal": "f84c2751-2855-35a5-b50c-2556df7033cb", "epidemic_id_instrumental": "4cc61795-56ec-3b8d-be40-ca21e46b6742", "bpm_measured": 95.0, "beat_s": 0.6316, "key_centre": "B" },
+  "track": {
+    "title": "Rose In The Garden",
+    "artist": "Cody Francis",
+    "epidemic_id_vocal": "f84c2751-2855-35a5-b50c-2556df7033cb",
+    "epidemic_id_instrumental": "4cc61795-56ec-3b8d-be40-ca21e46b6742",
+    "bpm_measured": 95.0,
+    "beat_s": 0.6316,
+    "key_centre": "B"
+  },
   "analysis_notes": [
     "Measured from the licensed 48 kHz WAVs (full mix + DRUMS/BASS/INSTRUMENTS stems) and the vocal-stem preview with librosa + faster-whisper small.en.",
     "Song form: 4.4-24.4 voice + acoustic only; 24.45 bass enters; 75.1-77.6 vocal-free breath bar with an instrument pull-back at 76.9; 77.612 drums enter for the first time (biggest lift in the song); 97.20 one-beat drum stop under 'You're the'; 97.83 drums return on 'ROSE'; 100.36 'garden' resolves on the tonic (B); 115.5-117.6 drum drop under 'That I love you'; 196.371 final downbeat, B chord rings out to 201.1.",
     "Vocal and instrumental versions are sample-aligned (1-sample lag), so the instrumental can replace the vocal mix at any point without a timing jump.",
-    "Whisper word times ran up to 0.6 s early in the chorus, so vocal anchors below come from vocal-stem onsets."
+    "Whisper word times ran up to 0.6 s early in the chorus, so vocal anchors below come from vocal-stem onsets.",
+    "35 s cut (v3): the opening starts three bars earlier at the bar-25 downbeat (song 67.512, the tail of an airy \"ooh\"), so every later picture/music sync point moves by exactly +151 frames."
   ],
   "edit": [
-    { "source": "vocal full mix", "song_in": 75.0886, "song_out": 100.36, "video_in": 2.5333, "video_out": 27.8047 },
-    { "source": "instrumental full mix (final downbeat + ring-out)", "song_in": 196.371, "song_out": 198.5663, "video_in": 27.8047, "video_out": 30.0, "crossfade_ms": 40, "tail_fade_s": 0.35 }
+    {
+      "source": "vocal full mix",
+      "song_in": 67.512,
+      "song_out": 100.36,
+      "video_in": 0.0,
+      "video_out": 32.848,
+      "fade_in_s": 0.35
+    },
+    {
+      "source": "instrumental full mix (final downbeat + ring-out)",
+      "song_in": 196.371,
+      "song_out": 198.523,
+      "video_in": 32.848,
+      "video_out": 35.0,
+      "crossfade_ms": 30,
+      "tail_fade_s": 0.35
+    }
   ],
-  "video_offset_s": "video = song - 72.5553 for the first segment",
+  "video_offset_s": "video = song - 67.512 for the first segment (frame 0 = bar-25 downbeat)",
   "markers_video": {
-    "music_in_breath_bar": { "t": 2.533, "frame": 76 },
-    "instrument_pull_back": { "t": 4.35, "frame": 130 },
-    "vocal_pickup_So": { "t": 4.85, "frame": 145 },
-    "HIT_drums_enter_slow": { "t": 5.067, "frame": 152 },
-    "bar30": { "t": 7.593, "frame": 228 },
-    "hold_you_in_my_arms": { "t": 8.13, "frame": 244 },
-    "bar31": { "t": 10.120, "frame": 304 },
-    "bar32_the_world_around": { "t": 12.646, "frame": 379, "vocal": 13.08 },
-    "bar33": { "t": 15.172, "frame": 455 },
-    "thunderstorm": { "t": 15.75, "frame": 472 },
-    "lightning_strike": { "t": 16.75, "frame": 502 },
-    "bar34_as_we_hold": { "t": 17.698, "frame": 531 },
-    "RELEASE_tight_bar35": { "t": 20.225, "frame": 607 },
-    "vocal_breath_start": { "t": 21.11, "frame": 633 },
-    "bar36": { "t": 22.751, "frame": 683 },
-    "drum_stop_Youre_the": { "t": 24.64, "frame": 739 },
-    "HIT_ROSE_bar37": { "t": 25.277, "frame": 758 },
-    "in_a_garden": { "t": 26.04, "frame": 781 },
-    "RESOLVE_final_chord": { "t": 27.805, "frame": 834 },
-    "end": { "t": 30.0, "frame": 900 }
+    "intro_bar25_airy_ooh_tail": {
+      "t": 0.0,
+      "frame": 0
+    },
+    "vocal_You_pickup": {
+      "t": 2.4,
+      "frame": 72
+    },
+    "bar26": {
+      "t": 2.531,
+      "frame": 76
+    },
+    "ooh_1": {
+      "t": 3.36,
+      "frame": 101
+    },
+    "bar27": {
+      "t": 5.057,
+      "frame": 152
+    },
+    "ooh_2": {
+      "t": 4.64,
+      "frame": 139
+    },
+    "music_in_breath_bar": {
+      "t": 7.566,
+      "frame": 227
+    },
+    "instrument_pull_back": {
+      "t": 9.383,
+      "frame": 281
+    },
+    "vocal_pickup_So": {
+      "t": 9.883,
+      "frame": 296
+    },
+    "HIT_drums_enter_slow": {
+      "t": 10.1,
+      "frame": 303
+    },
+    "bar30": {
+      "t": 12.626,
+      "frame": 379
+    },
+    "hold_you_in_my_arms": {
+      "t": 13.163,
+      "frame": 395
+    },
+    "bar31": {
+      "t": 15.153,
+      "frame": 455
+    },
+    "bar32_the_world_around": {
+      "t": 17.679,
+      "frame": 530,
+      "vocal": 18.11
+    },
+    "bar33": {
+      "t": 20.205,
+      "frame": 606
+    },
+    "thunderstorm": {
+      "t": 20.783,
+      "frame": 623
+    },
+    "lightning_strike": {
+      "t": 21.783,
+      "frame": 653
+    },
+    "bar34_as_we_hold": {
+      "t": 22.731,
+      "frame": 682
+    },
+    "RELEASE_tight_bar35": {
+      "t": 25.258,
+      "frame": 758
+    },
+    "vocal_breath_start": {
+      "t": 26.143,
+      "frame": 784
+    },
+    "bar36": {
+      "t": 27.784,
+      "frame": 834
+    },
+    "drum_stop_Youre_the": {
+      "t": 29.673,
+      "frame": 890
+    },
+    "HIT_ROSE_bar37": {
+      "t": 30.31,
+      "frame": 909
+    },
+    "in_a_garden": {
+      "t": 31.073,
+      "frame": 932
+    },
+    "RESOLVE_final_chord": {
+      "t": 32.838,
+      "frame": 985
+    },
+    "end": {
+      "t": 35.0,
+      "frame": 1050
+    }
   },
-  "beat_grid_frames_from_drums": "beat k at frame 152 + k*18.948 (k may be negative back to frame 76)"
+  "beat_grid_frames_from_drums": "beat k at frame 303 + k*18.948 (k from -16 at frame 0)",
+  "duration_s": 35.0
 }

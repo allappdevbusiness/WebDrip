@@ -8,7 +8,7 @@ import { clamp, inCubic, layoutStack, lerp, outQuart, ramp, sine, svgCharBox } f
 // and on the vocal pickup the camera dives into the photo inside "THIS.", which is the next shot.
 export const HOOK2_PHOTO = 'photos/site-hero.jpg';
 const X0 = 140, WIDTH = 800, TOP = 196;
-const REVEAL = [0, 3, 19, 22, 38, 41];
+const REVEAL = [-4, -1, 15, 18, 34, 37]; // cut on action: the first line is already rising on the cut frame
 
 export const SecondHook: React.FC = () => {
   const t = useCurrentFrame();

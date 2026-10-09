@@ -2,7 +2,7 @@ import React from 'react';
 import { AbsoluteFill, Sequence } from 'remotion';
 import { F } from './timing';
 import { FontGate } from './lib';
-import { Hook } from './scenes/Hook';
+import { Intro } from './scenes/Intro';
 import { SecondHook } from './scenes/SecondHook';
 import { Brand } from './scenes/Brand';
 import { Route } from './scenes/Route';
@@ -12,10 +12,10 @@ import { Wedding } from './scenes/Wedding';
 import { RoseHit, RoseStop } from './scenes/Rose';
 import { End } from './scenes/End';
 
-// Picture only. Music (with the hook's own audio) is mixed in tools/mix.py and muxed after render.
+// Picture only. Music is mixed in tools/mix.py and muxed after render.
 const CUTS: [number, number, React.FC][] = [
-  [0, F.musicIn, Hook],
-  [F.musicIn, F.drums, SecondHook],
+  [F.intro, F.hook2, Intro],
+  [F.hook2, F.drums, SecondHook],
   [F.drums, F.bar30, Brand],
   [F.bar30, F.bar32, Route],
   [F.bar32, F.bar33, NoFoam],

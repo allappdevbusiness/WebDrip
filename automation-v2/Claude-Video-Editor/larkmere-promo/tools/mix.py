@@ -1,6 +1,6 @@
-"""Larkmere promo audio: music edit + optional hook audio + three quiet SFX, mastered to -14 LUFS.
+"""Larkmere promo audio: music edit + three quiet SFX, mastered to -14 LUFS.
 
-usage: python mix.py <music_dir> <sfx_dir> <out.wav> [hook_clip.mp4 hook_in_seconds]
+usage: python mix.py <music_dir> <sfx_dir> <out.wav>
 music_dir holds full.wav (vocal mix) and instrumental.wav (Epidemic 'Rose In The Garden', Cody Francis).
 All times come from music-map.json (measured on the licensed WAVs).
 """
@@ -9,10 +9,10 @@ import numpy as np, soundfile as sf
 from scipy.signal import resample_poly
 
 SR = 48000
-DUR = 30.0
 FPS = 30
 HERE = os.path.dirname(os.path.abspath(__file__))
 MAP = json.load(open(os.path.join(HERE, '..', 'music-map.json')))
+DUR = MAP['duration_s']
 
 def read(path, a=None, b=None):
     with sf.SoundFile(path) as f:
@@ -35,15 +35,14 @@ def fade(x, fin=0.0, fout=0.0):
 
 def main():
     music_dir, sfx_dir, out = sys.argv[1:4]
-    hook = sys.argv[4:6]
     bus = np.zeros((int(DUR * SR), 2))
     A, B = MAP['edit']
     xf = 0.03
-    # vocal mix: bar 28 (breath bar) -> just before the bar-38 downbeat ("garden" on the tonic)
+    # vocal mix: bar-25 downbeat (airy 'ooh' tail, faded in) -> just before the bar-38 downbeat ("garden" on the tonic)
     a_out = A['song_out'] - 0.03                       # leave the final downbeat's transient to segment B
     va = read(f'{music_dir}/full.wav', A['song_in'], a_out + xf / 2)
-    place(bus, fade(va, fin=0.008, fout=xf), A['video_in'])
-    # instrumental: the song's final downbeat + ring-out, landing exactly on frame 834
+    place(bus, fade(va, fin=A['fade_in_s'], fout=xf), A['video_in'])
+    # instrumental: the song's final downbeat + ring-out, landing on frame 985 (bar 38)
     b_in = B['song_in'] - 0.03 - xf / 2
     vb = read(f'{music_dir}/instrumental.wav', b_in, B['song_out'])
     vb = fade(vb, fin=xf, fout=B['tail_fade_s'])
@@ -53,21 +52,13 @@ def main():
     # SFX on real on-screen actions only (frame -> seconds)
     sfx = np.zeros_like(bus)
     fold = fade(read(f'{sfx_dir}/paper-fold.wav')[: int(1.7 * SR)], fin=0.01, fout=0.4)
-    place(sfx, fold, 547 / FPS - 0.05, 0.9)                 # paper sheets rise (frames 547-571)
+    place(sfx, fold, 698 / FPS - 0.05, 0.9)                 # paper sheets rise (frames 698-722)
     scrunch = fade(read(f'{sfx_dir}/paper-scrunch.wav'), fout=0.12)
-    place(sfx, scrunch, 607 / FPS - 0.10, 0.75)             # cord pulls the paper tight on "tight"
+    place(sfx, scrunch, 758 / FPS - 0.10, 0.75)             # cord pulls the paper tight on "tight"
     touch = read(f'{sfx_dir}/ui-touch.wav')
-    for fr in (683, 691, 699, 707):                         # palette chip taps
+    for fr in (834, 842, 850, 858):                         # palette chip taps
         place(sfx, touch, fr / FPS, 0.42)
     mix = music + sfx
-
-    if hook:
-        clip, t_in = hook[0], float(hook[1])
-        wav = out + '.hook.wav'
-        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-ss', str(t_in), '-t', str(A['video_in'] + 0.05), '-i', clip, '-vn', '-ac', '2', '-ar', str(SR), wav], check=True)
-        h = read(wav)[: int(A['video_in'] * SR)]
-        place(mix, fade(h, fin=0.01, fout=0.05), 0.0, 1.0)  # hard audio cut into the music's first downbeat
-        os.remove(wav)
 
     # master: -14 LUFS integrated, true peak <= -2 dBTP before AAC (encode adds up to ~1 dB)
     import pyloudnorm as pyln
