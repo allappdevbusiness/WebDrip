@@ -1,0 +1,924 @@
+[
+ {
+  "id": "h1",
+  "start": 0.1,
+  "words": [
+   {
+    "text": "You",
+    "start": 0.1,
+    "end": 0.16
+   },
+   {
+    "text": "told",
+    "start": 0.16,
+    "end": 0.32
+   },
+   {
+    "text": "an",
+    "start": 0.32,
+    "end": 0.48
+   },
+   {
+    "text": "AI",
+    "start": 0.48,
+    "end": 0.74
+   },
+   {
+    "text": "your",
+    "start": 0.74,
+    "end": 1.18
+   },
+   {
+    "text": "whole",
+    "start": 1.18,
+    "end": 1.36
+   },
+   {
+    "text": "plan",
+    "start": 1.36,
+    "end": 1.62
+   },
+   {
+    "text": "yesterday.",
+    "start": 1.62,
+    "end": 1.98
+   }
+  ]
+ },
+ {
+  "id": "h2",
+  "start": 2.459,
+  "words": [
+   {
+    "text": "Today?",
+    "start": 2.459,
+    "end": 2.679
+   },
+   {
+    "text": "It",
+    "start": 2.939,
+    "end": 3.019
+   },
+   {
+    "text": "remembers",
+    "start": 3.019,
+    "end": 3.199
+   },
+   {
+    "text": "NOTHING.",
+    "start": 3.199,
+    "end": 3.679
+   }
+  ]
+ },
+ {
+  "id": "h3",
+  "start": 4.7,
+  "words": [
+   {
+    "text": "Meta",
+    "start": 4.7,
+    "end": 4.9
+   },
+   {
+    "text": "just",
+    "start": 4.9,
+    "end": 5.18
+   },
+   {
+    "text": "built",
+    "start": 5.18,
+    "end": 5.44
+   },
+   {
+    "text": "one",
+    "start": 5.44,
+    "end": 5.72
+   },
+   {
+    "text": "that",
+    "start": 5.72,
+    "end": 5.9
+   },
+   {
+    "text": "never",
+    "start": 5.9,
+    "end": 6.08
+   },
+   {
+    "text": "forgets.",
+    "start": 6.08,
+    "end": 6.64
+   }
+  ]
+ },
+ {
+  "id": "w1",
+  "start": 6.885,
+  "words": [
+   {
+    "text": "It's",
+    "start": 6.885,
+    "end": 7.025
+   },
+   {
+    "text": "called",
+    "start": 7.025,
+    "end": 7.245
+   },
+   {
+    "text": "Muse",
+    "start": 7.245,
+    "end": 7.505
+   },
+   {
+    "text": "Wonder,",
+    "start": 7.505,
+    "end": 7.865
+   },
+   {
+    "text": "and",
+    "start": 8.225,
+    "end": 8.345
+   },
+   {
+    "text": "Meta",
+    "start": 8.345,
+    "end": 8.485
+   },
+   {
+    "text": "says",
+    "start": 8.485,
+    "end": 8.785
+   },
+   {
+    "text": "it's",
+    "start": 8.785,
+    "end": 9.045
+   },
+   {
+    "text": "one",
+    "start": 9.045,
+    "end": 9.145
+   },
+   {
+    "text": "of",
+    "start": 9.145,
+    "end": 9.225
+   },
+   {
+    "text": "the",
+    "start": 9.225,
+    "end": 9.325
+   },
+   {
+    "text": "most",
+    "start": 9.325,
+    "end": 9.465
+   },
+   {
+    "text": "capable",
+    "start": 9.465,
+    "end": 9.885
+   },
+   {
+    "text": "AI",
+    "start": 9.885,
+    "end": 10.225
+   },
+   {
+    "text": "models",
+    "start": 10.225,
+    "end": 10.685
+   },
+   {
+    "text": "they've",
+    "start": 10.685,
+    "end": 11.025
+   },
+   {
+    "text": "ever",
+    "start": 11.025,
+    "end": 11.245
+   },
+   {
+    "text": "built.",
+    "start": 11.245,
+    "end": 11.485
+   }
+  ]
+ },
+ {
+  "id": "b1",
+  "start": 11.803,
+  "words": [
+   {
+    "text": "But",
+    "start": 11.803,
+    "end": 11.883
+   },
+   {
+    "text": "benchmarks",
+    "start": 11.883,
+    "end": 12.263
+   },
+   {
+    "text": "aren't",
+    "start": 12.263,
+    "end": 12.943
+   },
+   {
+    "text": "actually",
+    "start": 12.943,
+    "end": 13.243
+   },
+   {
+    "text": "the",
+    "start": 13.243,
+    "end": 13.503
+   },
+   {
+    "text": "interesting",
+    "start": 13.503,
+    "end": 13.783
+   },
+   {
+    "text": "part.",
+    "start": 13.783,
+    "end": 14.183
+   }
+  ]
+ },
+ {
+  "id": "m1",
+  "start": 15.8,
+  "words": [
+   {
+    "text": "Active",
+    "start": 15.8,
+    "end": 16.02
+   },
+   {
+    "text": "Memory",
+    "start": 16.02,
+    "end": 16.2
+   },
+   {
+    "text": "means",
+    "start": 16.2,
+    "end": 16.92
+   },
+   {
+    "text": "the",
+    "start": 16.92,
+    "end": 17.16
+   },
+   {
+    "text": "AI",
+    "start": 17.16,
+    "end": 17.38
+   },
+   {
+    "text": "can",
+    "start": 17.38,
+    "end": 17.84
+   },
+   {
+    "text": "remember",
+    "start": 17.84,
+    "end": 18.12
+   },
+   {
+    "text": "important",
+    "start": 18.12,
+    "end": 18.8
+   },
+   {
+    "text": "things",
+    "start": 18.8,
+    "end": 19.04
+   },
+   {
+    "text": "about",
+    "start": 19.04,
+    "end": 19.36
+   },
+   {
+    "text": "you",
+    "start": 19.36,
+    "end": 19.58
+   },
+   {
+    "text": "across",
+    "start": 19.58,
+    "end": 19.88
+   },
+   {
+    "text": "conversations,",
+    "start": 19.88,
+    "end": 20.68
+   },
+   {
+    "text": "instead",
+    "start": 20.68,
+    "end": 21.34
+   },
+   {
+    "text": "of",
+    "start": 21.34,
+    "end": 21.48
+   },
+   {
+    "text": "starting",
+    "start": 21.48,
+    "end": 21.68
+   },
+   {
+    "text": "from",
+    "start": 21.68,
+    "end": 22.04
+   },
+   {
+    "text": "zero",
+    "start": 22.04,
+    "end": 22.34
+   },
+   {
+    "text": "every",
+    "start": 22.34,
+    "end": 22.82
+   },
+   {
+    "text": "single",
+    "start": 22.82,
+    "end": 23.14
+   },
+   {
+    "text": "time.",
+    "start": 23.14,
+    "end": 23.58
+   }
+  ]
+ },
+ {
+  "id": "f1",
+  "start": 23.95,
+  "words": [
+   {
+    "text": "Then",
+    "start": 23.95,
+    "end": 24.13
+   },
+   {
+    "text": "there's",
+    "start": 24.13,
+    "end": 24.37
+   },
+   {
+    "text": "Active",
+    "start": 24.37,
+    "end": 24.65
+   },
+   {
+    "text": "Focus.",
+    "start": 24.65,
+    "end": 25.01
+   }
+  ]
+ },
+ {
+  "id": "f2",
+  "start": 25.6,
+  "words": [
+   {
+    "text": "If",
+    "start": 25.6,
+    "end": 25.7
+   },
+   {
+    "text": "the",
+    "start": 25.7,
+    "end": 25.78
+   },
+   {
+    "text": "agent",
+    "start": 25.78,
+    "end": 26.02
+   },
+   {
+    "text": "gets",
+    "start": 26.02,
+    "end": 26.3
+   },
+   {
+    "text": "stuck,",
+    "start": 26.3,
+    "end": 26.7
+   },
+   {
+    "text": "Meta",
+    "start": 26.7,
+    "end": 27.28
+   },
+   {
+    "text": "says",
+    "start": 27.28,
+    "end": 27.44
+   },
+   {
+    "text": "it",
+    "start": 27.44,
+    "end": 27.56
+   },
+   {
+    "text": "can",
+    "start": 27.56,
+    "end": 27.66
+   },
+   {
+    "text": "try",
+    "start": 27.66,
+    "end": 27.86
+   },
+   {
+    "text": "another",
+    "start": 27.86,
+    "end": 28.2
+   },
+   {
+    "text": "approach",
+    "start": 28.2,
+    "end": 28.62
+   },
+   {
+    "text": "and",
+    "start": 28.62,
+    "end": 29.02
+   },
+   {
+    "text": "keep",
+    "start": 29.02,
+    "end": 29.2
+   },
+   {
+    "text": "working",
+    "start": 29.2,
+    "end": 29.48
+   },
+   {
+    "text": "toward",
+    "start": 29.48,
+    "end": 29.72
+   },
+   {
+    "text": "the",
+    "start": 29.72,
+    "end": 29.98
+   },
+   {
+    "text": "goal.",
+    "start": 29.98,
+    "end": 30.12
+   }
+  ]
+ },
+ {
+  "id": "c1",
+  "start": 31.55,
+  "words": [
+   {
+    "text": "And",
+    "start": 31.55,
+    "end": 31.67
+   },
+   {
+    "text": "that's",
+    "start": 31.67,
+    "end": 31.93
+   },
+   {
+    "text": "the",
+    "start": 31.93,
+    "end": 32.03
+   },
+   {
+    "text": "bigger",
+    "start": 32.03,
+    "end": 32.19
+   },
+   {
+    "text": "bet.",
+    "start": 32.19,
+    "end": 32.47
+   }
+  ]
+ },
+ {
+  "id": "c2",
+  "start": 32.95,
+  "words": [
+   {
+    "text": "Meta",
+    "start": 32.95,
+    "end": 33.13
+   },
+   {
+    "text": "doesn't",
+    "start": 33.13,
+    "end": 33.57
+   },
+   {
+    "text": "just",
+    "start": 33.57,
+    "end": 33.69
+   },
+   {
+    "text": "want",
+    "start": 33.69,
+    "end": 33.89
+   },
+   {
+    "text": "another",
+    "start": 33.89,
+    "end": 34.19
+   },
+   {
+    "text": "chatbot.",
+    "start": 34.19,
+    "end": 34.71
+   }
+  ]
+ },
+ {
+  "id": "c3",
+  "start": 35.25,
+  "words": [
+   {
+    "text": "It",
+    "start": 35.25,
+    "end": 35.31
+   },
+   {
+    "text": "wants",
+    "start": 35.31,
+    "end": 35.47
+   },
+   {
+    "text": "a",
+    "start": 35.47,
+    "end": 35.63
+   },
+   {
+    "text": "personal",
+    "start": 35.63,
+    "end": 35.91
+   },
+   {
+    "text": "AI",
+    "start": 35.91,
+    "end": 36.23
+   },
+   {
+    "text": "agent",
+    "start": 36.23,
+    "end": 36.79
+   },
+   {
+    "text": "that",
+    "start": 36.79,
+    "end": 36.99
+   },
+   {
+    "text": "keeps",
+    "start": 36.99,
+    "end": 37.19
+   },
+   {
+    "text": "context",
+    "start": 37.19,
+    "end": 37.51
+   },
+   {
+    "text": "and",
+    "start": 37.51,
+    "end": 38.15
+   },
+   {
+    "text": "actually",
+    "start": 38.15,
+    "end": 38.45
+   },
+   {
+    "text": "gets",
+    "start": 38.45,
+    "end": 38.75
+   },
+   {
+    "text": "things",
+    "start": 38.75,
+    "end": 39.01
+   },
+   {
+    "text": "done.",
+    "start": 39.01,
+    "end": 39.37
+   }
+  ]
+ },
+ {
+  "id": "r1",
+  "start": 39.75,
+  "words": [
+   {
+    "text": "And",
+    "start": 39.75,
+    "end": 39.83
+   },
+   {
+    "text": "Meta",
+    "start": 39.83,
+    "end": 39.95
+   },
+   {
+    "text": "is",
+    "start": 39.95,
+    "end": 40.27
+   },
+   {
+    "text": "directly",
+    "start": 40.27,
+    "end": 40.59
+   },
+   {
+    "text": "putting",
+    "start": 40.59,
+    "end": 40.95
+   },
+   {
+    "text": "itself",
+    "start": 40.95,
+    "end": 41.21
+   },
+   {
+    "text": "back",
+    "start": 41.21,
+    "end": 41.47
+   },
+   {
+    "text": "in",
+    "start": 41.47,
+    "end": 41.65
+   },
+   {
+    "text": "the",
+    "start": 41.65,
+    "end": 41.71
+   },
+   {
+    "text": "fight",
+    "start": 41.71,
+    "end": 41.93
+   },
+   {
+    "text": "with",
+    "start": 41.93,
+    "end": 42.31
+   },
+   {
+    "text": "OpenAI",
+    "start": 42.31,
+    "end": 42.89
+   },
+   {
+    "text": "and",
+    "start": 42.89,
+    "end": 43.47
+   },
+   {
+    "text": "Anthropic.",
+    "start": 43.47,
+    "end": 44.01
+   }
+  ]
+ },
+ {
+  "id": "k1",
+  "start": 44.35,
+  "words": [
+   {
+    "text": "There's",
+    "start": 44.35,
+    "end": 44.55
+   },
+   {
+    "text": "one",
+    "start": 44.55,
+    "end": 44.69
+   },
+   {
+    "text": "catch:",
+    "start": 44.69,
+    "end": 44.95
+   }
+  ]
+ },
+ {
+  "id": "k2",
+  "start": 45.6,
+  "words": [
+   {
+    "text": "these",
+    "start": 45.6,
+    "end": 45.72
+   },
+   {
+    "text": "performance",
+    "start": 45.72,
+    "end": 46.04
+   },
+   {
+    "text": "claims",
+    "start": 46.04,
+    "end": 46.46
+   },
+   {
+    "text": "are",
+    "start": 46.46,
+    "end": 46.82
+   },
+   {
+    "text": "Meta's",
+    "start": 46.82,
+    "end": 47.28
+   },
+   {
+    "text": "own",
+    "start": 47.28,
+    "end": 47.46
+   },
+   {
+    "text": "testing.",
+    "start": 47.46,
+    "end": 47.72
+   }
+  ]
+ },
+ {
+  "id": "k3",
+  "start": 48.6,
+  "words": [
+   {
+    "text": "Independent",
+    "start": 48.6,
+    "end": 48.94
+   },
+   {
+    "text": "results",
+    "start": 48.94,
+    "end": 49.38
+   },
+   {
+    "text": "will",
+    "start": 49.38,
+    "end": 49.72
+   },
+   {
+    "text": "tell",
+    "start": 49.72,
+    "end": 49.92
+   },
+   {
+    "text": "us",
+    "start": 49.92,
+    "end": 50.12
+   },
+   {
+    "text": "how",
+    "start": 50.12,
+    "end": 50.4
+   },
+   {
+    "text": "good",
+    "start": 50.4,
+    "end": 50.64
+   },
+   {
+    "text": "Wonder",
+    "start": 50.64,
+    "end": 50.86
+   },
+   {
+    "text": "really",
+    "start": 50.86,
+    "end": 51.2
+   },
+   {
+    "text": "is.",
+    "start": 51.2,
+    "end": 51.5
+   }
+  ]
+ },
+ {
+  "id": "e1",
+  "start": 52.0,
+  "words": [
+   {
+    "text": "But",
+    "start": 52.0,
+    "end": 52.1
+   },
+   {
+    "text": "if",
+    "start": 52.1,
+    "end": 52.18
+   },
+   {
+    "text": "AI",
+    "start": 52.18,
+    "end": 52.42
+   },
+   {
+    "text": "can",
+    "start": 52.42,
+    "end": 52.82
+   },
+   {
+    "text": "remember",
+    "start": 52.82,
+    "end": 53.0
+   },
+   {
+    "text": "you",
+    "start": 53.0,
+    "end": 53.34
+   },
+   {
+    "text": "and",
+    "start": 53.34,
+    "end": 53.68
+   },
+   {
+    "text": "keep",
+    "start": 53.68,
+    "end": 53.88
+   },
+   {
+    "text": "working",
+    "start": 53.88,
+    "end": 54.22
+   },
+   {
+    "text": "without",
+    "start": 54.22,
+    "end": 54.52
+   },
+   {
+    "text": "restarting",
+    "start": 54.52,
+    "end": 55.02
+   },
+   {
+    "text": "every",
+    "start": 55.02,
+    "end": 55.18
+   },
+   {
+    "text": "conversation\u2026",
+    "start": 55.18,
+    "end": 55.94
+   }
+  ]
+ },
+ {
+  "id": "e2",
+  "start": 56.6,
+  "words": [
+   {
+    "text": "would",
+    "start": 56.6,
+    "end": 56.72
+   },
+   {
+    "text": "you",
+    "start": 56.72,
+    "end": 56.84
+   },
+   {
+    "text": "actually",
+    "start": 56.84,
+    "end": 57.12
+   },
+   {
+    "text": "want",
+    "start": 57.12,
+    "end": 57.5
+   },
+   {
+    "text": "that?",
+    "start": 57.5,
+    "end": 57.7
+   }
+  ]
+ }
+]

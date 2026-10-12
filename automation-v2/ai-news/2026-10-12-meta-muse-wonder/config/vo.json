@@ -1,0 +1,130 @@
+{
+ "voice": "af_heart",
+ "out": "${WORK}/vo",
+ "captions": "${WORK}/video/src/captions.json",
+ "model": "${WORK}/kokoro/kokoro-v1.0.onnx",
+ "voices": "${WORK}/kokoro/voices-v1.0.bin",
+ "whisper_model": "base.en",
+ "aliases": {},
+ "lines": [
+  {
+   "id": "h1",
+   "start": 0.1,
+   "speed": 1.18,
+   "say": "You told an AI your whole plan yesterday.",
+   "show": "You told an AI your whole plan yesterday."
+  },
+  {
+   "id": "h2",
+   "start": 2.459,
+   "speed": 1.1,
+   "say": "Today? It remembers nothing.",
+   "show": "Today? It remembers NOTHING."
+  },
+  {
+   "id": "h3",
+   "start": 4.7,
+   "speed": 1.12,
+   "say": "Meta just built one that never forgets.",
+   "show": "Meta just built one that never forgets."
+  },
+  {
+   "id": "w1",
+   "start": 6.885,
+   "speed": 1.18,
+   "say": "It's called Muse Wonder, and Meta says it's one of the most capable AI models they've ever built.",
+   "show": "It's called Muse Wonder, and Meta says it's one of the most capable AI models they've ever built."
+  },
+  {
+   "id": "b1",
+   "start": 11.803,
+   "speed": 1.12,
+   "say": "But benchmarks aren't actually the interesting part.",
+   "show": "But benchmarks aren't actually the interesting part."
+  },
+  {
+   "id": "m1",
+   "start": 15.8,
+   "speed": 1.2,
+   "say": "Active Memory means the AI can remember important things about you across conversations, instead of starting from zero every single time.",
+   "show": "Active Memory means the AI can remember important things about you across conversations, instead of starting from zero every single time."
+  },
+  {
+   "id": "f1",
+   "start": 23.95,
+   "speed": 1.1,
+   "say": "Then there's Active Focus.",
+   "show": "Then there's Active Focus."
+  },
+  {
+   "id": "f2",
+   "start": 25.6,
+   "speed": 1.18,
+   "say": "If the agent gets stuck, Meta says it can try another approach, and keep working toward the goal.",
+   "show": "If the agent gets stuck, Meta says it can try another approach and keep working toward the goal."
+  },
+  {
+   "id": "c1",
+   "start": 31.55,
+   "speed": 1.1,
+   "say": "And that's the bigger bet.",
+   "show": "And that's the bigger bet."
+  },
+  {
+   "id": "c2",
+   "start": 32.95,
+   "speed": 1.1,
+   "say": "Meta doesn't just want another chatbot.",
+   "show": "Meta doesn't just want another chatbot."
+  },
+  {
+   "id": "c3",
+   "start": 35.25,
+   "speed": 1.18,
+   "say": "It wants a personal AI agent that keeps context, and actually gets things done.",
+   "show": "It wants a personal AI agent that keeps context and actually gets things done."
+  },
+  {
+   "id": "r1",
+   "start": 39.75,
+   "speed": 1.18,
+   "say": "And Meta is directly putting itself back in the fight with OpenAI and Anthropic.",
+   "show": "And Meta is directly putting itself back in the fight with OpenAI and Anthropic."
+  },
+  {
+   "id": "k1",
+   "start": 44.35,
+   "speed": 1.05,
+   "say": "There's one catch.",
+   "show": "There's one catch:"
+  },
+  {
+   "id": "k2",
+   "start": 45.6,
+   "speed": 1.12,
+   "say": "These performance claims are Meta's own testing.",
+   "show": "these performance claims are Meta's own testing."
+  },
+  {
+   "id": "k3",
+   "start": 48.6,
+   "speed": 1.12,
+   "say": "Independent results will tell us how good Wonder really is.",
+   "show": "Independent results will tell us how good Wonder really is."
+  },
+  {
+   "id": "e1",
+   "start": 52.0,
+   "speed": 1.12,
+   "say": "But if AI can remember you, and keep working without restarting every conversation...",
+   "show": "But if AI can remember you and keep working without restarting every conversation…"
+  },
+  {
+   "id": "e2",
+   "start": 56.6,
+   "speed": 1.05,
+   "say": "would you actually want that?",
+   "show": "would you actually want that?"
+  }
+ ]
+}

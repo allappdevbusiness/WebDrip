@@ -1,0 +1,139 @@
+{
+ "track": {
+  "title": "Come 2gether (House Remix)",
+  "artist": "Ooyy",
+  "epidemic_id": "3f673a65-8d7d-4c57-b883-5a201f8adc6c",
+  "bpm_catalogue": 122,
+  "bpm_measured": 122.0,
+  "tags": [
+   "happy",
+   "restless",
+   "tech house",
+   "no vocals"
+  ],
+  "files": [
+   "FULL",
+   "DRUMS",
+   "BASS",
+   "INSTRUMENTS (WAV, 48 kHz)"
+  ]
+ },
+ "grid": {
+  "beat_s": 0.491803,
+  "bar_s": 1.967213,
+  "source_first_kick_s": 1.9818,
+  "note": "video beat n = n * beat_s; video 0 = source 1.9818 (first kick)"
+ },
+ "segments_source_to_video": [
+  {
+   "source": [
+    1.9818,
+    13.7851
+   ],
+   "video": [
+    0,
+    11.8033
+   ],
+   "why": "full groove under the hook and the model cards (source bars 0-5)"
+  },
+  {
+   "source": [
+    123.949,
+    127.883
+   ],
+   "video": [
+    11.8033,
+    15.7377
+   ],
+   "why": "source bars 62-63: bass pulls back, then ~2.7 s near-silence under \"...the interesting part\" / THIS IS."
+  },
+  {
+   "source": [
+    127.883,
+    172.4
+   ],
+   "video": [
+    15.7377,
+    60.0
+   ],
+   "why": "the drop lands on ACTIVE MEMORY at video 15.738; continuous groove to the end"
+  }
+ ],
+ "stem_moves_video_s": [
+  {
+   "part": "drums",
+   "window": [
+    15.246,
+    15.738
+   ],
+   "gain_db": -6,
+   "why": "soften the pre-drop fill so the reveal comes out of near-silence"
+  },
+  {
+   "parts": [
+    "drums -14",
+    "melody -4",
+    "rest -3",
+    "eq 2.5-9 kHz -6"
+   ],
+   "window": [
+    45.246,
+    51.148
+   ],
+   "why": "reality check: drums pulled back, darker"
+  }
+ ],
+ "beat_locked_events_video_s": {
+  "cut_to_empty_chat": 2.459,
+  "STARTING_FROM_ZERO": 3.197,
+  "facepalm": 3.934,
+  "meta_slam": 4.672,
+  "NEVER_FORGETS": 5.902,
+  "black_flash": 6.393,
+  "card_A": 7.131,
+  "card_B": 7.869,
+  "MOST_CAPABLE_YET": 9.344,
+  "benchmarks": 11.803,
+  "THIS_IS": 14.754,
+  "ACTIVE_MEMORY_drop": 15.738,
+  "memory_chips": [
+   17.705,
+   18.197,
+   18.689,
+   19.18
+  ],
+  "stored": 19.672,
+  "DAY_1_7_30": [
+   20.656,
+   21.148,
+   21.639
+  ],
+  "day30_chat": 22.131,
+  "replay_freeze": 22.623,
+  "ACTIVE_FOCUS": 24.59,
+  "steps": [
+   25.574,
+   26.066
+  ],
+  "error": 26.311,
+  "try_again": 27.541,
+  "new_approach": 28.033,
+  "success": 29.508,
+  "why_meta": 31.475,
+  "chatbot_shrink": 33.443,
+  "agent": 35.41,
+  "race": 39.344,
+  "race_cuts": [
+   41.311,
+   41.803,
+   42.295,
+   42.787
+  ],
+  "race_wide": 43.279,
+  "darker": 45.246,
+  "INTERNAL_TESTING_stamp": 47.459,
+  "WAITING_FOR_INDEPENDENT_TESTS": 48.689,
+  "WOULD_YOU_USE_IT": 56.557,
+  "YES_NO": 57.541
+ }
+}

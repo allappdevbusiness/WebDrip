@@ -1,0 +1,764 @@
+You are my senior TikTok / Reels video editor, motion designer, storyteller, and retention editor.
+
+Create a FINAL 60-SECOND vertical AI news video.
+
+FORMAT
+- 9:16
+- 1080x1920
+- Approximately 60 seconds
+- Designed primarily for TikTok / Instagram Reels / YouTube Shorts
+- Build and render with Remotion
+- Use Heart for the voiceover
+- Use Epidemic Sound for licensed music and sound effects
+- Export the final MP4
+
+IMPORTANT:
+This cannot feel like someone reading an AI news article.
+
+It needs to feel like a highly edited technology story.
+
+The viewer should constantly be thinking:
+
+"Okay... what happens next?"
+
+==================================================
+TODAY'S STORY
+==================================================
+
+Meta launched two new AI models today:
+
+Muse Wonder
+Muse Wonder Full
+
+Meta says these are frontier-class models capable of competing with leading models from OpenAI and Anthropic.
+
+Important facts:
+
+- Meta launched Muse Wonder and Muse Wonder Full on October 12, 2026.
+- Meta describes them as its most capable AI models yet.
+- Muse Wonder is available through the Meta Model API and Muse Code.
+- Muse Wonder Full is available to Muse Code subscribers.
+- Wonder is expected to eventually power Meta's Muse personal AI agent.
+- Meta is emphasizing two features:
+  1. Active Memory
+  2. Active Focus
+
+Active Memory:
+The AI can retain important information about a user across conversations and bring that information back when useful.
+
+Active Focus:
+The AI agent is designed to continue pursuing a goal, change its approach when something fails, and adapt when it encounters new information.
+
+Meta says the models are strong at agents, coding and professional tasks.
+
+Meta claims its models match or beat some leading competitors on internal benchmarks.
+
+VERY IMPORTANT:
+Do NOT present Meta's benchmark claims as independently proven facts.
+Always use language such as:
+"Meta says..."
+"According to Meta's testing..."
+"Meta claims..."
+
+The larger story:
+
+Meta wants AI that does not simply answer one prompt and forget everything.
+
+It wants a persistent personal AI agent that remembers you and continues working toward your goals.
+
+THAT is the story of the video.
+
+==================================================
+THE EDITING PHILOSOPHY
+==================================================
+
+Do NOT make this look like a slideshow.
+
+Do NOT put screenshots on screen for five seconds while the narrator talks.
+
+Do NOT use generic AI robots everywhere.
+
+Do NOT use random transitions just because they look cool.
+
+Every animation must help explain what the narrator is saying.
+
+The editing should be:
+
+fast
+clean
+premium
+modern
+slightly cinematic
+easy to understand
+
+Think:
+
+high-end technology commercial
++
+fast TikTok documentary
++
+modern motion graphics
+
+NOT:
+
+gaming montage
+crypto advertisement
+overloaded CapCut template
+
+Change something visually roughly every 1-2.5 seconds.
+
+However, DO NOT make it painfully flashy.
+
+Sometimes a clean shot held for 2 seconds is more powerful than 10 animations.
+
+==================================================
+RETENTION RULE
+==================================================
+
+We need pattern interrupts throughout the video.
+
+Approximately every 5-8 seconds introduce something new:
+
+camera movement
+new visual environment
+large typography
+B-roll
+UI animation
+diagram
+comparison
+freeze frame
+sound change
+screen transition
+unexpected silence
+
+CUT ON THE BEAT: every major cut in the first 15 seconds must land
+on a beat or a music accent. If the music drops, the visual drops
+with it. This is what makes it feel fun instead of corporate.
+
+Add 2-3 REACTION-STYLE punch-ins per video: a fast 0.3s zoom into
+the speaker's key word or a human face, like sports commentary.
+Cheap, human, and it resets attention instantly.
+
+Do not allow the viewer to become comfortable watching the same thing.
+
+==================================================
+0:00 - 0:04 — HOOK
+==================================================
+
+HOOK RULE (most important part of the video):
+
+Do NOT open with the announcement ("Meta launched...").
+Everyone covers the announcement. We win by opening with a relatable
+PROBLEM the viewer has felt, then revealing Meta as the twist.
+
+VOICEOVER:
+
+"You told an AI your whole plan yesterday. Today? It remembers NOTHING."
+
+(beat)
+
+"Meta just built one that never forgets."
+
+VISUAL:
+
+Start instantly.
+
+NO intro.
+NO WebDrip logo.
+NO "AI NEWS."
+NO fade from black.
+
+Frame 1 should already contain movement AND a human element.
+Logos are easy to scroll past. A relatable moment is not.
+
+0.0 sec:
+POV phone shot: a long AI conversation from "yesterday."
+Real chat UI, real scroll.
+
+0.8 sec:
+Hard cut. Same phone, "today": a fresh EMPTY chat window.
+Text slams over it:
+
+"STARTING FROM ZERO."
+
+1.8 sec:
+Quick frustrated human moment — facepalm / sigh b-roll, half a second.
+
+2.4 sec:
+Meta logo slams in. Text:
+
+"NEVER FORGETS."
+
+3.2 sec:
+Hard cut into the next scene ON the word "forgets" —
+0.3 sec near-black flash, bass drop.
+
+SFX:
+
+One deep cinematic impact at the opening.
+
+Very subtle riser underneath.
+
+One tight digital hit when "NEVER FORGETS" appears.
+
+Do NOT spam whooshes.
+
+MUSIC:
+
+Choose an Epidemic Sound instrumental in upbeat ELECTRONIC HOUSE /
+FUNK-POP groove territory — ~105-120 BPM, bouncy bassline, the kind of
+beat big tech YouTubers put under everything. (Ooyy's electronic house
+style is Epidemic's most-used catalog artist — use that energy.)
+
+The music must be FUN TO LISTEN TO on its own. It should make the
+viewer nod along, not feel like a dark documentary score.
+
+NOT: dark cinematic tension, not ambient drone, not aggressive EDM.
+
+It must have a clear DROP or lift you can place under the
+Active Memory reveal at 0:09, and stem control so you can pull the
+drums back during the reality-check section.
+
+Start the music immediately. Duck under voiceover.
+
+==================================================
+0:04 - 0:09 — WHAT HAPPENED?
+==================================================
+
+VOICEOVER:
+
+"It's called Muse Wonder — and Meta says it's one of the most capable AI models they've ever built."
+
+VISUAL:
+
+Show:
+
+Muse Wonder
+Muse Wonder Full
+
+as two sleek cards appearing beside each other.
+
+Wonder Full should appear slightly larger / more powerful.
+
+Use subtle depth.
+
+Then zoom into the words:
+
+"MOST CAPABLE YET"
+
+Keep this section extremely simple.
+
+Do not drown the viewer in benchmark numbers yet.
+
+==================================================
+0:09 - 0:14 — SET UP THE REAL HOOK
+==================================================
+
+VOICEOVER:
+
+"But benchmarks aren't actually the interesting part."
+
+IMPORTANT:
+
+The music briefly pulls back here.
+
+VISUAL:
+
+Freeze the benchmark comparison.
+
+Cross it out / push it backward in 3D space.
+
+Large centered words appear:
+
+"THIS IS."
+
+pause approximately 0.3 sec
+
+"ACTIVE MEMORY."
+
+Use silence or almost-silence immediately before ACTIVE MEMORY appears.
+
+SFX:
+
+Very subtle bass hit.
+
+This should function as our SECOND HOOK.
+
+==================================================
+0:14 - 0:24 — ACTIVE MEMORY
+==================================================
+
+VOICEOVER:
+
+"Active Memory means the AI can remember important things about you across conversations — instead of starting from zero every single time."
+
+EXPLAIN THIS VISUALLY.
+
+Show a very simple animated person/avatar.
+
+Around them appear little pieces of information:
+
+"Building a website"
+"Prefers React"
+"Meeting Friday"
+"Working on Project X"
+
+Then animate those pieces being stored into a clean memory system.
+
+Transition:
+
+DAY 1
+→
+DAY 7
+→
+DAY 30
+
+Then start a new conversation.
+
+Instead of an empty AI window, those useful memories quickly reconnect.
+
+Text:
+
+"IT REMEMBERS CONTEXT."
+
+This should make the concept understandable even if the viewer has never heard of AI memory.
+
+B-ROLL POSSIBILITY:
+
+Person using laptop.
+AI chat interface.
+Calendar.
+Coding environment.
+
+Use B-roll underneath some motion graphics so we are not only watching UI screens.
+
+==================================================
+0:24 - 0:35 — ACTIVE FOCUS
+==================================================
+
+VOICEOVER:
+
+"Then there's Active Focus. If the agent gets stuck, Meta says it can try another approach and keep working toward the goal."
+
+VISUAL STORY:
+
+Create a very simple mission:
+
+GOAL:
+"Build landing page"
+
+Agent starts.
+
+STEP 1
+Research
+
+STEP 2
+Generate
+
+Then:
+
+ERROR
+
+Do NOT stop.
+
+Animate the path physically changing direction.
+
+ERROR
+↓
+TRY AGAIN
+↓
+NEW APPROACH
+↓
+SUCCESS
+
+The timeline should feel like an AI actually working.
+
+Show a progress line moving through obstacles.
+
+Use one satisfying mechanical click for each major step.
+
+Not every tiny animation needs audio.
+
+Text:
+
+"AI THAT DOESN'T JUST GIVE UP."
+
+Push camera through the SUCCESS card into the next section.
+
+==================================================
+0:35 - 0:43 — WHY META CARES
+==================================================
+
+VOICEOVER:
+
+"And that's the bigger bet. Meta doesn't just want another chatbot. It wants a personal AI agent that keeps context and actually gets things done."
+
+VISUAL:
+
+Start with a normal chatbot window.
+
+Make it shrink.
+
+Label:
+
+CHATBOT
+
+Then transform it into a bigger connected system:
+
+EMAIL
+CALENDAR
+CODE
+DOCUMENTS
+TASKS
+
+all connected to:
+
+AI AGENT
+
+This transformation is important.
+
+Visually communicate:
+
+OLD AI
+"Answer my question."
+
+NEW AI
+"Handle this goal."
+
+Do NOT claim that every integration shown is currently available.
+
+Use the connected apps as a conceptual visualization of agent-style AI.
+
+==================================================
+0:43 - 0:50 — COMPETITION
+==================================================
+
+VOICEOVER:
+
+"And Meta is directly putting itself back in the fight with OpenAI and Anthropic."
+
+VISUAL:
+
+Return to the three-company motif from the hook.
+
+META
+OPENAI
+ANTHROPIC
+
+But this time create a clean horizontal race / ranking visual.
+
+Do NOT invent benchmark numbers.
+
+Instead write:
+
+"FRONTIER AI RACE"
+
+Then rapidly show:
+
+CODING
+AGENTS
+MEMORY
+REASONING
+
+Use the rhythm of the music for four clean cuts.
+
+==================================================
+0:50 - 0:56 — REALITY CHECK
+==================================================
+
+VOICEOVER:
+
+"There's one catch: these performance claims are Meta's own testing. Independent results will tell us how good Wonder really is."
+
+THIS IS IMPORTANT FOR CREDIBILITY.
+
+VISUAL:
+
+Music changes slightly darker.
+
+Show:
+
+META BENCHMARKS
+
+then stamp:
+
+"INTERNAL TESTING"
+
+Camera pulls backward.
+
+Then:
+
+"WAITING FOR INDEPENDENT TESTS"
+
+No dramatic fear graphics.
+
+Just make it feel intelligent and credible.
+
+==================================================
+0:56 - 1:00 — END WITH A QUESTION
+==================================================
+
+VOICEOVER:
+
+"But if AI can remember you and keep working without restarting every conversation... would you actually want that?"
+
+VISUAL:
+
+Return to the memory visualization.
+
+AI in the middle.
+
+Memories orbit around it.
+
+Everything gradually disappears except:
+
+"WOULD YOU USE IT?"
+
+Then underneath:
+
+"YES / NO?"
+
+Final tiny text:
+
+"Follow for daily AI updates."
+
+Do NOT use a generic:
+"Thanks for watching."
+
+The question should be the final thing people remember.
+
+==================================================
+VOICEOVER STYLE
+==================================================
+
+Use Heart.
+
+Voice should sound:
+
+curious
+confident
+slightly excited
+conversational
+
+NOT like a TV reporter.
+
+NOT like a corporate advertisement.
+
+NOT like somebody reading Wikipedia.
+
+Allow natural pauses.
+
+Emphasize:
+
+"head-to-head"
+
+"interesting part"
+
+"Active Memory"
+
+"Active Focus"
+
+"doesn't just want another chatbot"
+
+"one catch"
+
+Use short sentences.
+
+==================================================
+CAPTIONS
+==================================================
+
+Use dynamic captions.
+
+But DO NOT display every word as giant text.
+
+Normal captions near the lower-middle safe area.
+
+Highlight only important words:
+
+META
+MUSE WONDER
+ACTIVE MEMORY
+ACTIVE FOCUS
+AI AGENT
+INTERNAL TESTING
+
+Use approximately 3-7 words on screen at once.
+
+Do not allow text to touch TikTok UI areas.
+
+Test text safe zones before rendering.
+
+==================================================
+TRANSITIONS
+==================================================
+
+Use transitions that connect ideas.
+
+Examples:
+
+Meta logo → Muse Wonder card:
+camera push
+
+Memory dots → Active Focus workflow:
+memory dot enlarges and becomes workflow node
+
+SUCCESS card → agent ecosystem:
+camera pushes through SUCCESS
+
+Agent ecosystem → competition:
+connected lines collapse into three competitor lanes
+
+Do NOT randomly use:
+
+glitch
+spin
+zoom
+glitch
+spin
+zoom
+
+over and over.
+
+Each major section should have its own visual language.
+
+==================================================
+SOUND DESIGN
+==================================================
+
+Use Epidemic Sound.
+
+Keep sound design controlled.
+
+Use roughly:
+
+1 opening impact
+2-3 subtle whooshes total
+a few UI clicks
+1 low bass impact for major reveal
+1 error sound
+1 satisfying success sound
+1 small end sound
+
+Do NOT add sound effects to every animation.
+
+The MUSIC + VOICEOVER should remain the center.
+
+Duck music under voiceover.
+
+Allow the music to rise briefly during transitions.
+
+Use a tiny moment of near-silence before:
+
+"ACTIVE MEMORY"
+
+This is a retention trick.
+
+==================================================
+B-ROLL — FUN TO WATCH, NOT "AI LOOKING"
+==================================================
+
+ANTI-AI-LOOK RULE (strict):
+
+If a shot could appear in ANY generic AI commercial, cut it.
+The #1 thing that makes AI-news videos feel cheap is the same
+recycled visuals: purple-blue neural gradients, glowing brains,
+humanoid robots, floating hologram cities, matrix code rain.
+BANNED, no exceptions.
+
+Use those for nothing. Not even for half a second.
+
+FUN B-ROLL RULE:
+
+Every b-roll shot must feel REAL, HUMAN, or TACTILE.
+
+Prefer (in order):
+1. First-person POV: hands holding phone, over-the-shoulder laptop,
+   screen recordings of an actual AI chat being used.
+2. Human reaction moments: facepalm, raised eyebrow, leaning in,
+   celebrating at a desk — real people, real rooms.
+3. Tactile macro shots: coffee cup next to keyboard, fast typing,
+   calendar pages, sticky notes, whiteboard scribbles.
+4. Motion that matches the narration: a calendar flipping
+   DAY 1 -> DAY 7 -> DAY 30 (speed-ramped), a progress bar
+   physically crawling forward, papers flying off a desk.
+
+For the memory section, stage it like a sports replay:
+freeze the frame, draw a doodle arrow (broadcast style) pointing
+at the memory that "reconnected."
+
+Avoid generic office stock where everyone is smiling at a laptop.
+Avoid slow-motion city flyovers. Avoid anything with a robot hand
+touching a human hand.
+
+Real > polished. A slightly shaky phone POV beats a perfect
+CGI render every time for watch time.
+
+Original list, still usable where it fits the rule above:
+Meta headquarters / logo, developer coding, server rooms,
+phone using AI assistant, close shots of keyboard / screen.
+
+==================================================
+MOTION DESIGN
+==================================================
+
+Prioritize:
+
+depth
+scale changes
+camera pushes
+connected nodes
+clean UI animation
+timeline animations
+mask reveals
+foreground/background separation
+subtle parallax
+kinetic typography
+
+Alternate visual scale:
+
+BIG TITLE
+→
+close UI detail
+→
+human B-roll
+→
+full diagram
+→
+macro detail
+→
+wide comparison
+
+This prevents visual fatigue.
+
+==================================================
+FINAL QUALITY CHECK
+==================================================
+
+Before rendering, watch the ENTIRE video once without stopping.
+
+Ask:
+
+Would I scroll away during the first 3 seconds?
+
+Is there any section where the visual stays basically unchanged for too long?
+
+Can someone who knows nothing about AI understand Active Memory?
+
+Can someone who knows nothing about AI understand Active Focus?
+
+Did we clearly distinguish Meta's claims from independently verified results?
+
+Are captions inside safe zones?
+
+Is the voiceover clearly louder than the music?
+
+Are the sound effects subtle?
+
+Does the video end at approximately 60 seconds?
+
+Does every transition have a storytelling purpose?
+
+If any section feels boring, FIX IT before rendering.
+
+Then render the final MP4.

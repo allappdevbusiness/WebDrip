@@ -1,0 +1,254 @@
+{
+ "music": "${WORK}/music/full.wav",
+ "out": "${WORK}/video/public/mix.wav",
+ "duration": 60.0,
+ "stems": {
+  "drums": "${WORK}/music/drums.wav",
+  "bass": "${WORK}/music/bass.wav",
+  "instruments": "${WORK}/music/instruments.wav"
+ },
+ "music_segments": [
+  {
+   "from": 1.9818,
+   "to": 13.785078688524589,
+   "at": 0
+  },
+  {
+   "from": 123.949,
+   "to": 127.883,
+   "at": 11.803278688524589
+  },
+  {
+   "from": 127.883,
+   "to": 172.4,
+   "at": 15.737704918032787
+  }
+ ],
+ "xfade": 0.03,
+ "stem_moves": [
+  {
+   "part": "drums",
+   "start": 15.245901639344263,
+   "end": 15.717704918032787,
+   "gain_db": -6,
+   "ramp": 0.03
+  },
+  {
+   "part": "drums",
+   "start": 45.24590163934426,
+   "end": 51.147540983606554,
+   "gain_db": -14,
+   "ramp": 0.35
+  },
+  {
+   "part": "melody",
+   "start": 45.24590163934426,
+   "end": 51.147540983606554,
+   "gain_db": -4,
+   "ramp": 0.35
+  },
+  {
+   "part": "rest",
+   "start": 45.24590163934426,
+   "end": 51.147540983606554,
+   "gain_db": -3,
+   "ramp": 0.35
+  }
+ ],
+ "eq": [
+  {
+   "start": 45.24590163934426,
+   "end": 51.147540983606554,
+   "type": "band",
+   "lo": 2500,
+   "hi": 9000,
+   "gain_db": -6,
+   "ramp": 0.35
+  }
+ ],
+ "voice": [
+  {
+   "file": "${WORK}/vo/h1.wav",
+   "start": 0.1,
+   "gain_db": 2.28
+  },
+  {
+   "file": "${WORK}/vo/h2.wav",
+   "start": 2.459,
+   "gain_db": 1.99
+  },
+  {
+   "file": "${WORK}/vo/h3.wav",
+   "start": 4.7,
+   "gain_db": 2.77
+  },
+  {
+   "file": "${WORK}/vo/w1.wav",
+   "start": 6.885,
+   "gain_db": 2.25
+  },
+  {
+   "file": "${WORK}/vo/b1.wav",
+   "start": 11.803,
+   "gain_db": 2.12
+  },
+  {
+   "file": "${WORK}/vo/m1.wav",
+   "start": 15.8,
+   "gain_db": 2.29
+  },
+  {
+   "file": "${WORK}/vo/f1.wav",
+   "start": 23.95,
+   "gain_db": 1.62
+  },
+  {
+   "file": "${WORK}/vo/f2.wav",
+   "start": 25.6,
+   "gain_db": 2.14
+  },
+  {
+   "file": "${WORK}/vo/c1.wav",
+   "start": 31.55,
+   "gain_db": 0.95
+  },
+  {
+   "file": "${WORK}/vo/c2.wav",
+   "start": 32.95,
+   "gain_db": 2.5
+  },
+  {
+   "file": "${WORK}/vo/c3.wav",
+   "start": 35.25,
+   "gain_db": 2.2
+  },
+  {
+   "file": "${WORK}/vo/r1.wav",
+   "start": 39.75,
+   "gain_db": 2.46
+  },
+  {
+   "file": "${WORK}/vo/k1.wav",
+   "start": 44.35,
+   "gain_db": 0.82
+  },
+  {
+   "file": "${WORK}/vo/k2.wav",
+   "start": 45.6,
+   "gain_db": 2.79
+  },
+  {
+   "file": "${WORK}/vo/k3.wav",
+   "start": 48.6,
+   "gain_db": 3.11
+  },
+  {
+   "file": "${WORK}/vo/e1.wav",
+   "start": 52.0,
+   "gain_db": 2.31
+  },
+  {
+   "file": "${WORK}/vo/e2.wav",
+   "start": 56.6,
+   "gain_db": 1.76
+  }
+ ],
+ "sfx": [
+  {
+   "file": "${WORK}/sfx/impact_open.wav",
+   "t": 0,
+   "gain_db": -7
+  },
+  {
+   "file": "${WORK}/sfx/riser.wav",
+   "t": 1.936,
+   "gain_db": -12
+  },
+  {
+   "file": "${WORK}/sfx/digital_hit.wav",
+   "t": 5.803,
+   "gain_db": -5
+  },
+  {
+   "file": "${WORK}/sfx/bass_drop.wav",
+   "t": 6.268,
+   "gain_db": -6
+  },
+  {
+   "file": "${WORK}/sfx/whoosh_airy.wav",
+   "t": 6.402,
+   "gain_db": -9
+  },
+  {
+   "file": "${WORK}/sfx/low_hit.wav",
+   "t": 15.714,
+   "gain_db": -5
+  },
+  {
+   "file": "${WORK}/sfx/click1.wav",
+   "t": 17.662,
+   "gain_db": -11
+  },
+  {
+   "file": "${WORK}/sfx/click1.wav",
+   "t": 18.646,
+   "gain_db": -12
+  },
+  {
+   "file": "${WORK}/sfx/click1.wav",
+   "t": 25.531,
+   "gain_db": -9
+  },
+  {
+   "file": "${WORK}/sfx/click1.wav",
+   "t": 26.023,
+   "gain_db": -9
+  },
+  {
+   "file": "${WORK}/sfx/error.wav",
+   "t": 26.256,
+   "gain_db": -9
+  },
+  {
+   "file": "${WORK}/sfx/click1.wav",
+   "t": 27.498,
+   "gain_db": -9
+  },
+  {
+   "file": "${WORK}/sfx/click1.wav",
+   "t": 27.99,
+   "gain_db": -9
+  },
+  {
+   "file": "${WORK}/sfx/success.wav",
+   "t": 29.507,
+   "gain_db": -3
+  },
+  {
+   "file": "${WORK}/sfx/whoosh_light.wav",
+   "t": 30.557,
+   "gain_db": -3
+  },
+  {
+   "file": "${WORK}/sfx/whoosh_airy.wav",
+   "t": 39.002,
+   "gain_db": -10
+  },
+  {
+   "file": "${WORK}/sfx/stamp.wav",
+   "t": 47.437,
+   "gain_db": -6
+  },
+  {
+   "file": "${WORK}/sfx/pop1.wav",
+   "t": 57.541,
+   "gain_db": -9
+  }
+ ],
+ "duck_db": -7,
+ "music_lufs": -18.0,
+ "fade_out": 1.1,
+ "lufs": -14.0,
+ "ceiling_db": -2.5,
+ "duck_lookahead": 0.15
+}
