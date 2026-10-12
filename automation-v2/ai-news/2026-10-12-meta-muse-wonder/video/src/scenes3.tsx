@@ -161,6 +161,7 @@ export const Race: React.FC<{ s: number }> = ({ s }) => {
 // ================= REALITY CHECK =================
 const T_CATCH = 44.69;
 const T_REPORT = 45.6;
+const T_SRC = 46.82;             // "Meta's"
 const T_STAMP = b(96.5);         // 47.459 "testing"
 const T_PULL = 47.8;
 const T_WAIT = b(99);            // 48.689
@@ -186,7 +187,10 @@ export const Reality: React.FC<{ s: number }> = ({ s }) => {
     <div style={{ position: 'absolute', inset: 0, transformOrigin: '540px 700px', transform: `translate(${kick.x}px, ${kick.y - 175 * pull}px) scale(${lerp(1, 0.76, pull) * push})`,
       opacity: easeOut(prog(s, T_REPORT, 0.15)) }}>
       <div style={{ position: 'absolute', left: 170, top: 380, width: 740, height: 640, borderRadius: 26, background: '#F7F5F0', boxShadow: '0 40px 100px rgba(0,0,0,.5)', padding: '46px 48px', boxSizing: 'border-box' }}>
-        <Label style={{ color: C.ink, opacity: 0.45, fontSize: 22 }}><span style={{ color: C.blue }}>●</span> Source: Meta</Label>
+        <div style={{ position: 'relative', display: 'inline-block' }}>
+          <div style={{ position: 'absolute', left: -10, right: -10, top: -4, bottom: -4, background: C.yellow, transformOrigin: 'left', transform: `scaleX(${easeOut(prog(s, T_SRC, 0.22))})`, borderRadius: 4 }} />
+          <Label style={{ position: 'relative', color: C.ink, opacity: s >= T_SRC ? 1 : 0.45, fontSize: 22 }}><span style={{ color: C.blue }}>●</span> Source: Meta</Label>
+        </div>
         <div style={{ fontFamily: F.ui, fontWeight: 900, fontSize: 70, letterSpacing: '-0.03em', color: C.ink, marginTop: 10, lineHeight: 1 }}>Meta benchmarks</div>
         <div style={{ fontFamily: F.ui, fontWeight: 600, fontSize: 30, color: '#77736A', marginTop: 12 }}>Muse Wonder vs. leading models</div>
         <div style={{ marginTop: 44 }}>
@@ -203,7 +207,8 @@ export const Reality: React.FC<{ s: number }> = ({ s }) => {
           background: 'rgba(255,59,48,.06)', mixBlendMode: 'multiply', WebkitMaskImage: 'repeating-linear-gradient(115deg, #000 0 9px, rgba(0,0,0,.82) 9px 12px)' }}>Internal testing</div>
       </div>}
     </div>
-    {s >= T_WAIT && <div style={{ position: 'absolute', left: 120, width: 840, top: 1000, textAlign: 'center', transform: `translateY(${lerp(30, 0, easeOutExpo(prog(s, T_WAIT, 0.3)))}px)`, opacity: easeOut(prog(s, T_WAIT, 0.2)) }}>
+    {s >= T_WAIT && <div style={{ position: 'absolute', left: 120, width: 840, top: 1000, textAlign: 'center', transformOrigin: '420px 150px',
+      transform: `translateY(${lerp(30, 0, easeOutExpo(prog(s, T_WAIT, 0.3)))}px) scale(${1 + 0.07 * easeOutExpo(prog(s, b(103), 0.3)) + 0.02 * prog(s, b(103), 1.3)})`, opacity: easeOut(prog(s, T_WAIT, 0.2)) }}>
       <Label style={{ color: C.yellow, fontSize: 26 }}>Status</Label>
       <div style={{ fontFamily: F.display, fontSize: 100, lineHeight: 1.0, color: C.white, textTransform: 'uppercase', marginTop: 10 }}>Waiting for<br />independent tests</div>
       <div style={{ position: 'relative', margin: '26px auto 0', width: 420, height: 8, borderRadius: 4, background: 'rgba(255,255,255,.12)', overflow: 'hidden' }}>
@@ -223,7 +228,7 @@ const T_FOLLOW = b(118);         // 58.033
 export const End: React.FC<{ s: number }> = ({ s }) => {
   const inP = easeOutExpo(prog(s, T_END, 0.4));
   const gone = easeInOut(prog(s, T_FADE + 1.0, 0.6)); // AI node fades last
-  const push = 1 + 0.04 * prog(s, T_END, 8);
+  const push = 1 + 0.04 * prog(s, T_END, 8) + 0.14 * easeInOut(prog(s, 27 * BAR, 0.6));
   return <AbsoluteFill style={{ background: `radial-gradient(ellipse at 50% 44%, #1B1B1F 0%, ${C.ink} 65%)` }}>
     <div style={{ position: 'absolute', inset: 0, transform: `scale(${push})`, transformOrigin: '540px 840px' }}>
       <svg width={W} height={H} style={{ position: 'absolute', left: 0, top: 0, opacity: (1 - easeIn(prog(s, T_FADE, 1.2))) * inP }}>
@@ -243,11 +248,13 @@ export const End: React.FC<{ s: number }> = ({ s }) => {
       <div style={{ position: 'absolute', left: 540 - 115, top: 840 - 115, width: 230, height: 230, borderRadius: 115, background: C.yellow, zIndex: 2, transform: `scale(${inP * (1 - gone) * (1 + 0.03 * Math.sin(s * 4))})`,
         display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: F.display, fontSize: 100, color: C.ink, boxShadow: '0 0 80px rgba(255,225,77,.35)' }}>AI</div>
     </div>
+    <div style={{ position: 'absolute', inset: 0, transformOrigin: '540px 960px', transform: `scale(${1 + 0.045 * prog(s, T_Q, 60 - T_Q)})` }}>
     {s >= T_Q && <Slam s={s} at={T_Q} size={176} y={760} from={1.4}><span style={{ whiteSpace: 'nowrap' }}>Would you</span><br />use it?</Slam>}
     {s >= T_YN && <div style={{ position: 'absolute', left: 120, width: 840, top: 1060, textAlign: 'center', transform: `translateY(-50%) scale(${lerp(1.4, 1, easeOutExpo(prog(s, T_YN, 0.15)))})`,
       fontFamily: F.display, fontSize: 150, lineHeight: 1, textTransform: 'uppercase', color: C.white }}>
       <span style={{ color: C.yellow }}>Yes</span> / No?</div>}
     {s >= T_FOLLOW && <div style={{ position: 'absolute', left: 120, width: 840, top: 1238, textAlign: 'center', fontFamily: F.ui, fontWeight: 700, fontSize: 36, color: 'rgba(255,255,255,.72)', opacity: easeOut(prog(s, T_FOLLOW, 0.3)) }}>
       Follow for daily AI updates.</div>}
+    </div>
   </AbsoluteFill>;
 };

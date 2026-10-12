@@ -108,7 +108,7 @@ const ZeroSlam: React.FC<{ s: number }> = ({ s }) => {
 };
 
 // ---------------- WHAT HAPPENED: two model cards ----------------
-const T_CARD_A = b(14.5);   // 7.131
+const T_CARD_A = 6.74;      // rides in on the camera push (no empty frame after the flash)
 const T_CARD_B = b(16);     // 7.869
 const T_SAYS = 8.35;        // "Meta says"
 const T_MOST = b(19);       // 9.344 "most capable"
