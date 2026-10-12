@@ -1,0 +1,14 @@
+# Local environment and downloaded Whisper models
+.venv/
+models/
+
+# Runtime output (never commit footage or transcripts)
+clips/
+pending/
+temp/
+logs/
+transcripts/
+browser-profile/
+
+__pycache__/
+*.pyc
