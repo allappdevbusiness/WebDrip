@@ -93,3 +93,15 @@ Known gaps:
 - **B-roll**: footage is real photographs moved in camera, not stock video. Coverr's media host `cdn.coverr.co` is blocked by this environment's network policy, and no other stock-video host is allowed.
 - **Wording**: the hook's "never forgets" is stronger than Meta's own wording ("carry important context across conversations"); the body of the video uses Meta's wording.
 - **Brief vs. script**: the brief asks to emphasise "head-to-head", which is not in the script. It also asks to return to "the three-company motif from the hook", but the rewritten hook has none, so the race introduces the three names fresh.
+
+## Posted (2026-10-12, via Buffer, share now)
+- **TikTok @getwebdrip:** https://tiktok.com/@getwebdrip/video/7695906045276867853. Buffer post `6acd59d89f22b96ae7e47c2e`, AI-generated content disclosed (`isAiGenerated: true`, synthetic voiceover).
+- **Facebook WebDrip (Reel):** https://facebook.com/1277092185496389_122110268049495093. Buffer post `6acd59e3aec88be081e55db2`.
+- The video is hosted at `https://pub-027038837b0f4c1bb96993e264c3509a.r2.dev/ai-news/2026-10-12-meta-muse-wonder/video.mp4` (R2 bucket `webdripmedia`).
+- The cover frame is at 5.45 s: the Meta photo with "META · OCT 12, 2026".
+- Captions:
+  - Both open with search keywords (Meta, Muse Wonder, an AI that remembers you).
+  - Both attribute the competition claim to Meta's own testing.
+  - Both end on the YES/NO question.
+  - Both use five topical hashtags: #AI #Meta #MuseWonder #AINews #TechNews.
+  - The Facebook caption adds a two-bullet explainer, "Follow for daily AI updates." and an AI-voiceover note.
