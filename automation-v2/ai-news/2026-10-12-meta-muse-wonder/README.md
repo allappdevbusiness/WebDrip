@@ -73,4 +73,23 @@ npx remotion render src/index.ts MuseWonder out.mp4 --codec=h264 --crf=16 --pixe
 `tools/vo.py` is the toolkit copy with one change: whisper gets a 16 kHz array instead of a file path, because PyAV ≥ 15 rejects the keyword argument faster-whisper passes when opening files.
 
 ## QC
-QC_PLACEHOLDER
+Final file `meta-muse-wonder-60s.mp4` (18.5 MB, not committed), measured with `tools/qc.py`:
+- H.264 1080×1920, 30 fps, **1,800 video frames**, yuv420p tagged BT.709 limited range, AAC 48 kHz stereo 320 kb/s, fast-start.
+- **−14.1 LUFS** integrated, **−1.7 dBTP** true peak on the encoded AAC, 2.1 LU loudness range.
+- No freezes over 1.2 s (`freezedetect`), 175 hard visual changes, and motion on 62% of frames.
+  The longest stretch without a hard cut is 4.7 s (51.9–56.6, the orbit outro); it keeps continuous orbit motion and a beat-locked camera lean.
+- Whisper base.en transcribes the final mix word for word, so nothing is masked. The drop's kick measures at 15.737 s for a 15.738 s target.
+- There is about 15 dB of near-silence before ACTIVE MEMORY (−30 vs −15 dB RMS).
+- The safe area was checked on stills with guides at every section: important text stays in x 120–960, y 150–1520; below y 900 it clears x 940.
+- Brief checklist:
+  - The hook opens on movement and a human hand: a real phone, not a logo.
+  - Active Memory and Active Focus are each explained by a concrete story (remembered chips, then a rerouted path).
+  - Every Meta claim is attributed.
+  - The voice sits about 9 dB over the ducked bed.
+  - SFX are limited to the 18 placements listed above.
+  - The ending is the question.
+
+Known gaps:
+- **B-roll**: footage is real photographs moved in camera, not stock video. Coverr's media host `cdn.coverr.co` is blocked by this environment's network policy, and no other stock-video host is allowed.
+- **Wording**: the hook's "never forgets" is stronger than Meta's own wording ("carry important context across conversations"); the body of the video uses Meta's wording.
+- **Brief vs. script**: the brief asks to emphasise "head-to-head", which is not in the script. It also asks to return to "the three-company motif from the hook", but the rewritten hook has none, so the race introduces the three names fresh.
