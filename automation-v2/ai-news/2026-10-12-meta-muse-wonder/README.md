@@ -66,7 +66,8 @@ python3 -I ../tools/vo.py align ../config/vo.json && python3 -I ../tools/vo.py c
 # music + SFX: download the Epidemic files above into ${WORK}/music and ${WORK}/sfx (click1/pop1 = first 0.40/0.30 s of the click/pop), then
 python3 -I ../../../../_toolkit/mix.py ../config/mix.json   # -> public/mix.wav
 node stills.mjs /tmp/stills 1 0.1,3.5,15.9              # stills with safe-area guides
-npx remotion render src/index.ts MuseWonder out.mp4 --codec=h264 --crf=17 --audio-codec=aac --audio-bitrate=320k \
+npx remotion render src/index.ts MuseWonder out.mp4 --codec=h264 --crf=16 --pixel-format=yuv420p --color-space=bt709 --image-format=png \
+  --audio-codec=aac --audio-bitrate=320k \
   --browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell
 ```
 `tools/vo.py` is the toolkit copy with one change: whisper gets a 16 kHz array instead of a file path, because PyAV ≥ 15 rejects the keyword argument faster-whisper passes when opening files.
