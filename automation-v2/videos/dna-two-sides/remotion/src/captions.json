@@ -1,0 +1,802 @@
+[
+ {
+  "id": "l01",
+  "start": 0.6,
+  "words": [
+   {
+    "text": "Richmond,",
+    "start": 0.6,
+    "end": 0.88
+   },
+   {
+    "text": "Virginia.",
+    "start": 1.24,
+    "end": 1.56
+   },
+   {
+    "text": "1987.",
+    "start": 2.04,
+    "end": 2.84
+   }
+  ]
+ },
+ {
+  "id": "l02",
+  "start": 3.7,
+  "words": [
+   {
+    "text": "Women",
+    "start": 3.7,
+    "end": 3.92
+   },
+   {
+    "text": "were",
+    "start": 3.92,
+    "end": 4.1
+   },
+   {
+    "text": "being",
+    "start": 4.1,
+    "end": 4.26
+   },
+   {
+    "text": "killed",
+    "start": 4.26,
+    "end": 4.6
+   },
+   {
+    "text": "inside",
+    "start": 4.6,
+    "end": 5.14
+   },
+   {
+    "text": "their",
+    "start": 5.14,
+    "end": 5.48
+   },
+   {
+    "text": "own",
+    "start": 5.48,
+    "end": 5.66
+   },
+   {
+    "text": "homes.",
+    "start": 5.66,
+    "end": 5.9
+   }
+  ]
+ },
+ {
+  "id": "l03",
+  "start": 6.55,
+  "words": [
+   {
+    "text": "One",
+    "start": 6.55,
+    "end": 6.71
+   },
+   {
+    "text": "case.",
+    "start": 6.71,
+    "end": 6.99
+   },
+   {
+    "text": "Then",
+    "start": 7.31,
+    "end": 7.39
+   },
+   {
+    "text": "another.",
+    "start": 7.39,
+    "end": 7.65
+   },
+   {
+    "text": "Then",
+    "start": 7.99,
+    "end": 8.11
+   },
+   {
+    "text": "another.",
+    "start": 8.11,
+    "end": 8.35
+   },
+   {
+    "text": "Then",
+    "start": 8.69,
+    "end": 8.79
+   },
+   {
+    "text": "a",
+    "start": 8.79,
+    "end": 8.87
+   },
+   {
+    "text": "fourth.",
+    "start": 8.87,
+    "end": 9.13
+   }
+  ]
+ },
+ {
+  "id": "l04",
+  "start": 10.95,
+  "words": [
+   {
+    "text": "September.",
+    "start": 10.95,
+    "end": 11.29
+   },
+   {
+    "text": "October.",
+    "start": 11.81,
+    "end": 12.09
+   },
+   {
+    "text": "November.",
+    "start": 12.45,
+    "end": 12.69
+   }
+  ]
+ },
+ {
+  "id": "l05",
+  "start": 13.4,
+  "words": [
+   {
+    "text": "Different",
+    "start": 13.4,
+    "end": 13.64
+   },
+   {
+    "text": "cities.",
+    "start": 13.64,
+    "end": 13.9
+   },
+   {
+    "text": "The",
+    "start": 14.38,
+    "end": 14.48
+   },
+   {
+    "text": "same",
+    "start": 14.48,
+    "end": 14.72
+   },
+   {
+    "text": "pattern.",
+    "start": 14.72,
+    "end": 15.08
+   }
+  ]
+ },
+ {
+  "id": "l06",
+  "start": 15.75,
+  "words": [
+   {
+    "text": "Richmond.",
+    "start": 15.75,
+    "end": 16.09
+   },
+   {
+    "text": "Chesterfield.",
+    "start": 16.09,
+    "end": 16.95
+   },
+   {
+    "text": "Arlington.",
+    "start": 17.51,
+    "end": 17.75
+   },
+   {
+    "text": "Detectives",
+    "start": 18.55,
+    "end": 18.81
+   },
+   {
+    "text": "connected",
+    "start": 18.81,
+    "end": 19.39
+   },
+   {
+    "text": "them",
+    "start": 19.39,
+    "end": 19.71
+   },
+   {
+    "text": "all.",
+    "start": 19.71,
+    "end": 19.93
+   }
+  ]
+ },
+ {
+  "id": "l07",
+  "start": 20.75,
+  "words": [
+   {
+    "text": "But",
+    "start": 20.75,
+    "end": 20.87
+   },
+   {
+    "text": "police",
+    "start": 20.87,
+    "end": 21.13
+   },
+   {
+    "text": "still",
+    "start": 21.13,
+    "end": 21.51
+   },
+   {
+    "text": "needed",
+    "start": 21.51,
+    "end": 21.79
+   },
+   {
+    "text": "one",
+    "start": 21.79,
+    "end": 22.07
+   },
+   {
+    "text": "thing.",
+    "start": 22.07,
+    "end": 22.35
+   }
+  ]
+ },
+ {
+  "id": "l08",
+  "start": 22.9,
+  "words": [
+   {
+    "text": "The",
+    "start": 22.9,
+    "end": 23.0
+   },
+   {
+    "text": "breakthrough",
+    "start": 23.0,
+    "end": 23.2
+   },
+   {
+    "text": "wasn't",
+    "start": 23.2,
+    "end": 23.88
+   },
+   {
+    "text": "a",
+    "start": 23.88,
+    "end": 23.94
+   },
+   {
+    "text": "fingerprint.",
+    "start": 23.94,
+    "end": 24.2
+   }
+  ]
+ },
+ {
+  "id": "l09",
+  "start": 24.85,
+  "words": [
+   {
+    "text": "It",
+    "start": 24.85,
+    "end": 24.97
+   },
+   {
+    "text": "wasn't",
+    "start": 24.97,
+    "end": 25.25
+   },
+   {
+    "text": "a",
+    "start": 25.25,
+    "end": 25.33
+   },
+   {
+    "text": "witness",
+    "start": 25.33,
+    "end": 25.53
+   },
+   {
+    "text": "sketch.",
+    "start": 25.53,
+    "end": 25.85
+   }
+  ]
+ },
+ {
+  "id": "l10",
+  "start": 26.6,
+  "words": [
+   {
+    "text": "It",
+    "start": 26.6,
+    "end": 26.74
+   },
+   {
+    "text": "was",
+    "start": 26.74,
+    "end": 26.88
+   },
+   {
+    "text": "DNA.",
+    "start": 26.88,
+    "end": 27.18
+   }
+  ]
+ },
+ {
+  "id": "l11",
+  "start": 28.6,
+  "words": [
+   {
+    "text": "Samples",
+    "start": 28.6,
+    "end": 28.98
+   },
+   {
+    "text": "from",
+    "start": 28.98,
+    "end": 29.2
+   },
+   {
+    "text": "the",
+    "start": 29.2,
+    "end": 29.32
+   },
+   {
+    "text": "crime",
+    "start": 29.32,
+    "end": 29.46
+   },
+   {
+    "text": "scenes",
+    "start": 29.46,
+    "end": 30.02
+   },
+   {
+    "text": "matched",
+    "start": 30.02,
+    "end": 30.36
+   },
+   {
+    "text": "one",
+    "start": 30.36,
+    "end": 30.66
+   },
+   {
+    "text": "man:",
+    "start": 30.66,
+    "end": 31.21
+   },
+   {
+    "text": "Timothy",
+    "start": 31.21,
+    "end": 31.76
+   },
+   {
+    "text": "Spencer.",
+    "start": 31.76,
+    "end": 32.16
+   }
+  ]
+ },
+ {
+  "id": "l12",
+  "start": 33.2,
+  "words": [
+   {
+    "text": "In",
+    "start": 33.2,
+    "end": 33.3
+   },
+   {
+    "text": "1988,",
+    "start": 33.3,
+    "end": 34.0
+   },
+   {
+    "text": "his",
+    "start": 34.66,
+    "end": 34.94
+   },
+   {
+    "text": "trial",
+    "start": 34.94,
+    "end": 35.18
+   },
+   {
+    "text": "became",
+    "start": 35.18,
+    "end": 35.6
+   },
+   {
+    "text": "the",
+    "start": 35.6,
+    "end": 35.88
+   },
+   {
+    "text": "first",
+    "start": 35.88,
+    "end": 36.18
+   },
+   {
+    "text": "in",
+    "start": 36.18,
+    "end": 36.4
+   },
+   {
+    "text": "Virginia",
+    "start": 36.4,
+    "end": 36.86
+   },
+   {
+    "text": "to",
+    "start": 36.86,
+    "end": 37.34
+   },
+   {
+    "text": "admit",
+    "start": 37.34,
+    "end": 37.62
+   },
+   {
+    "text": "DNA",
+    "start": 37.62,
+    "end": 37.96
+   },
+   {
+    "text": "evidence.",
+    "start": 37.96,
+    "end": 38.52
+   }
+  ]
+ },
+ {
+  "id": "l13",
+  "start": 39.2,
+  "words": [
+   {
+    "text": "He",
+    "start": 39.2,
+    "end": 39.34
+   },
+   {
+    "text": "was",
+    "start": 39.34,
+    "end": 39.44
+   },
+   {
+    "text": "convicted",
+    "start": 39.44,
+    "end": 39.88
+   },
+   {
+    "text": "of",
+    "start": 39.88,
+    "end": 40.18
+   },
+   {
+    "text": "four",
+    "start": 40.18,
+    "end": 40.4
+   },
+   {
+    "text": "murders.",
+    "start": 40.4,
+    "end": 40.74
+   }
+  ]
+ },
+ {
+  "id": "l14",
+  "start": 47.3,
+  "words": [
+   {
+    "text": "But",
+    "start": 47.3,
+    "end": 47.4
+   },
+   {
+    "text": "this",
+    "start": 47.4,
+    "end": 47.54
+   },
+   {
+    "text": "story",
+    "start": 47.54,
+    "end": 47.88
+   },
+   {
+    "text": "has",
+    "start": 47.88,
+    "end": 48.22
+   },
+   {
+    "text": "another",
+    "start": 48.22,
+    "end": 48.46
+   },
+   {
+    "text": "side.",
+    "start": 48.46,
+    "end": 48.88
+   }
+  ]
+ },
+ {
+  "id": "l15",
+  "start": 50.0,
+  "words": [
+   {
+    "text": "In",
+    "start": 50.0,
+    "end": 50.08
+   },
+   {
+    "text": "1984,",
+    "start": 50.08,
+    "end": 50.74
+   },
+   {
+    "text": "another",
+    "start": 51.32,
+    "end": 51.78
+   },
+   {
+    "text": "Arlington",
+    "start": 51.78,
+    "end": 52.0
+   },
+   {
+    "text": "woman",
+    "start": 52.0,
+    "end": 52.58
+   },
+   {
+    "text": "was",
+    "start": 52.58,
+    "end": 52.84
+   },
+   {
+    "text": "killed.",
+    "start": 52.84,
+    "end": 53.51
+   },
+   {
+    "text": "Police",
+    "start": 53.51,
+    "end": 54.18
+   },
+   {
+    "text": "arrested",
+    "start": 54.18,
+    "end": 54.52
+   },
+   {
+    "text": "David",
+    "start": 54.52,
+    "end": 55.0
+   },
+   {
+    "text": "Vasquez.",
+    "start": 55.0,
+    "end": 55.64
+   }
+  ]
+ },
+ {
+  "id": "l16",
+  "start": 56.3,
+  "words": [
+   {
+    "text": "He",
+    "start": 56.3,
+    "end": 56.42
+   },
+   {
+    "text": "was",
+    "start": 56.42,
+    "end": 56.5
+   },
+   {
+    "text": "sentenced",
+    "start": 56.5,
+    "end": 56.78
+   },
+   {
+    "text": "to",
+    "start": 56.78,
+    "end": 57.28
+   },
+   {
+    "text": "35",
+    "start": 57.28,
+    "end": 57.58
+   },
+   {
+    "text": "years.",
+    "start": 57.58,
+    "end": 58.06
+   }
+  ]
+ },
+ {
+  "id": "l17",
+  "start": 58.8,
+  "words": [
+   {
+    "text": "He",
+    "start": 58.8,
+    "end": 58.9
+   },
+   {
+    "text": "served",
+    "start": 58.9,
+    "end": 59.12
+   },
+   {
+    "text": "four.",
+    "start": 59.12,
+    "end": 59.48
+   },
+   {
+    "text": "Then",
+    "start": 59.98,
+    "end": 60.2
+   },
+   {
+    "text": "investigators",
+    "start": 60.2,
+    "end": 60.66
+   },
+   {
+    "text": "tied",
+    "start": 60.66,
+    "end": 61.28
+   },
+   {
+    "text": "that",
+    "start": 61.28,
+    "end": 61.56
+   },
+   {
+    "text": "murder",
+    "start": 61.56,
+    "end": 61.78
+   },
+   {
+    "text": "to",
+    "start": 61.78,
+    "end": 62.08
+   },
+   {
+    "text": "Spencer.",
+    "start": 62.08,
+    "end": 62.28
+   }
+  ]
+ },
+ {
+  "id": "l18",
+  "start": 63.1,
+  "words": [
+   {
+    "text": "In",
+    "start": 63.1,
+    "end": 63.2
+   },
+   {
+    "text": "1989,",
+    "start": 63.2,
+    "end": 64.04
+   },
+   {
+    "text": "Vasquez",
+    "start": 64.38,
+    "end": 64.94
+   },
+   {
+    "text": "was",
+    "start": 64.94,
+    "end": 65.22
+   },
+   {
+    "text": "pardoned.",
+    "start": 65.22,
+    "end": 65.7
+   }
+  ]
+ },
+ {
+  "id": "l19",
+  "start": 66.8,
+  "words": [
+   {
+    "text": "The",
+    "start": 66.8,
+    "end": 66.9
+   },
+   {
+    "text": "same",
+    "start": 66.9,
+    "end": 67.08
+   },
+   {
+    "text": "science",
+    "start": 67.08,
+    "end": 67.56
+   },
+   {
+    "text": "that",
+    "start": 67.56,
+    "end": 67.88
+   },
+   {
+    "text": "convicted",
+    "start": 67.88,
+    "end": 68.12
+   },
+   {
+    "text": "one",
+    "start": 68.12,
+    "end": 68.54
+   },
+   {
+    "text": "man",
+    "start": 68.54,
+    "end": 68.92
+   },
+   {
+    "text": "helped",
+    "start": 68.92,
+    "end": 69.42
+   },
+   {
+    "text": "free",
+    "start": 69.42,
+    "end": 69.7
+   },
+   {
+    "text": "another.",
+    "start": 69.7,
+    "end": 70.08
+   }
+  ]
+ },
+ {
+  "id": "l20",
+  "start": 71.3,
+  "words": [
+   {
+    "text": "One",
+    "start": 71.3,
+    "end": 71.5
+   },
+   {
+    "text": "technology.",
+    "start": 71.5,
+    "end": 72.04
+   },
+   {
+    "text": "Two",
+    "start": 72.54,
+    "end": 72.74
+   },
+   {
+    "text": "lives",
+    "start": 72.74,
+    "end": 73.0
+   },
+   {
+    "text": "changed.",
+    "start": 73.0,
+    "end": 73.46
+   }
+  ]
+ }
+]

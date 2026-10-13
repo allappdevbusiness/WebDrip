@@ -1,0 +1,150 @@
+{
+ "voice": "af_heart",
+ "out": "/tmp/claude-0/sv/vo",
+ "captions": "/tmp/claude-0/sv/rm/src/captions.json",
+ "model": "/tmp/claude-0/kokoro/kokoro-v1.0.onnx",
+ "voices": "/tmp/claude-0/kokoro/voices-v1.0.bin",
+ "whisper_model": "base.en",
+ "lines": [
+  {
+   "id": "l01",
+   "start": 0.6,
+   "speed": 0.95,
+   "say": "Richmond, Virginia. Nineteen eighty-seven.",
+   "show": "Richmond, Virginia. 1987."
+  },
+  {
+   "id": "l02",
+   "start": 3.7,
+   "speed": 0.95,
+   "say": "Women were being killed inside their own homes.",
+   "show": "Women were being killed inside their own homes."
+  },
+  {
+   "id": "l03",
+   "start": 6.55,
+   "speed": 1.0,
+   "say": "One case. Then another. Then another. Then a fourth.",
+   "show": "One case. Then another. Then another. Then a fourth."
+  },
+  {
+   "id": "l04",
+   "start": 10.95,
+   "speed": 0.95,
+   "say": "September. October. November.",
+   "show": "September. October. November."
+  },
+  {
+   "id": "l05",
+   "start": 13.4,
+   "speed": 0.95,
+   "say": "Different cities. The same pattern.",
+   "show": "Different cities. The same pattern."
+  },
+  {
+   "id": "l06",
+   "start": 15.75,
+   "speed": 0.95,
+   "say": "Richmond. Chesterfield. Arlington. Detectives connected them all.",
+   "show": "Richmond. Chesterfield. Arlington. Detectives connected them all."
+  },
+  {
+   "id": "l07",
+   "start": 20.75,
+   "speed": 0.9,
+   "say": "But police still needed one thing.",
+   "show": "But police still needed one thing."
+  },
+  {
+   "id": "l08",
+   "start": 22.9,
+   "speed": 0.95,
+   "say": "The breakthrough wasn't a fingerprint.",
+   "show": "The breakthrough wasn't a fingerprint."
+  },
+  {
+   "id": "l09",
+   "start": 24.85,
+   "speed": 0.95,
+   "say": "It wasn't a witness sketch.",
+   "show": "It wasn't a witness sketch."
+  },
+  {
+   "id": "l10",
+   "start": 26.6,
+   "speed": 0.85,
+   "say": "It was DNA.",
+   "show": "It was DNA."
+  },
+  {
+   "id": "l11",
+   "start": 28.6,
+   "speed": 0.95,
+   "say": "Samples from the crime scenes matched one man. Timothy Spencer.",
+   "show": "Samples from the crime scenes matched one man: Timothy Spencer."
+  },
+  {
+   "id": "l12",
+   "start": 33.2,
+   "speed": 0.95,
+   "say": "In nineteen eighty-eight, his trial became the first in Virginia to admit DNA evidence.",
+   "show": "In 1988, his trial became the first in Virginia to admit DNA evidence."
+  },
+  {
+   "id": "l13",
+   "start": 39.2,
+   "speed": 0.9,
+   "say": "He was convicted of four murders.",
+   "show": "He was convicted of four murders."
+  },
+  {
+   "id": "l14",
+   "start": 47.3,
+   "speed": 0.9,
+   "say": "But this story has another side.",
+   "show": "But this story has another side."
+  },
+  {
+   "id": "l15",
+   "start": 50.0,
+   "speed": 0.95,
+   "say": "In nineteen eighty-four, another Arlington woman was killed. Police arrested David Vasquez.",
+   "show": "In 1984, another Arlington woman was killed. Police arrested David Vasquez."
+  },
+  {
+   "id": "l16",
+   "start": 56.3,
+   "speed": 0.95,
+   "say": "He was sentenced to thirty-five years.",
+   "show": "He was sentenced to 35 years."
+  },
+  {
+   "id": "l17",
+   "start": 58.8,
+   "speed": 0.95,
+   "say": "He served four. Then investigators tied that murder to Spencer.",
+   "show": "He served four. Then investigators tied that murder to Spencer."
+  },
+  {
+   "id": "l18",
+   "start": 63.1,
+   "speed": 0.95,
+   "say": "In nineteen eighty-nine, Vasquez was pardoned.",
+   "show": "In 1989, Vasquez was pardoned."
+  },
+  {
+   "id": "l19",
+   "start": 66.8,
+   "speed": 0.95,
+   "say": "The same science that convicted one man helped free another.",
+   "show": "The same science that convicted one man helped free another."
+  },
+  {
+   "id": "l20",
+   "start": 71.3,
+   "speed": 0.9,
+   "say": "One technology. Two lives changed.",
+   "show": "One technology. Two lives changed."
+  }
+ ]
+}

@@ -1,0 +1,315 @@
+{
+ "music": "/tmp/claude-0/sv/mixwork/bed.wav",
+ "out": "/tmp/claude-0/sv/rm/public/mix.wav",
+ "duration": 75.0,
+ "voice": [
+  {
+   "file": "/tmp/claude-0/sv/vo/l01.wav",
+   "start": 0.6
+  },
+  {
+   "file": "/tmp/claude-0/sv/vo/l02.wav",
+   "start": 3.7
+  },
+  {
+   "file": "/tmp/claude-0/sv/vo/l03.wav",
+   "start": 6.55
+  },
+  {
+   "file": "/tmp/claude-0/sv/vo/l04.wav",
+   "start": 10.95
+  },
+  {
+   "file": "/tmp/claude-0/sv/vo/l05.wav",
+   "start": 13.4
+  },
+  {
+   "file": "/tmp/claude-0/sv/vo/l06.wav",
+   "start": 15.75
+  },
+  {
+   "file": "/tmp/claude-0/sv/vo/l07.wav",
+   "start": 20.75
+  },
+  {
+   "file": "/tmp/claude-0/sv/vo/l08.wav",
+   "start": 22.9
+  },
+  {
+   "file": "/tmp/claude-0/sv/vo/l09.wav",
+   "start": 24.85
+  },
+  {
+   "file": "/tmp/claude-0/sv/vo/l10.wav",
+   "start": 26.6
+  },
+  {
+   "file": "/tmp/claude-0/sv/vo/l11.wav",
+   "start": 28.6
+  },
+  {
+   "file": "/tmp/claude-0/sv/vo/l12.wav",
+   "start": 33.2
+  },
+  {
+   "file": "/tmp/claude-0/sv/vo/l13.wav",
+   "start": 39.2
+  },
+  {
+   "file": "/tmp/claude-0/sv/vo/l14.wav",
+   "start": 47.3
+  },
+  {
+   "file": "/tmp/claude-0/sv/vo/l15.wav",
+   "start": 50.0
+  },
+  {
+   "file": "/tmp/claude-0/sv/vo/l16.wav",
+   "start": 56.3
+  },
+  {
+   "file": "/tmp/claude-0/sv/vo/l17.wav",
+   "start": 58.8
+  },
+  {
+   "file": "/tmp/claude-0/sv/vo/l18.wav",
+   "start": 63.1
+  },
+  {
+   "file": "/tmp/claude-0/sv/vo/l19.wav",
+   "start": 66.8
+  },
+  {
+   "file": "/tmp/claude-0/sv/vo/l20.wav",
+   "start": 71.3
+  }
+ ],
+ "sfx": [
+  {
+   "t": 0.0,
+   "file": "/tmp/claude-0/sv/mixwork/boom_deep.wav",
+   "gain_db": -5
+  },
+  {
+   "t": 0.862,
+   "file": "/tmp/claude-0/sv/mixwork/whoosh_fast.wav",
+   "gain_db": -7
+  },
+  {
+   "t": 2.2,
+   "file": "/tmp/claude-0/sv/mixwork/amb_city.wav",
+   "gain_db": -9
+  },
+  {
+   "t": 2.04,
+   "file": "/tmp/claude-0/sv/mixwork/boom_low.wav",
+   "gain_db": -10
+  },
+  {
+   "t": 6.55,
+   "file": "/tmp/claude-0/sv/mixwork/paper_table.wav",
+   "gain_db": -3
+  },
+  {
+   "t": 7.39,
+   "file": "/tmp/claude-0/sv/mixwork/paper_table.wav",
+   "gain_db": -3
+  },
+  {
+   "t": 8.11,
+   "file": "/tmp/claude-0/sv/mixwork/paper_drop.wav",
+   "gain_db": -4
+  },
+  {
+   "t": 8.87,
+   "file": "/tmp/claude-0/sv/mixwork/paper_drop.wav",
+   "gain_db": -2
+  },
+  {
+   "t": 8.87,
+   "file": "/tmp/claude-0/sv/mixwork/boom_low.wav",
+   "gain_db": -11
+  },
+  {
+   "t": 9.589,
+   "file": "/tmp/claude-0/sv/mixwork/riser.wav",
+   "gain_db": -11
+  },
+  {
+   "t": 10.7,
+   "file": "/tmp/claude-0/sv/mixwork/amb_clock.wav",
+   "gain_db": -16
+  },
+  {
+   "t": 10.95,
+   "file": "/tmp/claude-0/sv/mixwork/tick.wav",
+   "gain_db": -6
+  },
+  {
+   "t": 11.81,
+   "file": "/tmp/claude-0/sv/mixwork/tick.wav",
+   "gain_db": -6
+  },
+  {
+   "t": 12.45,
+   "file": "/tmp/claude-0/sv/mixwork/tick.wav",
+   "gain_db": -6
+  },
+  {
+   "t": 14.48,
+   "file": "/tmp/claude-0/sv/mixwork/boom_low.wav",
+   "gain_db": -7
+  },
+  {
+   "t": 15.75,
+   "file": "/tmp/claude-0/sv/mixwork/click_small.wav",
+   "gain_db": -5
+  },
+  {
+   "t": 16.09,
+   "file": "/tmp/claude-0/sv/mixwork/click_small.wav",
+   "gain_db": -5
+  },
+  {
+   "t": 17.51,
+   "file": "/tmp/claude-0/sv/mixwork/click_small.wav",
+   "gain_db": -5
+  },
+  {
+   "t": 18.55,
+   "file": "/tmp/claude-0/sv/mixwork/shutter.wav",
+   "gain_db": -11
+  },
+  {
+   "t": 20.45,
+   "file": "/tmp/claude-0/sv/mixwork/boom_low.wav",
+   "gain_db": -9
+  },
+  {
+   "t": 22.6,
+   "file": "/tmp/claude-0/sv/mixwork/amb_drone.wav",
+   "gain_db": -8
+  },
+  {
+   "t": 21.737,
+   "file": "/tmp/claude-0/sv/mixwork/reverse.wav",
+   "gain_db": -7
+  },
+  {
+   "t": 26.498,
+   "file": "/tmp/claude-0/sv/mixwork/hit_dna.wav",
+   "gain_db": 0
+  },
+  {
+   "t": 30.02,
+   "file": "/tmp/claude-0/sv/mixwork/click_digital.wav",
+   "gain_db": -4
+  },
+  {
+   "t": 32.25,
+   "file": "/tmp/claude-0/sv/mixwork/whoosh_low.wav",
+   "gain_db": -5
+  },
+  {
+   "t": 41.4,
+   "file": "/tmp/claude-0/sv/mixwork/boom_low.wav",
+   "gain_db": -17
+  },
+  {
+   "t": 42.3,
+   "file": "/tmp/claude-0/sv/mixwork/boom_low.wav",
+   "gain_db": -17
+  },
+  {
+   "t": 43.2,
+   "file": "/tmp/claude-0/sv/mixwork/boom_low.wav",
+   "gain_db": -17
+  },
+  {
+   "t": 44.1,
+   "file": "/tmp/claude-0/sv/mixwork/boom_low.wav",
+   "gain_db": -17
+  },
+  {
+   "t": 45.0,
+   "file": "/tmp/claude-0/sv/mixwork/boom_deep.wav",
+   "gain_db": -6
+  },
+  {
+   "t": 47.0,
+   "file": "/tmp/claude-0/sv/mixwork/whoosh_low.wav",
+   "gain_db": -6
+  },
+  {
+   "t": 48.612,
+   "file": "/tmp/claude-0/sv/mixwork/whoosh_fast.wav",
+   "gain_db": -11
+  },
+  {
+   "t": 49.3,
+   "file": "/tmp/claude-0/sv/mixwork/amb_prison.wav",
+   "gain_db": -8
+  },
+  {
+   "t": 49.3,
+   "file": "/tmp/claude-0/sv/mixwork/amb_fluor.wav",
+   "gain_db": -20
+  },
+  {
+   "t": 54.22,
+   "file": "/tmp/claude-0/sv/mixwork/paper_drop.wav",
+   "gain_db": -6
+  },
+  {
+   "t": 57.28,
+   "file": "/tmp/claude-0/sv/mixwork/door_slam.wav",
+   "gain_db": -4
+  },
+  {
+   "t": 58.9,
+   "file": "/tmp/claude-0/sv/mixwork/shutter.wav",
+   "gain_db": -10
+  },
+  {
+   "t": 61.3,
+   "file": "/tmp/claude-0/sv/mixwork/boom_low.wav",
+   "gain_db": -12
+  },
+  {
+   "t": 61.3,
+   "file": "/tmp/claude-0/sv/mixwork/paper_table.wav",
+   "gain_db": -6
+  },
+  {
+   "t": 61.72,
+   "file": "/tmp/claude-0/sv/mixwork/prison_lock_cut.wav",
+   "gain_db": -6
+  },
+  {
+   "t": 66.769,
+   "file": "/tmp/claude-0/sv/mixwork/riser.wav",
+   "gain_db": -10
+  },
+  {
+   "t": 67.88,
+   "file": "/tmp/claude-0/sv/mixwork/boom_deep.wav",
+   "gain_db": -9
+  },
+  {
+   "t": 69.42,
+   "file": "/tmp/claude-0/sv/mixwork/boom_low.wav",
+   "gain_db": -7
+  },
+  {
+   "t": 72.54,
+   "file": "/tmp/claude-0/sv/mixwork/boom_deep.wav",
+   "gain_db": -5
+  }
+ ],
+ "duck_db": -10,
+ "fade_out": 1.2,
+ "lufs": -14.0,
+ "ceiling_db": -4.0,
+ "duck_lookahead": 0.15,
+ "music_lufs": -21.0
+}
