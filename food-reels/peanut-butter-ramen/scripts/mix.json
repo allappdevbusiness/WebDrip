@@ -1,0 +1,181 @@
+{
+ "music": "/tmp/claude-0/pbr/music/bed.wav",
+ "out": "/tmp/claude-0/pbr/video/public/mix.wav",
+ "duration": 60.0,
+ "voice": [
+  {
+   "file": "/tmp/claude-0/pbr/vo/hookA.wav",
+   "start": 0.15
+  },
+  {
+   "file": "/tmp/claude-0/pbr/vo/hookB.wav",
+   "start": 1.4
+  },
+  {
+   "file": "/tmp/claude-0/pbr/vo/hook2.wav",
+   "start": 2.7
+  },
+  {
+   "file": "/tmp/claude-0/pbr/vo/doubt.wav",
+   "start": 4.25
+  },
+  {
+   "file": "/tmp/claude-0/pbr/vo/ingr.wav",
+   "start": 8.75
+  },
+  {
+   "file": "/tmp/claude-0/pbr/vo/sauce.wav",
+   "start": 16.3
+  },
+  {
+   "file": "/tmp/claude-0/pbr/vo/sauce2.wav",
+   "start": 22.7
+  },
+  {
+   "file": "/tmp/claude-0/pbr/vo/noodle.wav",
+   "start": 27.45
+  },
+  {
+   "file": "/tmp/claude-0/pbr/vo/toss.wav",
+   "start": 32.15
+  },
+  {
+   "file": "/tmp/claude-0/pbr/vo/garnish.wav",
+   "start": 38.05
+  },
+  {
+   "file": "/tmp/claude-0/pbr/vo/tease.wav",
+   "start": 43.9
+  },
+  {
+   "file": "/tmp/claude-0/pbr/vo/verdict.wav",
+   "start": 48.2
+  },
+  {
+   "file": "/tmp/claude-0/pbr/vo/cta.wav",
+   "start": 55.5
+  }
+ ],
+ "sfx": [
+  {
+   "file": "/tmp/claude-0/pbr/sfx/splat.wav",
+   "t": 0.65,
+   "gain_db": -6
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/boom.wav",
+   "t": 1.05,
+   "gain_db": -10
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/t_hiss.wav",
+   "t": 2.75,
+   "gain_db": -22
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/whoosh.wav",
+   "t": 7.6,
+   "gain_db": -12
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/pop.wav",
+   "t": 9.91,
+   "gain_db": -14
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/pop.wav",
+   "t": 11.79,
+   "gain_db": -14
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/pop.wav",
+   "t": 12.77,
+   "gain_db": -14
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/pop.wav",
+   "t": 13.77,
+   "gain_db": -14
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/pop.wav",
+   "t": 14.35,
+   "gain_db": -14
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/pop.wav",
+   "t": 14.93,
+   "gain_db": -14
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/t_whisk.wav",
+   "t": 16.25,
+   "gain_db": -14
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/t_pour.wav",
+   "t": 20.05,
+   "gain_db": -12
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/t_whisk2.wav",
+   "t": 22.6,
+   "gain_db": -18
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/t_boil.wav",
+   "t": 27.27,
+   "gain_db": -14
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/whoosh.wav",
+   "t": 31.13,
+   "gain_db": -14
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/t_toss.wav",
+   "t": 32.05,
+   "gain_db": -12
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/t_crackle.wav",
+   "t": 38.47,
+   "gain_db": -14
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/sprinkle.wav",
+   "t": 39.35,
+   "gain_db": -12
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/t_nuts.wav",
+   "t": 40.1,
+   "gain_db": -12
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/slurp.wav",
+   "t": 45.4,
+   "gain_db": -4
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/boom.wav",
+   "t": 47.8,
+   "gain_db": -8
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/whoosh.wav",
+   "t": 50.15,
+   "gain_db": -16
+  },
+  {
+   "file": "/tmp/claude-0/pbr/sfx/pop.wav",
+   "t": 55.5,
+   "gain_db": -10
+  }
+ ],
+ "duck_db": -10,
+ "fade_out": 2.5,
+ "lufs": -14.0,
+ "ceiling_db": -4.0,
+ "music_lufs": -19.0
+}

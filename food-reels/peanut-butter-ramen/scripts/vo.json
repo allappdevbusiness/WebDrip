@@ -1,0 +1,19 @@
+{
+ "voice": "af_heart", "out": "/tmp/claude-0/pbr/vo", "captions": "/tmp/claude-0/pbr/captions.json",
+ "model": "/tmp/claude-0/kokoro/kokoro-v1.0.onnx", "voices": "/tmp/claude-0/kokoro/voices-v1.0.bin",
+ "whisper_model": "base.en",
+ "lines": [
+  {"id": "hook", "speed": 1.0, "say": "Peanut butter... in ramen?", "show": "Peanut butter... in ramen?"},
+  {"id": "hook2", "speed": 1.0, "say": "I know. Stay with me.", "show": "I know. Stay with me."},
+  {"id": "doubt", "speed": 0.98, "say": "I thought it sounded wrong too, until I made it at midnight and couldn't stop eating.", "show": "I thought it sounded wrong too, until I made it at midnight and couldn't stop eating."},
+  {"id": "ingr", "speed": 0.98, "say": "You need one pack of instant ramen, two big spoons of peanut butter, soy sauce, honey, garlic, and chili crisp.", "show": "You need one pack of instant ramen, two big spoons of peanut butter, soy sauce, honey, garlic, and chili crisp."},
+  {"id": "sauce", "speed": 0.98, "say": "Whisk the peanut butter with soy, honey, and garlic. Then add a splash of hot noodle water.", "show": "Whisk the peanut butter with soy, honey, and garlic. Then add a splash of hot noodle water."},
+  {"id": "sauce2", "speed": 0.95, "say": "Watch it go from thick paste, to glossy and silky.", "show": "Watch it go from thick paste, to glossy and silky."},
+  {"id": "noodle", "speed": 0.98, "say": "Boil the noodles for three minutes. Skip the seasoning packet. You won't need it.", "show": "Boil the noodles for three minutes. Skip the seasoning packet. You won't need it."},
+  {"id": "toss", "speed": 0.98, "say": "Drop them straight into the sauce, and toss until every single strand is coated.", "show": "Drop them straight into the sauce, and toss until every single strand is coated."},
+  {"id": "garnish", "speed": 0.98, "say": "Top it with chili crisp, green onion, and crushed peanuts.", "show": "Top it with chili crisp, green onion, and crushed peanuts."},
+  {"id": "tease", "speed": 0.95, "say": "So. Is it actually good?", "show": "So. Is it actually good?"},
+  {"id": "verdict", "speed": 0.97, "say": "It's creamy, salty, a little sweet, and spicy. Basically a five minute satay noodle.", "show": "It's creamy, salty, a little sweet, and spicy. Basically a 5-minute satay noodle."},
+  {"id": "cta", "speed": 0.95, "say": "Would you try it?", "show": "Would you try it?"}
+ ]
+}
