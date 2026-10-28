@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "target": "derived",
+  "timebase": "program",
+  "timeline_id": "source",
+  "delivery_status": "ready",
+  "planning_source": {
+    "path": "../input/original-video.mp4",
+    "sha256": "473a072f9d25e11afe1a5ae5e5aec0c1eb628828365fbda28898a78fe0fc21ad"
+  },
+  "source_transcript": "understand/transcript.json",
+  "source_candidates": {
+    "path": "/home/user/WebDrip/meme-15k-edit/cac/work/shorts/review/approved_candidates.json",
+    "schema_version": "shorts-candidates.v2"
+  },
+  "transcript": {
+    "path": "shorts/transcript.json",
+    "timebase": "program"
+  },
+  "depends_on": [],
+  "based_on": {},
+  "selection": {
+    "mode": "agent",
+    "rationale": "The full clip carries the question, the $15,000 bet, what came back and the 'no Shopify traffic' payoff; the brief asks for this whole clip as one 9:16 short with the voice untouched.",
+    "delivery_mode": "horizontal_and_vertical",
+    "review_id": "837b34a6ba4b4b8687cf7dd7830a86fa"
+  },
+  "shorts": [
+    {
+      "id": "short-001",
+      "short_id": "short-001",
+      "candidate_id": "cand-001",
+      "source_candidate_index": 1,
+      "order": 1,
+      "title": "$15,000 on meme pages, zero Shopify traffic",
+      "scene_type": "conversation_interview",
+      "evidence_mode": "text_visual",
+      "start_time": 0.0,
+      "end_time": 55.14,
+      "duration": 55.14,
+      "score_breakdown": {
+        "hook": {
+          "score": 16,
+          "reason": "Opens on the host's direct question about a risk that failed, which promises a story of loss."
+        },
+        "completeness": {
+          "score": 19,
+          "reason": "Question, setup, the $15,000 bet, what came back and the payoff all sit inside the clip."
+        },
+        "audience_value": {
+          "score": 16,
+          "reason": "A concrete warning about buying meme-page ads for followers that do not convert."
+        },
+        "emotion_tension": {
+          "score": 13,
+          "reason": "Stakes rise from going all in to the reveal of fake-looking followers and no traffic."
+        },
+        "quotability": {
+          "score": 12,
+          "reason": "'And then there was no Shopify traffic' is a clean, repeatable payoff line."
+        },
+        "pace_editability": {
+          "score": 8,
+          "reason": "One continuous answer with two inserts; the voice must stay untouched, so no internal cuts."
+        }
+      },
+      "score": 84,
+      "hook_sentence": "",
+      "editorial_reason": "The supplied clip is already a self-contained story; the brief asks for the full 55 s as one vertical short with the voice unaltered.",
+      "transcript_excerpt": "I'm curious, when did you take a risk and it didn't work out? Oh man, I mean, I could give you an example of early on in my career. Early on in my career, we ran a ton of marketing and the marketing always said, go follow Mari Llewellyn's Instagram page. We never had a funnel that said, go by bloom. We would say, just go follow Mari because we wanted to build this large community and we knew that that was the long game. And I was running, buying a lot of ads on meme pages. Do you remember meme page? And so I was buying a ton of ads on meme pages and one day, let's say we had $15,000 in the bank account, I said, I'm gonna go all in on a massive meme page campaign. And I think I just found a perfect portfolio of pages to invest in this 24 hours in. So I went all in, $15,000, bought ads on all of these meme pages and all of the followers started to come in and they were all Indian names. And then all of the comments were in different languages and then there was no Shopify traffic. And so there's early on examples of going all in and getting zero awards.",
+      "requested_filler_drop_spans": [],
+      "filler_drop_spans": [],
+      "rejected_filler_drop_spans": [],
+      "keep_spans": [
+        {
+          "start_time": 0.0,
+          "end_time": 55.14
+        }
+      ],
+      "source_duration": 55.14,
+      "filler_removed_duration": 0,
+      "estimated_output_duration": 55.14,
+      "validation": {
+        "passed": true,
+        "errors": [],
+        "warnings": []
+      },
+      "outputs": {
+        "work_directory": "shorts/short-001",
+        "transcript": "shorts/short-001/transcript.json",
+        "extraction_report": "shorts/short-001/extraction-report.json",
+        "horizontal_video": "../final/shorts/short-001-horizontal.mp4",
+        "vertical_video": "../final/shorts/short-001-vertical.mp4"
+      },
+      "status": "planned",
+      "program_range": {
+        "start_s": 0.0,
+        "end_s": 55.14
+      },
+      "source_ranges": [
+        {
+          "start_s": 0.0,
+          "end_s": 55.14
+        }
+      ]
+    }
+  ],
+  "rejected_candidates": [],
+  "metadata": {
+    "notes": "Approved filler_drop_spans were normalized to transcript word boundaries and converted to keep_spans. Media extraction has not yet been performed.",
+    "candidate_selection": "explicit_agent_selection",
+    "delivery_mode": "horizontal_and_vertical",
+    "human_review": {
+      "candidate_review_id": "837b34a6ba4b4b8687cf7dd7830a86fa",
+      "candidate_review_path": "/home/user/WebDrip/meme-15k-edit/cac/work/shorts/review/candidate_review.json",
+      "candidate_review_sha256": "347612530c09094d3fdf8696eb81b029c76036602417d668b459c3e5c68e7c82"
+    },
+    "candidate_review_path": "/home/user/WebDrip/meme-15k-edit/cac/work/shorts/review/candidate_review.json",
+    "candidate_review_sha256": "347612530c09094d3fdf8696eb81b029c76036602417d668b459c3e5c68e7c82",
+    "approved_candidates_path": "/home/user/WebDrip/meme-15k-edit/cac/work/shorts/review/approved_candidates.json"
+  },
+  "source_render": {
+    "path": "../final/final-video.mp4",
+    "sha256": "b69f404c5119d4729d456f5176c9f98867323bf4508e93df78d85b483a47cf6f",
+    "size": 17430975,
+    "modified_ns": 1793220237685229793
+  }
+}

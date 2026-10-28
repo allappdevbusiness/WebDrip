@@ -1,0 +1,27 @@
+{
+ "name": "Meme 15K edit",
+ "colors": {
+  "paper": "#EBE3D8",
+  "paperDark": "#D8CCBC",
+  "ink": "#0B0A0D",
+  "white": "#F6F1EA",
+  "red": "#C8102E",
+  "pink": "#E0408A",
+  "cyan": "#2FD3E0",
+  "acid": "#BCDC03",
+  "tape": "#EDA90B",
+  "win": "#C3C3C3",
+  "winLight": "#FFFFFF",
+  "winShadow": "#7B7B7B",
+  "winBlue": "#1F2B90",
+  "sky": "#8FB8E8"
+ },
+ "fonts": {
+  "display": "Anton",
+  "accent": "Playfair Display",
+  "mono": "Space Mono",
+  "note": "Special Elite"
+ },
+ "logo": null,
+ "source": "User-approved style guide derived from the six reference images in chat (colors sampled from the pixels; fonts are Google Fonts lookalikes, OFL, loaded locally)."
+}

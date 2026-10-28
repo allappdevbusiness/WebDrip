@@ -1,0 +1,118 @@
+{
+  "schema_version": "short-extraction-report.v2",
+  "short_id": "short-001",
+  "source_video": "/home/user/WebDrip/meme-15k-edit/cac/final/final-video.mp4",
+  "source_transcript": "/home/user/WebDrip/meme-15k-edit/cac/work/shorts/transcript.json",
+  "original_candidate_start": 0.0,
+  "original_candidate_end": 55.14,
+  "refined_start": 0.0,
+  "refined_end": 55.155,
+  "requested_filler_drop_spans": [],
+  "executed_filler_drop_spans": [],
+  "rejected_filler_drop_spans": [],
+  "keep_spans": [
+    {
+      "start_time": 0.0,
+      "end_time": 55.155
+    }
+  ],
+  "source_duration": 55.155,
+  "filler_removed_duration": 0.0,
+  "estimated_output_duration": 55.155,
+  "actual_duration": 55.155,
+  "transcript_last_word_end": 55.14,
+  "content_end_in_output_s": 55.14,
+  "tail_margin_s": 0.015,
+  "transcript_tail_margin_s": 0.015,
+  "tail_release_verified": false,
+  "transcript_within_media": true,
+  "boundary_refinement": {
+    "short_id": "short-001",
+    "original_start_time": 0.0,
+    "original_end_time": 55.14,
+    "original_duration": 55.14,
+    "refined_start_time": 0.0,
+    "refined_end_time": 55.155,
+    "refined_duration": 55.155,
+    "content_start_time": 0.0,
+    "content_end_time": 55.14,
+    "content_duration": 55.14,
+    "boundary_adjustment_s": {
+      "start": 0.0,
+      "end": 0.015
+    },
+    "content_boundary_adjustment_s": {
+      "start": 0.0,
+      "end": 0.0
+    },
+    "first_transcript_words": "I'm curious, when did you take a risk and it",
+    "last_transcript_words": "on examples of going all in and getting zero awards.",
+    "last_word": "awards.",
+    "last_word_end": 55.14,
+    "next_word": "",
+    "next_word_start": null,
+    "media_tail_after_content_end_s": 0.015,
+    "next_word_overlap_s": 0.0,
+    "word_count": 219,
+    "completeness": {
+      "first_sentence_complete": true,
+      "last_sentence_complete": true,
+      "ends_with_unfinished_word": false
+    },
+    "reasons": [
+      "END_SNAPPED_TO_SEGMENT_END"
+    ],
+    "warnings": [
+      "POSSIBLE_JUMP_CUT",
+      "END_ADJUSTED"
+    ],
+    "scene_cuts": [
+      {
+        "time": 8.909,
+        "relative_time": 8.909
+      },
+      {
+        "time": 11.778,
+        "relative_time": 11.778
+      },
+      {
+        "time": 21.922,
+        "relative_time": 21.922
+      },
+      {
+        "time": 23.29,
+        "relative_time": 23.29
+      },
+      {
+        "time": 24.324,
+        "relative_time": 24.324
+      },
+      {
+        "time": 25.492,
+        "relative_time": 25.492
+      },
+      {
+        "time": 26.426,
+        "relative_time": 26.426
+      },
+      {
+        "time": 44.378,
+        "relative_time": 44.378
+      },
+      {
+        "time": 45.913,
+        "relative_time": 45.913
+      }
+    ]
+  },
+  "warnings": [
+    "POSSIBLE_JUMP_CUT",
+    "END_ADJUSTED",
+    "LOW_TAIL_MARGIN"
+  ],
+  "outputs": {
+    "horizontal_video": "/home/user/WebDrip/meme-15k-edit/cac/final/shorts/short-001-horizontal.mp4",
+    "transcript": "/home/user/WebDrip/meme-15k-edit/cac/work/shorts/short-001/transcript.json",
+    "extraction_report": "/home/user/WebDrip/meme-15k-edit/cac/work/shorts/short-001/extraction-report.json"
+  }
+}

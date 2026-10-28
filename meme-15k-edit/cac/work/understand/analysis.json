@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "timeline_id": "source",
+  "speech": {
+    "duration_s": 55.171,
+    "segment_count": 27,
+    "word_count": 219,
+    "words_per_minute": 238.2,
+    "speaking_ratio": 0.906,
+    "silence_count_ge_0_8s": 1,
+    "silences": [
+      {
+        "start_s": 19.62,
+        "end_s": 20.62,
+        "duration_s": 1.0
+      }
+    ],
+    "filler_count": 1
+  },
+  "moments": [
+    {
+      "kind": "question",
+      "start_s": 1.26,
+      "end_s": 2.04,
+      "summary": "and it didn't work out?",
+      "confidence": 0.9,
+      "evidence_refs": [
+        "segment:2"
+      ],
+      "id": "moment-001"
+    },
+    {
+      "kind": "question",
+      "start_s": 22.68,
+      "end_s": 23.38,
+      "summary": "Do you remember meme page?",
+      "confidence": 0.9,
+      "evidence_refs": [
+        "segment:13"
+      ],
+      "id": "moment-002"
+    },
+    {
+      "kind": "stat",
+      "start_s": 25.44,
+      "end_s": 27.48,
+      "summary": "$15,000",
+      "confidence": 0.8,
+      "evidence_refs": [
+        "segment:15"
+      ],
+      "id": "moment-003"
+    },
+    {
+      "kind": "stat",
+      "start_s": 37.36,
+      "end_s": 39.24,
+      "summary": "$15,000,",
+      "confidence": 0.8,
+      "evidence_refs": [
+        "segment:20"
+      ],
+      "id": "moment-004"
+    }
+  ]
+}

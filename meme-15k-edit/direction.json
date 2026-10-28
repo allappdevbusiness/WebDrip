@@ -1,0 +1,78 @@
+{
+ "concept": "A $15,000 bet told as a Y2K desktop meltdown: the story is a talking head, the jokes are glitches that break the frame at each turn.",
+ "law": "Paper and ink carry the words; red marks money and the word that matters; pink and cyan only appear inside a glitch; the one blue sky is the MS Paint sky of reference 1 and only opens for the soul beat. Greg's face is never covered and never cut; the two Instagram inserts are never cropped.",
+ "motif": "The torn paper strip: hook headline, caption strips, the divider between stacked hosts, the tape on the insert windows and the tear that opens the sky.",
+ "options": [
+  {
+   "name": "A",
+   "idea": "Post-Internet collage: Win95 windows, giant condensed type with black offset, torn paper, red accent, pink/cyan glitch (user's primary references 1-3)."
+  },
+  {
+   "name": "B",
+   "idea": "Monochrome editorial: black-and-white footage, RGB split on hits, grid and barcode footer (reference 4)."
+  },
+  {
+   "name": "C",
+   "idea": "Minimal grey with one red circle and a red italic serif accent word (reference 6)."
+  }
+ ],
+ "chosen": "A",
+ "approved_by": "user",
+ "approval_note": "User picked references 1-3 as the primary direction and approved the written style guide (palette, fonts, design pieces) in chat before the build; no separate styleframe sheet was shown.",
+ "scenes": [
+  {
+   "id": "hook",
+   "layout": "stacked two-shot split by a torn strip that holds the headline",
+   "entrance": "headline slams word by word on frame 0",
+   "hero": "$15,000 ON MEME PAGES"
+  },
+  {
+   "id": "career",
+   "layout": "full-bleed single, face upper-middle",
+   "entrance": "hard cut, then a 2-frame white-strobe teleport",
+   "hero": "Greg jumping to a new spot"
+  },
+  {
+   "id": "mari",
+   "layout": "insert window on paper collage, then full-bleed single",
+   "entrance": "Win95 window pops open over torn paper",
+   "hero": "the founder profile card, whole"
+  },
+  {
+   "id": "memes",
+   "layout": "full-bleed single, then insert window over halftone paper",
+   "entrance": "hard cut into a second window",
+   "hero": "the meme-page grid, whole"
+  },
+  {
+   "id": "allin",
+   "layout": "giant type behind the subject cutout, corner thought bubble",
+   "entrance": "type slams out from behind the head",
+   "hero": "$15,000"
+  },
+  {
+   "id": "portfolio",
+   "layout": "full-bleed single with motivated punch-ins",
+   "entrance": "neon x-ray freeze carries in",
+   "hero": "going all in"
+  },
+  {
+   "id": "fallout",
+   "layout": "zoom flicker, stacked hosts, then subject over a chaotic pop-up wall",
+   "entrance": "single-frame zoom flicker",
+   "hero": "comments in other languages"
+  },
+  {
+   "id": "payoff",
+   "layout": "subject cutout deep-fried over the live frame",
+   "entrance": "saturation and noise flicker",
+   "hero": "no Shopify traffic"
+  },
+  {
+   "id": "lesson",
+   "layout": "frozen frame with a torn-open sky, then full-bleed single",
+   "entrance": "the soul floats up out of the freeze",
+   "hero": "zero"
+  }
+ ]
+}

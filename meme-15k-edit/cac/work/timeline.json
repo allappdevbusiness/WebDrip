@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "timeline_id": "source",
+  "source_asset_id": "source",
+  "fps": {
+    "num": 2360000,
+    "den": 78793
+  },
+  "source_duration_s": 55.1551,
+  "program_duration_s": 55.1551,
+  "clips": [
+    {
+      "id": "clip-001",
+      "source_range": {
+        "start_s": 0.0,
+        "end_s": 55.1551
+      },
+      "program_range": {
+        "start_s": 0.0,
+        "end_s": 55.1551
+      },
+      "speed": 1.0,
+      "decision_ref": "source"
+    }
+  ]
+}

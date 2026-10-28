@@ -1,0 +1,76 @@
+{
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "duration": 55.1667,
+ "audio": "audio/mix.wav",
+ "narration": {
+  "file": "audio/fala.wav",
+  "start": 0.0,
+  "gain_db": 0
+ },
+ "music": {
+  "gain_db": -10,
+  "duck_db": -6,
+  "fade_in": 0.4,
+  "fade_out": 1.2,
+  "file": "audio/hidden_agenda.mp3",
+  "payoff_duck_db": -12
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "start": 0.0,
+   "end": 2.4667
+  },
+  {
+   "id": "career",
+   "start": 2.4667,
+   "end": 9.4333
+  },
+  {
+   "id": "mari",
+   "start": 9.4333,
+   "end": 20.2333
+  },
+  {
+   "id": "memes",
+   "start": 20.2333,
+   "end": 25.4667
+  },
+  {
+   "id": "allin",
+   "start": 25.4667,
+   "end": 32.1667
+  },
+  {
+   "id": "portfolio",
+   "start": 32.1667,
+   "end": 43.5667
+  },
+  {
+   "id": "fallout",
+   "start": 43.5667,
+   "end": 48.3
+  },
+  {
+   "id": "payoff",
+   "start": 48.3,
+   "end": 50.7
+  },
+  {
+   "id": "lesson",
+   "start": 50.7,
+   "end": 55.1667
+  }
+ ],
+ "sfx": [],
+ "loudness": {
+  "lufs": -15.7,
+  "tp": -0.9
+ },
+ "budget": {
+  "full_renders": 4,
+  "stills": 40
+ }
+}

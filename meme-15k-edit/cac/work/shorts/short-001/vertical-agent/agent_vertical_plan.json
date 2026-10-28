@@ -1,0 +1,134 @@
+{
+ "strategy": "SCENE_CROP",
+ "segments": [
+  {
+   "start_time": 0.0,
+   "end_time": 2.002,
+   "strategy": "LETTERBOX",
+   "content_type": "MULTI_SUBJECT",
+   "reason": "Both hosts in frame; one 9:16 crop would cut a face. Remotion stacks two face-centred crops; LETTERBOX stands in because the plan has no stack strategy."
+  },
+  {
+   "start_time": 2.002,
+   "end_time": 8.909,
+   "strategy": "SCENE_CROP",
+   "content_type": "PRESENTER",
+   "crop_x": 590,
+   "crop_y": 0,
+   "crop_width": 608,
+   "crop_height": 1080,
+   "reason": "Greg single; tracked face span x 715-1073 sits inside 590-1198 with >120 px margin."
+  },
+  {
+   "start_time": 8.909,
+   "end_time": 11.778,
+   "strategy": "LETTERBOX",
+   "content_type": "WIDE_INFORMATION",
+   "reason": "Founder Instagram profile insert must be shown whole and uncropped."
+  },
+  {
+   "start_time": 11.778,
+   "end_time": 21.922,
+   "strategy": "SCENE_CROP",
+   "content_type": "PRESENTER",
+   "crop_x": 570,
+   "crop_y": 0,
+   "crop_width": 608,
+   "crop_height": 1080,
+   "reason": "Greg single; face span x 713-1036 inside 570-1178."
+  },
+  {
+   "start_time": 21.922,
+   "end_time": 26.426,
+   "strategy": "LETTERBOX",
+   "content_type": "WIDE_INFORMATION",
+   "reason": "Meme-page grid insert must be shown whole and uncropped."
+  },
+  {
+   "start_time": 26.426,
+   "end_time": 44.378,
+   "strategy": "SCENE_CROP",
+   "content_type": "PRESENTER",
+   "crop_x": 565,
+   "crop_y": 0,
+   "crop_width": 608,
+   "crop_height": 1080,
+   "reason": "Greg single; face span x 691-1047 inside 565-1173."
+  },
+  {
+   "start_time": 44.378,
+   "end_time": 45.912,
+   "strategy": "LETTERBOX",
+   "content_type": "MULTI_SUBJECT",
+   "reason": "Both hosts react; stacked in Remotion so both faces stay whole."
+  },
+  {
+   "start_time": 45.912,
+   "end_time": 55.155,
+   "strategy": "SCENE_CROP",
+   "content_type": "PRESENTER",
+   "crop_x": 539,
+   "crop_y": 0,
+   "crop_width": 608,
+   "crop_height": 1080,
+   "reason": "Greg single; face span x 667-1019 inside 539-1147."
+  }
+ ],
+ "target_aspect_ratio": "9:16",
+ "visual_evidence": [
+  {
+   "timestamp_s": 1.0,
+   "frame_path": "work/cache/shorts/short-001-vertical-visual/visual_frames/frame_0002_000001s.jpg",
+   "observation": "Two-shot: host left x~555, host right x~1255; both faces must stay whole."
+  },
+  {
+   "timestamp_s": 5.0,
+   "frame_path": "work/cache/shorts/short-001-vertical-visual/visual_frames/frame_0006_000005s.jpg",
+   "observation": "Greg centred, face x~890; inside crop 590-1198."
+  },
+  {
+   "timestamp_s": 10.0,
+   "frame_path": "work/cache/shorts/short-001-vertical-visual/visual_frames/frame_0011_000010s.jpg",
+   "observation": "Profile card insert, full frame, needs letterbox."
+  },
+  {
+   "timestamp_s": 19.0,
+   "frame_path": "work/cache/shorts/short-001-vertical-visual/visual_frames/frame_0020_000019s.jpg",
+   "observation": "Greg raises hand to head; face x~800 stays inside crop 570-1178."
+  },
+  {
+   "timestamp_s": 23.0,
+   "frame_path": "work/cache/shorts/short-001-vertical-visual/visual_frames/frame_0024_000023s.jpg",
+   "observation": "Meme grid insert, full frame, scrolling."
+  },
+  {
+   "timestamp_s": 33.0,
+   "frame_path": "work/cache/shorts/short-001-vertical-visual/visual_frames/frame_0034_000033s.jpg",
+   "observation": "Greg grimace, face x~880 inside crop 565-1173."
+  },
+  {
+   "timestamp_s": 36.0,
+   "frame_path": "work/cache/shorts/short-001-vertical-visual/visual_frames/frame_0037_000036s.jpg",
+   "observation": "Greg leans left, face x~860 inside crop."
+  },
+  {
+   "timestamp_s": 45.0,
+   "frame_path": "work/cache/shorts/short-001-vertical-visual/visual_frames/frame_0046_000045s.jpg",
+   "observation": "Hosts two-shot reaction; stacked in Remotion."
+  },
+  {
+   "timestamp_s": 50.0,
+   "frame_path": "work/cache/shorts/short-001-vertical-visual/visual_frames/frame_0051_000050s.jpg",
+   "observation": "Arm extends far right and leaves the crop; face stays whole."
+  },
+  {
+   "timestamp_s": 54.0,
+   "frame_path": "work/cache/shorts/short-001-vertical-visual/visual_frames/frame_0055_000054s.jpg",
+   "observation": "Greg smiling, face x~840 inside crop 539-1147."
+  }
+ ],
+ "warnings": [
+  "Two-shot segments are marked LETTERBOX for validation only; the delivered video stacks two face-centred crops in Remotion.",
+  "Final 9:16 render is made by Remotion, not render_vertical.py --mode final (user requirement)."
+ ]
+}

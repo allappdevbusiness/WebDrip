@@ -1,0 +1,158 @@
+{
+ "format": "reels",
+ "fps": 30,
+ "start": 0,
+ "duration": 55.167,
+ "voice": {
+  "provider": "file",
+  "file": "audio/fala.wav",
+  "start": 0
+ },
+ "music": {
+  "file": "audio/hidden_agenda.mp3",
+  "gain_db": -10,
+  "duck_db": -6,
+  "payoff_duck_db": -12,
+  "fade_in": 0.4,
+  "fade_out": 1.2
+ },
+ "cut": {
+  "on": "phrase",
+  "lead": 0.0,
+  "sfx": false
+ },
+ "loudness": {
+  "lufs": -15.7,
+  "tp": -0.9
+ },
+ "budget": {
+  "full_renders": 4,
+  "stills": 40
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "say": [
+    {
+     "text": "I'm curious, when did you take a risk and it didn't work out?"
+    }
+   ],
+   "cues": {
+    "hook_in": "scene",
+    "hosts_cut": "t:2.002"
+   }
+  },
+  {
+   "id": "career",
+   "say": [
+    {
+     "text": "Oh man, I mean, I could give you an example of early on in my career."
+    },
+    {
+     "text": "Early on in my career, we ran a ton of marketing and the marketing always said,"
+    }
+   ],
+   "cues": {
+    "teleport": "word:Early#2",
+    "profile_in": "t:8.909"
+   }
+  },
+  {
+   "id": "mari",
+   "say": [
+    {
+     "text": "go follow Mari Llewellyn's Instagram page. We never had a funnel that said, go buy Bloom. We would say, just go follow Mari because we wanted to build this large community and we knew that that was the long game."
+    }
+   ],
+   "cues": {
+    "profile_out": "t:11.778",
+    "bloom": "word:Bloom.",
+    "long_game": "word:long"
+   }
+  },
+  {
+   "id": "memes",
+   "say": [
+    {
+     "text": "And I was running, buying a lot of ads on meme pages. Do you remember meme pages? And so I was buying a ton of ads on meme pages"
+    }
+   ],
+   "cues": {
+    "memes_in": "t:21.922"
+   }
+  },
+  {
+   "id": "allin",
+   "say": [
+    {
+     "text": "and one day, let's say we had $15,000 in the bank account, I said, I'm gonna go all in on a massive meme page campaign."
+    }
+   ],
+   "cues": {
+    "memes_out": "t:26.426",
+    "slam": "word:had.end",
+    "slam_end": "word:account,.end",
+    "devil_in": "word:I'm",
+    "devil_out": "word:campaign..end",
+    "xray": "word:campaign..end"
+   }
+  },
+  {
+   "id": "portfolio",
+   "say": [
+    {
+     "text": "And I think I just found a perfect portfolio of pages to invest in this 24 hours in. So I went all in, $15,000, bought ads on all of these meme pages and all of the followers started to come in"
+    }
+   ],
+   "cues": {
+    "went_all_in": "word:went",
+    "followers": "word:followers"
+   }
+  },
+  {
+   "id": "fallout",
+   "say": [
+    {
+     "text": "and they were all Indian names. And then all of the comments were in different languages"
+    }
+   ],
+   "cues": {
+    "flicker": "word:they",
+    "hosts_in": "t:44.378",
+    "eyes": "word:names..end-0.3",
+    "hosts_out": "t:45.912",
+    "bgshift": "word:comments",
+    "bgshift_end": "word:languages.end"
+   }
+  },
+  {
+   "id": "payoff",
+   "say": [
+    {
+     "text": "and then there was no Shopify traffic."
+    }
+   ],
+   "cues": {
+    "payoff_duck": "scene",
+    "fried": "word:no",
+    "soul": "word:traffic..end",
+    "shopify": "word:Shopify",
+    "traffic": "word:traffic."
+   }
+  },
+  {
+   "id": "lesson",
+   "say": [
+    {
+     "text": "And so there's early on examples of going all in and getting zero awards."
+    }
+   ],
+   "cues": {
+    "soul_end": "t:51.3",
+    "flop": "word:zero",
+    "payoff_duck_end": "t:51.2"
+   }
+  }
+ ],
+ "tail": 0
+}

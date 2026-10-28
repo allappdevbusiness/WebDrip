@@ -1,0 +1,80 @@
+{
+  "schema_version": "shorts-candidates.v2",
+  "video": {
+    "source": "/home/user/WebDrip/meme-15k-edit/cac/input/original-video.mp4",
+    "sha256": "473a072f9d25e11afe1a5ae5e5aec0c1eb628828365fbda28898a78fe0fc21ad",
+    "duration_s": 55.155,
+    "timebase": "source",
+    "timeline": {
+      "path": "/home/user/WebDrip/meme-15k-edit/cac/work/timeline.json",
+      "sha256": "d20a45183ae13af1f7313ce21b2477b10ca27a318cd1ac8ce6101a7ee39b6e67"
+    }
+  },
+  "transcript": {
+    "path": "/home/user/WebDrip/meme-15k-edit/cac/work/shorts/transcript.json",
+    "timebase": "program",
+    "timeline_id": "source"
+  },
+  "selection": {
+    "target_count": 1,
+    "evidence_mode": "text_visual"
+  },
+  "candidates": [
+    {
+      "candidate_id": "cand-001",
+      "title": "$15,000 on meme pages, zero Shopify traffic",
+      "scene_type": "conversation_interview",
+      "start_time": 0.0,
+      "end_time": 55.14,
+      "duration": 55.14,
+      "transcript_excerpt": "I'm curious, when did you take a risk and it didn't work out? Oh man, I mean, I could give you an example of early on in my career. Early on in my career, we ran a ton of marketing and the marketing always said, go follow Mari Llewellyn's Instagram page. We never had a funnel that said, go by bloom. We would say, just go follow Mari because we wanted to build this large community and we knew that that was the long game. And I was running, buying a lot of ads on meme pages. Do you remember meme page? And so I was buying a ton of ads on meme pages and one day, let's say we had $15,000 in the bank account, I said, I'm gonna go all in on a massive meme page campaign. And I think I just found a perfect portfolio of pages to invest in this 24 hours in. So I went all in, $15,000, bought ads on all of these meme pages and all of the followers started to come in and they were all Indian names. And then all of the comments were in different languages and then there was no Shopify traffic. And so there's early on examples of going all in and getting zero awards.",
+      "evidence_mode": "text_visual",
+      "score_breakdown": {
+        "hook": {
+          "score": 16,
+          "reason": "Opens on the host's direct question about a risk that failed, which promises a story of loss."
+        },
+        "completeness": {
+          "score": 19,
+          "reason": "Question, setup, the $15,000 bet, what came back and the payoff all sit inside the clip."
+        },
+        "audience_value": {
+          "score": 16,
+          "reason": "A concrete warning about buying meme-page ads for followers that do not convert."
+        },
+        "emotion_tension": {
+          "score": 13,
+          "reason": "Stakes rise from going all in to the reveal of fake-looking followers and no traffic."
+        },
+        "quotability": {
+          "score": 12,
+          "reason": "'And then there was no Shopify traffic' is a clean, repeatable payoff line."
+        },
+        "pace_editability": {
+          "score": 8,
+          "reason": "One continuous answer with two inserts; the voice must stay untouched, so no internal cuts."
+        }
+      },
+      "score": 84,
+      "warnings": [],
+      "filler_drop_spans": [],
+      "visual_observations": [
+        "Hosts two-shot 0-2 s and 44.4-45.9 s; Greg single elsewhere; full-frame Instagram inserts at 8.9-11.8 s and 21.9-26.4 s."
+      ],
+      "visual_risks": [
+        "Two-shots hold two faces and cannot be shown in one 9:16 crop."
+      ],
+      "visual_keyframes": [],
+      "review_status": "candidate",
+      "metadata": {
+        "editorial_reason": "The supplied clip is already a self-contained story; the brief asks for the full 55 s as one vertical short with the voice unaltered."
+      }
+    }
+  ],
+  "producer": {
+    "skill": "video-to-shorts",
+    "mode": "agent_first",
+    "evidence_mode": "text_visual",
+    "validated_at": "2026-10-28T20:42:41.291234+00:00"
+  }
+}

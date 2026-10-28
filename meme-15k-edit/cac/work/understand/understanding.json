@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "timeline_id": "source",
+  "overview": {
+    "title": "The $15,000 meme-page ad campaign that brought no sales",
+    "content_type": "podcast-interview",
+    "summary": "A host asks Greg Lav about a risk that did not work out. He explains that early marketing for Bloom pushed people to follow Mari Llewellyn's Instagram, then describes putting $15,000 into a meme-page ad campaign in one day. The followers that arrived had Indian names, the comments were in other languages, and there was no Shopify traffic.",
+    "primary_language": "en"
+  },
+  "chapters": [
+    {
+      "id": "chapter-001",
+      "start_s": 0.0,
+      "end_s": 2.04,
+      "title": "The question",
+      "summary": "A host asks when a risk did not work out.",
+      "confidence": 0.95,
+      "evidence_refs": ["segment:1", "segment:2"]
+    },
+    {
+      "id": "chapter-002",
+      "start_s": 2.12,
+      "end_s": 19.62,
+      "title": "Community-first marketing",
+      "summary": "Early marketing told people to follow Mari Llewellyn's Instagram instead of buying Bloom, to build a community for the long game.",
+      "confidence": 0.9,
+      "evidence_refs": ["segment:3", "segment:5", "segment:7", "segment:8", "segment:11"]
+    },
+    {
+      "id": "chapter-003",
+      "start_s": 20.62,
+      "end_s": 43.5,
+      "title": "All in on meme pages",
+      "summary": "He bought ads on meme pages and one day put $15,000 into a single meme-page campaign over 24 hours.",
+      "confidence": 0.9,
+      "evidence_refs": ["segment:12", "segment:15", "segment:17", "segment:18", "segment:20", "segment:22"]
+    },
+    {
+      "id": "chapter-004",
+      "start_s": 43.5,
+      "end_s": 55.14,
+      "title": "What came back",
+      "summary": "The new followers had Indian names, the comments were in different languages, and there was no Shopify traffic.",
+      "confidence": 0.9,
+      "evidence_refs": ["segment:23", "segment:24", "segment:25", "segment:26", "segment:27"]
+    }
+  ],
+  "entities": [
+    {
+      "id": "entity-001",
+      "name": "Greg Lav",
+      "type": "person",
+      "confidence": 0.8,
+      "evidence_refs": ["segment:3"]
+    },
+    {
+      "id": "entity-002",
+      "name": "Mari Llewellyn",
+      "type": "person",
+      "confidence": 0.95,
+      "evidence_refs": ["segment:7", "segment:9"]
+    },
+    {
+      "id": "entity-003",
+      "name": "Bloom",
+      "type": "product",
+      "confidence": 0.85,
+      "evidence_refs": ["segment:8"]
+    },
+    {
+      "id": "entity-004",
+      "name": "Shopify",
+      "type": "organization",
+      "confidence": 0.95,
+      "evidence_refs": ["segment:25"]
+    }
+  ],
+  "moments": [
+    {
+      "id": "moment-001",
+      "kind": "question",
+      "start_s": 0.0,
+      "end_s": 2.04,
+      "summary": "When did you take a risk and it didn't work out?",
+      "confidence": 0.95,
+      "evidence_refs": ["segment:1", "segment:2"]
+    },
+    {
+      "id": "moment-002",
+      "kind": "repetition",
+      "start_s": 4.24,
+      "end_s": 6.4,
+      "summary": "\"Early on in my career\" is said twice in a row.",
+      "confidence": 0.95,
+      "evidence_refs": ["segment:4", "segment:5"]
+    },
+    {
+      "id": "moment-003",
+      "kind": "stat",
+      "start_s": 25.44,
+      "end_s": 28.4,
+      "summary": "$15,000 in the bank account.",
+      "confidence": 0.9,
+      "evidence_refs": ["segment:15", "segment:16"]
+    },
+    {
+      "id": "moment-004",
+      "kind": "key-point",
+      "start_s": 28.26,
+      "end_s": 31.68,
+      "summary": "Decision to go all in on a massive meme-page campaign.",
+      "confidence": 0.9,
+      "evidence_refs": ["segment:16", "segment:17"]
+    },
+    {
+      "id": "moment-005",
+      "kind": "stat",
+      "start_s": 37.36,
+      "end_s": 39.24,
+      "summary": "Went all in with $15,000.",
+      "confidence": 0.9,
+      "evidence_refs": ["segment:20"]
+    },
+    {
+      "id": "moment-006",
+      "kind": "risk",
+      "start_s": 43.5,
+      "end_s": 48.2,
+      "summary": "The new followers had Indian names and the comments were in different languages.",
+      "confidence": 0.85,
+      "evidence_refs": ["segment:23", "segment:24"]
+    },
+    {
+      "id": "moment-007",
+      "kind": "key-point",
+      "start_s": 48.2,
+      "end_s": 50.3,
+      "summary": "Payoff: there was no Shopify traffic.",
+      "confidence": 0.95,
+      "evidence_refs": ["segment:25"]
+    },
+    {
+      "id": "moment-008",
+      "kind": "quote",
+      "start_s": 50.82,
+      "end_s": 55.14,
+      "summary": "Closing line about going all in and getting nothing back.",
+      "confidence": 0.7,
+      "evidence_refs": ["segment:26", "segment:27"]
+    }
+  ],
+  "transcript_corrections": [
+    {
+      "id": "correction-001",
+      "original": "go by bloom",
+      "corrected": "go buy Bloom",
+      "reason": "Bloom is the product (profile card shows @bloomsupps); large-v3 also hears \"buy Bloom\".",
+      "confidence": 0.9,
+      "evidence_refs": ["segment:8"]
+    },
+    {
+      "id": "correction-002",
+      "original": "Do you remember meme page?",
+      "corrected": "Do you remember meme pages?",
+      "reason": "large-v3 hears the plural; it matches the surrounding sentences.",
+      "confidence": 0.8,
+      "evidence_refs": ["segment:13"]
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "uncertainty-001",
+      "summary": "Final word heard as \"awards\" by both medium and large-v3; the speaker may have said \"rewards\". Captioned as heard and flagged to the user.",
+      "confidence": 0.5,
+      "evidence_refs": ["segment:27"]
+    },
+    {
+      "id": "uncertainty-002",
+      "summary": "Speaker name Greg Lav comes from the user's brief, not from the audio.",
+      "confidence": 0.8,
+      "evidence_refs": ["segment:3"]
+    },
+    {
+      "id": "uncertainty-003",
+      "summary": "\"this 24 hours in\" is transcribed the same by both models; the intended phrasing is unclear.",
+      "confidence": 0.6,
+      "evidence_refs": ["segment:19"]
+    }
+  ]
+}

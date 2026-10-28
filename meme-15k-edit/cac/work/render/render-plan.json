@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "sequence": "main",
+  "source": "../../input/original-video.mp4",
+  "source_fingerprint": {
+    "size": 20964553,
+    "modified_ns": 1793217592469072554,
+    "duration_s": 55.1551
+  },
+  "timeline": "../timeline.json",
+  "contributions": [],
+  "output": "../../final/final-video.mp4"
+}

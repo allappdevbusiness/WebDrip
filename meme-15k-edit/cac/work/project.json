@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "project_id": "47195889-meme_15k_qa_clean",
+  "source": {
+    "path": "../input/original-video.mp4",
+    "fingerprint": {
+      "size": 20964553,
+      "modified_ns": 1793217592469072554,
+      "duration_s": 55.1551
+    }
+  },
+  "active_sequence": "main",
+  "sequences": {
+    "main": {
+      "operations": [],
+      "timeline": "timeline.json"
+    }
+  },
+  "operations": [
+    {
+      "id": "understanding",
+      "skill": "video-understand",
+      "revision": 1,
+      "depends_on": [],
+      "based_on": {},
+      "status": "verified",
+      "plan": null,
+      "outputs": [
+        "understand/media.json",
+        "understand/transcript.json",
+        "understand/analysis.json",
+        "understand/understanding.json"
+      ],
+      "target": {
+        "sequence": "main",
+        "scope": "evidence"
+      },
+      "effects": {
+        "changes_timeline": false,
+        "changes_geometry": false,
+        "changes_video_pixels": false,
+        "changes_audio": false,
+        "adds_track": null
+      },
+      "check": {
+        "status": "pass",
+        "report": "../review/00-video-understanding/video-summary.md"
+      }
+    },
+    {
+      "id": "shorts",
+      "skill": "video-to-shorts",
+      "revision": 1,
+      "depends_on": [],
+      "based_on": {},
+      "status": "approved",
+      "plan": "shorts/shorts-plan.json",
+      "outputs": [],
+      "target": {
+        "sequence": "main",
+        "scope": "derivatives"
+      },
+      "effects": {
+        "changes_timeline": true,
+        "changes_geometry": true,
+        "changes_video_pixels": true,
+        "changes_audio": true,
+        "adds_track": null
+      },
+      "check": {
+        "status": "pending",
+        "report": "../review/06-shorts/shorts-summary.md"
+      }
+    }
+  ],
+  "render": {
+    "plan": "render/render-plan.json",
+    "output": "../final/final-video.mp4",
+    "status": "verified"
+  },
+  "reviews": []
+}

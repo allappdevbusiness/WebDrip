@@ -1,0 +1,1225 @@
+{
+ "cuts": {
+  "hook": 0.0,
+  "career": 2.4667,
+  "mari": 9.4333,
+  "memes": 20.2333,
+  "allin": 25.4667,
+  "portfolio": 32.1667,
+  "fallout": 43.5667,
+  "payoff": 48.3,
+  "lesson": 50.7
+ },
+ "ev": {
+  "hook_in": 0.0,
+  "hosts_cut": 2.0,
+  "teleport": 5.4667,
+  "profile_in": 8.9,
+  "profile_out": 11.7667,
+  "bloom": 13.4333,
+  "long_game": 19.1333,
+  "memes_in": 21.9333,
+  "memes_out": 26.4333,
+  "slam": 26.5667,
+  "slam_end": 28.1667,
+  "devil_in": 28.4333,
+  "devil_out": 31.6667,
+  "xray": 31.6667,
+  "went_all_in": 37.6,
+  "followers": 42.3333,
+  "flicker": 43.9333,
+  "hosts_in": 44.3667,
+  "eyes": 45.0667,
+  "hosts_out": 45.9,
+  "bgshift": 46.5,
+  "bgshift_end": 48.2,
+  "payoff_duck": 48.3,
+  "fried": 48.8667,
+  "soul": 50.3333,
+  "shopify": 49.1667,
+  "traffic": 49.6667,
+  "soul_end": 51.3,
+  "flop": 54.2667,
+  "payoff_duck_end": 51.2
+ },
+ "phrases": [
+  {
+   "scene": "hook",
+   "i": 0,
+   "start": 0.0,
+   "end": 2.1,
+   "text": "I'm curious, when did you take a risk and it didn't work out?",
+   "from": 0,
+   "to": 12
+  },
+  {
+   "scene": "career",
+   "i": 0,
+   "start": 2.46,
+   "end": 5.22,
+   "text": "Oh man, I mean, I could give you an example of early on in my career.",
+   "from": 13,
+   "to": 28
+  },
+  {
+   "scene": "career",
+   "i": 1,
+   "start": 5.48,
+   "end": 9.08,
+   "text": "Early on in my career, we ran a ton of marketing and the marketing always said,",
+   "from": 29,
+   "to": 44
+  },
+  {
+   "scene": "mari",
+   "i": 0,
+   "start": 9.44,
+   "end": 19.62,
+   "text": "go follow Mari Llewellyn's Instagram page. We never had a funnel that said, go buy Bloom. We would say, just go follow Mari because we wanted to build this large community and we knew that that was the long game.",
+   "from": 45,
+   "to": 84
+  },
+  {
+   "scene": "memes",
+   "i": 0,
+   "start": 20.24,
+   "end": 25.44,
+   "text": "And I was running, buying a lot of ads on meme pages. Do you remember meme pages? And so I was buying a ton of ads on meme pages",
+   "from": 85,
+   "to": 113
+  },
+  {
+   "scene": "allin",
+   "i": 0,
+   "start": 25.48,
+   "end": 31.68,
+   "text": "and one day, let's say we had $15,000 in the bank account, I said, I'm gonna go all in on a massive meme page campaign.",
+   "from": 114,
+   "to": 138
+  },
+  {
+   "scene": "portfolio",
+   "i": 0,
+   "start": 32.16,
+   "end": 43.56,
+   "text": "And I think I just found a perfect portfolio of pages to invest in this 24 hours in. So I went all in, $15,000, bought ads on all of these meme pages and all of the followers started to come in",
+   "from": 139,
+   "to": 179
+  },
+  {
+   "scene": "fallout",
+   "i": 0,
+   "start": 43.56,
+   "end": 48.2,
+   "text": "and they were all Indian names. And then all of the comments were in different languages",
+   "from": 180,
+   "to": 195
+  },
+  {
+   "scene": "payoff",
+   "i": 0,
+   "start": 48.3,
+   "end": 50.32,
+   "text": "and then there was no Shopify traffic.",
+   "from": 196,
+   "to": 202
+  },
+  {
+   "scene": "lesson",
+   "i": 0,
+   "start": 50.7,
+   "end": 55.14,
+   "text": "And so there's early on examples of going all in and getting zero awards.",
+   "from": 203,
+   "to": 216
+  }
+ ],
+ "words": [
+  {
+   "word": "I'm",
+   "start": 0.0,
+   "end": 0.08
+  },
+  {
+   "word": "curious,",
+   "start": 0.08,
+   "end": 0.24
+  },
+  {
+   "word": "when",
+   "start": 0.44,
+   "end": 0.6
+  },
+  {
+   "word": "did",
+   "start": 0.6,
+   "end": 0.76
+  },
+  {
+   "word": "you",
+   "start": 0.76,
+   "end": 0.84
+  },
+  {
+   "word": "take",
+   "start": 0.84,
+   "end": 1.04
+  },
+  {
+   "word": "a",
+   "start": 1.04,
+   "end": 1.16
+  },
+  {
+   "word": "risk",
+   "start": 1.16,
+   "end": 1.26
+  },
+  {
+   "word": "and",
+   "start": 1.26,
+   "end": 1.36
+  },
+  {
+   "word": "it",
+   "start": 1.36,
+   "end": 1.48
+  },
+  {
+   "word": "didn't",
+   "start": 1.48,
+   "end": 1.68
+  },
+  {
+   "word": "work",
+   "start": 1.68,
+   "end": 1.9
+  },
+  {
+   "word": "out?",
+   "start": 1.9,
+   "end": 2.1
+  },
+  {
+   "word": "Oh",
+   "start": 2.46,
+   "end": 2.46
+  },
+  {
+   "word": "man,",
+   "start": 2.46,
+   "end": 2.7
+  },
+  {
+   "word": "I",
+   "start": 2.84,
+   "end": 2.84
+  },
+  {
+   "word": "mean,",
+   "start": 2.84,
+   "end": 3.08
+  },
+  {
+   "word": "I",
+   "start": 3.08,
+   "end": 3.28
+  },
+  {
+   "word": "could",
+   "start": 3.28,
+   "end": 3.38
+  },
+  {
+   "word": "give",
+   "start": 3.38,
+   "end": 3.48
+  },
+  {
+   "word": "you",
+   "start": 3.48,
+   "end": 3.6
+  },
+  {
+   "word": "an",
+   "start": 3.6,
+   "end": 3.74
+  },
+  {
+   "word": "example",
+   "start": 3.74,
+   "end": 3.94
+  },
+  {
+   "word": "of",
+   "start": 3.94,
+   "end": 4.24
+  },
+  {
+   "word": "early",
+   "start": 4.24,
+   "end": 4.46
+  },
+  {
+   "word": "on",
+   "start": 4.46,
+   "end": 4.68
+  },
+  {
+   "word": "in",
+   "start": 4.68,
+   "end": 4.82
+  },
+  {
+   "word": "my",
+   "start": 4.82,
+   "end": 5.0
+  },
+  {
+   "word": "career.",
+   "start": 5.0,
+   "end": 5.22
+  },
+  {
+   "word": "Early",
+   "start": 5.48,
+   "end": 5.78
+  },
+  {
+   "word": "on",
+   "start": 5.78,
+   "end": 5.9
+  },
+  {
+   "word": "in",
+   "start": 5.9,
+   "end": 6.02
+  },
+  {
+   "word": "my",
+   "start": 6.02,
+   "end": 6.22
+  },
+  {
+   "word": "career,",
+   "start": 6.22,
+   "end": 6.38
+  },
+  {
+   "word": "we",
+   "start": 6.44,
+   "end": 6.56
+  },
+  {
+   "word": "ran",
+   "start": 6.56,
+   "end": 6.68
+  },
+  {
+   "word": "a",
+   "start": 6.68,
+   "end": 6.86
+  },
+  {
+   "word": "ton",
+   "start": 6.86,
+   "end": 6.98
+  },
+  {
+   "word": "of",
+   "start": 6.98,
+   "end": 7.22
+  },
+  {
+   "word": "marketing",
+   "start": 7.22,
+   "end": 7.76
+  },
+  {
+   "word": "and",
+   "start": 7.76,
+   "end": 8.1
+  },
+  {
+   "word": "the",
+   "start": 8.1,
+   "end": 8.32
+  },
+  {
+   "word": "marketing",
+   "start": 8.32,
+   "end": 8.62
+  },
+  {
+   "word": "always",
+   "start": 8.62,
+   "end": 8.92
+  },
+  {
+   "word": "said,",
+   "start": 8.92,
+   "end": 9.08
+  },
+  {
+   "word": "go",
+   "start": 9.44,
+   "end": 9.46
+  },
+  {
+   "word": "follow",
+   "start": 9.46,
+   "end": 9.92
+  },
+  {
+   "word": "Mari",
+   "start": 9.92,
+   "end": 10.22
+  },
+  {
+   "word": "Llewellyn's",
+   "start": 10.22,
+   "end": 10.78
+  },
+  {
+   "word": "Instagram",
+   "start": 10.78,
+   "end": 11.04
+  },
+  {
+   "word": "page.",
+   "start": 11.04,
+   "end": 11.38
+  },
+  {
+   "word": "We",
+   "start": 11.66,
+   "end": 11.8
+  },
+  {
+   "word": "never",
+   "start": 11.8,
+   "end": 12.08
+  },
+  {
+   "word": "had",
+   "start": 12.08,
+   "end": 12.26
+  },
+  {
+   "word": "a",
+   "start": 12.26,
+   "end": 12.48
+  },
+  {
+   "word": "funnel",
+   "start": 12.48,
+   "end": 12.6
+  },
+  {
+   "word": "that",
+   "start": 12.6,
+   "end": 12.8
+  },
+  {
+   "word": "said,",
+   "start": 12.8,
+   "end": 12.9
+  },
+  {
+   "word": "go",
+   "start": 13.12,
+   "end": 13.16
+  },
+  {
+   "word": "buy",
+   "start": 13.16,
+   "end": 13.42
+  },
+  {
+   "word": "Bloom.",
+   "start": 13.42,
+   "end": 13.72
+  },
+  {
+   "word": "We",
+   "start": 14.1,
+   "end": 14.18
+  },
+  {
+   "word": "would",
+   "start": 14.18,
+   "end": 14.3
+  },
+  {
+   "word": "say,",
+   "start": 14.3,
+   "end": 14.4
+  },
+  {
+   "word": "just",
+   "start": 14.46,
+   "end": 14.54
+  },
+  {
+   "word": "go",
+   "start": 14.54,
+   "end": 14.8
+  },
+  {
+   "word": "follow",
+   "start": 14.8,
+   "end": 15.12
+  },
+  {
+   "word": "Mari",
+   "start": 15.12,
+   "end": 15.38
+  },
+  {
+   "word": "because",
+   "start": 15.4,
+   "end": 15.5
+  },
+  {
+   "word": "we",
+   "start": 15.5,
+   "end": 15.66
+  },
+  {
+   "word": "wanted",
+   "start": 15.66,
+   "end": 15.82
+  },
+  {
+   "word": "to",
+   "start": 15.82,
+   "end": 16.16
+  },
+  {
+   "word": "build",
+   "start": 16.16,
+   "end": 16.3
+  },
+  {
+   "word": "this",
+   "start": 16.3,
+   "end": 16.52
+  },
+  {
+   "word": "large",
+   "start": 16.52,
+   "end": 16.78
+  },
+  {
+   "word": "community",
+   "start": 16.78,
+   "end": 17.18
+  },
+  {
+   "word": "and",
+   "start": 17.32,
+   "end": 17.32
+  },
+  {
+   "word": "we",
+   "start": 17.32,
+   "end": 17.5
+  },
+  {
+   "word": "knew",
+   "start": 17.5,
+   "end": 17.66
+  },
+  {
+   "word": "that",
+   "start": 17.66,
+   "end": 17.86
+  },
+  {
+   "word": "that",
+   "start": 18.4,
+   "end": 18.64
+  },
+  {
+   "word": "was",
+   "start": 18.64,
+   "end": 18.86
+  },
+  {
+   "word": "the",
+   "start": 18.86,
+   "end": 19.12
+  },
+  {
+   "word": "long",
+   "start": 19.12,
+   "end": 19.34
+  },
+  {
+   "word": "game.",
+   "start": 19.34,
+   "end": 19.62
+  },
+  {
+   "word": "And",
+   "start": 20.24,
+   "end": 20.6
+  },
+  {
+   "word": "I",
+   "start": 20.6,
+   "end": 20.78
+  },
+  {
+   "word": "was",
+   "start": 20.78,
+   "end": 21.0
+  },
+  {
+   "word": "running,",
+   "start": 21.0,
+   "end": 21.12
+  },
+  {
+   "word": "buying",
+   "start": 21.28,
+   "end": 21.42
+  },
+  {
+   "word": "a",
+   "start": 21.42,
+   "end": 21.54
+  },
+  {
+   "word": "lot",
+   "start": 21.54,
+   "end": 21.62
+  },
+  {
+   "word": "of",
+   "start": 21.62,
+   "end": 21.72
+  },
+  {
+   "word": "ads",
+   "start": 21.72,
+   "end": 21.82
+  },
+  {
+   "word": "on",
+   "start": 21.82,
+   "end": 22.08
+  },
+  {
+   "word": "meme",
+   "start": 22.08,
+   "end": 22.24
+  },
+  {
+   "word": "pages.",
+   "start": 22.24,
+   "end": 22.58
+  },
+  {
+   "word": "Do",
+   "start": 22.62,
+   "end": 22.76
+  },
+  {
+   "word": "you",
+   "start": 22.76,
+   "end": 22.8
+  },
+  {
+   "word": "remember",
+   "start": 22.8,
+   "end": 22.96
+  },
+  {
+   "word": "meme",
+   "start": 22.96,
+   "end": 23.2
+  },
+  {
+   "word": "pages?",
+   "start": 23.2,
+   "end": 23.38
+  },
+  {
+   "word": "And",
+   "start": 23.66,
+   "end": 23.66
+  },
+  {
+   "word": "so",
+   "start": 23.66,
+   "end": 23.9
+  },
+  {
+   "word": "I",
+   "start": 23.9,
+   "end": 24.06
+  },
+  {
+   "word": "was",
+   "start": 24.06,
+   "end": 24.1
+  },
+  {
+   "word": "buying",
+   "start": 24.1,
+   "end": 24.18
+  },
+  {
+   "word": "a",
+   "start": 24.18,
+   "end": 24.44
+  },
+  {
+   "word": "ton",
+   "start": 24.44,
+   "end": 24.56
+  },
+  {
+   "word": "of",
+   "start": 24.56,
+   "end": 24.72
+  },
+  {
+   "word": "ads",
+   "start": 24.72,
+   "end": 24.88
+  },
+  {
+   "word": "on",
+   "start": 24.88,
+   "end": 25.08
+  },
+  {
+   "word": "meme",
+   "start": 25.08,
+   "end": 25.2
+  },
+  {
+   "word": "pages",
+   "start": 25.2,
+   "end": 25.44
+  },
+  {
+   "word": "and",
+   "start": 25.48,
+   "end": 25.62
+  },
+  {
+   "word": "one",
+   "start": 25.62,
+   "end": 25.76
+  },
+  {
+   "word": "day,",
+   "start": 25.76,
+   "end": 25.84
+  },
+  {
+   "word": "let's",
+   "start": 25.92,
+   "end": 26.0
+  },
+  {
+   "word": "say",
+   "start": 26.0,
+   "end": 26.06
+  },
+  {
+   "word": "we",
+   "start": 26.06,
+   "end": 26.2
+  },
+  {
+   "word": "had",
+   "start": 26.2,
+   "end": 26.56
+  },
+  {
+   "word": "$15,000",
+   "start": 26.56,
+   "end": 27.48
+  },
+  {
+   "word": "in",
+   "start": 27.48,
+   "end": 27.6
+  },
+  {
+   "word": "the",
+   "start": 27.6,
+   "end": 27.76
+  },
+  {
+   "word": "bank",
+   "start": 27.76,
+   "end": 27.9
+  },
+  {
+   "word": "account,",
+   "start": 27.9,
+   "end": 28.16
+  },
+  {
+   "word": "I",
+   "start": 28.16,
+   "end": 28.28
+  },
+  {
+   "word": "said,",
+   "start": 28.28,
+   "end": 28.4
+  },
+  {
+   "word": "I'm",
+   "start": 28.42,
+   "end": 28.54
+  },
+  {
+   "word": "gonna",
+   "start": 28.54,
+   "end": 28.68
+  },
+  {
+   "word": "go",
+   "start": 28.68,
+   "end": 28.88
+  },
+  {
+   "word": "all",
+   "start": 28.88,
+   "end": 29.26
+  },
+  {
+   "word": "in",
+   "start": 29.26,
+   "end": 29.48
+  },
+  {
+   "word": "on",
+   "start": 29.48,
+   "end": 29.68
+  },
+  {
+   "word": "a",
+   "start": 29.68,
+   "end": 30.06
+  },
+  {
+   "word": "massive",
+   "start": 30.06,
+   "end": 30.52
+  },
+  {
+   "word": "meme",
+   "start": 30.52,
+   "end": 30.78
+  },
+  {
+   "word": "page",
+   "start": 30.78,
+   "end": 31.12
+  },
+  {
+   "word": "campaign.",
+   "start": 31.12,
+   "end": 31.68
+  },
+  {
+   "word": "And",
+   "start": 32.16,
+   "end": 32.34
+  },
+  {
+   "word": "I",
+   "start": 32.34,
+   "end": 32.58
+  },
+  {
+   "word": "think",
+   "start": 32.58,
+   "end": 32.74
+  },
+  {
+   "word": "I",
+   "start": 32.74,
+   "end": 32.94
+  },
+  {
+   "word": "just",
+   "start": 32.94,
+   "end": 33.2
+  },
+  {
+   "word": "found",
+   "start": 33.2,
+   "end": 33.32
+  },
+  {
+   "word": "a",
+   "start": 33.32,
+   "end": 33.68
+  },
+  {
+   "word": "perfect",
+   "start": 33.68,
+   "end": 33.88
+  },
+  {
+   "word": "portfolio",
+   "start": 33.88,
+   "end": 34.44
+  },
+  {
+   "word": "of",
+   "start": 34.44,
+   "end": 34.7
+  },
+  {
+   "word": "pages",
+   "start": 34.7,
+   "end": 35.0
+  },
+  {
+   "word": "to",
+   "start": 35.0,
+   "end": 35.32
+  },
+  {
+   "word": "invest",
+   "start": 35.56,
+   "end": 35.86
+  },
+  {
+   "word": "in",
+   "start": 35.86,
+   "end": 36.04
+  },
+  {
+   "word": "this",
+   "start": 36.04,
+   "end": 36.22
+  },
+  {
+   "word": "24",
+   "start": 36.22,
+   "end": 36.58
+  },
+  {
+   "word": "hours",
+   "start": 36.58,
+   "end": 36.92
+  },
+  {
+   "word": "in.",
+   "start": 36.92,
+   "end": 37.14
+  },
+  {
+   "word": "So",
+   "start": 37.42,
+   "end": 37.48
+  },
+  {
+   "word": "I",
+   "start": 37.48,
+   "end": 37.6
+  },
+  {
+   "word": "went",
+   "start": 37.6,
+   "end": 37.76
+  },
+  {
+   "word": "all",
+   "start": 37.76,
+   "end": 38.06
+  },
+  {
+   "word": "in,",
+   "start": 38.06,
+   "end": 38.24
+  },
+  {
+   "word": "$15,000,",
+   "start": 38.24,
+   "end": 39.26
+  },
+  {
+   "word": "bought",
+   "start": 39.4,
+   "end": 39.52
+  },
+  {
+   "word": "ads",
+   "start": 39.52,
+   "end": 39.82
+  },
+  {
+   "word": "on",
+   "start": 39.82,
+   "end": 40.06
+  },
+  {
+   "word": "all",
+   "start": 40.06,
+   "end": 40.24
+  },
+  {
+   "word": "of",
+   "start": 40.24,
+   "end": 40.38
+  },
+  {
+   "word": "these",
+   "start": 40.38,
+   "end": 40.52
+  },
+  {
+   "word": "meme",
+   "start": 40.52,
+   "end": 40.7
+  },
+  {
+   "word": "pages",
+   "start": 40.7,
+   "end": 41.12
+  },
+  {
+   "word": "and",
+   "start": 41.12,
+   "end": 41.76
+  },
+  {
+   "word": "all",
+   "start": 41.76,
+   "end": 41.98
+  },
+  {
+   "word": "of",
+   "start": 41.98,
+   "end": 42.14
+  },
+  {
+   "word": "the",
+   "start": 42.14,
+   "end": 42.34
+  },
+  {
+   "word": "followers",
+   "start": 42.34,
+   "end": 42.66
+  },
+  {
+   "word": "started",
+   "start": 42.66,
+   "end": 42.92
+  },
+  {
+   "word": "to",
+   "start": 42.92,
+   "end": 43.1
+  },
+  {
+   "word": "come",
+   "start": 43.1,
+   "end": 43.22
+  },
+  {
+   "word": "in",
+   "start": 43.22,
+   "end": 43.56
+  },
+  {
+   "word": "and",
+   "start": 43.56,
+   "end": 43.94
+  },
+  {
+   "word": "they",
+   "start": 43.94,
+   "end": 44.06
+  },
+  {
+   "word": "were",
+   "start": 44.06,
+   "end": 44.22
+  },
+  {
+   "word": "all",
+   "start": 44.22,
+   "end": 44.46
+  },
+  {
+   "word": "Indian",
+   "start": 44.46,
+   "end": 44.88
+  },
+  {
+   "word": "names.",
+   "start": 44.88,
+   "end": 45.38
+  },
+  {
+   "word": "And",
+   "start": 45.86,
+   "end": 45.86
+  },
+  {
+   "word": "then",
+   "start": 45.86,
+   "end": 46.04
+  },
+  {
+   "word": "all",
+   "start": 46.04,
+   "end": 46.2
+  },
+  {
+   "word": "of",
+   "start": 46.2,
+   "end": 46.3
+  },
+  {
+   "word": "the",
+   "start": 46.3,
+   "end": 46.5
+  },
+  {
+   "word": "comments",
+   "start": 46.5,
+   "end": 46.84
+  },
+  {
+   "word": "were",
+   "start": 46.84,
+   "end": 47.1
+  },
+  {
+   "word": "in",
+   "start": 47.1,
+   "end": 47.44
+  },
+  {
+   "word": "different",
+   "start": 47.44,
+   "end": 47.72
+  },
+  {
+   "word": "languages",
+   "start": 47.72,
+   "end": 48.2
+  },
+  {
+   "word": "and",
+   "start": 48.3,
+   "end": 48.42
+  },
+  {
+   "word": "then",
+   "start": 48.42,
+   "end": 48.54
+  },
+  {
+   "word": "there",
+   "start": 48.54,
+   "end": 48.62
+  },
+  {
+   "word": "was",
+   "start": 48.62,
+   "end": 48.86
+  },
+  {
+   "word": "no",
+   "start": 48.86,
+   "end": 49.16
+  },
+  {
+   "word": "Shopify",
+   "start": 49.16,
+   "end": 49.68
+  },
+  {
+   "word": "traffic.",
+   "start": 49.68,
+   "end": 50.32
+  },
+  {
+   "word": "And",
+   "start": 50.7,
+   "end": 50.78
+  },
+  {
+   "word": "so",
+   "start": 50.78,
+   "end": 50.98
+  },
+  {
+   "word": "there's",
+   "start": 50.98,
+   "end": 51.4
+  },
+  {
+   "word": "early",
+   "start": 51.96,
+   "end": 52.22
+  },
+  {
+   "word": "on",
+   "start": 52.22,
+   "end": 52.44
+  },
+  {
+   "word": "examples",
+   "start": 52.44,
+   "end": 52.76
+  },
+  {
+   "word": "of",
+   "start": 52.76,
+   "end": 53.0
+  },
+  {
+   "word": "going",
+   "start": 53.0,
+   "end": 53.18
+  },
+  {
+   "word": "all",
+   "start": 53.18,
+   "end": 53.62
+  },
+  {
+   "word": "in",
+   "start": 53.62,
+   "end": 53.82
+  },
+  {
+   "word": "and",
+   "start": 53.82,
+   "end": 54.04
+  },
+  {
+   "word": "getting",
+   "start": 54.04,
+   "end": 54.28
+  },
+  {
+   "word": "zero",
+   "start": 54.28,
+   "end": 54.84
+  },
+  {
+   "word": "awards.",
+   "start": 54.84,
+   "end": 55.14
+  }
+ ],
+ "beats": []
+}

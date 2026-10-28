@@ -1,0 +1,30 @@
+{
+  "acquisition_mode": "project",
+  "source_transcript": "/home/user/WebDrip/meme-15k-edit/cac/work/understand/transcript.json",
+  "generator": "",
+  "timeline": "/home/user/WebDrip/meme-15k-edit/cac/work/timeline.json",
+  "timeline_id": "source",
+  "timebase": "program",
+  "bindings": {
+    "video": {
+      "path": "/home/user/WebDrip/meme-15k-edit/cac/input/original-video.mp4",
+      "sha256": "473a072f9d25e11afe1a5ae5e5aec0c1eb628828365fbda28898a78fe0fc21ad",
+      "size": 20964553,
+      "modified_ns": 1793217592469072554
+    },
+    "source_transcript": {
+      "path": "/home/user/WebDrip/meme-15k-edit/cac/work/understand/transcript.json",
+      "sha256": "d067c5eca55ab15b72b238751160907318dff45417c4a26c769ae0e480773b26",
+      "size": 23996,
+      "modified_ns": 1793218734519093797
+    },
+    "timeline": {
+      "path": "/home/user/WebDrip/meme-15k-edit/cac/work/timeline.json",
+      "sha256": "d20a45183ae13af1f7313ce21b2477b10ca27a318cd1ac8ce6101a7ee39b6e67",
+      "size": 472,
+      "modified_ns": 1793218345753986192
+    }
+  },
+  "video": "/home/user/WebDrip/meme-15k-edit/cac/input/original-video.mp4",
+  "duration_s": 55.155
+}

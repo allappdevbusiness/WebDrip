@@ -1,0 +1,72 @@
+{
+  "schema_version": "video-to-shorts.candidate-review.v1",
+  "review_id": "837b34a6ba4b4b8687cf7dd7830a86fa",
+  "workflow_root": "/home/user/WebDrip/meme-15k-edit/cac/work/shorts",
+  "decision_mode": "agent",
+  "delegation_note": "User approved the plan (full 55 s clip as one vertical short, faces centered, inserts whole) and said 'cook', delegating selection and vertical approval.",
+  "bound_visual_review": true,
+  "status": "approved",
+  "opened_at": "2026-10-28T20:42:50.038712+00:00",
+  "artifacts": {
+    "source_video": {
+      "path": "/home/user/WebDrip/meme-15k-edit/cac/input/original-video.mp4",
+      "sha256": "473a072f9d25e11afe1a5ae5e5aec0c1eb628828365fbda28898a78fe0fc21ad"
+    },
+    "transcript": {
+      "path": "/home/user/WebDrip/meme-15k-edit/cac/work/shorts/transcript.json",
+      "sha256": "d5e54572bb86e3d38f8d09b5fdf9cc86cd85b8b0315fddc66c2abbb4f3340a06"
+    },
+    "text_visual_candidates": {
+      "path": "/home/user/WebDrip/meme-15k-edit/cac/work/shorts/preview/text_visual/shorts_candidates.json",
+      "sha256": "dffde44fc1fd26416f41fcdce8f3c088b3c9cfadb631cef9dce9134228d4bff4"
+    },
+    "candidate_review_page": {
+      "path": "/home/user/WebDrip/meme-15k-edit/cac/review/06-shorts/candidates-837b34a6ba4b4b8687cf7dd7830a86fa.html",
+      "sha256": "ad9235b19eff10ac78819189218c099c3000ebb278212e874d4b8fb1b031fd24"
+    },
+    "candidate_review_frames": [
+      {
+        "path": "/home/user/WebDrip/meme-15k-edit/cac/review/06-shorts/assets/candidates-837b34a6ba4b4b8687cf7dd7830a86fa/001-20.jpg",
+        "sha256": "774526968ed6bc9b44274149afd8e6a87abe51ced1a1ce9cfa19f673e976a065"
+      },
+      {
+        "path": "/home/user/WebDrip/meme-15k-edit/cac/review/06-shorts/assets/candidates-837b34a6ba4b4b8687cf7dd7830a86fa/001-50.jpg",
+        "sha256": "9049fe700eea07c21f009278021256da57993a0049843a9857acd4c474130816"
+      },
+      {
+        "path": "/home/user/WebDrip/meme-15k-edit/cac/review/06-shorts/assets/candidates-837b34a6ba4b4b8687cf7dd7830a86fa/001-80.jpg",
+        "sha256": "0fc664cccf431deac8cf92358fe6c466e66b14f9884173190755f001b3e951fd"
+      }
+    ],
+    "fixed_question": {
+      "path": "/home/user/WebDrip/meme-15k-edit/cac/review/06-shorts/candidates-837b34a6ba4b4b8687cf7dd7830a86fa-question.md",
+      "sha256": "4643d5385187b230c3b5cc33ad2e0d0e169baa9e97dae3c6cbbd9a9a5d465099"
+    }
+  },
+  "candidate_options": [
+    {
+      "reference": "text_visual/cand-001",
+      "evidence_mode": "text_visual",
+      "candidate_id": "cand-001",
+      "title": "$15,000 on meme pages, zero Shopify traffic",
+      "score": 84,
+      "duration": 55.14
+    }
+  ],
+  "question_path": "/home/user/WebDrip/meme-15k-edit/cac/review/06-shorts/candidates-837b34a6ba4b4b8687cf7dd7830a86fa-question.md",
+  "approved_candidates_path": "/home/user/WebDrip/meme-15k-edit/cac/work/shorts/review/approved_candidates.json",
+  "answered_at": "2026-10-28T20:43:08.670447+00:00",
+  "decision": {
+    "actor": "agent",
+    "selection_mode": "explicit_agent_selection",
+    "selection_rationale": "The full clip carries the question, the $15,000 bet, what came back and the 'no Shopify traffic' payoff; the brief asks for this whole clip as one 9:16 short with the voice untouched.",
+    "delivery_mode": "horizontal_and_vertical",
+    "selected_references": [
+      "text_visual/cand-001"
+    ]
+  },
+  "approved_candidates": {
+    "path": "/home/user/WebDrip/meme-15k-edit/cac/work/shorts/review/approved_candidates.json",
+    "sha256": "a7d1c5b2e0baa2d8797b08d7b45ddebf360b1f9b907c1dd8472b7579baaf8861"
+  }
+}

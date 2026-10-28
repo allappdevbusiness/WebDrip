@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "skills": {
+    "after-effects": {
+      "source": "iart-ai/motion-design-skills",
+      "sourceType": "github",
+      "skillPath": "skills/after-effects/SKILL.md",
+      "computedHash": "9db077d9664f5c45157c53b754d3c72bb346999a260c63d3d4892745a3eefd02"
+    },
+    "animation-principles": {
+      "source": "iart-ai/motion-design-skills",
+      "sourceType": "github",
+      "skillPath": "skills/animation-principles/SKILL.md",
+      "computedHash": "140b00a44e08aa7649fb1cce1c48670ff2e76f3889fbac0b5311cc5bb818d7b7"
+    },
+    "beat-sync-editing": {
+      "source": "iart-ai/motion-design-skills",
+      "sourceType": "github",
+      "skillPath": "skills/beat-sync-editing/SKILL.md",
+      "computedHash": "4089a0b65782c529ebd4fe9a576588fb51cf716573b4d683b0494e6554e61e03"
+    },
+    "color-motion": {
+      "source": "iart-ai/motion-design-skills",
+      "sourceType": "github",
+      "skillPath": "skills/color-motion/SKILL.md",
+      "computedHash": "7c05f7d35427d5fbe2fd1b5b6c0622252314a049797085fce085085cbf4c3e6e"
+    },
+    "cut-as-code": {
+      "source": "WhiteTowerAI/cut-as-code",
+      "sourceType": "github",
+      "skillPath": "skills/cut-as-code/SKILL.md",
+      "computedHash": "4f2233825f203d48817c184fcd04ef46770fe7a15ccf161642c6b6e4b8965173"
+    },
+    "editing-videos": {
+      "source": "kmilo93sd/agent-video-editor",
+      "sourceType": "github",
+      "skillPath": "skills/editing-videos/SKILL.md",
+      "computedHash": "4686cb3d53f669adb05786fe164a5233cf0eac6206527a9b546f5e8601dcf98f"
+    },
+    "extreme-motion-design": {
+      "source": "dev-isaacmello/extreme-motion-design",
+      "sourceType": "github",
+      "skillPath": "skills/extreme-motion-design/SKILL.md",
+      "computedHash": "8fe514e043f09833bb232434a3d4c2af60cc31dc5983e0ae943cfa4dbaffcfd1"
+    },
+    "logo-animation": {
+      "source": "iart-ai/motion-design-skills",
+      "sourceType": "github",
+      "skillPath": "skills/logo-animation/SKILL.md",
+      "computedHash": "3bba34771ff84fa7e68dc8026e195aab411a82b01091c9427fc8f3c8e48e7d99"
+    },
+    "motion-art-direction": {
+      "source": "iart-ai/motion-design-skills",
+      "sourceType": "github",
+      "skillPath": "skills/motion-art-direction/SKILL.md",
+      "computedHash": "bcba09b729fd3d99b3b1a388c3aaac655a3771b26dc3e8d077a110dfdd9e1631"
+    },
+    "motion-background": {
+      "source": "iart-ai/motion-design-skills",
+      "sourceType": "github",
+      "skillPath": "skills/motion-background/SKILL.md",
+      "computedHash": "99a576ac6549791b410abbc48a18074fed9e7925cf3ee5392108c59ad9e25fa4"
+    },
+    "remotion-best-practices": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-best-practices/SKILL.md",
+      "computedHash": "e3cc169fcb69c59efd9c3f1feaf0bdbf124488aec9dd2809266733f4d615b90a"
+    },
+    "remotion-captions": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-captions/SKILL.md",
+      "computedHash": "e997ec4674833ff2605d2db6ae6fe023799267c25a9015e886114ea27e906b34"
+    },
+    "remotion-create": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-create/SKILL.md",
+      "computedHash": "873757be9573e0c5b4b61604d44b9fa0e0b3d536720949ef8ea4759b3294a7d1"
+    },
+    "remotion-docs": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-docs/SKILL.md",
+      "computedHash": "a928023f6ff0c0147d92ef4c961229526cca5aacadaa8deb69b082f981a456a9"
+    },
+    "remotion-interactivity": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-interactivity/SKILL.md",
+      "computedHash": "44a8bd48b0ac01d9018161ae13cf3341505f5ce7aade551c75cf7a6a9d462922"
+    },
+    "remotion-maps": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-maps/SKILL.md",
+      "computedHash": "67aabe63d1ffe28060099f9b3f4d008bd63c95f77cb9b944710e21920ff175ca"
+    },
+    "remotion-markup": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-markup/SKILL.md",
+      "computedHash": "c4a3ebb4ef11bd881fd5712f47f61e0c7cb2ebc3b4fe779e32a5eac8d891dff5"
+    },
+    "remotion-multimedia": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-multimedia/SKILL.md",
+      "computedHash": "fa62009668e36465a7196e53c1c78d2579095d63e405e453a31ccb8ddd6eef19"
+    },
+    "remotion-render": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-render/SKILL.md",
+      "computedHash": "f681e71be3f6853552c57fccc5224be62edf58182cbd266100e7153f196d6731"
+    },
+    "remotion-saas": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-saas/SKILL.md",
+      "computedHash": "80881f6e9849011345324d6dd371a6b739d2adfb259d7871ffa803f1c38b2958"
+    },
+    "remotion-studio": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-studio/SKILL.md",
+      "computedHash": "b4af8d2cb77e7ad1d529ee670f5d0c9b6a3cdf26956a0a4bc9c88bc570022c99"
+    },
+    "remotion-upgrade": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-upgrade/SKILL.md",
+      "computedHash": "50cc38a4bb07ed417a2783d5d40daac83e45062959db3820a852fd23c2661158"
+    },
+    "remotion-video": {
+      "source": "iart-ai/motion-design-skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-video/SKILL.md",
+      "computedHash": "940885087443f4aa5d3baf6edb4ed25edafea2435b52922e120200b4c1af99ba"
+    },
+    "shot-composition": {
+      "source": "iart-ai/motion-design-skills",
+      "sourceType": "github",
+      "skillPath": "skills/shot-composition/SKILL.md",
+      "computedHash": "9ff4551d175f951fb443a0680020871eb93c5ae07a0f36a2008ca98e5d0fa324"
+    },
+    "video-add-b-roll": {
+      "source": "WhiteTowerAI/cut-as-code",
+      "sourceType": "github",
+      "skillPath": "skills/video-add-b-roll/SKILL.md",
+      "computedHash": "f01fbd064555ea75dcc87bf9c4e9a262e9f94e684b95b40fad4c93af184fef81"
+    },
+    "video-add-captions": {
+      "source": "WhiteTowerAI/cut-as-code",
+      "sourceType": "github",
+      "skillPath": "skills/video-add-captions/SKILL.md",
+      "computedHash": "acb4321d6bb4d55eac076521d682d6e63005f113749d55946d8bba2c49c2bb14"
+    },
+    "video-add-content-cards": {
+      "source": "WhiteTowerAI/cut-as-code",
+      "sourceType": "github",
+      "skillPath": "skills/video-add-content-cards/SKILL.md",
+      "computedHash": "0336a1c136eb07379bb705fb7f7bba18f864992a62e75d9f7d7dfbd54713532a"
+    },
+    "video-color-grade": {
+      "source": "WhiteTowerAI/cut-as-code",
+      "sourceType": "github",
+      "skillPath": "skills/video-color-grade/SKILL.md",
+      "computedHash": "738885851e3f5f327debc9acfe6d8b0cdb6cb53c9b56d8f6b2db24b369ffc70c"
+    },
+    "video-cut": {
+      "source": "WhiteTowerAI/cut-as-code",
+      "sourceType": "github",
+      "skillPath": "skills/video-cut/SKILL.md",
+      "computedHash": "7c6c1eb6f2844beb8a5f2513d8ef2d0a38d529568f31626fa3c41167ce671226"
+    },
+    "video-edit-compare": {
+      "source": "WhiteTowerAI/cut-as-code",
+      "sourceType": "github",
+      "skillPath": "skills/video-edit-compare/SKILL.md",
+      "computedHash": "ef6f41018209d0252831d4e87b1e83feb96aad27644261c31734023e828be3a9"
+    },
+    "video-to-shorts": {
+      "source": "WhiteTowerAI/cut-as-code",
+      "sourceType": "github",
+      "skillPath": "skills/video-to-shorts/SKILL.md",
+      "computedHash": "19e65b3539c1cb3016f01d6d73d52bf1fc5ca00d42d94a5d4b40149490b1f911"
+    },
+    "video-understand": {
+      "source": "WhiteTowerAI/cut-as-code",
+      "sourceType": "github",
+      "skillPath": "skills/video-understand/SKILL.md",
+      "computedHash": "d6c70850478013ccfc864025ee94ab8008b95965acca59db28f9bf75493ef548"
+    }
+  }
+}
