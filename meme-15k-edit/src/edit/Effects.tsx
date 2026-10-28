@@ -5,7 +5,7 @@ import {Cue, cue} from '../lib/score';
 import {ACCENT, C, FONT, MONO, NOTE} from '../theme';
 import {BOTTOM, FULL, PICK, Rect, SHOTS, TOP, f, facesAt, gregCropAt, mapPoint} from './data';
 import {Cutout, TORN_H, View, gregView, torn} from './Footage';
-import {PaperBackdrop, TitleBar} from './Insert';
+import {TitleBar} from './Insert';
 
 const at = (name: Cue) => f(cue(name));
 
@@ -119,7 +119,9 @@ const PaperWipeInner: React.FC<{i: number}> = ({i}) => {
 	return (
 		<AbsoluteFill style={{pointerEvents: 'none'}}>
 			<div data-decor style={{position: 'absolute', left: -60, top: -40, width: 1200, height: 2000, translate: `0px ${y}px`, rotate: `${tilt}deg`, background: C.paper, clipPath: torn(`wipe${i}`, 26, 22)}}>
-				<AbsoluteFill style={{backgroundImage: `radial-gradient(circle, ${C.ink} 2px, transparent 2.6px)`, backgroundSize: '18px 18px', opacity: 0.1}} />
+				{/* ink body inside a thin torn paper rim: the motif without a bright full-frame flash over dark footage */}
+				<div style={{position: 'absolute', left: 0, right: 0, top: 22, bottom: 22, background: C.ink, clipPath: torn(`wipeb${i}`, 14, 22)}} />
+				<AbsoluteFill style={{backgroundImage: `radial-gradient(circle, ${C.paper} 2px, transparent 2.6px)`, backgroundSize: '18px 18px', opacity: 0.06}} />
 				<div style={{position: 'absolute', left: 0, right: 0, top: 960, height: 22, background: C.red, clipPath: torn(`wr${i}`, 6, 30)}} />
 			</div>
 		</AbsoluteFill>
@@ -156,7 +158,10 @@ const SlamInner: React.FC<{start: number; len: number}> = ({start, len}) => {
 	const shot: React.CSSProperties = {position: 'absolute', inset: 0, scale: String(k), transformOrigin: '50% 100%'};
 	return (
 		<AbsoluteFill>
-			<PaperBackdrop word="$15,000" />
+			{/* dark ink backdrop (a light one flashed as the shot pulled back) */}
+			<AbsoluteFill style={{background: C.ink}}>
+				<AbsoluteFill style={{backgroundImage: `linear-gradient(${C.winShadow} 2px, transparent 2px), linear-gradient(90deg, ${C.winShadow} 2px, transparent 2px)`, backgroundSize: '135px 135px', opacity: 0.25}} />
+			</AbsoluteFill>
 			<div style={{...shot, boxShadow: `0 0 0 6px ${C.ink}, 16px 16px 0 6px ${C.red}`, overflow: 'hidden'}}>
 				<View crop={crop} box={FULL} trimBefore={start} />
 			</div>
