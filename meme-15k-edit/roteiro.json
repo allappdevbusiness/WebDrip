@@ -40,7 +40,14 @@
    "cues": {
     "hook_in": "scene",
     "hosts_cut": "t:2.002"
-   }
+   },
+   "sfx": [
+    {
+     "at": "cue:hook_in+0.067",
+     "file": "sfx/stinger.wav",
+     "gain_db": -15.0
+    }
+   ]
   },
   {
    "id": "career",
@@ -55,7 +62,24 @@
    "cues": {
     "teleport": "word:Early#2",
     "profile_in": "t:8.909"
-   }
+   },
+   "sfx": [
+    {
+     "at": "cue:hosts_cut-0.25",
+     "file": "sfx/whoosh_a.wav",
+     "gain_db": -13.2
+    },
+    {
+     "at": "cue:teleport-0.03",
+     "file": "sfx/zap.wav",
+     "gain_db": -12.1
+    },
+    {
+     "at": "cue:profile_in-0.05",
+     "file": "sfx/paper_rip.wav",
+     "gain_db": -12.3
+    }
+   ]
   },
   {
    "id": "mari",
@@ -68,7 +92,14 @@
     "profile_out": "t:11.778",
     "bloom": "word:Bloom.",
     "long_game": "word:long"
-   }
+   },
+   "sfx": [
+    {
+     "at": "cue:profile_out-0.25",
+     "file": "sfx/whoosh_b.wav",
+     "gain_db": -15.4
+    }
+   ]
   },
   {
    "id": "memes",
@@ -79,7 +110,14 @@
    ],
    "cues": {
     "memes_in": "t:21.922"
-   }
+   },
+   "sfx": [
+    {
+     "at": "cue:memes_in-0.05",
+     "file": "sfx/paper_rip.wav",
+     "gain_db": -12.3
+    }
+   ]
   },
   {
    "id": "allin",
@@ -95,7 +133,34 @@
     "devil_in": "word:I'm",
     "devil_out": "word:campaign..end",
     "xray": "word:campaign..end"
-   }
+   },
+   "sfx": [
+    {
+     "at": "cue:memes_out-0.25",
+     "file": "sfx/whoosh_b.wav",
+     "gain_db": -15.4
+    },
+    {
+     "at": "cue:slam-0.03",
+     "file": "sfx/boom.wav",
+     "gain_db": -23.9
+    },
+    {
+     "at": "cue:devil_in-0.03",
+     "file": "sfx/pop.wav",
+     "gain_db": -11.4
+    },
+    {
+     "at": "cue:devil_out-0.2",
+     "file": "sfx/plop.wav",
+     "gain_db": -24.1
+    },
+    {
+     "at": "cue:xray-0.03",
+     "file": "sfx/glitch_xray.wav",
+     "gain_db": -20.5
+    }
+   ]
   },
   {
    "id": "portfolio",
@@ -123,7 +188,39 @@
     "hosts_out": "t:45.912",
     "bgshift": "word:comments",
     "bgshift_end": "word:languages.end"
-   }
+   },
+   "sfx": [
+    {
+     "at": "cue:flicker-0.03",
+     "file": "sfx/glitch_flicker.wav",
+     "gain_db": -5.8
+    },
+    {
+     "at": "cue:hosts_in-0.25",
+     "file": "sfx/whoosh_a.wav",
+     "gain_db": -13.2
+    },
+    {
+     "at": "cue:eyes-0.03",
+     "file": "sfx/laser.wav",
+     "gain_db": -5.8
+    },
+    {
+     "at": "cue:hosts_out-0.25",
+     "file": "sfx/whoosh_b.wav",
+     "gain_db": -15.4
+    },
+    {
+     "at": "cue:bgshift",
+     "file": "sfx/error_beep.wav",
+     "gain_db": -9.4
+    },
+    {
+     "at": "cue:bgshift+0.4",
+     "file": "sfx/error_beep.wav",
+     "gain_db": -11.4
+    }
+   ]
   },
   {
    "id": "payoff",
@@ -138,7 +235,19 @@
     "soul": "word:traffic..end",
     "shopify": "word:Shopify",
     "traffic": "word:traffic."
-   }
+   },
+   "sfx": [
+    {
+     "at": "cue:fried-0.03",
+     "file": "sfx/fried_boom.wav",
+     "gain_db": -12.8
+    },
+    {
+     "at": "cue:soul-0.03",
+     "file": "sfx/soul_whoosh.wav",
+     "gain_db": -8.2
+    }
+   ]
   },
   {
    "id": "lesson",
@@ -151,7 +260,14 @@
     "soul_end": "t:51.3",
     "flop": "word:zero",
     "payoff_duck_end": "t:51.2"
-   }
+   },
+   "sfx": [
+    {
+     "at": "cue:flop-0.03",
+     "file": "sfx/scratch.wav",
+     "gain_db": -9.5
+    }
+   ]
   }
  ],
  "tail": 0

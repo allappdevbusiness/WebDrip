@@ -1,11 +1,11 @@
 import React from 'react';
 import {AbsoluteFill, Sequence, useCurrentFrame, useVideoConfig} from 'remotion';
-import {ease, easeX, jitter, pop, springs, stepped, tween, wiggle} from '../lib/motion';
+import {ease, easeX, jitter, keys, pop, springs, stepped, tween, wiggle} from '../lib/motion';
 import {Cue, cue} from '../lib/score';
 import {ACCENT, C, FONT, MONO, NOTE} from '../theme';
 import {BOTTOM, FULL, PICK, Rect, SHOTS, TOP, f, facesAt, gregCropAt, mapPoint} from './data';
 import {Cutout, TORN_H, View, gregView, torn} from './Footage';
-import {TitleBar} from './Insert';
+import {PaperBackdrop, TitleBar} from './Insert';
 
 const at = (name: Cue) => f(cue(name));
 
@@ -103,6 +103,30 @@ export const HookHeadline: React.FC = () => {
 	);
 };
 
+// ---------- torn-paper wipe over the hard cuts into/out of the inserts and two-shots ----------
+const WIPE_IN = 5;
+const WIPE_OUT = 6;
+const PaperWipe: React.FC<{name: Cue; i: number}> = ({name, i}) => (
+	<At name={name} dur={WIPE_IN + WIPE_OUT} shift={-WIPE_IN}>
+		{() => <PaperWipeInner i={i} />}
+	</At>
+);
+const PaperWipeInner: React.FC<{i: number}> = ({i}) => {
+	const local = useCurrentFrame();
+	// in from below, covers the cut frame, out through the top: the panel is the motif, the cut happens under it
+	const y = keys(local, [0, WIPE_IN, WIPE_IN + WIPE_OUT], [2000, 0, -2000], [ease.enter, ease.move]);
+	const tilt = (i % 2 ? 1 : -1) * 3;
+	return (
+		<AbsoluteFill style={{pointerEvents: 'none'}}>
+			<div data-decor style={{position: 'absolute', left: -60, top: -40, width: 1200, height: 2000, translate: `0px ${y}px`, rotate: `${tilt}deg`, background: C.paper, clipPath: torn(`wipe${i}`, 26, 22)}}>
+				<AbsoluteFill style={{backgroundImage: `radial-gradient(circle, ${C.ink} 2px, transparent 2.6px)`, backgroundSize: '18px 18px', opacity: 0.1}} />
+				<div style={{position: 'absolute', left: 0, right: 0, top: 960, height: 22, background: C.red, clipPath: torn(`wr${i}`, 6, 30)}} />
+			</div>
+		</AbsoluteFill>
+	);
+};
+const CUTS: Cue[] = ['hosts_cut', 'profile_in', 'profile_out', 'memes_in', 'memes_out', 'hosts_in', 'hosts_out'];
+
 // ---------- 5. bad acting teleport: 2-frame white strobe over the jump ----------
 const Teleport: React.FC = () => (
 	<At name="teleport" dur={2} shift={-1}>
@@ -122,32 +146,43 @@ const TextSlam: React.FC = () => {
 const SlamInner: React.FC<{start: number; len: number}> = ({start, len}) => {
 	const local = useCurrentFrame();
 	const frame = start + local;
-	const s = tween(local, 0, 5, 2.2, 1, easeX.overshoot);
-	const shake = local < 8 ? jitter('slam', local, 1, 10) : 0;
-	const out = tween(local, len - 5, 5, 0, 1, ease.exit);
+	const crop = gregView(frame);
+	// the shot pulls back into a paper frame to open room above his head, then pushes back in for the next shot
+	const k = keys(local, [0, 9, len - 9, len], [1, 0.8, 0.8, 1], [ease.move, ease.linear, ease.move]);
+	// the number rises out from behind his head (his cutout stays in front) and lands above it, fully readable
+	const rise = tween(local, 3, 10, 0, 1, easeX.overshoot);
+	const land = local >= 11 && local < 17 ? jitter('slam', local, 1, 6) : 0;
+	const out = tween(local, len - 7, 7, 0, 1, ease.exit);
+	const shot: React.CSSProperties = {position: 'absolute', inset: 0, scale: String(k), transformOrigin: '50% 100%'};
 	return (
 		<AbsoluteFill>
+			<PaperBackdrop word="$15,000" />
+			<div style={{...shot, boxShadow: `0 0 0 6px ${C.ink}, 16px 16px 0 6px ${C.red}`, overflow: 'hidden'}}>
+				<View crop={crop} box={FULL} trimBefore={start} />
+			</div>
 			<div
 				style={{
 					position: 'absolute',
 					left: 0,
 					right: 0,
-					top: 150,
+					top: 640 - 500 * rise,
 					textAlign: 'center',
 					fontFamily: FONT,
-					fontSize: 300,
+					fontSize: 250,
 					lineHeight: 1,
 					color: C.white,
-					textShadow: `12px 12px 0 ${C.red}, 24px 24px 0 ${C.ink}`,
-					scale: String(s * (1 - 0.35 * out)),
-					opacity: 1 - out,
+					textShadow: `10px 10px 0 ${C.red}, 20px 20px 0 ${C.ink}`,
+					scale: String((0.55 + 0.45 * rise) * (1 + 0.1 * out)),
+					opacity: (local >= 3 ? 1 : 0) * (1 - out),
 					rotate: '-4deg',
-					translate: `${shake}px ${shake * 0.6}px`,
+					translate: `${land}px ${land * 0.6}px`,
 				}}
 			>
 				$15,000
 			</div>
-			<Cutout set="slam" frame={frame} crop={gregView(frame)} />
+			<div style={{...shot, overflow: 'hidden'}}>
+				<Cutout set="slam" frame={frame} crop={crop} />
+			</div>
 		</AbsoluteFill>
 	);
 };
@@ -300,14 +335,15 @@ const COMMENTS = [
 ];
 const BgShift: React.FC = () => {
 	const len = at('bgshift_end') - at('bgshift') + 1;
-	return <At name="bgshift" dur={len}>{(start) => <BgShiftInner start={start} />}</At>;
+	return <At name="bgshift" dur={len + 4}>{(start) => <BgShiftInner start={start} len={len} />}</At>;
 };
-const BgShiftInner: React.FC<{start: number}> = ({start}) => {
+const BgShiftInner: React.FC<{start: number; len: number}> = ({start, len}) => {
 	const local = useCurrentFrame();
+	const gone = tween(local, len, 4, 0, 1, ease.exit);
 	const frame = start + local;
 	const step = stepped(local, 2);
 	return (
-		<AbsoluteFill style={{background: C.pink, overflow: 'hidden'}}>
+		<AbsoluteFill style={{background: C.pink, overflow: 'hidden', opacity: 1 - gone}}>
 			<AbsoluteFill
 				data-decor
 				style={{
@@ -362,11 +398,13 @@ const PayoffSlam: React.FC = () => {
 const PayoffInner: React.FC<{start: number}> = ({start}) => {
 	const local = useCurrentFrame();
 	const word = (name: Cue) => at(name) - start;
+	const len = at('soul') - start;
+	const out = tween(local, len - 4, 4, 0, 1, ease.exit);
 	const slam = (from: number) => (local >= from ? tween(local, from, 4, 1.25, 1, easeX.overshoot) : 0);
 	const strip: React.CSSProperties = {fontSize: 150, lineHeight: 1.05, padding: '10px 26px 2px', whiteSpace: 'nowrap', clipPath: torn('payoff', 12, 24)};
 	return (
 		<AbsoluteFill>
-			<div style={{position: 'absolute', left: 0, right: 0, top: 1060, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6}}>
+			<div style={{position: 'absolute', left: 0, right: 0, top: 1060, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, opacity: 1 - out, translate: `0px ${-40 * out}px`}}>
 				<div style={{display: 'flex', gap: 18, rotate: '-2deg'}}>
 					<span style={{...strip, background: C.ink, color: C.white, fontFamily: FONT, scale: String(slam(0)), opacity: local >= 0 ? 1 : 0}}>NO</span>
 					<span style={{...strip, background: C.ink, color: C.white, fontFamily: FONT, scale: String(slam(word('shopify'))), opacity: local >= word('shopify') ? 1 : 0}}>SHOPIFY</span>
@@ -388,8 +426,9 @@ const SoulInner: React.FC<{len: number}> = ({len}) => {
 	const crop = gregCropAt(n);
 	const open = tween(local, 0, 5, 0, 1, ease.enter);
 	const rise = tween(local, 3, len - 3, 0, 1, ease.move);
+	const back = tween(local, len - 6, 6, 0, 1, ease.move);
 	return (
-		<AbsoluteFill style={{background: C.ink}}>
+		<AbsoluteFill style={{background: C.ink, opacity: 1 - back}}>
 			<View crop={crop} box={FULL} trimBefore={n} freeze filter="grayscale(1) contrast(1.15) brightness(0.9)" />
 			{/* the sky tears open across the top */}
 			<div style={{position: 'absolute', left: -20, top: -40, width: 1120, height: 760 * open, overflow: 'hidden', clipPath: TORN_H}}>
@@ -440,6 +479,9 @@ export const Effects: React.FC = () => {
 			<Sequence from={0} durationInFrames={at('hosts_cut')} name="hook headline">
 				<HookHeadline />
 			</Sequence>
+			{CUTS.map((c, i) => (
+				<PaperWipe key={c} name={c} i={i} />
+			))}
 			<Teleport />
 			<TextSlam />
 			<Devil />

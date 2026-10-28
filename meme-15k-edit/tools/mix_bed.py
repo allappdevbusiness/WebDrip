@@ -46,8 +46,14 @@ pay = np.clip(np.minimum((t - (m0 - ramp)) / ramp, ((m1 + ramp) - t) / ramp), 0,
 duck = duck + mus.get('payoff_duck_db', -12) * pay
 music *= mix.db(duck)[:, None]
 
+# Epidemic Sound effects from the score (timeline.json sfx: at, file, gain_db), placed like mix.py does
+fx = np.zeros((n, 2), np.float32)
+for ev in tl.get('sfx', []):
+    mix.place(fx, mix.load(base / ev['file']), ev['at'], mix.db(ev.get('gain_db', -12)))
+
 out = base / tl.get('audio', 'audio/mix.wav')
-sf.write(out, voice + music, SR, subtype='FLOAT')
-peak = 20 * np.log10(np.abs(voice + music).max() + 1e-12)
+bed = music + fx
+sf.write(out, voice + bed, SR, subtype='FLOAT')
+peak = 20 * np.log10(np.abs(voice + bed).max() + 1e-12)
 print(json.dumps({'out': str(out), 'duration': tl['duration'], 'sample_peak_dbfs': round(float(peak), 2),
-                  'payoff_duck': [m0, m1]}))
+                  'payoff_duck': [m0, m1], 'sfx': len(tl.get('sfx', []))}))

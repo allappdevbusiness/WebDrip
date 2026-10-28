@@ -106,11 +106,13 @@ export const Captions: React.FC = () => {
 							const lf = frame - Math.round(w.start * FPS);
 							const isKey = !accentUsed && KEYS.has(bare(w.word));
 							if (isKey) accentUsed = true;
-							const scale = shown ? tween(lf, 0, 4, 1.25, 1, ease.sharp) : 1;
+							const scale = shown ? tween(lf, 0, 5, 0.82, 1, ease.enter) : 1;
+							const lift = shown ? tween(lf, 0, 5, 18, 0, ease.enter) : 0;
+							const fade = shown ? 1 : 0;
 							return (
 								<span
 									key={`${w.start}-${w.word}`}
-									style={{opacity: shown ? 1 : 0, scale: String(scale), filter: `drop-shadow(6px 6px 0 ${isKey ? C.ink : C.red})`}}
+									style={{opacity: fade, scale: String(scale), translate: `0px ${lift}px`, filter: `drop-shadow(6px 6px 0 ${isKey ? C.ink : C.red})`}}
 								>
 									<span
 										style={{

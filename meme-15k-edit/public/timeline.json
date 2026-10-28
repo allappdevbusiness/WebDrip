@@ -64,7 +64,108 @@
    "end": 55.1667
   }
  ],
- "sfx": [],
+ "sfx": [
+  {
+   "at": 0.067,
+   "file": "sfx/stinger.wav",
+   "gain_db": -15.0
+  },
+  {
+   "at": 1.733,
+   "file": "sfx/whoosh_a.wav",
+   "gain_db": -13.2
+  },
+  {
+   "at": 5.433,
+   "file": "sfx/zap.wav",
+   "gain_db": -12.1
+  },
+  {
+   "at": 8.867,
+   "file": "sfx/paper_rip.wav",
+   "gain_db": -12.3
+  },
+  {
+   "at": 11.533,
+   "file": "sfx/whoosh_b.wav",
+   "gain_db": -15.4
+  },
+  {
+   "at": 21.867,
+   "file": "sfx/paper_rip.wav",
+   "gain_db": -12.3
+  },
+  {
+   "at": 26.167,
+   "file": "sfx/whoosh_b.wav",
+   "gain_db": -15.4
+  },
+  {
+   "at": 26.533,
+   "file": "sfx/boom.wav",
+   "gain_db": -23.9
+  },
+  {
+   "at": 28.4,
+   "file": "sfx/pop.wav",
+   "gain_db": -11.4
+  },
+  {
+   "at": 31.467,
+   "file": "sfx/plop.wav",
+   "gain_db": -24.1
+  },
+  {
+   "at": 31.633,
+   "file": "sfx/glitch_xray.wav",
+   "gain_db": -20.5
+  },
+  {
+   "at": 43.9,
+   "file": "sfx/glitch_flicker.wav",
+   "gain_db": -5.8
+  },
+  {
+   "at": 44.133,
+   "file": "sfx/whoosh_a.wav",
+   "gain_db": -13.2
+  },
+  {
+   "at": 45.033,
+   "file": "sfx/laser.wav",
+   "gain_db": -5.8
+  },
+  {
+   "at": 45.667,
+   "file": "sfx/whoosh_b.wav",
+   "gain_db": -15.4
+  },
+  {
+   "at": 46.5,
+   "file": "sfx/error_beep.wav",
+   "gain_db": -9.4
+  },
+  {
+   "at": 46.9,
+   "file": "sfx/error_beep.wav",
+   "gain_db": -11.4
+  },
+  {
+   "at": 48.833,
+   "file": "sfx/fried_boom.wav",
+   "gain_db": -12.8
+  },
+  {
+   "at": 50.3,
+   "file": "sfx/soul_whoosh.wav",
+   "gain_db": -8.2
+  },
+  {
+   "at": 54.233,
+   "file": "sfx/scratch.wav",
+   "gain_db": -9.5
+  }
+ ],
  "loudness": {
   "lufs": -15.7,
   "tp": -0.9

@@ -65,8 +65,8 @@ export const gregView = (frame: number): Rect => {
 	const tp = f(cue('teleport'));
 	const shifted = frame >= tp && frame < f(cue('profile_in')) ? {...crop, x: crop.x - 100} : crop;
 	// Punch-ins on the words that carry the point; each one ends at the next cut.
-	const z1 = frame >= f(cue('bloom')) && frame < f(cue('memes_in')) ? keys(frame, [f(cue('bloom')), f(cue('bloom')) + 6, f(cue('long_game')), f(cue('memes_in'))], [1, 1.12, 1.12, 1.18], [ease.sharp, ease.linear, ease.move]) : 1;
-	const z2 = frame >= f(cue('went_all_in')) && frame < f(cue('hosts_in')) ? keys(frame, [f(cue('went_all_in')), f(cue('went_all_in')) + 6, f(cue('followers')), f(cue('hosts_in'))], [1, 1.1, 1.1, 1.2], [ease.sharp, ease.linear, ease.move]) : 1;
+	const z1 = frame >= f(cue('bloom')) && frame < f(cue('memes_in')) ? keys(frame, [f(cue('bloom')), f(cue('bloom')) + 14, f(cue('long_game')), f(cue('memes_in'))], [1, 1.12, 1.12, 1.18], [ease.move, ease.linear, ease.move]) : 1;
+	const z2 = frame >= f(cue('went_all_in')) && frame < f(cue('hosts_in')) ? keys(frame, [f(cue('went_all_in')), f(cue('went_all_in')) + 14, f(cue('followers')), f(cue('hosts_in'))], [1, 1.1, 1.1, 1.2], [ease.move, ease.linear, ease.move]) : 1;
 	return zoomed(shifted, Math.max(z1, z2), frame);
 };
 
