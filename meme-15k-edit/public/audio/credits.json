@@ -8,5 +8,125 @@
   "file": "audio/hidden_agenda.mp3",
   "attribution": "Music: Kevin MacLeod (incompetech.com)",
   "modifications": "Used as a bed under the voice: -10 dB, -6 dB more while the voice is active, -12 dB more at the payoff (48.3-51.2 s), 0.4 s fade-in, 1.2 s fade-out. Not burned into the video; credit goes in the post caption."
+ },
+ {
+  "title": "Swooshes, Whoosh, Short, Car, Fast, Dry",
+  "author": "Epidemic Sound",
+  "file": "sfx/whoosh_a.wav",
+  "license": "Epidemic Sound subscription (user account, requested by the user)",
+  "attribution": null,
+  "modifications": "Placed from score cues, gain set so each sits >= 13 dB under the voice."
+ },
+ {
+  "title": "Swooshes, Swish, Short, Bright, Fast, Flyby",
+  "author": "Epidemic Sound",
+  "file": "sfx/whoosh_b.wav",
+  "license": "Epidemic Sound subscription (user account, requested by the user)",
+  "attribution": null,
+  "modifications": "Placed from score cues, gain set so each sits >= 13 dB under the voice."
+ },
+ {
+  "title": "Paper, Rip, Paper Bag, Tear 02",
+  "author": "Epidemic Sound",
+  "file": "sfx/paper_rip.wav",
+  "license": "Epidemic Sound subscription (user account, requested by the user)",
+  "attribution": null,
+  "modifications": "Placed from score cues, gain set so each sits >= 13 dB under the voice."
+ },
+ {
+  "title": "Designed, Boom, Cinematic, Deep, Boom, Impact",
+  "author": "Epidemic Sound",
+  "file": "sfx/boom.wav",
+  "license": "Epidemic Sound subscription (user account, requested by the user)",
+  "attribution": null,
+  "modifications": "Placed from score cues, gain set so each sits >= 13 dB under the voice."
+ },
+ {
+  "title": "Designed, Stinger, Impact, Hit, Dark, Small",
+  "author": "Epidemic Sound",
+  "file": "sfx/stinger.wav",
+  "license": "Epidemic Sound subscription (user account, requested by the user)",
+  "attribution": null,
+  "modifications": "Placed from score cues, gain set so each sits >= 13 dB under the voice."
+ },
+ {
+  "title": "User Interface, Glitch, Glitch Data Processing 06",
+  "author": "Epidemic Sound",
+  "file": "sfx/glitch_xray.wav",
+  "license": "Epidemic Sound subscription (user account, requested by the user)",
+  "attribution": null,
+  "modifications": "Placed from score cues, gain set so each sits >= 13 dB under the voice."
+ },
+ {
+  "title": "User Interface, Glitch, Interference, Data Beat",
+  "author": "Epidemic Sound",
+  "file": "sfx/glitch_flicker.wav",
+  "license": "Epidemic Sound subscription (user account, requested by the user)",
+  "attribution": null,
+  "modifications": "Placed from score cues, gain set so each sits >= 13 dB under the voice."
+ },
+ {
+  "title": "Cartoon, Pop, Small Lid",
+  "author": "Epidemic Sound",
+  "file": "sfx/pop.wav",
+  "license": "Epidemic Sound subscription (user account, requested by the user)",
+  "attribution": null,
+  "modifications": "Placed from score cues, gain set so each sits >= 13 dB under the voice."
+ },
+ {
+  "title": "Cartoon, Pop, Pull Out, Release, Plop",
+  "author": "Epidemic Sound",
+  "file": "sfx/plop.wav",
+  "license": "Epidemic Sound subscription (user account, requested by the user)",
+  "attribution": null,
+  "modifications": "Placed from score cues, gain set so each sits >= 13 dB under the voice."
+ },
+ {
+  "title": "Electricity, Zap, Short, Spell 02",
+  "author": "Epidemic Sound",
+  "file": "sfx/zap.wav",
+  "license": "Epidemic Sound subscription (user account, requested by the user)",
+  "attribution": null,
+  "modifications": "Placed from score cues, gain set so each sits >= 13 dB under the voice."
+ },
+ {
+  "title": "User Interface, Motion, Laser, Beam",
+  "author": "Epidemic Sound",
+  "file": "sfx/laser.wav",
+  "license": "Epidemic Sound subscription (user account, requested by the user)",
+  "attribution": null,
+  "modifications": "Placed from score cues, gain set so each sits >= 13 dB under the voice."
+ },
+ {
+  "title": "User Interface, Alert, Error, Glitch 02",
+  "author": "Epidemic Sound",
+  "file": "sfx/error_beep.wav",
+  "license": "Epidemic Sound subscription (user account, requested by the user)",
+  "attribution": null,
+  "modifications": "Placed from score cues, gain set so each sits >= 13 dB under the voice."
+ },
+ {
+  "title": "Designed, Boom, Deep, Short, Distorted, Wobble",
+  "author": "Epidemic Sound",
+  "file": "sfx/fried_boom.wav",
+  "license": "Epidemic Sound subscription (user account, requested by the user)",
+  "attribution": null,
+  "modifications": "Placed from score cues, gain set so each sits >= 13 dB under the voice."
+ },
+ {
+  "title": "Communications, Phonograph, Vinyl, Record Scratch 06",
+  "author": "Epidemic Sound",
+  "file": "sfx/scratch.wav",
+  "license": "Epidemic Sound subscription (user account, requested by the user)",
+  "attribution": null,
+  "modifications": "Placed from score cues, gain set so each sits >= 13 dB under the voice."
+ },
+ {
+  "title": "Designed, Ethereal, Fantasy, Ghost, Whoosh, Pad, Fx 02",
+  "author": "Epidemic Sound",
+  "file": "sfx/soul_whoosh.wav",
+  "license": "Epidemic Sound subscription (user account, requested by the user)",
+  "attribution": null,
+  "modifications": "Placed from score cues, gain set so each sits >= 13 dB under the voice."
  }
 ]
