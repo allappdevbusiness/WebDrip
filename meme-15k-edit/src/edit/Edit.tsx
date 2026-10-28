@@ -16,7 +16,7 @@ const PaperEdges: React.FC = () => {
 	if (shotAt(frame).kind !== 'greg') return null;
 	return (
 		<AbsoluteFill style={{pointerEvents: 'none'}}>
-			<div data-decor style={{position: 'absolute', left: -20, top: -60, width: 1120, height: 150, background: C.paper, clipPath: TORN_H, boxShadow: '0 6px 0 rgba(0,0,0,.3)'}} />
+			<div data-decor style={{position: 'absolute', left: -20, top: -60, width: 1120, height: 112, background: C.paper, clipPath: TORN_H, boxShadow: '0 6px 0 rgba(0,0,0,.3)'}} />
 			<div data-decor style={{position: 'absolute', left: -20, top: 1830, width: 1120, height: 150, background: C.paper, clipPath: TORN_H}} />
 			<div data-decor style={{position: 'absolute', left: -20, top: 1818, width: 1120, height: 16, background: C.red, clipPath: TORN_H, opacity: 0.9}} />
 		</AbsoluteFill>

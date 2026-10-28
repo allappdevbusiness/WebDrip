@@ -77,14 +77,14 @@ const PAGES = (() => {
 
 // The word that carries each idea gets the red serif accent (one per page at most).
 const KEYS = new Set(
-	['risk', 'career', 'marketing', 'follow', 'Bloom', 'community', 'long', 'meme', '$15,000', 'all', 'massive', 'campaign', 'perfect', 'portfolio', '24', 'followers', 'Indian', 'comments', 'languages', 'Shopify', 'zero'].map((w) => w.toLowerCase()),
+	['risk', 'career', 'marketing', 'instagram', 'Bloom', 'community', 'long', 'meme', '$15,000', 'all', 'massive', 'campaign', 'perfect', 'portfolio', '24', 'followers', 'Indian', 'comments', 'languages', 'Shopify', 'zero'].map((w) => w.toLowerCase()),
 );
 const bare = (w: string) => w.replace(/[^\w$,']/g, '').replace(/,$/, '').toLowerCase();
 
 const yFor = (frame: number) => {
 	const s = shotAt(frame);
 	if (s.kind === 'insert') return 1270;
-	if (s.kind === 'hosts') return s.from === 0 ? 1120 : 1010;
+	if (s.kind === 'hosts') return s.from === 0 ? 1085 : 1010;
 	return 1230;
 };
 
@@ -93,7 +93,7 @@ export const Captions: React.FC = () => {
 	const t = frame / FPS;
 	const page = PAGES.find((p) => t >= p.start && t < p.end);
 	// the payoff line is carried by its own slam (Effects.tsx), so the caption steps aside
-	if (!page || (t >= cue('fried') && t < cue('soul'))) return null;
+	if (!page || (page.start < cue('soul') && page.end > cue('fried'))) return null;
 	let accentUsed = false;
 	const y = yFor(frame);
 	return (
@@ -121,7 +121,7 @@ export const Captions: React.FC = () => {
 											fontFamily: isKey ? ACCENT : FONT,
 											fontStyle: isKey ? 'italic' : 'normal',
 											fontWeight: isKey ? 900 : 400,
-											fontSize: isKey ? 84 : 92,
+											fontSize: 92,
 											lineHeight: 1.12,
 											textTransform: isKey ? 'none' : 'uppercase',
 											clipPath: TORN_STRIP,

@@ -71,7 +71,7 @@ export const HookHeadline: React.FC = () => {
 	return (
 		<AbsoluteFill style={{opacity: 1 - out, translate: `0px ${-60 * out}px`}}>
 			<div data-decor style={{position: 'absolute', left: -20, top: 700, width: 1120, height: 285, background: C.paper, clipPath: TORN_H}} />
-			<div style={{position: 'absolute', left: 0, right: 0, top: 716, textAlign: 'center', fontFamily: MONO, fontWeight: 700, fontSize: 30, color: C.ink}}>
+			<div style={{position: 'absolute', left: 0, right: 0, top: 712, textAlign: 'center', fontFamily: MONO, fontWeight: 700, fontSize: 34, color: C.ink}}>
 				&gt; risk_that_didnt_work_out.exe
 			</div>
 			<div
@@ -132,10 +132,10 @@ const SlamInner: React.FC<{start: number; len: number}> = ({start, len}) => {
 					position: 'absolute',
 					left: 0,
 					right: 0,
-					top: 120,
+					top: 150,
 					textAlign: 'center',
 					fontFamily: FONT,
-					fontSize: 370,
+					fontSize: 300,
 					lineHeight: 1,
 					color: C.white,
 					textShadow: `12px 12px 0 ${C.red}, 24px 24px 0 ${C.ink}`,
@@ -195,8 +195,10 @@ const DevilInner: React.FC<{start: number; len: number}> = ({start, len}) => {
 					<View crop={crop} box={{x: 0, y: 0, w: D, h: D}} trimBefore={start} filter="saturate(1.4) contrast(1.15) sepia(0.35) hue-rotate(-25deg)" />
 					<AbsoluteFill style={{background: C.red, mixBlendMode: 'multiply', opacity: 0.35}} />
 				</div>
-				<div style={{position: 'absolute', left: 0, top: D + 18, background: C.ink, color: C.acid, fontFamily: MONO, fontWeight: 700, fontSize: 32, padding: '4px 10px', whiteSpace: 'nowrap'}}>
-					intrusive_thought.exe
+				<div style={{position: 'absolute', left: 0, top: D + 18, background: C.ink, color: C.acid, fontFamily: MONO, fontWeight: 700, fontSize: 32, padding: '4px 10px', lineHeight: 1.15}}>
+					intrusive_
+					<br />
+					thought.exe
 				</div>
 			</div>
 		</AbsoluteFill>
@@ -319,7 +321,7 @@ const BgShiftInner: React.FC<{start: number}> = ({start}) => {
 				const appear = i * 3;
 				if (local < appear) return null;
 				// two columns hugging the frame edges so the wall frames him instead of hiding behind him
-				const x = (i % 2 === 0 ? -30 + ((i * 37) % 50) : 600 + ((i * 53) % 50)) + jitter(`c${i}`, local, 2, 8);
+				const x = (i % 2 === 0 ? 20 + ((i * 37) % 30) : 570 + ((i * 53) % 30)) + jitter(`c${i}`, local, 2, 8);
 				const y = 140 + Math.floor(i / 2) * 270 + ((i * 41) % 60) + jitter(`d${i}`, local, 2, 8);
 				const s = tween(local, appear, 4, 0.6, 1, ease.sharp);
 				return (
