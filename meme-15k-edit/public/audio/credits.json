@@ -1,13 +1,12 @@
 [
  {
-  "file": "music.wav",
-  "checked_at": "2026-10-08T17:33:04",
-  "role": "music",
-  "title": "procedural calm 84 BPM em D",
-  "author": "gerado por scripts/music.py",
-  "license": "sem direitos de terceiros",
-  "seed": 7,
-  "bpm": 84,
-  "attribution": null
+  "title": "Hidden Agenda",
+  "author": "Kevin MacLeod",
+  "url": "https://incompetech.com",
+  "license": "by",
+  "license_note": "CC BY 4.0 (Incompetech). Supplied by the user with the brief.",
+  "file": "audio/hidden_agenda.mp3",
+  "attribution": "Music: Kevin MacLeod (incompetech.com)",
+  "modifications": "Used as a bed under the voice: -10 dB, -6 dB more while the voice is active, -12 dB more at the payoff (48.3-51.2 s), 0.4 s fade-in, 1.2 s fade-out. Not burned into the video; credit goes in the post caption."
  }
 ]
